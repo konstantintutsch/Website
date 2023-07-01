@@ -1,0 +1,90 @@
+@import url('https://fontlibrary.org//face/cooper-hewitt');
+
+body
+{
+  justify-content: center;
+  text-align: center;
+  padding: 5% 0;
+  background-color: white;
+}
+
+a
+{
+  font-family: "CooperHewittBook"; 
+	transition-duration: 0.4s;
+	text-decoration: none;
+	color: #275b73;
+
+}
+a:hover
+{
+	color: #71a0b6;
+}
+.no-break
+{
+  display: inline;
+  width: 250px;
+  height: 40px;
+  padding: 10px;
+}
+
+.top
+{
+  position: absolute;
+  top: 5%;
+  width: 100%;
+}
+.avatar
+{
+  display: inline;
+  border-radius: 100%;
+  width: 32px;
+  margin-left: 0.25%;
+  margin-right: 0.25%;
+  vertical-align: middle;
+}
+.name
+{
+  display: inline;
+	font-family: "CooperHewittBook"; 
+  font-size: 30px;
+	color: #5b5b5b;
+  margin-left: 0.25%;
+  margin-right: 0.25%;
+  vertical-align: top ;/* font Cooper Hewitt Book isn't align correctly, blank below characters; otherwise: vertical-align middle */
+}
+
+.middle
+{
+  position: absolute;
+  top: 45%;
+  -ms-transform: translateY(-55%);
+  transform: translateY(-55%);
+  width: 100%;
+}
+.bio
+{
+  font-family: "CooperHewittBook"; 
+  font-size: 21px;
+  color: #5b5b5b;
+}
+
+.bottom
+{
+  position: absolute;
+  bottom: 5%;
+  width: 100%;
+}
+.social
+{
+  font-family: "CooperHewittBook";
+  font-size: 16px;
+  margin-left: 0.15%;
+  margin-right: 0.15%;
+}
+.copyright
+{
+  font-family: "CooperHewittBook"; 
+  font-size: 16px;
+	color: #5b5b5b;
+}
