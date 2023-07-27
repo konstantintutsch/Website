@@ -12,7 +12,7 @@ a
 {
   font-family: "CooperHewittBook"; 
 	transition-duration: 0.4s;
-	text-decoration: none;
+	text-decoration: underline;
 	color: #275b73;
 
 }
@@ -77,10 +77,27 @@ a:hover
 }
 .social
 {
-  font-family: "CooperHewittBook";
   font-size: 16px;
   margin-left: 0.15%;
   margin-right: 0.15%;
+}
+.sites
+{
+  font-size: 18px;
+  text-decoration: none;
+  transition-duration: 0.4s;
+  margin-left: 0.18%;
+  margin-right: 0.18%;
+  color: #555555;
+  background-color: transparent;
+  border: 2px solid #555555;
+  padding: 3px 6px;
+  border-radius: 5;
+}
+.sites:hover
+{
+  color:white;
+  background-color: #555555;
 }
 .copyright
 {
