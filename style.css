@@ -12,17 +12,17 @@ a
   font-family: "CooperHewittBook"; 
   transition-duration: 0.4s;
 	text-decoration: underline;
-	color: #275b73;
+	color: #555555;
 
 }
 a:hover
 {
-	color: #71a0b6;
+	color: #5b5b5b5b;
 }
 
 p
 {
-  font-family: "CooperHewittBook"; 
+  font-family: "CooperHewittBook";
   font-size: 1.33em;
   line-height: 1.25em;
   color: #5b5b5b;
