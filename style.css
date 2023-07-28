@@ -20,6 +20,21 @@ a:hover
 {
 	color: #71a0b6;
 }
+
+p
+{
+  font-family: "CooperHewittBook"; 
+  font-size: 21px;
+  color: #5b5b5b;
+}
+
+h3
+{
+	font-family: "CooperHewittBook"; 
+  font-size: 30px;
+	color: #5b5b5b;
+}
+
 .no-break
 {
   display: inline;
@@ -46,9 +61,6 @@ a:hover
 .name
 {
   display: inline;
-	font-family: "CooperHewittBook"; 
-  font-size: 30px;
-	color: #5b5b5b;
   margin-left: 0.25%;
   margin-right: 0.25%;
   vertical-align: top ;/* font Cooper Hewitt Book isn't align correctly, blank below characters; otherwise: vertical-align middle */
@@ -61,12 +73,6 @@ a:hover
   -ms-transform: translateY(-55%);
   transform: translateY(-55%);
   width: 100%;
-}
-.bio
-{
-  font-family: "CooperHewittBook"; 
-  font-size: 21px;
-  color: #5b5b5b;
 }
 
 .bottom
@@ -101,7 +107,5 @@ a:hover
 }
 .copyright
 {
-  font-family: "CooperHewittBook"; 
   font-size: 16px;
-	color: #5b5b5b;
 }
