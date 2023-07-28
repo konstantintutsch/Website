@@ -1,16 +1,16 @@
-@import url('https://fontlibrary.org//face/cooper-hewitt');
+@import url('https://fontlibrary.org/face/cooper-hewitt');
 
 body
 {
   background-color: white;
-  max-width: 100%;
+  width: 100%;
   text-align: center;
 }
 
 a
 {
   font-family: "CooperHewittBook"; 
-	transition-duration: 0.4s;
+  transition-duration: 0.4s;
 	text-decoration: underline;
 	color: #275b73;
 
@@ -23,7 +23,8 @@ a:hover
 p
 {
   font-family: "CooperHewittBook"; 
-  font-size: 21px;
+  font-size: 1.33em;
+  line-height: 1.25em;
   color: #5b5b5b;
 }
 
@@ -39,7 +40,7 @@ ul
 h3
 {
 	font-family: "CooperHewittBook"; 
-  font-size: 30px;
+  font-size: 2em;
 	color: #5b5b5b;
 }
 
@@ -54,7 +55,7 @@ h3
 #top
 {
   position: absolute;
-  top: 5%;
+  top: 3%;
   width: 100%;
 }
 .avatar
@@ -77,29 +78,29 @@ h3
 #middle
 {
   position: absolute;
-  top: 45%;
-  -ms-transform: translateY(-55%);
-  transform: translateY(-55%);
-  width: 41%;
-  left: 30%;
-  text-align: left;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 80%;
+  left: 10%;
+  right: 10%;
 }
 
 #bottom
 {
   position: absolute;
-  bottom: 5%;
+  bottom: 3%;
   width: 100%;
 }
 .social
 {
-  font-size: 16px;
+  font-size: 1em;
   margin-left: 0.15%;
   margin-right: 0.15%;
 }
 .sites
 {
-  font-size: 18px;
+  font-size: 1.33em;
   text-decoration: none;
   margin-left: 0.18%;
   margin-right: 0.18%;
@@ -116,5 +117,5 @@ h3
 }
 .copyright
 {
-  font-size: 16px;
+  font-size: 1em;
 }
