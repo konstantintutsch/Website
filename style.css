@@ -2,10 +2,9 @@
 
 body
 {
-  justify-content: center;
-  text-align: center;
-  padding: 5% 0;
   background-color: white;
+  max-width: 100%;
+  text-align: center;
 }
 
 a
@@ -28,6 +27,15 @@ p
   color: #5b5b5b;
 }
 
+ul
+{
+  font-family: "CooperHewittBook";
+  font-size: 21px;
+  color: #5b5b5b;
+  text-align: left;
+  list-style-position: inside;
+}
+
 h3
 {
 	font-family: "CooperHewittBook"; 
@@ -43,7 +51,7 @@ h3
   padding: 10px;
 }
 
-.top
+#top
 {
   position: absolute;
   top: 5%;
@@ -63,19 +71,21 @@ h3
   display: inline;
   margin-left: 0.25%;
   margin-right: 0.25%;
-  vertical-align: top ;/* font Cooper Hewitt Book isn't align correctly, blank below characters; otherwise: vertical-align middle */
+  vertical-align: top; /* font Cooper Hewitt Book isn't align correctly, blank below characters; otherwise: vertical-align middle */
 }
 
-.middle
+#middle
 {
   position: absolute;
   top: 45%;
   -ms-transform: translateY(-55%);
   transform: translateY(-55%);
-  width: 100%;
+  width: 41%;
+  left: 30%;
+  text-align: left;
 }
 
-.bottom
+#bottom
 {
   position: absolute;
   bottom: 5%;
@@ -91,7 +101,6 @@ h3
 {
   font-size: 18px;
   text-decoration: none;
-  transition-duration: 0.4s;
   margin-left: 0.18%;
   margin-right: 0.18%;
   color: #555555;
