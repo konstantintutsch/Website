@@ -31,7 +31,7 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "file:///var/home/satvikp/Projects"
+                    "url" : "https://codeberg.org/eyekay/webapps.git"
                 }
             ]
         }
