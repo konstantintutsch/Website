@@ -1,3 +1,5 @@
+import threading
+import time
 import os
 import shutil
 import sys
@@ -10,16 +12,19 @@ def desktop_filer(name, url, icon):
         icon_path = icon
         write_desktop_file(name, icon_path)
         return
+    else:
+        window = Gtk.Window()
+        webview = WebKit.WebView()
+        network_session = webview.get_network_session()
+        data_manager = network_session.get_website_data_manager()
+        data_manager.set_favicons_enabled(True)
 
-    window = Gtk.Window()
-    webview = WebKit.WebView()
-    network_session = webview.get_network_session()
-    data_manager = network_session.get_website_data_manager()
-    data_manager.set_favicons_enabled(True)
-
-    window.set_child(webview)
-    webview.load_uri(url)
-    webview.connect("notify::favicon", favicon_loaded, name)
+        window.set_child(webview)
+        webview.load_uri(url)
+        webview.connect("notify::favicon", favicon_loaded, name)
+        end_time = time.time() + 10
+        check_if_favicon_thread = threading.Thread(target = check_if_favicon, args = (end_time, name,))
+        check_if_favicon_thread.start()
 
 def favicon_loaded(webview, favicon, name):
     favicon = webview.get_favicon()
@@ -32,7 +37,17 @@ def favicon_loaded(webview, favicon, name):
         icon_path = os.path.expanduser('~/.local/share/xdg-desktop-portal/icons/192x192/net.codelogistics.webapps.' + name + '.png')
         shutil.copyfile(favicon, icon_path)
 
-    write_desktop_file(name, icon_path)
+def check_if_favicon(end_time, name):
+    while time.time() < end_time:
+        if os.path.exists(os.path.expanduser('~/.local/share/xdg-desktop-portal/icons/192x192/net.codelogistics.webapps.' + name + '.png')):
+            icon_path = os.path.expanduser('~/.local/share/xdg-desktop-portal/icons/192x192/net.codelogistics.webapps.' + name + '.png')
+            write_desktop_file(name, icon_path)
+            break
+    else:
+        favicon = '/app/share/icons/hicolor/48x48/apps/net.codelogistics.webapps.png'
+        icon_path = os.path.expanduser('~/.local/share/xdg-desktop-portal/icons/192x192/net.codelogistics.webapps.' + name + '.png')
+        shutil.copyfile(favicon, icon_path)
+        write_desktop_file(name, icon_path)
 
 def write_desktop_file(name, icon_path):
     with open(os.path.expanduser('~/.local/share/applications/net.codelogistics.webapps.' + name + '.desktop'), 'w') as desktop_file:

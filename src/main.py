@@ -33,7 +33,6 @@ class WebappsApplication(Gtk.Application):
     """The main application singleton class."""
 
     def __init__(self, args):
-        #args = ['path', 'Duck']
         if len(args) > 1 and args[1] in os.listdir(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/')):
             super().__init__(application_id='net.codelogistics.webapps.' + args[1],
                          flags=Gio.ApplicationFlags.DEFAULT_FLAGS)
