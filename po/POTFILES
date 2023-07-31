@@ -1,0 +1,6 @@
+data/net.codelogistics.webapps.desktop.in
+data/net.codelogistics.webapps.appdata.xml.in
+data/net.codelogistics.webapps.gschema.xml
+src/main.py
+src/window.py
+src/window.ui

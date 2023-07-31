@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Web Apps
+Exec=webapps
+Icon=net.codelogistics.webapps
+Terminal=false
+Type=Application
+Categories=GTK;
+StartupNotify=true
