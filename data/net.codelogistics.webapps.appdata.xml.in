@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component type="desktop">
-	<id>net.codelogistics.webapps.desktop</id>
-	<metadata_license>CC0-1.0</metadata_license>
-	<project_license>GPL-3.0-or-later</project_license>
-	<description>
-	  <p>No description</p>
-	</description>
+<component type="desktop-application">
+  <id>net.codelogistics.webapps</id>
+
+  <name>Web Apps</name>
+  <summary>Install websites as desktop applications</summary>
+
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+
+  <description>
+    <p>
+      Install websites as desktop apps. This is similar to the &quot;Install as App&quot; feature found in several commonly used web browsers.
+    </p>
+  </description>
+
+  <launchable type="desktop-id">net.codelogistics.webapps.desktop</launchable>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://codelogistics.net/webappsscreenshot1.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://codelogistics.net/webappsscreenshot2.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://codelogistics.net/webappsscreenshot3.png</image>
+    </screenshot>
+  </screenshots>
 </component>
