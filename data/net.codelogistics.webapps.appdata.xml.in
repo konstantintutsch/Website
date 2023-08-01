@@ -14,6 +14,9 @@
     </p>
   </description>
 
+  <content_rating type="oars-1.0" />
+  <url type="homepage">https://codelogsitics.net/</url>
+
   <launchable type="desktop-id">net.codelogistics.webapps.desktop</launchable>
   <screenshots>
     <screenshot type="default">
@@ -26,4 +29,12 @@
       <image>https://codelogistics.net/webappsscreenshot3.png</image>
     </screenshot>
   </screenshots>
+
+  <releases>
+    <release version="0.1.0" date="2023-08-01">
+      <description>
+        <p>Adds a web app installer</p>
+      </description>
+    </release>
+  </releases>
 </component>
