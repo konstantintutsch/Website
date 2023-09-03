@@ -1,0 +1,16 @@
+@import url('https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack.css');
+
+body {
+  font-family: Hack;
+  font-size: 1em;
+}
+
+a {
+  font-style: normal;
+  color: #787276;
+  transition: 0.5s;
+}
+
+a:hover {
+  color: #999da0;
+}
