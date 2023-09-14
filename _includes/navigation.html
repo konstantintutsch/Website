@@ -1,0 +1,8 @@
+<header>
+  <h2>{{ page.title }}</h2>
+  <nav>
+    {% for item in site.data.navigation %}
+    <a {% if page.url == item.path %}class="selected"{% endif %} href="{{ item.path }}">{{ item.name }}</a>
+    {% endfor %}
+  </nav>
+</header>

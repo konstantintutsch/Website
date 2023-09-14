@@ -1,0 +1,131 @@
+@import url('https://cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css');
+@font-face
+{
+  font-family: 'Cantarell', sans-serif;
+  src: url('/assets/fonts/cantarell-vf.otf');
+  font-style: normal;
+}
+
+html { height: 100%; }
+body
+{
+  position: absolute;
+  font-family: Cantarell;
+  font-size: 1.2em;
+  height: 100%;
+  width: 98%;
+}
+
+header
+{
+  width: 100%;
+  min-height: 15%;
+  left: 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+article
+{
+  left: 25%;
+  width: 60%;
+  min-height: 50%;
+  margin: auto;
+  text-align: left;
+  margin-bottom: 10%;
+}
+
+article:after
+{
+  content: "";
+  display: block;
+}
+footer, article:after { height: 10%; }
+footer
+{
+  left: 0;
+  text-align: center;
+}
+footer:after
+{
+  content: "";
+  display: block;
+  height: 10%;
+}
+
+a
+{
+  margin-right: 0.1em;
+  margin-left: 0.1em;
+  color: #000000;
+  transition-duration: 0.3s;
+  text-decoration: underline 0.1em;
+}
+a:hover,
+.selected
+{
+  color: #ffffff;
+  background: #4a97c0;
+  text-decoration: none;
+}
+a.social { white-space: nowrap; };
+
+small
+{
+  font-size: 0.85em;
+}
+
+img.emoji
+{
+  width: 1em;
+  height: 1em;
+}
+
+div.highlight
+{
+  box-shadow: 0 0.4em 0.8em 0 rgba(0, 0, 0, 0.2), 0 0.6em 2em 0 rgba(0, 0, 0, 0.19);
+  border-radius: 0.5em;
+  overflow-x: scroll;
+}
+code
+{
+  font-family: "Hack", monospace;
+  font-size: 0.9em;
+}
+p code
+{
+  white-space: nowrap;
+  border-radius: 0.2em;
+  background: #9f8989;
+  color: #ffffff;
+}
+
+li { margin: 0.8em; }
+
+/* mobile */
+@media only screen and (max-width: 768px)
+{
+  body { font-size: 1em; }
+  article
+  {
+    left: 5%;
+    width: 90%;
+  }
+  small { font-size: 0.7em; }
+}
+
+.box
+{
+  float: left;
+  margin-right: 0.4em;
+  width: 1em;
+  height: 1em;
+  box-shadow: 0 0.1em 0.2em 0 rgba(0, 0, 0, 0.2), 0 0.2em 1em 0 rgba(0, 0, 0, 0.19);
+}
+.white { background-color: #ffffff; }
+.black { background-color: #000000; }
+.coffee { background-color: #9f8989; }
+.cappuccino { background-color: #aa9797; }
+.blue { background-color: #4a97c0; }
+.red { background-color: #c44669; }
+.yellow { background-color: #c6c252; }
