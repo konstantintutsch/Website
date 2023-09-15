@@ -7,6 +7,8 @@ Just a little bit of infomation about the structure of this blog post, I put the
 
 ## Selfhosting
 
+![A Raspberry Pi on top of a tiny wooden tower in a white box. A SSD is connected via USB-A 3. Ethernet and power (USB-C) are connected and go through the back of the white box.](/assets/images/RaspberryPi.jpg)
+
 Selfhosting is great! Not always. I really like selfhosting, but it can be a lot of work and especially time consuming.
 
 I'm selfhosting on a Raspberry Pi, it runs a GoToSocial (Fediverse), Prosody (XMPP) and Radicale (Cal- & CardDAV) server. A 1T Samsung SSD is attached via USB-A 3 to the Raspberry Pi.

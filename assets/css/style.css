@@ -122,6 +122,12 @@ p code
   background: #9f8989;
   color: #ffffff;
 }
+/* image */
+img
+{
+  max-height: 35vh;
+  margin: auto;
+}
 
 /* mobile */
 @media only screen and (max-width: 768px)
