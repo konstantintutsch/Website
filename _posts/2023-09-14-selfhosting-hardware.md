@@ -15,7 +15,7 @@ Also: GtS and Radicale aren't directly access by any client. A reverse proxy on 
 
 The reason is pretty simple: the router of my home network is really weird with ports 80 and 443. So the services wouldn't look "normal" as in: they wouldn't be on default http ports.
 
-The VPS also hosts this website *direcly*.
+The VPS also hosts this website *directly*.
 
 ## Hardware
 

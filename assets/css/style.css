@@ -1,21 +1,19 @@
-@import url('https://cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css');
+@import url("https://cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css");
 @font-face
 {
-  font-family: 'Cantarell', sans-serif;
-  src: url('/assets/fonts/cantarell-vf.otf');
+  font-family: "Cantarell";
+  src: url("/assets/fonts/cantarell-vf.woff2") format("woff2"),
+       url("/assets/fonts/cantarell-vf.otf") format("opentype");
+;
   font-style: normal;
 }
 
-html { height: 100%; }
 body
 {
-  position: absolute;
-  font-family: Cantarell;
+  font-family: "Cantarell", sans-serif;
   font-size: 1.2em;
-  height: 100%;
-  width: 98%;
 }
-
+/* sections */
 header
 {
   width: 100%;
@@ -24,7 +22,6 @@ header
   text-align: center;
   overflow: hidden;
 }
-
 article
 {
   left: 25%;
@@ -34,7 +31,7 @@ article
   text-align: left;
   margin-bottom: 10%;
 }
-
+/* footer */
 article:after
 {
   content: "";
@@ -46,13 +43,41 @@ footer
   left: 0;
   text-align: center;
 }
-footer:after
+
+/* special elements */
+div#top
 {
-  content: "";
-  display: block;
-  height: 10%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+a#site
+{
+  background: transparent;
+  color: #000000;
+  text-decoration: none;
+}
+img#logo
+{
+  display: inline;
+  height: 2.2em;
+  vertical-align: middle;
+  margin-right: 0.2em;
+}
+h2#title
+{
+  display: inline;
+  font-size: 1.8em;
+  font-weight: bold;
+  vertical-align: middle;
+}
+nav
+{
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 8%;
 }
 
+/* text */
 a
 {
   margin-right: 0.1em;
@@ -69,18 +94,17 @@ a:hover,
   text-decoration: none;
 }
 a.social { white-space: nowrap; };
-
 small
 {
   font-size: 0.85em;
 }
-
 img.emoji
 {
   width: 1em;
   height: 1em;
 }
-
+li { margin: 0.8em; }
+/* code */
 div.highlight
 {
   box-shadow: 0 0.4em 0.8em 0 rgba(0, 0, 0, 0.2), 0 0.6em 2em 0 rgba(0, 0, 0, 0.19);
@@ -100,20 +124,23 @@ p code
   color: #ffffff;
 }
 
-li { margin: 0.8em; }
-
 /* mobile */
 @media only screen and (max-width: 768px)
 {
-  body { font-size: 1em; }
   article
   {
     left: 5%;
     width: 90%;
   }
-  small { font-size: 0.7em; }
+  footer { font-size: 0.9em; }
+  div#top
+  {
+    margin-top: 4%;
+    margin-bottom: 4%;
+  }
 }
 
+/* color palette */
 .box
 {
   float: left;
