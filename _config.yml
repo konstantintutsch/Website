@@ -1,3 +1,9 @@
+# Serving
+port: 8000
+host: 0.0.0.0
+
+# Blogging
 collections:
-  tags:
+  posts:
     output: true
+permalink: /:slug/
