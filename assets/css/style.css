@@ -1,4 +1,3 @@
-@import url("https://cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css");
 @font-face
 {
   font-family: "Cantarell";
@@ -6,6 +5,13 @@
        url("/assets/fonts/cantarell-vf.otf") format("opentype");
   font-style: normal;
 }
+@font-face
+{
+  font-family: "Hack";
+  src: url("/assets/fonts/Hack-Regular.ttf") format("ttf");
+  font-style: normal;
+}
+
 
 body
 {
@@ -72,8 +78,15 @@ h2#title
 nav
 {
   font-size: 1.1em;
-  font-weight: bold;
+  font-weight: ;
   margin-bottom: 8%;
+}
+
+h2#post { margin-top: 2%; }
+p#description
+{
+  font-size: 1.05em;
+  font-weight: lighter;
 }
 
 /* text */
@@ -97,12 +110,8 @@ small
 {
   font-size: 0.85em;
 }
-img.emoji
-{
-  width: 1em;
-  height: 1em;
-}
 li { margin: 0.8em; }
+h2 { margin-top: 8%; }
 /* code */
 div.highlight
 {

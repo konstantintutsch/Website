@@ -1,6 +1,7 @@
 ---
 layout: post
 title: My Linux journey
+description: This post covers how I progressed through all the Linux distributions and why I like some and dislike others. There are also some funny and terrifying moments I end up including here.
 ---
 
 ## The beginning
