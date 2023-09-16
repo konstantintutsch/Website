@@ -30,7 +30,7 @@ header
 article
 {
   left: 25%;
-  width: 60%;
+  width: 50%;
   min-height: 50%;
   margin: auto;
   text-align: left;
@@ -134,8 +134,9 @@ p code
 /* image */
 img
 {
-  max-height: 35vh;
+  max-width: 100%;
   margin: auto;
+  display: block;
 }
 
 /* mobile */
