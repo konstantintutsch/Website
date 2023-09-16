@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "Selfhosting & Hardware"
+description: This post is just a boring list of which devices I use, what software runs on them and how exactly I host the services.
 ---
-
-Just a little bit of infomation about the structure of this blog post, I put the selfhosting part first, because the other stuff is just a boring list. But if you want to know first which hardware I use, just scoll down to the [Hardware](#hardware) heading.
 
 ## Selfhosting
 
