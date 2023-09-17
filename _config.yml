@@ -10,4 +10,4 @@ host: 0.0.0.0
 collections:
   posts:
     output: true
-permalink: /:slug/
+    permalink: /:slug/

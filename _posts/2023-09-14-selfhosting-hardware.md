@@ -12,11 +12,7 @@ Selfhosting is great! Not always. I really like selfhosting, but it can be a lot
 
 I'm selfhosting on a Raspberry Pi, it runs a GoToSocial (Fediverse), Prosody (XMPP) and Radicale (Cal- & CardDAV) server. A 1T Samsung SSD is attached via USB-A 3 to the Raspberry Pi.
 
-Also: GtS and Radicale aren't directly access by any client. A reverse proxy on a VPS is between them.
-
-The reason is pretty simple: the router of my home network is really weird with ports 80 and 443. So the services wouldn't look "normal" as in: they wouldn't be on default http ports.
-
-The VPS also hosts this website *directly*.
+There are just two things which I don't self-host: this website and my mail because both shouldn't suffer from outages and shouldn't be limit by my home internet and my Raspberry Pi's hardware. Both are done by my domain provider.
 
 ## Hardware
 
