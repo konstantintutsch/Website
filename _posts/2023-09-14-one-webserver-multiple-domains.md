@@ -10,8 +10,6 @@ So, I'm pretty sure that an introduction is always helpful.
 
 I've a got Raspberry Pi, 8G memory and 4 cores @ 1.8GHz, running at home. It was used for **only** a single service with a web interface.
 
-I have to use a reverse proxy on some VPS, because the router I'm using isn't reliable with allowing port 80 and 443 from the outside for some reason.
-
 I always wanted to use my Raspberry Pi for more, but only if the services looked "normal" from the outside, that is: no special ports needed to access them, just a simple subdomain.
 
 ## My (not so) special discovery
@@ -22,7 +20,7 @@ That isn't different from domain names on the internet. So I must be able to rep
 
 I remembered that a webserver also knows which domain the client accessed / typed into the URL bar. A quick search, about how the Nginx webserver handles such, gave me the solution: in an Nginx configuration file for a site, you always specify the `server_name` parameter with the hosts' domain.
 
-But if I point two domains, lets just say example1.com and example1.com to my VPS, creating two `server {}`s with different values in the `server_name` but listening on the same port, each of those domains would get it's own unique website.
+But if I point two domains, lets just say example1.com and example1.com to my Raspberry Pi, creating two `server {}`s with different values in the `server_name` but listening on the same port, each of those domains would get it's own unique website.
 
 This is how it could look like. Each configuration has their respective site.
 
@@ -40,8 +38,20 @@ server {
   ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
   location / {
-    proxy_pass https://router:60000;
+    proxy_pass https://127.0.0.1:59000;
   }
+}
+
+server {
+  listen 80;
+  listen [::]:80;
+  server_name example1.com;
+
+  if ($host = example1.com) {
+    return 301 https://$host$request_uri;
+  } # managed by Certbot
+
+  return 404; # managed by Certbot
 }
 ```
 **example2.com**
@@ -57,14 +67,26 @@ server {
   ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
   location / {
-    proxy_pass https://router:60000;
+    proxy_pass https://127.0.0.1:60000;
   }
+}
+
+server {
+  listen 80;
+  listen [::]:80;
+  server_name example2.com;
+
+  if ($host = example2.com) {
+    return 301 https://$host$request_uri;
+  } # managed by Certbot
+
+  return 404; # managed by Certbot
 }
 ```
 
 ## Conclusion
 
-That's it, a really handy trick to save money and use resources more efficiently for me and my self-hosting.
+That's it, a really handy trick to save money and host multiple services on a single system.
 
 This, of course, only works with web apps. If your app isn't web-based, then you should look into SRV records. But they only work with applications and protocols who intend to use them.
 

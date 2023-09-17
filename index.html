@@ -3,10 +3,4 @@ layout: default
 title: Home
 description: Hi! 👋 I'm Konstantin Tutsch and this is my personal site and blog.
 ---
-{% for post in site.posts limit:8 %}
-<h2 id="post"><a href="{{ post.url }}">{{ post.title }}</a></h2>
-<p>{{ post.date | date_to_string }}</p>
-<br>
-{% endfor %}
-<br>
-<h2><a href="/posts">Older posts →</a></h2><br>
+{% include recent.html %}
