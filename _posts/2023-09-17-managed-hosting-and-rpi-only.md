@@ -14,6 +14,8 @@ The managed hosting plan I use has DDoS protection (you never know), is **not** 
 
 I also like to accidentally break things which isn't good for a personal website.
 
+A few tiny changes were also made to the code of this website. I implemented the the link preview metadata from [OpenGraph](https://ogp.me).
+
 ## The Pi lost it's friend
 
 My Raspberry Pi is now on it's own (and that's good!).
