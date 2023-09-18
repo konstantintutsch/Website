@@ -102,7 +102,7 @@ a:hover,
 .selected
 {
   color: #ffffff;
-  background: #4a97c0;
+  background: #3584e4;
   text-decoration: none;
 }
 a.social { white-space: nowrap; };
@@ -166,8 +166,5 @@ img
 }
 .white { background-color: #ffffff; }
 .black { background-color: #000000; }
-.coffee { background-color: #9f8989; }
-.cappuccino { background-color: #aa9797; }
-.blue { background-color: #4a97c0; }
-.red { background-color: #c44669; }
-.yellow { background-color: #c6c252; }
+.blue { background-color: #3584e4; }
+.gray { background-color: #d0cfcc; }
