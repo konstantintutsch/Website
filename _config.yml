@@ -8,6 +8,6 @@ host: 0.0.0.0
 
 # Blogging
 collections:
-  posts:
-    output: true
-    permalink: /:slug/
+    posts:
+        output: true
+        permalink: /:slug/
