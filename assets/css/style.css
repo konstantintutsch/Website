@@ -1,177 +1,177 @@
 @font-face
 {
-  font-family: "Cantarell";
-  src: url("/assets/fonts/cantarell-vf.woff2") format("woff2"),
-       url("/assets/fonts/cantarell-vf.otf") format("opentype");
-  font-style: normal;
+    font-family: "Cantarell";
+    src: url("/assets/fonts/cantarell-vf.woff2") format("woff2"),
+             url("/assets/fonts/cantarell-vf.otf") format("opentype");
+    font-style: normal;
 }
 @font-face
 {
-  font-family: "Hack";
-  src: url("/assets/fonts/Hack-Regular.ttf") format("ttf");
-  font-style: normal;
+    font-family: "Hack";
+    src: url("/assets/fonts/Hack-Regular.ttf") format("ttf");
+    font-style: normal;
 }
 
 
 body
 {
-  font-family: "Cantarell", sans-serif;
-  font-size: 1.2em;
+    font-family: "Cantarell", sans-serif;
+    font-size: 1.2em;
 }
 /* sections */
 header
 {
-  width: 100%;
-  min-height: 15%;
-  left: 0;
-  text-align: center;
-  overflow: hidden;
+    width: 100%;
+    min-height: 15%;
+    left: 0;
+    text-align: center;
+    overflow: hidden;
 }
 article
 {
-  left: 25%;
-  width: 50%;
-  min-height: 50%;
-  margin: auto;
-  text-align: left;
-  margin-bottom: 10%;
+    left: 25%;
+    width: 50%;
+    min-height: 50%;
+    margin: auto;
+    text-align: left;
+    margin-bottom: 10%;
 }
 /* footer */
 article:after
 {
-  content: "";
-  display: block;
+    content: "";
+    display: block;
 }
 footer, article:after { height: 10%; }
 footer
 {
-  left: 0;
-  text-align: center;
+    left: 0;
+    text-align: center;
 }
 
 /* special elements */
 div#top
 {
-  margin-top: 2%;
-  margin-bottom: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 a#site
 {
-  background: transparent;
-  color: #000000;
-  text-decoration: none;
+    background: transparent;
+    color: #000000;
+    text-decoration: none;
 }
 img#logo
 {
-  display: inline;
-  height: 2.2em;
-  vertical-align: middle;
-  margin-right: 0.2em;
+    display: inline;
+    height: 2.2em;
+    vertical-align: middle;
+    margin-right: 0.2em;
 }
 h2#title
 {
-  display: inline;
-  font-size: 1.8em;
-  font-weight: bold;
-  vertical-align: middle;
+    display: inline;
+    font-size: 1.8em;
+    font-weight: bold;
+    vertical-align: middle;
 }
 nav
 {
-  font-size: 1.1em;
-  font-weight: ;
-  margin-bottom: 8%;
+    font-size: 1.1em;
+    font-weight: ;
+    margin-bottom: 8%;
 }
 
 h2#post { margin-top: 2%; }
 p#description
 {
-  font-size: 1.05em;
-  font-weight: lighter;
+    font-size: 1.05em;
+    font-weight: lighter;
 }
 
 /* text */
 a
 {
-  margin-right: 0.1em;
-  margin-left: 0.1em;
-  color: #000000;
-  transition-duration: 0.3s;
-  text-decoration: underline 0.1em;
+    margin-right: 0.1em;
+    margin-left: 0.1em;
+    color: #000000;
+    transition-duration: 0.3s;
+    text-decoration: underline 0.1em;
 }
 a:hover,
 .selected
 {
-  color: #ffffff;
-  background: #3584e4;
-  text-decoration: none;
+    color: #ffffff;
+    background: #3584e4;
+    text-decoration: none;
 }
 a.social { white-space: nowrap; };
 small
 {
-  font-size: 0.85em;
+    font-size: 0.85em;
 }
 li { margin: 0.8em; }
 h2 { margin-top: 8%; }
 /* code */
 div.highlight
 {
-  box-shadow: 0 0.4em 0.8em 0 rgba(0, 0, 0, 0.2), 0 0.6em 2em 0 rgba(0, 0, 0, 0.19);
-  border-radius: 0.5em;
-  overflow-x: scroll;
+    box-shadow: 0 0.4em 0.8em 0 rgba(0, 0, 0, 0.2), 0 0.6em 2em 0 rgba(0, 0, 0, 0.19);
+    border-radius: 0.5em;
+    overflow-x: scroll;
 }
 code
 {
-  font-family: "Hack", monospace;
-  font-size: 0.9em;
+    font-family: "Hack", monospace;
+    font-size: 0.9em;
 }
 p code
 {
-  white-space: nowrap;
-  border-radius: 0.2em;
-  background: #9f8989;
-  color: #ffffff;
+    white-space: nowrap;
+    border-radius: 0.2em;
+    background: #9f8989;
+    color: #ffffff;
 }
 /* image */
 img.post
 {
-  width: 100%;
-  margin: auto;
-  display: block;
-  margin-bottom: 1%;
+    width: 100%;
+    margin: auto;
+    display: block;
+    margin-bottom: 1%;
 }
 span.caption
 {
-    width: 100%;
-    display: block;
-    text-align: center;
-    font-style: italic;
-    margin-bottom: 4%;
+        width: 100%;
+        display: block;
+        text-align: center;
+        font-style: italic;
+        margin-bottom: 4%;
 }
 
 /* mobile */
 @media only screen and (max-width: 768px)
 {
-  article
-  {
-    left: 5%;
-    width: 90%;
-  }
-  footer { font-size: 0.9em; }
-  div#top
-  {
-    margin-top: 4%;
-    margin-bottom: 4%;
-  }
+    article
+    {
+        left: 5%;
+        width: 90%;
+    }
+    footer { font-size: 0.9em; }
+    div#top
+    {
+        margin-top: 4%;
+        margin-bottom: 4%;
+    }
 }
 
 /* color palette */
 .box
 {
-  float: left;
-  margin-right: 0.4em;
-  width: 1em;
-  height: 1em;
-  box-shadow: 0 0.1em 0.2em 0 rgba(0, 0, 0, 0.2), 0 0.2em 1em 0 rgba(0, 0, 0, 0.19);
+    float: left;
+    margin-right: 0.4em;
+    width: 1em;
+    height: 1em;
+    box-shadow: 0 0.1em 0.2em 0 rgba(0, 0, 0, 0.2), 0 0.2em 1em 0 rgba(0, 0, 0, 0.19);
 }
 .white { background-color: #ffffff; }
 .black { background-color: #000000; }
