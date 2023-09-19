@@ -132,11 +132,20 @@ p code
   color: #ffffff;
 }
 /* image */
-img
+img.post
 {
-  max-width: 100%;
+  width: 100%;
   margin: auto;
   display: block;
+  margin-bottom: 1%;
+}
+span.caption
+{
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 4%;
 }
 
 /* mobile */

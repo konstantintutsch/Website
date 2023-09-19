@@ -6,7 +6,7 @@ description: This post is just a boring list of which devices I use, what softwa
 
 ## Selfhosting
 
-![A Raspberry Pi on top of a tiny wooden tower in a white box. A SSD is connected via USB-A 3. Ethernet and power (USB-C) are connected and go through the back of the white box.](/assets/images/RaspberryPi_Horizontal.jpg)
+{% include image.html file="RaspberryPi_Horizontal.jpg" alt="A Raspberry Pi on top of a tiny wooden tower in a white box. A SSD is connected via USB-A 3. Ethernet and power (USB-C) are connected and go through the back of the white box." caption="This is my Raspberry Pi where it's all running on." %}
 
 Selfhosting is great! Not always. I really like selfhosting, but it can be a lot of work and especially time consuming.
 
