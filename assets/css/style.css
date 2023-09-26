@@ -131,10 +131,12 @@ p code
     background: #9f8989;
     color: #ffffff;
 }
+del { text-decoration-thickness: 0.15em; }
 /* image */
 img.post
 {
-    width: 100%;
+    max-width: 100%;
+    max-height: 30em;
     margin: auto;
     display: block;
     margin-bottom: 1%;
