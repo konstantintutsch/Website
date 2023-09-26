@@ -20,7 +20,7 @@ That isn't different from domain names on the internet. So I must be able to rep
 
 I remembered that a webserver also knows which domain the client accessed / typed into the URL bar. A quick search, about how the Nginx webserver handles such, gave me the solution: in an Nginx configuration file for a site, you always specify the `server_name` parameter with the hosts' domain.
 
-But if I point two domains, lets just say example1.com and example1.com to my Raspberry Pi, creating two `server {}`s with different values in the `server_name` but listening on the same port, each of those domains would get it's own unique website.
+But if I point two domains, lets just say example1.com and example2.com to my Raspberry Pi, creating two `server {}`s with different values in the `server_name` but listening on the same port, each of those domains would get it's own unique website.
 
 This is how it could look like. Each configuration has their respective site.
 
