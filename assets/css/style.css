@@ -42,7 +42,7 @@ article:after
     content: "";
     display: block;
 }
-footer, article:after { height: 10vh; }
+footer, article:after { height: 4vh; }
 footer
 {
     left: 0;
@@ -114,20 +114,21 @@ h2 { margin-top: 4vh; }
 /* code */
 div.highlight
 {
-    box-shadow: 0 0.4em 0.8em 0 rgba(0, 0, 0, 0.2), 0 0.6em 2em 0 rgba(0, 0, 0, 0.19);
-    border-radius: 0.5em;
+    background: black;
+    border-radius: 2%;
     overflow-x: scroll;
 }
 code
 {
     font-family: "Hack", monospace;
     font-size: 0.9em;
+    color: #ffffff;
 }
 p code
 {
     white-space: nowrap;
     border-radius: 0.2em;
-    background: #9f8989;
+    background: black;
     color: #ffffff;
 }
 del { text-decoration-thickness: 0.15em; }
