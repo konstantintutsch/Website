@@ -2,7 +2,7 @@
 {
     font-family: "Cantarell";
     src: url("/assets/fonts/cantarell-vf.woff2") format("woff2"),
-             url("/assets/fonts/cantarell-vf.otf") format("opentype");
+         url("/assets/fonts/cantarell-vf.otf") format("opentype");
     font-style: normal;
 }
 @font-face
@@ -31,10 +31,10 @@ article
 {
     left: 25%;
     width: 50%;
-    min-height: 50%;
+    min-height: 50vh;
     margin: auto;
     text-align: left;
-    margin-bottom: 10%;
+    margin-bottom: 10vh;
 }
 /* footer */
 article:after
@@ -42,7 +42,7 @@ article:after
     content: "";
     display: block;
 }
-footer, article:after { height: 10%; }
+footer, article:after { height: 10vh; }
 footer
 {
     left: 0;
@@ -52,8 +52,8 @@ footer
 /* special elements */
 div#top
 {
-    margin-top: 2%;
-    margin-bottom: 2%;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
 }
 a#site
 {
@@ -72,17 +72,16 @@ h2#title
 {
     display: inline;
     font-size: 1.8em;
-    font-weight: bold;
     vertical-align: middle;
 }
 nav
 {
     font-size: 1.1em;
-    font-weight: ;
-    margin-bottom: 8%;
+    margin-bottom: 4vh;
 }
 
-h2#post { margin-top: 2%; }
+article div.post, /* between posts */
+article h2.post, h1#post { margin-bottom: -0.5em; } /* between title and date */
 p#description
 {
     font-size: 1.05em;
@@ -111,7 +110,7 @@ small
     font-size: 0.85em;
 }
 li { margin: 0.8em; }
-h2 { margin-top: 8%; }
+h2 { margin-top: 4vh; }
 /* code */
 div.highlight
 {
@@ -139,7 +138,7 @@ img.post
     max-height: 30em;
     margin: auto;
     display: block;
-    margin-bottom: 1%;
+    margin-bottom: 1vh;
 }
 span.caption
 {
@@ -147,22 +146,40 @@ span.caption
         display: block;
         text-align: center;
         font-style: italic;
-        margin-bottom: 4%;
+        margin-bottom: 4vh;
 }
 
-/* mobile */
-@media only screen and (max-width: 768px)
+/* tablet */
+@media only screen and (max-width: 1200px)
 {
     article
     {
-        left: 5%;
-        width: 90%;
+        left: 15%;
+        width: 70%;
+    }
+    /* mobile */
+    @media only screen and (max-width: 768px)
+    {
+        div#top
+        {
+            margin-top: 8vh;
+            margin-bottom: 8vh;
+        }
+        img#logo { height: 1.9em; }
+        h2#title { font-size: 1.6em; }
+        
+        article
+        {
+            left: 5%;
+            width: 90%;
+        }
+        article div.post { margin-bottom: 0em; }
     }
     footer { font-size: 0.9em; }
     div#top
     {
-        margin-top: 4%;
-        margin-bottom: 4%;
+        margin-top: 4vh;
+        margin-bottom: 4vh;
     }
 }
 
