@@ -52,8 +52,8 @@ footer
 /* special elements */
 div#top
 {
-    margin-top: 2vh;
-    margin-bottom: 2vh;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
 }
 a#site
 {
@@ -177,11 +177,6 @@ span.caption
         article div.post { margin-bottom: 0em; }
     }
     footer { font-size: 0.9em; }
-    div#top
-    {
-        margin-top: 3vh;
-        margin-bottom: 3vh;
-    }
 }
 
 /* color palette */
