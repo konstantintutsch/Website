@@ -1,9 +1,10 @@
 @font-face
 {
     font-family: "Cantarell";
+    font-weight: 100 900;
+    font-style: normal;
     src: url("/assets/fonts/cantarell-vf.woff2") format("woff2"),
          url("/assets/fonts/cantarell-vf.otf") format("opentype");
-    font-style: normal;
 }
 @font-face
 {
@@ -17,6 +18,11 @@ body
 {
     font-family: "Cantarell", sans-serif;
     font-size: 1.2em;
+}
+h1, h2, h3, b
+{
+    font-family: "Cantarell", sans-serif;
+    font-weight: 800;
 }
 /* sections */
 header
