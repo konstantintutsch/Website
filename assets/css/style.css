@@ -161,11 +161,6 @@ span.caption
     /* mobile */
     @media only screen and (max-width: 768px)
     {
-        div#top
-        {
-            margin-top: 6vh;
-            margin-bottom: 6vh;
-        }
         img#logo { height: 1.9em; }
         h2#title { font-size: 1.6em; }
         
