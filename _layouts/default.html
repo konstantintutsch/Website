@@ -23,11 +23,29 @@
         <link rel="alternate" type="application/rss+xml" href="{{ site.url }}/feed.rss">
     </head>
     <body>
-        {% include navigation.html %}
+        <header>
+            <div id="top">
+                <a id="site" href="/">
+                    <img id="logo" src="/assets/images/logo.svg"></img><h2 id="title">Konstantin Tutsch</h2>
+                </a>
+            </div>
+            <nav>
+                {% for item in site.data.navigation %}
+                    <a {% if page.url == item.path %}class="selected"{% endif %} href="{{ item.path }}">{{ item.name }}</a>
+                {% endfor %}
+            </nav>
+        </header>
         <article>
             {{ content }}
         </article>
-        {% include footer.html %}
+        <footer>
+            {% for item in site.data.social %}
+                <a class="social" target="_blank" rel="me noopener noreferrer" href="{{ item.link }}">{{ item.name }}</a>
+            {% endfor %}
+            <small>
+                <p>© All content licensed under <b><a target="_blank" rel="noopener noreferrer" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></b> unless otherwise stated.</p>
+            </small>
+        </footer>
     </body>
 </html>
 
