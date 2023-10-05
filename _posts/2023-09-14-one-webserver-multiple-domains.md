@@ -26,7 +26,7 @@ This is how it could look like. Each configuration has their respective site.
 
 **example1.com**
 
-```
+{% highlight nginx %}
 server {
   listen 443 ssl;
   listen [::]:443 ssl;
@@ -53,9 +53,11 @@ server {
 
   return 404; # managed by Certbot
 }
-```
+{% endhighlight %}
+
 **example2.com**
-```
+
+{% highlight nginx %}
 server {
   listen 443 ssl;
   listen [::]:443 ssl;
@@ -82,7 +84,7 @@ server {
 
   return 404; # managed by Certbot
 }
-```
+{% endhighlight %}
 
 ## Conclusion
 
