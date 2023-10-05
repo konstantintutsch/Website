@@ -159,6 +159,23 @@ code.language-nginx span.mi { color: #c01c28; }
 code.language-nginx span.s { color: #c061cb; }
 code.language-nginx span.c1 { color: #12488b; }
 code.language-nginx span.nv { color: #2aa1b3; }
+/* shell */
+code.language-shell span.nb { color: #af5f00; }
+code.language-shell span.nt { color: #12488b; }
+code.language-shell span.s2,
+code.language-shell span.m,
+code.language-shell span.kc,
+code.language-shell span.s { color: #c01c28; }
+code.language-shell span.k,
+code.language-shell span.si,
+code.language-shell span.nv { color: #2aa1b3; }
+/* yml */
+code.language-yaml span.na { color: #2aa1b3; }
+code.language-yaml span.pi { color: #a347ba; }
+code.language-yaml span.s2,
+code.language-yaml span.m,
+code.language-yaml span.kc,
+code.language-yaml span.s { color: #c01c28; }
 
 /* image */
 img.post
