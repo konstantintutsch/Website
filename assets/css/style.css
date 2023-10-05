@@ -87,7 +87,7 @@ nav
 }
 
 article div.post, /* between posts */
-article h2.post, h1#post { margin-bottom: -0.5em; } /* between title and date */
+article h2.post, h1.post { margin-bottom: -0.5em; } /* between title and date */
 p#description
 {
     font-size: 1.05em;
