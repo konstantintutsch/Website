@@ -29,8 +29,7 @@ div.highlight, figure.highlight
     overflow-x: scroll;
     background: white;
     padding: 0.10em;
-    border: solid #eaeaea 0.2em;
-    border-radius: 0.5em;
+    border: var(--border);
 }
 code,
 p code
