@@ -169,7 +169,7 @@ Yes, but the reverse proxy is still missing and GoToSocial can't be accessed on 
 
 You can configure Nginx like this:
 
-**[/etc/nginx/sites-available/gotosocial](https://docs.gotosocial.org/en/latest/getting_started/reverse_proxy/nginx/)**
+**/etc/nginx/sites-available/gotosocial**
 
 {% highlight nginx %}
 server {
@@ -216,6 +216,8 @@ certbot --nginx -d social.example.com
 … and start Nginx.
 
 {% highlight shell %}
+ln -s /etc/nginx/sites-available/gotosocial /etc/nginx/sites-enabled/gotosocial
+
 systemctl enable --now nginx
 {% endhighlight %}
 
@@ -261,7 +263,7 @@ GoToSocial is also in alpha. There are a lot of things not implemented yet. But 
 
 If you want to try federation, why not ping me?
 
-<span class="mention">@konstantin@social.konstantinutsch.de</span>
+{% include social.html url="https://social.konstantintutsch.de/@konstantin" name="@konstantin@social.konstantintutsch.de" %}
 
 ## Backup
 

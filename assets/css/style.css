@@ -1,3 +1,10 @@
+:root
+{
+    --border: 0.15em solid black;
+    --bold: 800;
+    --accent: #3584e4;
+}
+
 @font-face
 {
     font-family: "Cantarell";
@@ -15,7 +22,7 @@ body
 h1, h2, h3, b
 {
     font-family: "Cantarell", sans-serif;
-    font-weight: 800;
+    font-weight: var(--bold);
 }
 /* sections */
 header
@@ -46,7 +53,7 @@ footer
 {
     left: 0;
     text-align: center;
-    margin-bottom: 2.5em;
+    margin-bottom: 2vh;
 }
 
 /* special elements */
@@ -113,19 +120,18 @@ a:hover,
 .selected
 {
     color: #ffffff;
-    background: #3584e4;
+    background: var(--accent);
     text-decoration: none;
 }
-a.social { white-space: nowrap; };
+a.social, span.mention { white-space: nowrap; }
+span.mention
+{
+    padding: 0.05em;
+    border: var(--border);
+}
 small { font-size: 0.85em; }
 li { margin: 0.8em; }
 h2 { margin-top: 4vh; }
-span.mention
-{
-    background: #eaeaea;
-    padding: 0.1em;
-    border-radius: 0.5em;
-}
 
 /* tablet */
 @media only screen and (max-width: 1200px)
