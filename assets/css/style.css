@@ -1,6 +1,5 @@
 :root
 {
-    --border: 0.15em solid black;
     --bold: 800;
     --accent: #3584e4;
 }
@@ -127,7 +126,9 @@ a.social, span.mention { white-space: nowrap; }
 span.mention
 {
     padding: 0.05em;
-    border: var(--border);
+    border: 0.15em solid black;
+    background: #dddddd;
+    font-size: 85%;
 }
 small { font-size: 0.85em; }
 li { margin: 0.8em; }

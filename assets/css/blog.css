@@ -24,13 +24,7 @@ blockquote p
 }
 
 /* code */
-div.highlight, figure.highlight
-{
-    overflow-x: scroll;
-    background: white;
-    padding: 0.10em;
-    border: var(--border);
-}
+div.highlight, figure.highlight { overflow-x: scroll; }
 code,
 p code
 {
