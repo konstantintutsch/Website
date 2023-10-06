@@ -1,0 +1,87 @@
+@font-face
+{
+    font-family: "Hack";
+    src: url("/assets/fonts/Hack-Regular.ttf") format("ttf");
+    font-style: normal;
+}
+
+/* text */
+blockquote
+{
+    border-left: solid 0.2em darkgray;
+}
+blockquote p
+{
+    margin-left: 1em;
+    font-style: italic;
+    color: darkgray;
+}
+
+/* code */
+div.highlight, figure.highlight
+{
+    overflow-x: scroll;
+    background: white;
+    padding: 0.10em;
+    border: solid #eaeaea 0.2em;
+}
+code,
+p code
+{
+    font-family: "Hack", monospace;
+    font-size: 0.9em;
+}
+p code
+{
+    white-space: nowrap;
+}
+del { text-decoration-thickness: 0.15em; }
+/* code highlighting */
+/* sql */
+code.language-sql span.k { color: #2a7bde; }
+code.language-sql span.s1 { color: #f66151; }
+code.language-sql span.p { color: black; }
+code.language-sql span.n { color: black; }
+/* nginx */
+code.language-nginx span.k { color: #af5f00; }
+code.language-nginx span.p { color: black; }
+code.language-nginx span.kn { color: #33d17a; }
+code.language-nginx span.mi { color: #c01c28; }
+code.language-nginx span.s { color: #c061cb; }
+code.language-nginx span.c1 { color: #12488b; }
+code.language-nginx span.nv { color: #2aa1b3; }
+/* shell */
+code.language-shell span.nb { color: #af5f00; }
+code.language-shell span.nt { color: #12488b; }
+code.language-shell span.s2,
+code.language-shell span.m,
+code.language-shell span.kc,
+code.language-shell span.s { color: #c01c28; }
+code.language-shell span.k,
+code.language-shell span.si,
+code.language-shell span.nv { color: #2aa1b3; }
+/* yml */
+code.language-yaml span.na { color: #2aa1b3; }
+code.language-yaml span.pi { color: #a347ba; }
+code.language-yaml span.s2,
+code.language-yaml span.m,
+code.language-yaml span.kc,
+code.language-yaml span.s { color: #c01c28; }
+
+/* image */
+img.post
+{
+    max-width: 100%;
+    max-height: 30em;
+    margin: auto;
+    display: block;
+    margin-bottom: 1vh;
+}
+span.caption
+{
+        width: 100%;
+        display: block;
+        text-align: center;
+        font-style: italic;
+        margin-bottom: 4vh;
+}

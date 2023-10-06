@@ -1,50 +1,17 @@
 <!DOCTYPE html> 
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-        <meta name="robots" content="all">
-
-        <title>{{ page.title }} | {{ site.title }}</title>
-        <meta name="description" content="{{ page.description }} | {{ site.description }}">
-        <meta property="og:title" content="{{ page.title }} | {{ site.title }}">    
-        <meta property="og:description" content="{{ page.description }} | {{ site.description }}">
-        <meta property="og:image" content="{{ site.url }}/assets/images/logo.png">
-
-        <link rel="stylesheet" href="/assets/css/style.css">
-        <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="228x228" href="/assets/images/favicon-228x228.png">
-        <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">
-        <link rel="icon" type="image/png" sizes="48x48" href="/assets/images/favicon-48x48.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
-
-        <link rel="alternate" type="application/rss+xml" href="{{ site.url }}/feed.rss">
+        {% include head.html %}
     </head>
     <body>
         <header>
-            <div id="top">
-                <a id="site" href="/">
-                    <img id="logo" src="/assets/images/logo.svg"></img><h2 id="title">Konstantin Tutsch</h2>
-                </a>
-            </div>
-            <nav>
-                {% for item in site.data.navigation %}
-                    <a {% if page.url == item.path %}class="selected"{% endif %} href="{{ item.path }}">{{ item.name }}</a>
-                {% endfor %}
-            </nav>
+            {% include navigation.html %}
         </header>
         <article>
             {{ content }}
         </article>
         <footer>
-            {% for item in site.data.social %}
-                <a class="social" target="_blank" rel="me noopener noreferrer" href="{{ item.link }}">{{ item.name }}</a>
-            {% endfor %}
-            <small>
-                <p>© All content licensed under <b><a target="_blank" rel="noopener noreferrer" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></b> unless otherwise stated.</p>
-            </small>
+            {% include footer.html %}
         </footer>
     </body>
 </html>
