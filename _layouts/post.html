@@ -1,9 +1,22 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include head.html %}
+        <link rel="stylesheet" href="/assets/css/blog.css">
+    </head>
+    <body>
+        <header>
+            {% include navigation.html %}
+        </head>
+        <article>
+            <h1 class="post">{{ page.title }}</h1>
+            <p class="date">{{ page.date | date_to_string }}</p>
+            <p id="description">{{ page.description }}</p>
 
-<h1 class="post">{{ page.title }}</h1>
-<p class="date">{{ page.date | date_to_string }}</p>
-<p id="description">{{ page.description }}</p>
-
-{{ content }}
+            {{ content }}
+        </article>
+        <footer>
+            {% include footer.html %}
+        </footer>
+    </body>
+</html>

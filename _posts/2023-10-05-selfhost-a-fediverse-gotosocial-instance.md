@@ -259,7 +259,9 @@ But you can still configure a few things though the web like custom emojis. Just
 
 GoToSocial is also in alpha. There are a lot of things not implemented yet. But I have been running my own instance and not had any problems with it!
 
-If you want to try federation, why not ping me? `@konstantin@social.konstantinutsch.de`
+If you want to try federation, why not ping me?
+
+<span class="mention">@konstantin@social.konstantinutsch.de</span>
 
 ## Backup
 
