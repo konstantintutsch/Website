@@ -123,8 +123,7 @@ h2 { margin-top: 4vh; }
 span.mention
 {
     background: #eaeaea;
-    padding: 0.10em;
-    border: solid black 0.15em;
+    padding: 0.1em;
     border-radius: 0.5em;
 }
 
