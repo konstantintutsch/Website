@@ -6,6 +6,11 @@
 }
 
 /* text */
+p#description
+{
+    font-size: 1.05em;
+    font-weight: lighter;
+}
 blockquote
 {
     border-left: solid 0.2em darkgray;
@@ -24,6 +29,7 @@ div.highlight, figure.highlight
     background: white;
     padding: 0.10em;
     border: solid #eaeaea 0.2em;
+    border-radius: 0.5em;
 }
 code,
 p code
