@@ -1,7 +1,19 @@
+/* colors */
+
 :root
 {
-    --bold: 800;
     --accent: #3584e4;
+    --foreground: black;
+    --background: white;
+    --gray: #dddddd;
+}
+/* when dark */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --foreground: white;
+        --background: #1b1b1b;
+        --gray: #4a4a4a;
+    }
 }
 
 @font-face
@@ -21,7 +33,12 @@ body
 h1, h2, h3, b
 {
     font-family: "Cantarell", sans-serif;
-    font-weight: var(--bold);
+    font-weight: 800;
+}
+body, h1, h2, h3, a, b, p, span
+{
+    background: var(--background);
+    color: var(--foreground);
 }
 /* sections */
 header
@@ -111,7 +128,6 @@ a
 {
     margin-right: 0.1em;
     margin-left: 0.1em;
-    color: #000000;
     transition-duration: 0.3s;
     text-decoration: underline 0.1em;
 }
@@ -126,8 +142,8 @@ a.social, span.mention { white-space: nowrap; }
 span.mention
 {
     padding: 0.05em;
-    border: 0.15em solid black;
-    background: #dddddd;
+    border: 0.15em solid var(--foreground);
+    background: var(--gray);
 }
 small { font-size: 0.85em; }
 li { margin: 0.8em; }

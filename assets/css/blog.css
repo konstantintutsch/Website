@@ -14,13 +14,13 @@ p#description
 }
 blockquote
 {
-    border-left: solid 0.2em darkgray;
+    border-left: solid 0.2em var(--gray);
 }
 blockquote p
 {
     margin-left: 1em;
     font-style: italic;
-    color: darkgray;
+    color: var(--gray);
 }
 
 /* code */
@@ -31,20 +31,17 @@ p code
     font-family: "Hack", monospace;
     font-size: 0.9em;
 }
-p code
-{
-    white-space: nowrap;
-}
+p code { white-space: nowrap; }
 del { text-decoration-thickness: 0.15em; }
 /* code highlighting */
 /* sql */
 code.language-sql span.k { color: #2a7bde; }
 code.language-sql span.s1 { color: #f66151; }
-code.language-sql span.p { color: black; }
-code.language-sql span.n { color: black; }
+code.language-sql span.p { color: var(--foreground); }
+code.language-sql span.n { color: var(--foreground); }
 /* nginx */
 code.language-nginx span.k { color: #af5f00; }
-code.language-nginx span.p { color: black; }
+code.language-nginx span.p { color: var(--foreground); }
 code.language-nginx span.kn { color: #33d17a; }
 code.language-nginx span.mi { color: #c01c28; }
 code.language-nginx span.s { color: #c061cb; }
@@ -90,5 +87,5 @@ span.caption
 div#book
 {
     width: inherit;
-    border: solid black 0.2em;
+    border: solid var(--foreground) 0.2em;
 }
