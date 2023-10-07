@@ -1,12 +1,17 @@
+{% if page.description %}
+    {% assign description = page.description %}
+{% else %}
+    {% assign description = site.description %}
+{% endif %}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
 <meta name="robots" content="index, follow">
 
 <!-- SEO -->
 <title>{{ page.title }} | {{ site.title }}</title>
-<meta name="description" content="{{ page.description }} | {{ site.description }}">
+<meta name="description" content="{{ description }}">
 <meta property="og:title" content="{{ page.title }} | {{ site.title }}">    
-<meta property="og:description" content="{{ page.description }} | {{ site.description }}">
+<meta property="og:description" content="{{ description }}">
 <meta property="og:image" content="{{ site.url }}/assets/images/logo.png">
 
 <!-- Icons -->
