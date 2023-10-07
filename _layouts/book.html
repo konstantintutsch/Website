@@ -11,7 +11,7 @@ layout: post
     {% endif %}
     <li><b>📖 Pages:</b> {{ page.pages }}</li>
     <li><b>🤯 Genre:</b> {{ page.genre }}</li>
-    <li><b>📆 Published on:</b> {{ page.published }}</li>
+    <li><b>📆 Published in:</b> {{ page.published }}</li>
     <li><b>🧐 My rating:</b> {% for star in (1..page.stars)%}★{% endfor %}{% for star in (page.stars..4)%}☆{% endfor %} <i>({{ page.stars }}/5)</i></li>
 </ul>
 </div>
