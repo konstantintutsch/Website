@@ -1,23 +1,22 @@
-@font-face
-{
+/* fonts */
+@font-face {
     font-family: "Hack";
     src: url("/assets/fonts/Hack-Regular.woff2") format("woff2"),
          url("/assets/fonts/Hack-Regular.ttf") format("ttf");
     font-style: normal;
 }
 
-/* text */
-p#description
-{
+/* specific */
+#description {
     font-size: 1.05em;
     font-weight: lighter;
 }
-blockquote
-{
+
+/* quotes */
+blockquote {
     border-left: solid 0.2em var(--gray);
 }
-blockquote p
-{
+blockquote p {
     margin-left: 1em;
     font-style: italic;
     color: var(--gray);
@@ -26,8 +25,7 @@ blockquote p
 /* code */
 div.highlight, figure.highlight { overflow-x: scroll; }
 code,
-p code
-{
+p code {
     font-family: "Hack", monospace;
     font-size: 0.9em;
 }
@@ -66,16 +64,14 @@ code.language-yaml span.kc,
 code.language-yaml span.s { color: #c01c28; }
 
 /* image */
-img.post
-{
+img.post {
     max-width: 100%;
     max-height: 30em;
     margin: auto;
     display: block;
     margin-bottom: 1vh;
 }
-span.caption
-{
+span.caption {
         width: 100%;
         display: block;
         text-align: center;
@@ -84,8 +80,8 @@ span.caption
 }
 
 /* book */
-div#book
-{
-    width: inherit;
+#book {
+    width: fit-content;
+    height: fit-content;
     border: solid var(--foreground) 0.2em;
 }

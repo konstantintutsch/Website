@@ -1,13 +1,21 @@
-/* colors */
+/* fonts */
+@font-face {
+    font-family: "Cantarell";
+    font-weight: 100 900;
+    font-style: normal;
+    src: url("/assets/fonts/cantarell-vf.woff2") format("woff2"),
+         url("/assets/fonts/cantarell-vf.otf") format("opentype");
+}
 
-:root
-{
+
+
+/* colors */
+:root {
     --accent: #3584e4;
     --foreground: black;
     --background: white;
     --gray: #dddddd;
 }
-/* when dark */
 @media (prefers-color-scheme: dark) {
     :root {
         --foreground: white;
@@ -16,160 +24,134 @@
     }
 }
 
-@font-face
-{
-    font-family: "Cantarell";
-    font-weight: 100 900;
-    font-style: normal;
-    src: url("/assets/fonts/cantarell-vf.woff2") format("woff2"),
-         url("/assets/fonts/cantarell-vf.otf") format("opentype");
-}
-
-body
-{
+body {
+    background: var(--background);
+    color: var(--foreground);
     font-family: "Cantarell", sans-serif;
     font-size: 1.2em;
 }
-h1, h2, h3, b
-{
-    font-family: "Cantarell", sans-serif;
-    font-weight: 800;
-}
-body, h1, h2, h3, a, b, p, span
-{
-    background: var(--background);
-    color: var(--foreground);
-}
+h1, h2, h3, b, nav a { font-weight: 800; } /* weight 800 for bold fonts, better compatibility with Safari */
+
 /* sections */
-header
-{
-    width: 100%;
-    min-height: 15%;
+header {
+    width: 95vw;
+    min-height: 15vh;
     left: 0;
     text-align: center;
     overflow: hidden;
 }
-article
-{
-    left: 25%;
-    width: 50%;
-    min-height: 50vh;
+article {
+    left: 25vw;
+    width: 50vw;
+    min-height: 70vh;
     margin: auto;
     text-align: left;
-    margin-bottom: 10vh;
+    margin-top: 3vh;
+    margin-bottom: 5vh;
 }
-/* footer */
-article:after
-{
-    content: "";
-    display: block;
-}
-footer, article:after { height: 3vh; }
-footer
-{
+footer {
+    min-height: 2vh;
     left: 0;
     text-align: center;
     margin-bottom: 2vh;
 }
+small { font-size: 0.85em; }
 
-/* special elements */
-div#top
-{
+/* top with logo and title */
+#top { /* link (logo + title) */
     margin-top: 3vh;
     margin-bottom: 2vh;
 }
-a#site
-{
+#site { /* link */
     background: transparent;
-    color: #000000;
     text-decoration: none;
+    color: var(--foreground); /* remove link highlighting */
 }
-img#logo
-{
+#logo {
     display: inline;
     height: 2.2em;
     vertical-align: middle;
     margin-right: 0.2em;
 }
-h2#title
-{
+#title {
     display: inline;
     font-size: 1.8em;
     vertical-align: middle;
 }
-nav
-{
+
+/* navigation */
+nav {
     font-size: 1.1em;
     margin-bottom: 4vh;
 }
 nav a,
-.selected
-{
-    padding: 0.1em 0.2em 0.1em 0.2em;
+.selected {
+    padding: 0.1em 0.2em 0.1em 0.2em; /* background not a close to text */
     margin: 0.1em;
-    font-weight: 800;
     font-size: 0.9em;
 }
 
-article div.post, /* between posts */
-article h2.post, h1.post { margin-bottom: -0.5em; } /* between title and date */
-article h2.post { margin-left: -0.11em; }
+/* title spacing */
+article .post { margin-bottom: -0.5em; }
+article h2.post { margin-left: -0.11em; } /* title otherwise not aligned with date */
+h2 { margin-top: 4vh; }
 
+/* paginator */
 .inline { display: inline; }
-div#paginator
-{
+#paginator {
     display: flex;
     justify-content: space-between;
     margin-top: 4em;
 }
 
-/* text */
-a
-{
+/* links */
+a {
     margin-right: 0.1em;
     margin-left: 0.1em;
     transition-duration: 0.3s;
     text-decoration: underline 0.1em;
+    color: var(--foreground); /* no special highlighting for already clicked links */
 }
 a:hover,
-.selected
-{
+.selected {
     color: #ffffff;
     background: var(--accent);
     text-decoration: none;
 }
-a.social, span.mention { white-space: nowrap; }
-span.mention
-{
+
+/* social */
+.social, .mention { white-space: nowrap; } /* don't add break before e. g. emojis */
+.mention {
     padding: 0.05em;
     border: 0.15em solid var(--foreground);
     background: var(--gray);
 }
-small { font-size: 0.85em; }
+
+/* lists */
 li { margin: 0.8em; }
-h2 { margin-top: 4vh; }
 
 /* tablet */
-@media only screen and (max-width: 1200px)
-{
-    article
-    {
-        left: 15%;
-        width: 70%;
+@media only screen and (max-width: 1200px) {
+    article {
+        left: 15vw;
+        width: 70vw;
     }
+
+    footer { font-size: 0.9em; }
+    
     /* mobile */
-    @media only screen and (max-width: 768px)
-    {
-        img#logo { height: 1.9em; }
-        h2#title { font-size: 1.6em; }
+    @media only screen and (max-width: 768px) {
+        #logo { height: 1.9em; }
+        #title { font-size: 1.6em; }
         
-        span.mention { font-size: 60%; }
-        article
-        {
-            left: 5%;
-            width: 90%;
+        .mention { font-size: 60%; }
+
+        article {
+            left: 5vw;
+            width: 90vw;
         }
         article div.post { margin-bottom: 0em; }
+
+        footer { margin-bottom: 5vw; }
     }
-    footer { font-size: 0.9em; }
 }
