@@ -149,6 +149,7 @@ li { margin: 0.8em; }
         article {
             left: 5vw;
             width: 90vw;
+            min-height: 60vh;
         }
         article div.post { margin-bottom: 0em; }
 
