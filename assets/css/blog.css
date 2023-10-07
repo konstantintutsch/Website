@@ -85,3 +85,10 @@ span.caption
         font-style: italic;
         margin-bottom: 4vh;
 }
+
+/* book */
+div#book
+{
+    width: inherit;
+    border: solid black 0.2em;
+}
