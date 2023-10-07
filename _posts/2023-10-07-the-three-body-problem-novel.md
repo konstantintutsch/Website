@@ -10,7 +10,7 @@ published: 2008
 stars: 5
 ---
 
-This is the first book of the trilogy "Remembrance of Earth's Past". It is somewhat of an introduction to the events that will take place. And therefore, I'm only now writing the post for this book because almost done with all three books. It would have otherwise been difficult to rate the book.
+This is the first book of the trilogy "Remembrance of Earth's Past". It is somewhat of an introduction to the events that will take place. And therefore, I'm only now writing the post for this book because I'm almost done with all three books. It would have otherwise been difficult to rate the book.
 
 The book is taking place on Earth, mostly China, but there are jumps back and forth between different points in time.
 
