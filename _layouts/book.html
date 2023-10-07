@@ -1,0 +1,19 @@
+---
+layout: post
+---
+
+<div id="book">
+<ul>
+    <li><b>✍️ Written by:</b> {{ page.author }}</li>
+    {% if page.translator %}
+        <li><b>🗣️ Translated by:</b> {{page.translator}}</li>
+        <li><b>🧭 Origin:</b> {{ page.origin }}</li>
+    {% endif %}
+    <li><b>📖 Pages:</b> {{ page.pages }}</li>
+    <li><b>🤯 Genre:</b> {{ page.genre }}</li>
+    <li><b>📆 Published on:</b> {{ page.published }}</li>
+    <li><b>🧐 My rating:</b> {% for star in (1..page.stars)%}★{% endfor %}{% for star in (page.stars..4)%}☆{% endfor %} <i>({{ page.stars }}/5)</i></li>
+</ul>
+</div>
+
+{{ content }}
