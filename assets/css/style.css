@@ -128,7 +128,6 @@ span.mention
     padding: 0.05em;
     border: 0.15em solid black;
     background: #dddddd;
-    font-size: 85%;
 }
 small { font-size: 0.85em; }
 li { margin: 0.8em; }
@@ -148,6 +147,7 @@ h2 { margin-top: 4vh; }
         img#logo { height: 1.9em; }
         h2#title { font-size: 1.6em; }
         
+        span.mention { font-size: 60%; }
         article
         {
             left: 5%;
