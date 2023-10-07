@@ -1,6 +1,6 @@
 ---
 layout: book
-title: The Three-Body Problem
+title: The Three-Body Problem (novel)
 author: Cixin Liu
 translator: Ken Liu
 origin: China
