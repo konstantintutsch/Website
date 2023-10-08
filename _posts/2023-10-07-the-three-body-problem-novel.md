@@ -16,4 +16,4 @@ The book is taking place on Earth, mostly China, but there are jumps back and fo
 
 The story is not foreseeable and I was always wondering what could happen next and why something had happened. This unpredictability is one of the special features I really appreciate about the trilogy. Because of this, I recommend that you avoid spoilers at any cost if you'd like to read the trilogy in the future.
 
-In the following days, I'll also write posts about the other two books. But these articles **will contain spoilers**. But don't worry too much, I'll add a warning to them 😊
+In the following days, I'll also write posts about the other two books.
