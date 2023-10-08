@@ -24,3 +24,10 @@ ExpiresByType image/x-icon "access plus 1 months"
 RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# moved files
+Redirect 301 /posts/ /
+Redirect 301 /index.xml /feed.rss
+Redirect 301 /feed.xml /feed.rss
+Redirect 301 /categories /
+Redirect 301 /search /
