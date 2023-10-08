@@ -2,6 +2,8 @@
 layout: default
 title: Blog
 ---
+<h1 class="hidden">Blog</h1>
+
 {% for post in paginator.posts %}
 <div class="post">
     <h2 class="post"><a href="{{ post.url }}">{{ post.title }}</a></h2>
