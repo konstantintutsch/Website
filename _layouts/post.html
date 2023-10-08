@@ -9,6 +9,11 @@
             {% include navigation.html %}
         </head>
         <article>
+            {% if page.spoilers == true %}
+                <div id="spoiler">
+                    <span>⚠️ This post contains spoilers about "{% if page.spoiler_topic %}{{ page.spoiler_topic }}{% else %}{{ page.title }}{% endif %}"!</span>
+                </div>
+            {% endif %}
             <h1 class="post">{{ page.title }}</h1>
             <p class="date">{{ page.date | date_to_string }}</p>
             <p id="description">{{ page.description }}</p>

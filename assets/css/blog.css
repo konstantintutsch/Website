@@ -85,3 +85,9 @@ span.caption {
     height: fit-content;
     border: solid var(--foreground) 0.2em;
 }
+
+/* spoilers */
+#spoiler {
+    background: #ffeea6;
+    padding: 0.3em;
+}
