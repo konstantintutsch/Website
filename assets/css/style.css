@@ -95,6 +95,7 @@ nav a,
 article .post { margin-bottom: -0.5em; }
 article h2.post { margin-left: -0.11em; } /* title otherwise not aligned with date */
 h2 { margin-top: 4vh; }
+.hidden { display: none; }
 
 /* paginator */
 .inline { display: inline; }
