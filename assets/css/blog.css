@@ -89,5 +89,6 @@ span.caption {
 /* spoilers */
 #spoiler {
     background: #ffeea6;
+    color: black;
     padding: 0.3em;
 }
