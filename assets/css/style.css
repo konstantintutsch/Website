@@ -3,8 +3,8 @@
     font-family: "Cantarell";
     font-weight: 100 900;
     font-style: normal;
-    src: url("/assets/fonts/cantarell-vf.woff2") format("woff2"),
-         url("/assets/fonts/cantarell-vf.otf") format("opentype");
+    src: url("/assets/fonts/cantarell-vf.woff2") format("woff2");
+    font-display: swap;
 }
 
 
