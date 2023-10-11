@@ -18,9 +18,6 @@ layout: null
                 {{ post.url | prepend: site.url }}
             </link>
             <description>
-                {% if post.spoilers == true %}
-                    ⚠️ Spoilers!
-                {% endif %}
                 {{ post.description }}
             </description>
             <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
