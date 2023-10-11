@@ -1,14 +1,9 @@
 ---
-layout: book
+layout: post
 title: The Dark Forest (novel)
-author: Cixin Liu
-translator: Joel Martinsen
-origin: China
-pages: 550
-genre: Sci-Fi
-published: 2008
-stars: 5
 ---
+
+{% include book.html author="Cixin Liu" translator="Joel Martinsen" origin="China" pages=550 genre="Sci-Fi" published="2008" stars=5 %}
 
 This is the second book of the trilogy "Remembrance of Earth's Past". After I had read the first book, I was already super excited for this one, but it even surpassed my expectations. I had problems getting myself to stop reading. The story was even more captivating.
 

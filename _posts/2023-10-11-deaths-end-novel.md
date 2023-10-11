@@ -1,14 +1,9 @@
 ---
-layout: book
+layout: post
 title: Death's End (novel)
-author: Cixin Liu
-translator: Ken Liu
-origin: China
-pages: 721
-genre: Sci-Fi
-published: 2010
-stars: 4
 ---
+
+{% include book.html author="Cixin Liu" translator="Ken Liu" origin="China" pages=721 genre="Sci-Fi" published="2010" stars=4 %}
 
 This is the third and last book of the trilogy “Remembrance of Earth’s Past”. But before you continue, read my posts about book [one](/the-three-body-problem-novel) and [two](/the-dark-forest-novel) so you fully understand my opinion and thoughts.
 

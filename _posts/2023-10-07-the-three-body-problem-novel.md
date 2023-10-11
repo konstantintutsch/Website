@@ -1,14 +1,9 @@
 ---
-layout: book
+layout: post
 title: The Three-Body Problem (novel)
-author: Cixin Liu
-translator: Ken Liu
-origin: China
-pages: 381
-genre: Sci-Fi
-published: 2008
-stars: 5
 ---
+
+{% include book.html author="Cixin Liu" translator="Ken Liu" origin="China" pages=381 genre="Sci-Fi" published="2008" stars=5 %}
 
 This is the first book of the trilogy "Remembrance of Earth's Past". It is somewhat of an introduction to the events that will take place. And therefore, I'm only now writing the post for this book because I'm almost done with all three books. It would have otherwise been difficult to rate the book.
 
