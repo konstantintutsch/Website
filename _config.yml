@@ -8,12 +8,8 @@ port: 8000
 host: 0.0.0.0
 
 # Blogging
-paginate: 8
+newest: 8
 collections:
     posts:
         output: true
         permalink: /:slug/
-
-# Plugins
-plugins:
-  - jekyll-paginate

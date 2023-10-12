@@ -12,6 +12,10 @@ layout: null
     <url>
       <loc>{{ site.url }}/about/</loc>
     </url>
+    <url>
+      <loc>{{ site.url }}/archive/</loc>
+    </url>
+
     {% for post in site.posts %}
     <url>
       <loc>{{ site.url }}{{ post.url | remove: 'index.html' }}</loc>
