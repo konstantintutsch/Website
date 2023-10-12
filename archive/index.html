@@ -3,6 +3,40 @@ layout: default
 title: Archive
 ---
 
+<h2>Archive</h2>
+
+{% assign years = "" | split: "" %}
+{% assign postsY = "" | split: "" %}
+
+{% assign previousY = "" %}
+ {% assign currPosts = 0 %}
+{% for post in site.posts %}
+    {% capture currentY %}
+        {{ post.date | date: "%Y" }}
+    {% endcapture %}
+
+    {% if currentY != previousY or forloop.last %}
+        {% assign arrayPost = currPosts | append: "," | split: "," %}
+        {% assign postsY = postsY | concat: arrayPost %}
+        {% assign currPosts = 0 %}
+
+        {% unless forloop.last %}
+            {% assign previousY = currentY %}
+
+            {% assign arrayY = currentY | append: "," | split: "," %}
+            {% assign years = years | concat: arrayY %}
+        {% endunless %}
+    {% endif %}
+
+    {% assign currPosts = currPosts | plus: 1 %}
+{% endfor %}
+
+<ul>
+{% for year in years %}
+    <li>{{ year }} ({{ postsY[forloop.index] }} {% if postsY[forloop.index] == "1" %}post{% else %}posts{% endif %})</li>
+{% endfor %}
+</ul>
+
 {% assign previousY = "" %}
 {% for post in site.posts %}
     {% capture currentY %}
@@ -11,9 +45,11 @@ title: Archive
 
     {% if currentY != previousY %}
         {% assign previousY = currentY %}
-
+        {% unless forloop.first %}</ul>{% endunless %}
         <h2>{{ currentY }}</h2>
+        <ul>
+        {% if forloop.last%}</ul>{% endif %}
     {% endif %}
 
-    {% include post.html url=post.url title=post.title date=post.date %}
+    <li>{% include post.html url=post.url title=post.title date=post.date %}</li>
 {% endfor %}
