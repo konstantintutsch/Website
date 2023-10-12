@@ -1,0 +1,19 @@
+---
+layout: default
+title: Archive
+---
+
+{% assign previousY = "" %}
+{% for post in site.posts %}
+    {% capture currentY %}
+        {{ post.date | date: "%Y" }}
+    {% endcapture %}
+
+    {% if currentY != previousY %}
+        {% assign previousY = currentY %}
+
+        <h2>{{ currentY }}</h2>
+    {% endif %}
+
+    {% include post.html url=post.url title=post.title date=post.date %}
+{% endfor %}
