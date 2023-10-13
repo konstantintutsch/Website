@@ -33,7 +33,7 @@ title: Archive
 
 <ul>
 {% for year in years %}
-    <li>{{ year }} ({{ postsY[forloop.index] }} {% if postsY[forloop.index] == "1" %}post{% else %}posts{% endif %})</li>
+    <li><a href="#{{ year | slugify }}">{{ year | slugify }}</a> ({{ postsY[forloop.index] }} {% if postsY[forloop.index] == "1" %}post{% else %}posts{% endif %})</li>
 {% endfor %}
 </ul>
 
@@ -46,7 +46,7 @@ title: Archive
     {% if currentY != previousY %}
         {% assign previousY = currentY %}
         {% unless forloop.first %}</ul>{% endunless %}
-        <h2>{{ currentY }}</h2>
+        {% include heading.html level=2 text=currentY %}
         <ul>
         {% if forloop.last%}</ul>{% endif %}
     {% endif %}
