@@ -1,5 +1,6 @@
 ---
 layout: post
+image: Laptop_Wall.jpg
 title: Just a laptop
 description: Where's the multimonitor setup? Gone!
 ---
@@ -10,7 +11,7 @@ I've been using multiple monitors since basically forever, it gave me space to p
 
 {% include image.html file="Horizontal_Wall.jpg" alt="A table with a laptop on a mount and a monitor next to. Also external keyboard, mouse, plants, espresso, water, etc" caption="That's how it looked like (without all the windows).<br>And you can just ignore all the coffee stuff …" %}
 
-{% include heading.html level=2 text="~~Not~~ just a laptop" %}
+{% include heading.html level=2 text="<del>Not</del> just a laptop" %}
 
 I just mentioned that multiple monitors were a risk for distraction. And I therefore removed them.
 
