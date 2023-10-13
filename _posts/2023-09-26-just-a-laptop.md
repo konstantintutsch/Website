@@ -4,13 +4,13 @@ title: Just a laptop
 description: Where's the multimonitor setup? Gone!
 ---
 
-## Not just a laptop
+{% include heading.html level=2 text="Not just a laptop" %}
 
 I've been using multiple monitors since basically forever, it gave me space to put windows on and I didn't need to think about organizing them. A bad decision in retrospect: there were lots of distracting windows.
 
 {% include image.html file="Horizontal_Wall.jpg" alt="A table with a laptop on a mount and a monitor next to. Also external keyboard, mouse, plants, espresso, water, etc" caption="That's how it looked like (without all the windows).<br>And you can just ignore all the coffee stuff …" %}
 
-## ~~Not~~ just a laptop
+{% include heading.html level=2 text="~~Not~~ just a laptop" %}
 
 I just mentioned that multiple monitors were a risk for distraction. And I therefore removed them.
 
@@ -18,7 +18,7 @@ I just mentioned that multiple monitors were a risk for distraction. And I there
 
 This really helped me to work focused for a lot longer without short disruptions. And there's also a way smaller obstacle to work from somewhere else than my desk.
 
-## Conclusion
+{% include heading.html level=2 text="Conclusion" %}
 
 Removing monitors might really help some people.
 

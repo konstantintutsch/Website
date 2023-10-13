@@ -4,7 +4,8 @@ title: My Linux journey
 description: This post covers how I progressed through all the Linux distributions and why I like some and dislike others. There are also some funny and terrifying moments I end up including here.
 ---
 
-## The beginning
+{% include heading.html level=2 text="The beginning" %}
+
 My first touching points with Linux were somewhere in autumn of 2020.
 
 I had a lot of free time because of the first corona lockdown. So I replaced my Windows 10 install with Linux. No dual-booting. I only had one backup of my data back then. Risky.
@@ -13,20 +14,24 @@ It was Ubuntu 20.04 LTS. The first thing I did was a search about how to "run" a
 
 But the linux machine, a Dell laptop, died. I was definetly not the one who killed it. Noooo. I drilled a screw through the mainboard while adding extra storage.
 
-## A new device
+{% include heading.html level=2 text="A new device" %}
+
 I got a desktop (without an external graphics card). But luckily with everything else. I already had a display, keyboard and mouse because I was a "gamer". So they all were happily blinking in too many colors.
 
 The first thing I did was to reinstall Ubuntu. The desktop is a custom configuration from a local computer store which had good reputation. I was able to buy it without a windows key too. No money wasted.
 
 But a problem occured. The desktop has RGB memory sticks. I was able to find [OpenRGB](https://web.archive.org/web/20220927155955/https://openrgb.org/). But it was a nightmare to get it to work because the only thing I used the command line before were copy-past wine/proton commands to get all my games running at the time. And I didn't understand the Linux permission system and all the services running in the background. It eventually worked.
 
-## The distrohopping fever
+{% include heading.html level=2 text="The distrohopping fever" %}
+
 I don't remember the distros. But there were a lot.
 
-## openSUSE Tumbleweed
+{% include heading.html level=2 text="openSUSE Tumbleweed" %}
+
 I used it for like 3 months. It is a good distro. I still don't understand why there are so many Linux users who hate it.
 
-## Gentoo Linux
+{% include heading.html level=2 text="Gentoo Linux" %}
+
 The distro that made me a Linux power user. And also the distro that made me angry, **really** angry. I really like Gentoo. It gives the user a lot of power. I really like that mentality of an absolutly perfect system for the user's needs.
 
 I've used it from April 2021 untill now.
@@ -41,7 +46,8 @@ I broke my install again. Sad but something I could fix. After a few hours of re
 
 I was able to recover photos and all other important stuff. Only one thing was gone: my KDBX database (used for password managing). The only way I could access my mail was through my phone where a token to my account was in cache. I restored all of my accounts somehow. Even the 2FA ones.
 
-## Debian (on my servers only)
+{% include heading.html level=2 text="Debian (on my servers only)" %}
+
 Stable, really stable. My Raspberry Pi and VPSs run it. I never broke a Debian install and consider myself a experienced Debian user, **not** a power user. That's it, lucky.
 
 The best distros don't have a lot to say about them. (except Gentoo, I'm 100% biased about it 😉)
