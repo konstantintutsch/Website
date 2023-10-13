@@ -4,7 +4,7 @@ title: I won't ever switch off Do Not Disturb again
 description: I've decided to go full Do Not Disturb on my phone. Here's why.
 ---
 
-## The idea behind
+{% include heading.html level=2 text="The idea behind" %}
 
 For those who don't know what *Do Not Disturb* (DND) is, it lets you basically switch of notifications and calls for your phone.
 
@@ -18,7 +18,7 @@ You can add exceptions for apps or contacts who should still be noticable or you
 
 There are of course more, but they aren't important for the context of this post.
 
-## The driving force
+{% include heading.html level=2 text="The driving force" %}
 
 I had been thinking about decreasing my alertness to notifications and my phone in general for some time now.
 
@@ -28,7 +28,7 @@ I then saw a great *german* YouTube [video](https://youtu.be/9dwCKOJHh9U) about 
 
 It not only made me aware of the possibility, but he also explained why it shouldn't be a problem to actually keep it turned on.
 
-## My own experience
+{% include heading.html level=2 text="My own experience" %}
 
 After I'd watched the video, I thought about it some more, and in the end, decided to actually try it. I started on Monday and it is Friday evening now.
 

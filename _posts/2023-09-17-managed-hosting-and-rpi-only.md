@@ -4,7 +4,7 @@ title: Hosting improvements
 description: My website is hosted via managed hosting now. I also increased my Raspberry Pi's network performance. Both are good, even the first one, trust me.
 ---
 
-## Managed hosting for my website 🛡️
+{% include heading.html level=2 text="Managed hosting for my website 🛡️" %}
 
 I've decided to stop using a VPS to host this site and instead move it to managed hosting. It's more expensive now, but worth it. This may seem stupid. Why limit yourself with managed hosting? A VPS can do a lot more than just a webserver and even was cheaper in my case.
 
@@ -16,7 +16,7 @@ I also like to accidentally break things which isn't good for a personal website
 
 A few tiny changes were also made to the code of this website. I implemented the the link preview metadata from [OpenGraph](https://ogp.me).
 
-## The Pi lost it's friend
+{% include heading.html level=2 text="The Pi lost it's friend" %}
 
 My Raspberry Pi is now on it's own (and that's good!).
 
