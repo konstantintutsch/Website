@@ -7,7 +7,7 @@ AddCharset UTF-8 .html
 
 # browser cache
 ExpiresActive On
-ExpiresByType text/css "access plus 1 weeks"
+ExpiresByType text/css "access plus 1 days"
 ExpiresByType application/javascript "access plus 1 weeks"
 ExpiresByType application/x-javascript "access plus 1 weeks"
 ExpiresByType image/gif "access plus 1 months"
