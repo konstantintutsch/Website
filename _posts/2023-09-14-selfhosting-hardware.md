@@ -1,13 +1,13 @@
 ---
 layout: post
-image: RaspberryPi_Horizontal.jpg
+image: RaspberryPi_Horizontal.webp
 title: "Selfhosting and Hardware"
 description: This post is just a boring list of which devices I use, what software runs on them and how exactly I host the services.
 ---
 
 {% include heading.html level=3 text="Selfhosting" %}
 
-{% include image.html file="RaspberryPi_Horizontal.jpg" alt="A Raspberry Pi on top of a tiny wooden tower in a white box. A SSD is connected via USB-A 3. Ethernet and power (USB-C) are connected and go through the back of the white box." caption="This is my Raspberry Pi where it's all running on." %}
+{% include image.html file="RaspberryPi_Horizontal.webp" alt="A Raspberry Pi on top of a tiny wooden tower in a white box. A SSD is connected via USB-A 3. Ethernet and power (USB-C) are connected and go through the back of the white box." caption="This is my Raspberry Pi where it's all running on." %}
 
 Selfhosting is great! Not always. I really like selfhosting, but it can be a lot of work and especially time consuming.
 
