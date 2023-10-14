@@ -30,7 +30,7 @@ body {
     font-family: "Cantarell", sans-serif;
     font-size: 1.2em;
 }
-h1, h2, h3, b, nav a { font-weight: 800; } /* weight 800 for bold fonts, better compatibility with Safari */
+h1, h2, h3, h4, b, nav a { font-weight: 800; } /* weight 800 for bold fonts, better compatibility with Safari */
 
 /* sections */
 header {
