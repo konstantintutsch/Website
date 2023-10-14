@@ -19,6 +19,9 @@ layout: null
             </link>
             <description>
                 {{ post.content }}
+
+                {% assign re = "Re: " | append: post.title %}
+                {% include social.html url="mail" name="Reply to this post by email" subject=re %}
             </description>
             <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
             <guid>
