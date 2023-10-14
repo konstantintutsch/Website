@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Death's End (novel)
+description: What I think about the novel "Death's End" and all of the Rememberance of Earth's Past trilogy, known from the book "The Three-Body Problem"
 ---
 
 {% include book.html author="Cixin Liu" translator="Ken Liu" origin="China" pages=721 genre="Sci-Fi" published="2010" stars=4 %}
