@@ -32,4 +32,4 @@ Redirect 301 /posts/ /
 Redirect 301 /index.xml /feed.rss
 Redirect 301 /feed.xml /feed.rss
 Redirect 301 /categories /archive/
-Redirect 301 /search /archive/
+Redirect 301 /search https://duckduckgo.com/?q=site:konstantintutsch.de
