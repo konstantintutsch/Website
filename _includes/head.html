@@ -3,6 +3,11 @@
 {% else %}
     {% assign description = site.description %}
 {% endif %}
+{% if page.image %}
+    {% assign image = page.image %}
+{% else %}
+    {% assign image = "banner.webp" %}
+{% endif %}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
 <meta name="robots" content="index, follow">
@@ -12,8 +17,15 @@
 <title>{{ page.title }} | {{ site.title }}</title>
 <meta name="description" content="{{ description }}">
 <meta property="og:title" content="{{ page.title }}">
+<meta property="og:image" content="{{ site.url }}/assets/images/{{ image }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="{{ page.title }}">
 <meta property="og:description" content="{{ description }}">
-<meta property="og:image" content="{{ site.url }}/assets/images/{% if page.image %}{{ page.image }}{% else %}banner.webp{% endif %}">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ page.title }}">
+<meta name="twitter:image" content="{{ site.url }}/assets/images/{{ image }}">
+<meta name="twitter:description" content="{{ description }}">
 
 <!-- Icons -->
 <link rel="icon" href="/assets/images/favicon.webp" type="image/webp">
