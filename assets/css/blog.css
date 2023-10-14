@@ -80,7 +80,7 @@ span.caption {
 }
 
 /* book */
-#book {
+.book {
     width: fit-content;
     height: fit-content;
     border: solid var(--foreground) 0.2em;
@@ -91,4 +91,15 @@ span.caption {
     background: #ffeea6;
     color: black;
     padding: 0.3em;
+}
+
+/* reply to post */
+.reply {
+    text-align: center;
+    margin-top: 8vh;
+    border-top: solid var(--foreground) 0.1em;
+}
+.reply p {
+    margin-right: 10vw;
+    margin-left: 10vw;
 }
