@@ -1,8 +1,3 @@
-{% if page.description %}
-    {% assign description = page.description %}
-{% else %}
-    {% assign description = site.description %}
-{% endif %}
 {% if page.image %}
     {% assign image = page.image %}
 {% else %}
@@ -10,22 +5,21 @@
 {% endif %}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-<meta name="robots" content="index, follow">
 
 <!-- SEO -->
 <link rel="canonical" href="{{ site.url }}{{ page.url }}">
-<title>{{ page.title }} | {{ site.title }}</title>
-<meta name="description" content="{{ description }}">
+<title>{{ site.title }} - {{ page.title }}</title>
+<meta name="description" content="{{ page.description }}">
 <meta property="og:title" content="{{ page.title }}">
 <meta property="og:image" content="{{ site.url }}/assets/images/{{ image }}">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="{{ page.title }}">
-<meta property="og:description" content="{{ description }}">
+<meta property="og:description" content="{{ page.description }}">
 <!-- Twitter -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="{{ page.title }}">
 <meta name="twitter:image" content="{{ site.url }}/assets/images/{{ image }}">
-<meta name="twitter:description" content="{{ description }}">
+<meta name="twitter:description" content="{{ page.description }}">
 
 <!-- Icons -->
 <link rel="icon" href="/assets/images/favicon.webp" type="image/webp">
