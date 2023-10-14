@@ -5,7 +5,7 @@ title: "Selfhosting and Hardware"
 description: This post is just a boring list of which devices I use, what software runs on them and how exactly I host the services.
 ---
 
-{% include heading.html level=2 text="Selfhosting" %}
+{% include heading.html level=3 text="Selfhosting" %}
 
 {% include image.html file="RaspberryPi_Horizontal.jpg" alt="A Raspberry Pi on top of a tiny wooden tower in a white box. A SSD is connected via USB-A 3. Ethernet and power (USB-C) are connected and go through the back of the white box." caption="This is my Raspberry Pi where it's all running on." %}
 
@@ -15,7 +15,7 @@ I'm selfhosting on a Raspberry Pi, it runs a GoToSocial (Fediverse), Prosody (XM
 
 There are just two things which I don't self-host: this website and my mail because both shouldn't suffer from outages and shouldn't be limit by my home internet and my Raspberry Pi's hardware. Both are done by my domain provider.
 
-{% include heading.html level=2 text="Hardware" %}
+{% include heading.html level=3 text="Hardware" %}
 
 I have got 3 main computers in my life. My phone, my laptop and my Raspberry Pi.
 
@@ -25,7 +25,7 @@ My laptop is a [TUXEDO Aura 15 Gen2](https://web.archive.org/web/20220315161215/
 
 Last is the Raspberry Pi (4B, 8GB memory).
 
-{% include heading.html level=2 text="Software" %}
+{% include heading.html level=3 text="Software" %}
 
 - My phone runs [CalyxOS](https://web.archive.org/web/20230723163708/https://calyxos.org/).
 - My laptop runs [Gentoo Linux](https://web.archive.org/web/20221104101835/https://www.gentoo.org/) with GNOME. 

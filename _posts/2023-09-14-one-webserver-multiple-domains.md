@@ -4,7 +4,7 @@ title: "A single webserver serving multiple domains"
 description: This post will help you to host multiple domains with just one single host server. I use Nginx as an example but it is also possible with any other webserver you like.
 ---
 
-{% include heading.html level=2 text="My setup and the importance to me" %}
+{% include heading.html level=3 text="My setup and the importance to me" %}
 
 So, I'm pretty sure that an introduction is always helpful.
 
@@ -12,7 +12,7 @@ I've a got Raspberry Pi, 8G memory and 4 cores @ 1.8GHz, running at home. It was
 
 I always wanted to use my Raspberry Pi for more, but only if the services looked "normal" from the outside, that is: no special ports needed to access them, just a simple subdomain.
 
-{% include heading.html level=2 text="My (not so) special discovery" %}
+{% include heading.html level=3 text="My (not so) special discovery" %}
 
 What I realized wasn't that surprising after all. I saw a video about a homeserver and that all the services had their own local domains. But how?
 
@@ -86,7 +86,7 @@ server {
 }
 {% endhighlight %}
 
-{% include heading.html level=2 text="Conclusion" %}
+{% include heading.html level=3 text="Conclusion" %}
 
 That's it, a really handy trick to save money and host multiple services on a single system.
 
