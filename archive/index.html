@@ -3,7 +3,7 @@ layout: default
 title: Archive
 ---
 
-<h2>Archive</h2>
+{% include heading.html level=2 text="Archive" %}
 
 {% assign years = "" | split: "" %}
 {% assign postsY = "" | split: "" %}
@@ -46,7 +46,7 @@ title: Archive
     {% if currentY != previousY %}
         {% assign previousY = currentY %}
         {% unless forloop.first %}</ul>{% endunless %}
-        {% include heading.html level=2 text=currentY %}
+        {% include heading.html level=3 text=currentY %}
         <ul>
         {% if forloop.last%}</ul>{% endif %}
     {% endif %}
