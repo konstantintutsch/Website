@@ -1,1 +1,1 @@
-<a class="social" target="_blank" rel="me noopener noreferrer" href="{{ include.url }}">{{ include.name }}</a>
+<a class="social" target="_blank" rel="me noopener noreferrer" href="{% if include.url == "mail" %}mailto:{{ site.email}}{% if include.subject %}?subject={{ include.subject }}{% endif %}{% else %}{{ include.url }}{% endif %}">{{ include.name }}</a>

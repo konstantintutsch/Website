@@ -14,6 +14,13 @@
             <p id="description">{{ page.description }}</p>
 
             {{ content }}
+
+            <div class="reply">
+                <h2>Reply to this post</h2>
+                <p>If you have any thoughts about the contents of this post, email me so we can have a fun little chat about it.</p>
+                {% assign re = "Re: " | append: page.title %}
+                {% include social.html url="mail" name="Reply by email" subject=re %}
+            </div>
         </article>
         <footer>
             {% include footer.html %}
