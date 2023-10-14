@@ -91,16 +91,16 @@ nav a,
     font-size: 0.9em;
 }
 
-/* title spacing */
+/* titles */
 article .post { margin-bottom: -0.5em; }
 article h2.post, article h2.nav { margin-left: -0.11em; } /* title otherwise not aligned with date */
 h2 { margin-top: 4vh; }
 article h2.nav { margin-top: 3em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.3em; }
 
 /* links */
 a {
-    margin-right: 0.1em;
-    margin-left: 0.1em;
     transition-duration: 0.3s;
     text-decoration: underline 0.1em;
     color: var(--foreground); /* no special highlighting for already clicked links */
