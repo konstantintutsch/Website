@@ -96,7 +96,7 @@ span.caption {
 /* reply to post */
 .reply {
     text-align: center;
-    margin-top: 8vh;
+    margin-top: 2em;
     border-top: solid var(--foreground) 0.1em;
 }
 .reply p {
