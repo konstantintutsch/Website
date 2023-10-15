@@ -36,7 +36,7 @@ The distro that made me a Linux power user. And also the distro that made me ang
 
 I've used it from April 2021 untill now.
 
-I had a lot of problems getting it to run first. I got better and even so good, that I configured the kernels for my devices (the desktop and the [laptop](https://web.archive.org/web/20220315161215/https://www.tuxedocomputers.com/en/Linux-Hardware/Linux-Notebooks/15-16-inch/TUXEDO-Aura-15-Gen2.tuxedo), which I bought this year).
+I had a lot of problems getting it to run first. I got better and even so good, that I configured the kernels for my devices (the desktop and the [laptop](https://web.archive.org/web/20220315161215/https://www.tuxedocomputers.com/en/Linux-Hardware/Linux-Notebooks/15-16-inch/TUXEDO-Aura-15-Gen2.tuxedo), which I bought in 2022).
 
 I started editing the [Gentoo Wiki](https://web.archive.org/web/20220922101556/https://wiki.gentoo.org/wiki/Main_Page) and started an [entry](https://web.archive.org/web/20220929134523/https://wiki.gentoo.org/wiki/TUXEDO_Aura_15_%28Gen2%29) about just mentioned laptop. Gentoo made me try lots of different Linux things. Different desktop enviroments, window managers and command line utilities.
 
