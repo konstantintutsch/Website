@@ -35,6 +35,3 @@ Redirect 301 /posts /
 Redirect 301 /index.xml /feed.rss
 Redirect 301 /feed.xml /feed.rss
 Redirect 301 /feed /feed.rss
-Redirect 301 /categories /archive/
-Redirect 301 /search /archive/
-Redirect 301 /blog {% for post in site.posts limit:1 %}{{ post.url }}{% endfor %}
