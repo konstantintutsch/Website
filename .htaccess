@@ -1,3 +1,6 @@
+---
+layout: null
+---
 # custom errros
 ErrorDocument 403 /403.html
 ErrorDocument 404 /404.html
@@ -34,3 +37,4 @@ Redirect 301 /feed.xml /feed.rss
 Redirect 301 /feed /feed.rss
 Redirect 301 /categories /archive/
 Redirect 301 /search /archive/
+Redirect 301 /blog {% for post in site.posts limit:1 %}{{ post.url }}{% endfor %}
