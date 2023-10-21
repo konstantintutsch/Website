@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<h2>Tag: {{ page.title }}</h2>
+
+<p id="description">All posts about {% if page.description %}{{ page.description }}{% else %}{{ page.title }}{% endif %}.</p>
+
+<ul>
+{% for post in site.posts %}
+    {% if post.tags contains page.title %}<li>{% include post.html url=post.url title=post.title date=post.date %}</li>{% endif %}
+{% endfor %}
+</ul>

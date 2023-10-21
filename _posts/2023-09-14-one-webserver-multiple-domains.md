@@ -2,6 +2,7 @@
 layout: post
 title: "A single webserver serving multiple domains"
 description: How to host multiple websites with a single webserver. (Nignx)
+tags: Self-hosting
 ---
 
 {% include heading.html level=3 text="My setup and the importance to me" %}

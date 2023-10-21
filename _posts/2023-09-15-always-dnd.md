@@ -2,6 +2,7 @@
 layout: post
 title: I won't ever switch off Do Not Disturb again
 description: I've decided to go full Do Not Disturb on my phone. Here's why.
+tags: Productivity Opinion
 ---
 
 {% include heading.html level=3 text="The idea behind" %}

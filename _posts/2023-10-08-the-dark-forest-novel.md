@@ -2,6 +2,7 @@
 layout: post
 title: The Dark Forest (novel)
 description: My review of the book "The Dark Forest". A great continuation
+tags: Book
 ---
 
 {% include book.html author="Cixin Liu" translator="Joel Martinsen" origin="China" pages=550 genre="Sci-Fi" published="2008" stars=5 %}

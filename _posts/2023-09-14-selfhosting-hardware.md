@@ -3,6 +3,7 @@ layout: post
 image: RaspberryPi_Horizontal.webp
 title: "Selfhosting and Hardware"
 description: This post is just a boring list of which devices I use, what software runs on them and how exactly I host the services.
+tags: Self-hosting
 ---
 
 {% include heading.html level=3 text="Selfhosting" %}
