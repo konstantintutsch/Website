@@ -3,6 +3,7 @@ layout: post
 image: Laptop_Wall.webp
 title: Just a laptop
 description: Where's the multimonitor setup? Gone!
+tags: Productivity Opinion
 ---
 
 {% include heading.html level=3 text="Not just a laptop" %}

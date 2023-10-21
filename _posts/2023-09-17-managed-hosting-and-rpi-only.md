@@ -2,6 +2,7 @@
 layout: post
 title: Hosting improvements
 description: My website is hosted via managed hosting now. I also increased my Raspberry Pi's network performance. Both are good, even the first one, trust me.
+tags: Blog Self-hosting Opinion
 ---
 
 {% include heading.html level=3 text="Managed hosting for my website 🛡️" %}

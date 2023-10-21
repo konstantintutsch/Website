@@ -2,6 +2,7 @@
 layout: post
 title: My Linux journey
 description: My Linux journey. The distributions I've used and what I think about them.
+tags: Linux
 ---
 
 {% include heading.html level=3 text="The beginning" %}

@@ -2,6 +2,7 @@
 layout: post
 title: The Three-Body Problem (novel)
 description: My opinion on the novel "The Three-Body Problem". (You should probably read it)
+tags: Book
 ---
 
 {% include book.html author="Cixin Liu" translator="Ken Liu" origin="China" pages=381 genre="Sci-Fi" published="2008" stars=5 %}

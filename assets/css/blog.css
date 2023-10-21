@@ -6,12 +6,6 @@
     font-display: swap;
 }
 
-/* specific */
-#description {
-    font-size: 1.05em;
-    font-weight: lighter;
-}
-
 /* quotes */
 blockquote {
     border-left: solid 0.3em var(--gray);
@@ -100,10 +94,14 @@ span.caption {
     padding: 0.3em;
 }
 
+#tags {
+    display: inline-block;
+    margin: 1em auto 3em 0;
+}
+#tags a { margin: 0.2em; }
 /* reply to post */
 .reply {
     text-align: center;
-    margin-top: 2em;
     border-top: solid var(--foreground) 0.1em;
 }
 .reply p {
