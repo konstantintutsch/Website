@@ -14,13 +14,13 @@
     --accent: #3584e4;
     --foreground: black;
     --background: white;
-    --gray: #dddddd;
+    --gray: #4e4e4e;
 }
 @media (prefers-color-scheme: dark) {
     :root {
         --foreground: white;
         --background: #1b1b1b;
-        --gray: #4a4a4a;
+        --gray: #b4b4b4;
     }
 }
 
@@ -103,7 +103,7 @@ h4 { font-size: 1.3em; }
 a {
     transition-duration: 0.3s;
     text-decoration: underline 0.1em;
-    color: var(--foreground); /* no special highlighting for already clicked links */
+    color: inherit; /* no special highlighting for already clicked links */
 }
 a:hover,
 .selected {
@@ -117,7 +117,6 @@ a:hover,
 .mention {
     padding: 0.05em;
     border: 0.15em solid var(--foreground);
-    background: var(--gray);
 }
 
 /* lists */

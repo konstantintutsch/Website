@@ -14,12 +14,19 @@
 
 /* quotes */
 blockquote {
-    border-left: solid 0.2em var(--gray);
+    border-left: solid 0.3em var(--gray);
+    padding: 0.05em 0 0.05em 0;
+    margin: 2em auto 2em 0;
 }
 blockquote p {
     margin-left: 1em;
     font-style: italic;
+    font-size: 1.2em;
     color: var(--gray);
+}
+blockquote p:last-of-type {
+    font-style: normal;
+    font-size: 1em;
 }
 
 /* code */
