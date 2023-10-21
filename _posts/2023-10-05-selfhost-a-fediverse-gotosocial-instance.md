@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Self-hosting a minimal fediverse instance: GoToSocial 🦥"
-description: How to self-host GoToSocial, a light-weight fediverse server written in Go utilizing the Mastodon API. GoToSocial is compatible with most Mastodon clients, can easily be self-hosted on a Raspberry Pi and allows for federation via the ActivityPub protocol.
+title: "Self-hosting on a Raspberry Pi: GoToSocial 🦥"
+description: How to self-host GoToSocial, a light-weight fediverse server. GoToSocial is compatible with most Mastodon clients.
 ---
 {% include heading.html level=3 text="Prerequisites" %}
 
