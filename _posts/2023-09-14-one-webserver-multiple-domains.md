@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "A single webserver serving multiple domains"
-description: This post will help you to host multiple domains with just one single host server. I use Nginx as an example but it is also possible with any other webserver you like.
+description: How to host multiple websites with a single webserver. (Nignx)
 ---
 
 {% include heading.html level=3 text="My setup and the importance to me" %}

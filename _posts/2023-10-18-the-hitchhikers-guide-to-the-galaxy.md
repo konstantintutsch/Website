@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The Hitchhiker's Guide to the Galaxy
-description: My opinion on the book "The Hitchhiker's Guide to the Galaxy"
+description: My opinion on the book "The Hitchhiker's Guide to the Galaxy". (It's great comedy)
 time: 15:52:00 +0200
 ---
 
