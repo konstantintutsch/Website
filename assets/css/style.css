@@ -125,6 +125,7 @@ a:hover,
 
 /* lists */
 li { margin: 0.8em; }
+ul { margin: 2em auto 2em 0; }
 
 /* tablet */
 @media only screen and (max-width: 1200px) {
