@@ -24,7 +24,10 @@ blockquote p:last-of-type {
 }
 
 /* code */
-div.highlight, figure.highlight { overflow-x: scroll; }
+div.highlight, figure.highlight {
+    overflow-x: scroll;
+    margin-left: 0;
+}
 code,
 p code {
     font-family: "Hack", monospace;
@@ -63,6 +66,11 @@ code.language-yaml span.s2,
 code.language-yaml span.m,
 code.language-yaml span.kc,
 code.language-yaml span.s { color: #c01c28; }
+/* html */
+code.language-html span.c { color: #12488b; }
+code.language-html span.nt { color: #a2734c; }
+code.language-html span.na { color: #26a269; }
+code.language-html span.s { color: #c01c28; }
 
 /* image */
 img.post {
