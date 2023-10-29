@@ -3,22 +3,19 @@ layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    {% for page in site.pages %}
+    {% if page.url != "/.htaccess" and page.url != "/errors/403.html" and page.url != "/errors/404.html" and page.url != "/feed.rss" and page.url != "/robots.txt" and page.url != "/sitemap.xml" %}
     <url>
-      <loc>{{ site.url }}/</loc>
+        <loc>{{ site.url }}{{ page.url | remove: 'index.html' }}</loc>
+        <lastmod>{{ page.last-modified | date_to_xmlschema }}</lastmod>
     </url>
-    <url>
-      <loc>{{ site.url }}/contact/</loc>
-    </url>
-    <url>
-      <loc>{{ site.url }}/about/</loc>
-    </url>
-    <url>
-      <loc>{{ site.url }}/archive/</loc>
-    </url>
+    {% endif %}
+    {% endfor %}
 
     {% for post in site.posts %}
     <url>
-      <loc>{{ site.url }}{{ post.url | remove: 'index.html' }}</loc>
+        <loc>{{ site.url }}{{ post.url | remove: 'index.html' }}</loc>
+        <lastmod>{{ post.last-modified | date_to_xmlschema }}</lastmod>
     </url>
     {% endfor %}
 </urlset>
