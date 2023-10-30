@@ -6,26 +6,7 @@
     src: url("/assets/fonts/Cantarell-VF.woff2") format("woff2");
     font-display: swap;
 }
-body { font-family: "Cantarell", sans-serif; }
 
-/* text elements */
-h1, h2, h3, h4, b, nav a { font-weight: 800; } /* weight 800 for bold fonts, better compatibility with Safari */
-
-p, li { font-size: 1.3em; }
-small { font-size: 0.95em; }
-
-h2 {
-    font-size: 2.3em;
-    margin: 0 auto -0.5em 0;
-}
-h3 {
-    font-size: 2.1em;
-    margin: 1.5em auto 0.5em 0;
-}
-h4 {
-    font-size: 1.5em;
-    margin: 1.3em auto 0.5em 0;
-}
 
 
 /* colors */
@@ -47,6 +28,7 @@ body {
     background: var(--background);
     color: var(--foreground);
 }
+
 
 
 /* sections */
@@ -74,8 +56,9 @@ footer {
 }
 
 
-/* top with logo and title */
-#top { /* link (logo + title) */
+
+/* top */
+#top { /* div */
     margin-top: 3vh;
     margin-bottom: 2vh;
 }
@@ -84,18 +67,27 @@ footer {
     text-decoration: none;
     color: var(--foreground); /* remove link highlighting */
 }
-#logo {
+#logo { /* svg */
     display: inline;
     height: 2.7em;
     vertical-align: middle;
     margin-right: 0.2em;
 }
-#logo * { stroke: var(--foreground); } /* theme svg */
-#title {
+#logo * { stroke: var(--foreground); } /* svg paths */
+#title { /* title */
     display: inline;
     font-size: 2.2em;
     vertical-align: middle;
 }
+nav { margin-bottom: 4vh; } /* navigation */
+nav a, /* navigator links ; tabs */
+.selected {
+    padding: 0.1em 0.2em 0.1em 0.2em; /* background not a close to text */
+    margin: 0.1em;
+    font-size: 1.2em;
+}
+
+/* special */
 #description {
     font-size: 1.5em;
     font-weight: lighter;
@@ -103,16 +95,19 @@ footer {
 div.post { margin-bottom: 2em; }
 h2.nav { margin-top: 2em; } /* all posts link */
 li div { font-size: 0.8em; } /* keep titles in archive same size */
+h2 + #date { margin-top: -1.3em; } /* date or description close to heading */
 
-/* navigation */
-nav { margin-bottom: 4vh; }
-nav a,
-.selected {
-    padding: 0.1em 0.2em 0.1em 0.2em; /* background not a close to text */
-    margin: 0.1em;
-    font-size: 1.2em;
-}
+/* text */
+body { font-family: "Cantarell", sans-serif; } /* font */
 
+h1, h2, h3, h4, b, nav a { font-weight: 800; } /* weight 800 for bold fonts, better compatibility with Safari */
+
+/* size */
+p, li { font-size: 1.3em; }
+small { font-size: 0.95em; }
+h2 { font-size: 2.3em; }
+h3 { font-size: 2.1em; }
+h4 { font-size: 1.5em; }
 
 /* links */
 a {
@@ -134,8 +129,10 @@ a:hover,
 li { margin: 0.8em; }
 ul { margin: 2em auto 2em 0; }
 
-/* tablet */
-@media only screen and (max-width: 1200px) {
+
+
+/* mobile frindly */
+@media only screen and (max-width: 1200px) { /* tablet */
     article {
         left: 15vw;
         width: 70vw;
@@ -143,8 +140,7 @@ ul { margin: 2em auto 2em 0; }
 
     footer { font-size: 1em; }
     
-    /* mobile */
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 768px) { /* phone */
         #logo { height: 2.4em; }
         #title { font-size: 2.1em; }
         

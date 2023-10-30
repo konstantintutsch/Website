@@ -9,8 +9,8 @@
             {% include navigation.html %}
         </header>
         <article>
-            <h2 class="post">{{ page.title }}</h2>
-            <p class="date">{{ page.date | date_to_string }}</p>
+            <h2>{{ page.title }}</h2>
+            <p id="date">{{ page.date | date_to_string }}</p>
             <p id="description">{{ page.description }}</p>
 
             {{ content }}
