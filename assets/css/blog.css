@@ -52,6 +52,7 @@ code.language-nginx span.s { color: #c061cb; }
 code.language-nginx span.c1 { color: #12488b; }
 code.language-nginx span.nv { color: #2aa1b3; }
 /* shell */
+code.language-shell span.c { color: #12488b; }
 code.language-shell span.nb { color: #af5f00; }
 code.language-shell span.nt { color: #12488b; }
 code.language-shell span.s2,
