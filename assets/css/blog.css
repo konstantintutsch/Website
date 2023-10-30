@@ -74,22 +74,6 @@ code.language-html span.nt { color: #a2734c; }
 code.language-html span.na { color: #26a269; }
 code.language-html span.s { color: #c01c28; }
 
-/* image */
-img.post {
-    max-width: 100%;
-    max-height: 25em;
-    margin: auto;
-    display: block;
-    margin-bottom: 1vh;
-}
-span.caption {
-    width: 100%;
-    display: block;
-    text-align: center;
-    font-style: italic;
-    margin-bottom: 4vh;
-}
-
 /* book */
 .book {
     width: fit-content;
@@ -121,6 +105,6 @@ span.caption {
     border-top: solid var(--foreground) 0.1em;
 }
 .reply p {
-    margin-right: 10vw;
-    margin-left: 10vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
 }
