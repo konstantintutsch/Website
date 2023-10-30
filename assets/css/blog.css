@@ -6,34 +6,34 @@
     font-display: swap;
 }
 
+
 /* quotes */
 blockquote {
     border-left: solid 0.3em var(--gray);
-    padding: 0.05em 0 0.05em 0;
-    margin: 2em auto 2em 0;
+    padding: 0.07em 0 0.07em 0;
+    margin: 3em auto 3em 0;
 }
 blockquote p {
     margin-left: 1em;
     font-style: italic;
-    font-size: 1.2em;
+    font-size: 1.7em;
     color: var(--gray);
 }
 blockquote p:last-of-type {
     font-style: normal;
-    font-size: 1em;
+    font-size: 1.2em;
 }
 
 /* code */
-div.highlight, figure.highlight {
+figure.highlight,
+p code { font-family: "Hack", monospace; }
+
+figure.highlight {
     overflow-x: scroll;
-    margin-left: 0;
+    margin: 0;
+    font-size: 1.5em;
 }
-code,
-p code {
-    font-family: "Hack", monospace;
-    font-size: 0.9em;
-}
-p code { white-space: nowrap; }
+p code { font-size: 0.9em; }
 del { text-decoration-thickness: 0.15em; }
 /* code highlighting */
 /* sql */
@@ -75,23 +75,24 @@ code.language-html span.s { color: #c01c28; }
 /* image */
 img.post {
     max-width: 100%;
-    max-height: 30em;
+    max-height: 25em;
     margin: auto;
     display: block;
     margin-bottom: 1vh;
 }
 span.caption {
-        width: 100%;
-        display: block;
-        text-align: center;
-        font-style: italic;
-        margin-bottom: 4vh;
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 4vh;
 }
 
 /* book */
 .book {
     width: fit-content;
     height: fit-content;
+    margin-top: 2em;
     border: solid var(--foreground) 0.2em;
 }
 
@@ -102,11 +103,14 @@ span.caption {
     padding: 0.3em;
 }
 
+/* tags */
 #tags {
     display: inline-block;
-    margin: 1em auto 3em 0;
+    margin: 4em auto 3em 0;
 }
 #tags a { margin: 0.2em; }
+
+
 /* reply to post */
 .reply {
     text-align: center;
