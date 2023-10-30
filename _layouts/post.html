@@ -7,7 +7,7 @@
     <body>
         <header>
             {% include navigation.html %}
-        </head>
+        </header>
         <article>
             <h2 class="post">{{ page.title }}</h2>
             <p class="date">{{ page.date | date_to_string }}</p>
@@ -18,9 +18,11 @@
             <small id="tags"><b>Tagged with:</b> {% for tag in page.tags %}<a href="/Tag:{{ tag }}">{{ tag }}</a>{% endfor %}</small>
             <div class="reply">
                 <h3>Reply to this post</h3>
-                <p>If you have any thoughts about the contents of this post, email me so we can have a fun little chat about it.</p>
-                {% assign re = "Post: " | append: page.title %}
-                {% include social.html url="mail" name="Reply by email" subject=re %}
+                <p>
+                    If you have any thoughts about the contents of this post, email me so we can have a fun little chat about it.<br>
+                    {% assign re = "Post: " | append: page.title %}<br>
+                    {% include social.html url="mail" name="Reply by email" subject=re %}
+                </p>
             </div>
         </article>
         <footer>

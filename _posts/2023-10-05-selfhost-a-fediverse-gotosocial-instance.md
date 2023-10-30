@@ -264,7 +264,7 @@ GoToSocial is also in alpha. There are a lot of things not implemented yet. But 
 
 If you want to try federation, why not ping me?
 
-<span class="mention">@konstantin@social.konstantintutsch.de</span>
+{% include social.html url="https://social.konstantintutsch.de/@konstantin" name="@konstantin@social.konstantintutsch.de" %}
 
 {% include heading.html level=3 text="Backup" %}
 

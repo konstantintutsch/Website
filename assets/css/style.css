@@ -6,7 +6,26 @@
     src: url("/assets/fonts/Cantarell-VF.woff2") format("woff2");
     font-display: swap;
 }
+body { font-family: "Cantarell", sans-serif; }
 
+/* text elements */
+h1, h2, h3, h4, b, nav a { font-weight: 800; } /* weight 800 for bold fonts, better compatibility with Safari */
+
+p, li { font-size: 1.3em; }
+small { font-size: 0.95em; }
+
+h2 {
+    font-size: 2.3em;
+    margin: 0 auto -0.5em 0;
+}
+h3 {
+    font-size: 2.1em;
+    margin: 1.5em auto 0.5em 0;
+}
+h4 {
+    font-size: 1.5em;
+    margin: 1.3em auto 0.5em 0;
+}
 
 
 /* colors */
@@ -27,10 +46,8 @@
 body {
     background: var(--background);
     color: var(--foreground);
-    font-family: "Cantarell", sans-serif;
-    font-size: 1.2em;
 }
-h1, h2, h3, h4, b, nav a { font-weight: 800; } /* weight 800 for bold fonts, better compatibility with Safari */
+
 
 /* sections */
 header {
@@ -55,7 +72,7 @@ footer {
     text-align: center;
     margin-bottom: 2vh;
 }
-small { font-size: 0.85em; }
+
 
 /* top with logo and title */
 #top { /* link (logo + title) */
@@ -69,40 +86,33 @@ small { font-size: 0.85em; }
 }
 #logo {
     display: inline;
-    height: 2.2em;
+    height: 2.7em;
     vertical-align: middle;
     margin-right: 0.2em;
 }
-#logo * { stroke: var(--foreground); }
+#logo * { stroke: var(--foreground); } /* theme svg */
 #title {
     display: inline;
-    font-size: 1.8em;
+    font-size: 2.2em;
     vertical-align: middle;
 }
 #description {
-    font-size: 1.05em;
+    font-size: 1.5em;
     font-weight: lighter;
 }
+div.post { margin-bottom: 2em; }
+h2.nav { margin-top: 2em; } /* all posts link */
+li div { font-size: 0.8em; } /* keep titles in archive same size */
 
 /* navigation */
-nav {
-    font-size: 1.1em;
-    margin-bottom: 4vh;
-}
+nav { margin-bottom: 4vh; }
 nav a,
 .selected {
     padding: 0.1em 0.2em 0.1em 0.2em; /* background not a close to text */
     margin: 0.1em;
-    font-size: 0.9em;
+    font-size: 1.2em;
 }
 
-/* titles */
-article .post { margin-bottom: -0.5em; }
-h2 { margin-top: 4vh; }
-article h3.nav { margin-top: 3em; }
-h2 { font-size: 1.7em; }
-h3 { font-size: 1.5em; }
-h4 { font-size: 1.3em; }
 
 /* links */
 a {
@@ -118,11 +128,7 @@ a:hover,
 }
 
 /* social */
-.social, .mention { white-space: nowrap; } /* don't add break before e. g. emojis */
-.mention {
-    padding: 0.05em;
-    border: 0.15em solid var(--foreground);
-}
+.social { white-space: nowrap; } /* don't add break before e. g. emojis */
 
 /* lists */
 li { margin: 0.8em; }
@@ -135,19 +141,19 @@ ul { margin: 2em auto 2em 0; }
         width: 70vw;
     }
 
-    footer { font-size: 0.9em; }
+    footer { font-size: 1em; }
     
     /* mobile */
     @media only screen and (max-width: 768px) {
-        #logo { height: 1.9em; }
-        #title { font-size: 1.6em; }
+        #logo { height: 2.4em; }
+        #title { font-size: 2.1em; }
         
         article {
             left: 5vw;
             width: 90vw;
             min-height: 60vh;
         }
-        article div.post { margin-bottom: 0em; }
+        div.post { margin-bottom: 0em; }
 
         footer { margin-bottom: 5vw; }
     }
