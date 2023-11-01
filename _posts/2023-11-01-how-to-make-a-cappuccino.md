@@ -9,7 +9,7 @@ time: 12:16:00 +0100
 
 {% include heading.html level=3 text="Requirements" %}
 
-{% include image.html file="cappuccino-req.webp" alt="top left: portafilter<br>top right: tamper<br>bottom left: milk jug<br>bottom right: coffee cup" caption="Here's a photo of all the stuff you need. (without the espresso machine)" %}
+{% include image.html file="cappuccino-req.webp" alt="top left: portafilter; top right: tamper; bottom left: milk jug; bottom right: coffee cup" caption="Here's a photo of all the stuff you need. (without the espresso machine)" %}
 
 - espresso machine
 - portafilter
