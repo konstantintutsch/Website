@@ -30,6 +30,5 @@ RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
 # moved files
 Redirect 301 /posts /
-Redirect 301 /index.xml /feed.rss
-Redirect 301 /feed.xml /feed.rss
-Redirect 301 /feed /feed.rss
+Redirect 301 /index.xml /feed.xml
+Redirect 301 /feed.rss /feed.xml
