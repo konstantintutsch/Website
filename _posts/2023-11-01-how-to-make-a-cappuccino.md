@@ -1,5 +1,6 @@
 ---
 layout: post
+image: cappuccino-req.webp
 title: How to make a cappuccino
 description: A small step-by-step guide on making a cappuccino
 tags: Coffee
