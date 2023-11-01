@@ -25,11 +25,11 @@ You probably don't want to drink cold coffee or waste time making it. To avoid t
 
 First, pour the coffee powder into your portafilter:
 
-{% include image.html file="cappuccino-portafilter.webp" alt="a portafilter filled with coffee powder" caption="This is a reasonably amount of powder …" %}
+{% include image.html file="cappuccino-portafilter.webp" alt="a portafilter filled with coffee powder" caption="This is a reasonable amount of powder …" %}
 
 Now, tamp the powder until it's reasonably compressed and insert the portafilter into your espresso machine.
 
-{% include image.html file="cappuccino-portafilter-tamped.webp" alt="a portafilter filled with tamped coffee powder" caption="… and this is a reasonably amount of compression." %}
+{% include image.html file="cappuccino-portafilter-tamped.webp" alt="a portafilter filled with tamped coffee powder" caption="… and this is a reasonable amount of compression." %}
 
 Finally before we can start, fill your milk can with milk. To prevent wasting milk, use less than you would need to top up the cup.
 
