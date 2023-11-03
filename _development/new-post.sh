@@ -53,3 +53,4 @@ done
 # deploy new post with git post-commit hook
 git add "${FILE}"
 git commit -m "New post: ${VALUES[2]}"
+git push -u origin main
