@@ -1,13 +1,13 @@
 #!/bin/bash -i
 
-# .git/hooks/post-commit (770):
+# .git/hooks/pre-push (770):
 #
 # #!/bin/bash
 #
 # export SFTPUN_STRATO="username"
 # export SFTPPW_STRATO="password"
 #
-# ./_development/post-commit.sh
+# ./_development/pre-push.sh
 #
 
 DOMAIN="konstantintutsch.de"
@@ -31,5 +31,3 @@ if [[ "${PWD##*/}" == "_site" ]]
 then 
     cd ..
 fi
-
-git push -u origin main
