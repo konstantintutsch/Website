@@ -31,3 +31,5 @@ if [[ "${PWD##*/}" == "_site" ]]
 then 
     cd ..
 fi
+
+git push -u origin main
