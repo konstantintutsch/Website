@@ -22,7 +22,7 @@ layout: null
                 {% assign re = "Post: " | append: post.title %}
                 {% include social.html url="mail" name="Reply to this post by email" subject=re %}
             </description>
-            <pubDate>{% assign stamp = post.date %}{% if post.time %}{% assign stamp = stamp | replace: "00:00:00 +0200", post.time | replace: "00:00:00 +0100", post.time %}{% endif %}{{ stamp | date_to_rfc822 }}</pubDate>
+            <pubDate>{% if post.time %}{% assign stamp = post.date | date: "%Y-%m-%d" | append: " " | append: post.time %}{% else %}{% assign stamp = post.date %}{% endif %}{{ stamp | date_to_rfc822 }}</pubDate>
             <guid>
                 {{ post.url | prepend: site.url }}
             </guid>
