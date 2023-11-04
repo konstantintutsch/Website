@@ -22,7 +22,7 @@ done
 # define filename with slugified title
 FILE="./_posts/$(date +%Y-%m-%d)-$(echo ${VALUES[2]} | tr -dc "[:alnum:]\n\r\ " | tr "[:upper:]" "[:lower:]" | tr "\ " "-" | sed "s/--/-/g" ).md"
 appendf() {
-    echo "$1" >> "$FILE"
+    echo "$1" >> "$FILE" || echo "Could not append line “${1}” to “${FILE}”"
 }
 
 # create file with tags and values
@@ -45,7 +45,7 @@ do
         jekyll serve
     elif [[ ${DEPLOY} == "delete" ]]
     then
-        rm "${FILE}"
+        rm "${FILE}" || echo "Failed to delete post “${VALUES[2]}”"
         exit
     fi
 done
