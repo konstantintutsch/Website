@@ -10,7 +10,7 @@
 # ./_development/pre-push.sh
 #
 
-DOMAIN="konstantintutsch.de"
+DOMAIN="konstantintutsch.com"
 
 USERNAME="${SFTPUN_STRATO}"
 PASSWORD="${SFTPPW_STRATO}" 
