@@ -35,5 +35,5 @@ So, here's my list:
 - **🎤 Podcasts:** AntennaPod
 - **🔐 Password Management:** KeePass (XC, DX, Touch)
 - **📲 2FA**: Aegis
-- **👥 Social Media Prodivers:** [GoToSocial](https://cafe.konstantintutsch.com/@konstantin) `(Fediverse)`, Instagram, Snapchat
+- **👥 Social Media:** [GoToSocial](https://cafe.konstantintutsch.com/@konstantin) `(Fediverse)`, Instagram, Snapchat
 - **📢 Social Media Clients:** Tuba, Tusky, Instagram App, Snapchat App
