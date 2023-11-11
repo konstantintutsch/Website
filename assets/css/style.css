@@ -94,7 +94,7 @@ nav a, /* navigator links ; tabs */
     font-size: 1.5em;
     font-weight: lighter;
 }
-div.post { margin-bottom: 2em; }
+article.pre { margin-bottom: 2em; }
 h2.nav { margin-top: 2em; } /* all posts link */
 h2 + .date { margin-top: -1.3em; } /* date or description close to heading */
 
