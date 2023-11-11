@@ -4,7 +4,7 @@ title: Blog
 description: Welcome to Konstantin Tutsch's website. Here you can discover lots of information about me, contact options and my personal blog.
 ---
 {% for post in site.posts limit:site.newest %}
-    {% include post.html url=post.url title=post.title date=post.date %}
+    {% include post.html post=post %}
 {% endfor %}
 
 <h2 class="nav"><a href="/archive">All posts →</a></h2>
