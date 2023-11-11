@@ -1,5 +1,5 @@
 <div id="top">
-    <a id="site" href="/">
+    <a id="site" href="/" aria-label="Go to blog page">
         <svg id="logo" viewBox="0 0 12.7 12.7">
             <g id="layer1" stroke="#000" stroke-linecap="square">
                 <circle id="path788" cx="6.35" cy="6.35" r="5" fill="none"/>
@@ -10,11 +10,11 @@
                 <path id="path2192" d="m9.7719 9.6868-7.1723-5.9957"/>
             </g>
         </svg>
-        <h1 id="title">{{ site.title }}</h1>
     </a>
+    <h1 class="hidden">{{ site.title }}</h1>
+    <nav>
+        {% for item in site.data.navigation %}
+            <a {% if page.url == item.path %}class="selected"{% endif %} href="{{ item.path }}">{{ item.name }}</a>
+        {% endfor %}
+    </nav>
 </div>
-<nav>
-    {% for item in site.data.navigation %}
-        <a {% if page.url == item.path %}class="selected"{% endif %} href="{{ item.path }}">{{ item.name }}</a>
-    {% endfor %}
-</nav>
