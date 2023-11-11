@@ -32,11 +32,11 @@ description: All old blog posts by Konstantin Tutsch can be found on this page.
     {% assign currPosts = currPosts | plus: 1 %}
 {% endfor %}
 
-<ul>
+{% assign prefixY = "→ " %}
+
 {% for year in years %}
-    <li><a href="#{{ year | slugify }}">{{ year | slugify }}</a> ({{ postsY[forloop.index] }} {% if postsY[forloop.index] == "1" %}post{% else %}posts{% endif %})</li>
+    <p><a href="#{{ year | prepend: prefixY | slugify }}">{{ year | slugify }}</a> ({{ postsY[forloop.index] }} {% if postsY[forloop.index] == "1" %}post{% else %}posts{% endif %})</p>
 {% endfor %}
-</ul>
 
 {% assign previousY = "" %}
 {% for post in site.posts %}
@@ -46,11 +46,9 @@ description: All old blog posts by Konstantin Tutsch can be found on this page.
 
     {% if currentY != previousY %}
         {% assign previousY = currentY %}
-        {% unless forloop.first %}</ul>{% endunless %}
-        {% include heading.html level=3 text=currentY %}
-        <ul>
-        {% if forloop.last%}</ul>{% endif %}
+        {% assign headingY = currentY | prepend: prefixY %}
+        {% include heading.html level=2 text=headingY %}
     {% endif %}
 
-    <li>{% include post.html url=post.url title=post.title date=post.date %}</li>
+    {% include post.html url=post.url title=post.title date=post.date %}
 {% endfor %}
