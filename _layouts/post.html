@@ -8,12 +8,14 @@
         <header>
             {% include navigation.html %}
         </header>
-        <article>
+        <main>
             <h2>{{ page.title }}</h2>
             <p class="date">{{ page.date | date_to_string }}</p>
             <p id="description">{{ page.description }}</p>
 
-            {{ content }}
+            <article>
+                {{ content }}
+            </article>
 
             <small id="tags"><b>Tagged with:</b> {% for tag in page.tags %}<a href="/Tag:{{ tag }}">{{ tag }}</a>{% endfor %}</small>
             <div class="reply">
@@ -24,7 +26,7 @@
                     {% include social.html url="mail" name="Reply by email" subject=re %}
                 </p>
             </div>
-        </article>
+        </main>
         <footer>
             {% include footer.html %}
         </footer>

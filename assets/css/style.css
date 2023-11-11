@@ -40,7 +40,7 @@ header {
     text-align: center;
     overflow: hidden;
 }
-article {
+main {
     width: 40vw;
     min-height: 86vh;
     margin: 1em auto 1em auto;
@@ -149,7 +149,7 @@ figure.image figcaption {
 
 /* mobile frindly */
 @media only screen and (max-width: 1200px) { /* tablet */
-    article {
+    main {
         left: 15vw;
         width: 70vw;
     }
@@ -159,7 +159,7 @@ figure.image figcaption {
     @media only screen and (max-width: 768px) { /* phone */
         #logo { height: 3em; }
         
-        article {
+        main {
             left: 5vw;
             width: 90vw;
             min-height: 60vh;
