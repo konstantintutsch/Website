@@ -94,8 +94,7 @@ nav a, /* navigator links ; tabs */
 }
 div.post { margin-bottom: 2em; }
 h2.nav { margin-top: 2em; } /* all posts link */
-li div { font-size: 0.8em; } /* keep titles in archive same size */
-h2 + #date { margin-top: -1.3em; } /* date or description close to heading */
+h2 + .date { margin-top: -1.3em; } /* date or description close to heading */
 
 /* text */
 body { font-family: "Cantarell", sans-serif; } /* font */

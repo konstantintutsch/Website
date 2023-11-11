@@ -6,13 +6,11 @@ layout: default
 <p id="description">All posts about {% if page.description %}{{ page.description }}{% else %}{{ page.title }}{% endif %}.</p>
 
 {% assign counter = 0 %}
-<ul>
 {% for post in site.posts %}
     {% if post.tags contains page.title %}
-        <li>{% include post.html url=post.url title=post.title date=post.date %}</li>
+        {% include post.html url=post.url title=post.title date=post.date %}
         {% assign counter = counter | plus: 1 %}
     {% endif %}
 {% endfor %}
-</ul>
 
 <small><i>There {% if counter == 1 %}is{% else %}are a total of{% endif %} {{ counter }} {% if counter == 1 %}post{% else %}posts{% endif %} assigned to this tag.</i></small>
