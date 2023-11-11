@@ -1,4 +1,4 @@
-#!/bin/bash -i
+#!/bin/bash
 
 # .git/hooks/pre-push (770):
 #
@@ -19,7 +19,7 @@ JEKYLL_ENV=production jekyll build
 
 cd "./_site"
 
-# Tidy up Liquid's access blank spaces and wring indentation
+# Tidy up Liquid's access blank spaces and wrong indentation
 TIDY="/usr/bin/tidy"
 TIDY_ARGS="\-modify \-indent \-utf8 \-quiet"
 if [[ -f "${TIDY}" ]]
