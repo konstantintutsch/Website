@@ -7,6 +7,9 @@ ErrorDocument 404 /errors/404.html
 
 # charset
 AddCharset UTF-8 .html
+AddCharset UTF-8 .xml
+AddCharset UTF-8 .txt
+AddCharset UTF-8 .asc
 
 # browser cache
 ExpiresActive On
