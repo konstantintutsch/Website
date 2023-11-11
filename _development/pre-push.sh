@@ -19,6 +19,15 @@ JEKYLL_ENV=production jekyll build
 
 cd "./_site"
 
+# Tidy up Liquid's access blank spaces and wring indentation
+TIDY="/usr/bin/tidy"
+TIDY_ARGS="\-modify \-indent \-utf8 \-quiet"
+if [[ -f "${TIDY}" ]]
+then
+    eval "find . -name \"*.html\" -exec ${TIDY} ${TIDY_ARGS} {} \;"
+    eval "find . -name \"*.xml\" -exec ${TIDY} \-xml ${TIDY_ARGS} {} \;"
+fi
+
 if [ ! -d "${HOME}/.mnt/website" ]
 then
     mkdir -p "${HOME}/.mnt/website"
