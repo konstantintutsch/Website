@@ -12,15 +12,28 @@
 /* colors */
 :root {
     --accent: #3584e4;
-    --foreground: black;
-    --background: white;
-    --gray: #4e4e4e;
+
+    /* light */
+    --light-foreground: black;
+    --light-background: white;
+    --light-gray: #4e4e4e;
+
+    /* dark */
+    --dark-foreground: white;
+    --dark-background: #1b1b1b;
+    --dark-gray: #b4b4b4;
+
+    /* default: light */
+    --foreground: var(--light-foreground);
+    --background: var(--light-background);
+    --gray: var(--light-gray);
 }
+/* apply dark theme */
 @media (prefers-color-scheme: dark) {
     :root {
-        --foreground: white;
-        --background: #1b1b1b;
-        --gray: #b4b4b4;
+        --foreground: var(--dark-foreground);
+        --background: var(--dark-background);
+        --gray: var(--dark-gray);
     }
 }
 
