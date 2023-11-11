@@ -7,7 +7,7 @@
 # export SFTPUN_STRATO="username"
 # export SFTPPW_STRATO="password"
 #
-# ./_development/pre-push.sh
+# ./_development/deploy.sh
 #
 
 DOMAIN="konstantintutsch.com"
