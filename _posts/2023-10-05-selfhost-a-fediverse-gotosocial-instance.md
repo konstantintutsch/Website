@@ -17,12 +17,12 @@ We will use Nginx for a local reverse proxy to not dedicate ports 80 and 443 to 
 
 For Debian systems, you can install these packages:
 
-{% highlight shell %}
+```
 apt install \
             nginx certbot python3-certbot-nginx \
             sudo postgresql \
             wget
-{% endhighlight %}
+```
 
 {% include heading.html level=3 text="Database setup" %}
 
@@ -30,37 +30,37 @@ You need to setup a database and database user first. GoToSocial will store most
 
 To gurantee that PostgreSQL is always running, enable it's service:
 
-{% highlight shell %}
+```
 systemctl enable --now postgresql
-{% endhighlight %}
+```
 
 The `--now` flag also starts the service.
 
 You can now enter the PostgreSQL shell:
 
-{% highlight shell %}
+```
 sudo -u postgres psql
-{% endhighlight %}
+```
 
 {% include heading.html level=4 text="SQL" %}
 
 Create a new user for GoToSocial first:
 
-{% highlight sql %}
+```
 CREATE USER gotosocial WITH PASSWORD 'password';
-{% endhighlight %}
+```
 
 Now, you can also create a new database for GtS:
 
-{% highlight sql %}
+```
 CREATE DATABASE gotosocial WITH OWNER gotosocial ENCODING 'utf-8';
-{% endhighlight %}
+```
 
 Last, grant all rights on that database to the GoToSocial user:
 
-{% highlight sql %}
+```
 GRANT ALL ON DATABASE gotosocial TO gotosocial;
-{% endhighlight %}
+```
 
 {% include heading.html level=3 text="Bare metal" %}
 
@@ -70,9 +70,9 @@ To increase security, use a seperate user and group for GoToSocial.
 
 Create a Linux user for GoToSocial:
 
-{% highlight shell %}
+```
 useradd -r -b /mnt/storage -m -s /bin/bash gotosocial
-{% endhighlight %}
+```
 
 `-r`: system user
 
@@ -82,16 +82,16 @@ useradd -r -b /mnt/storage -m -s /bin/bash gotosocial
 
 … also the group:
 
-{% highlight shell %}
+```
 groupadd gotosocial
 usermod -a -G gotosocial gotosocial
-{% endhighlight %}
+```
 
 Once finished, log into the user and enter it's home directory:
 
-{% highlight shell %}
+```
 su - gotosocial
-{% endhighlight %}
+```
 
 {% include heading.html level=4 text="Resources" %}
 
@@ -99,27 +99,27 @@ Then, download the [latest version](https://github.com/superseriousbusiness/goto
 
 > Don't forget to also select the correct architecture!
 
-{% highlight shell %}
+```
 wget https://github.com/superseriousbusiness/gotosocial/releases/download/v0.11.1/gotosocial_0.11.1_linux_arm64.tar.gz
-{% endhighlight %}
+```
 
 … and unpack it:
 
-{% highlight shell %}
+```
 tar xf gotosocial_0.11.1_linux_arm64.tar.gz
-{% endhighlight %}
+```
 
 {% include heading.html level=4 text="Configuration" %}
 
 You can use the default configuration as a starting point:
 
-{% highlight shell %}
+```
 cp ./example/config.yaml ./config.yaml
-{% endhighlight %}
+```
 
 These are important values to change, but **not** the full configuration file:
 
-{% highlight yaml %}
+```
 host: "social.example.com"
 account-domain: "social.example.com"
 
@@ -138,7 +138,7 @@ storage-backend: "local"
 storage-local-base-path: "./storage"
 
 letsencrypt-enabled: false
-{% endhighlight %}
+```
 
 Don't worry about HTTP, the disabled Let's Encrypt and the weird port 60000. We will use Nginx as a reverse proxy, these settings are only for the host itself.
 
@@ -146,21 +146,21 @@ Don't worry about HTTP, the disabled Let's Encrypt and the weird port 60000. We 
 
 Before deploying the service file, we need to change it a little bit. It, again, is **not** the whole unit file:
 
-{% highlight plaintext %}
+```
 [Service]
 WorkingDirectory=/mnt/storage/gotosocial
-{% endhighlight %}
+```
 
 GoToSocial itself is ready now:
 
-{% highlight shell %}
+```
 exit
 
 cp /mnt/storage/gotosocial/gotosocial.service /etc/systemd/system/gotosocial.service
 
 systemctl daemon-reload
 systemctl enable --now gotosocial
-{% endhighlight %}
+```
 
 {% include heading.html level=3 text="Reverse proxy" %}
 
@@ -172,7 +172,7 @@ You can configure Nginx like this:
 
 **/etc/nginx/sites-available/gotosocial**
 
-{% highlight nginx %}
+```
 server {
   listen 443 ssl;
   listen [::]:443 ssl;
@@ -206,21 +206,21 @@ server {
 
     return 404; # managed by Certbot
 }
-{% endhighlight %}
+```
 
 Just request the SSL certificate:
 
-{% highlight shell %}
+```
 certbot --nginx -d social.example.com
-{% endhighlight %}
+```
 
 … and start Nginx.
 
-{% highlight shell %}
+```
 ln -s /etc/nginx/sites-available/gotosocial /etc/nginx/sites-enabled/gotosocial
 
 systemctl enable --now nginx
-{% endhighlight %}
+```
 
 You are finally live!
 
@@ -232,27 +232,27 @@ I'm sorry to tell you that I may have lied a bit when I said that. Your account 
 
 Let's go back to GtS:
 
-{% highlight shell %}
+```
 su - gotosocial
-{% endhighlight %}
+```
 
 … and create a user:
 
-{% highlight shell %}
+```
 gotosocial --config-path /path/to/config.yaml \
            admin account create \
            --username username \
            --email hey@example.com \
            --password "secretpassword"
-{% endhighlight %}
+```
 
 I'm just guessing, but could you also be the admin of this instance? */s*
 
-{% highlight shell %}
+```
 gotosocial --config-path /path/to/config.yaml \
            admin account promote \
            --username username
-{% endhighlight %}
+```
 
 {% include heading.html level=3 text="GoToSocial" %}
 
@@ -270,7 +270,7 @@ If you want to try federation, why not ping me?
 
 You might consider backup-ing your instance too. Here's how I do it:
 
-{% highlight shell %}
+```
 echo "Creating GoToSocial PostgreSQL dump …"
 ssh "root"@"$HOST" "sudo -iu postgres pg_dump gotosocial" > "${BKPDIR}/gotosocial-pgsqldump.txt"
 if [ ! -d "${BKPDIR}/gotosocial-media" ]
@@ -289,7 +289,7 @@ done
 scp "root"@"$HOST":"/mnt/storage/gotosocial/config.yaml" "${BKPDIR}/gotosocial-config.yaml"
 scp "root"@"$HOST":"/mnt/storage/gotosocial/gotosocial.service" "${BKPDIR}/gotosocial.service"
 scp "root"@"$HOST":"/etc/nginx/sites-available/gotosocial" "${BKPDIR}/gotosocial"
-{% endhighlight %}
+```
 
 This is a really hacky method that works for me. But **don't trust it!**
 

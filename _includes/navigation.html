@@ -1,7 +1,7 @@
 <div id="top">
     <a class="invisible" href="/" aria-label="Go to blog page">
-        <svg id="logo" viewBox="0 0 12.7 12.7">
-            <g id="layer1" stroke="#000" stroke-linecap="square">
+        <svg class="logo" viewBox="0 0 12.7 12.7">
+            <g stroke-linecap="square">
                 <circle id="path788" cx="6.35" cy="6.35" r="5" fill="none"/>
                 <path id="path1224" d="m1.6605 6.893 7.6874 3.1458"/>
                 <path id="path1226" d="m10.426 8.4694-4.842-6.8633"/>
@@ -12,7 +12,7 @@
         </svg>
     </a>
     <h1 class="hidden">{{ site.title }}</h1>
-    <nav>
+    <nav class="main-menu">
         {% for item in site.data.navigation %}
             <a {% if page.url == item.path %}class="selected"{% endif %} href="{{ item.path }}">{{ item.name }}</a>
         {% endfor %}
