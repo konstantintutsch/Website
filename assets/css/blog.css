@@ -27,15 +27,21 @@ blockquote p:last-of-type {
 }
 
 /* code */
-figure.highlight,
+.highlight,
 p code { font-family: "Hack", monospace; }
 
-figure.highlight {
+.highlight {
     overflow-x: scroll;
     margin: 0;
     font-size: 1.5em;
+    border: 0.1em solid var(--foreground);
 }
-p code { font-size: 0.9em; }
+.highlight pre { margin: 0.5em; }
+
+p code {
+    font-size: 0.9em;
+    color: var(--accent);
+}
 del { text-decoration-thickness: 0.15em; }
 /* code highlighting */
 /* sql */
