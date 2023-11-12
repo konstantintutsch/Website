@@ -62,7 +62,7 @@ main {
 }
 footer {
     min-height: 2vh;
-    margin: 2em auto 0.5em auto;
+    margin: 1em auto 1em auto;
     left: 0;
     text-align: center;
 }
@@ -102,7 +102,7 @@ nav a, /* navigator links ; tabs */
     margin: 0.1em;
     font-size: 1.2em;
 }
-h2.nav { margin-top: 2em; } /* all posts link */
+h2.nav { margin: 2em auto 2em 0; } /* all posts link */
 
 /* preview */
 article.pre { margin-bottom: 2em; }
