@@ -20,7 +20,8 @@ do
 done
 
 # define filename with slugified title
-FILE="./_posts/$(date +%Y-%m-%d)-$(echo ${VALUES[2]} | tr -dc "[:alnum:]\n\r\ " | tr "[:upper:]" "[:lower:]" | tr "\ " "-" | sed "s/--/-/g" ).md"
+URL="$(echo ${VALUES[2]} | tr -dc "[:alnum:]\n\r\ " | tr "[:upper:]" "[:lower:]" | tr "\ " "-" | sed "s/--/-/g" )"
+FILE="./_posts/$(date +%Y-%m-%d)-${URL}.md"
 appendf() {
     echo "$1" >> "$FILE" || echo "Could not append line “${1}” to “${FILE}”"
 }
@@ -54,5 +55,9 @@ sed -i -e "s/time: 00:00:00 +0000/time: $(date +"%H:%M:%S %z")/g" "${FILE}" || e
 
 # deploy new post with git post-commit hook
 git add "${FILE}"
+git add "./assets/images"
 git commit -m "New post: ${VALUES[2]}"
 git push -u origin main
+
+printf -v toot_content '%s\n\nhttps://konstantintutsch.com/%s/' "${VALUES[2]}" "${URL}"
+toot post "${toot_content}"
