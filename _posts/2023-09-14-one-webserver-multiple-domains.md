@@ -27,7 +27,7 @@ This is how it could look like. Each configuration has their respective site.
 
 **example1.com**
 
-{% highlight nginx %}
+```
 server {
   listen 443 ssl;
   listen [::]:443 ssl;
@@ -54,11 +54,11 @@ server {
 
   return 404; # managed by Certbot
 }
-{% endhighlight %}
+```
 
 **example2.com**
 
-{% highlight nginx %}
+```
 server {
   listen 443 ssl;
   listen [::]:443 ssl;
@@ -85,7 +85,7 @@ server {
 
   return 404; # managed by Certbot
 }
-{% endhighlight %}
+```
 
 {% include heading.html level=3 text="Conclusion" %}
 
@@ -94,3 +94,7 @@ That's it, a really handy trick to save money and host multiple services on a si
 This, of course, only works with web apps. If your app isn't web-based, then you should look into SRV records. But they only work with applications and protocols who intend to use them.
 
 Hope you enjoyed reading this post and that the information from here helps you at some point somewhere 😄
+
+```
+test
+```

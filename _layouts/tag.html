@@ -3,7 +3,7 @@ layout: default
 ---
 <h2>Tag: {{ page.title }}</h2>
 
-<p id="description">All posts about {% if page.description %}{{ page.description }}{% else %}{{ page.title }}{% endif %}.</p>
+<p class="description">All posts about {% if page.description %}{{ page.description }}{% else %}{{ page.title }}{% endif %}.</p>
 
 {% assign counter = 0 %}
 {% for post in site.posts %}

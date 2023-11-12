@@ -2,7 +2,6 @@
 <html lang="en">
     <head>
         {% include head.html %}
-        <link rel="preload stylesheet" href="/assets/css/blog.css" as="style" type="text/css">
     </head>
     <body>
         <header>
@@ -17,7 +16,7 @@
                 {{ content }}
             </article>
 
-            <small id="tags"><b>Tagged with:</b> {% for tag in page.tags %}<a href="/Tag:{{ tag }}">{{ tag }}</a>{% endfor %}</small>
+            <small class="tags-container"><b>Tagged with:</b> {% for tag in page.tags %}<a class="tag" href="/Tag:{{ tag }}">{{ tag }}</a>{% endfor %}</small>
             <div class="reply">
                 <h3>Reply to this post</h3>
                 <p>

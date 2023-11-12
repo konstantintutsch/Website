@@ -16,7 +16,7 @@ There also is [The 512KB Club](https://512kb.club/) by Kev Quirk which is a coll
 
 {% include heading.html level=3 text="Favicon" %}
 
-{% highlight html %}
+```
 <!-- Icons -->
 <link rel="icon" href="/assets/images/favicon-48.png" type="image/png" sizes="48x48">
 <link rel="icon" href="/assets/images/favicon-96.png" type="image/png" sizes="96x96">
@@ -24,7 +24,7 @@ There also is [The 512KB Club](https://512kb.club/) by Kev Quirk which is a coll
 <link rel="icon" href="/assets/images/favicon-192.png" type="image/png" sizes="192x192">
 <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml" sizes="any">
 <link rel="apple-touch-icon" href="/assets/images/favicon-192.png" type="image/png" sizes="192x192">
-{% endhighlight %}
+```
 
 This is my part of the header dedicated to the favicon. As you can see, I provide it in multiples of 48px and as an SVG. This allows the client to decide which scale is needed and then only load that version instead of downloading a large favicon to then only downscale it.
 
@@ -42,7 +42,7 @@ To decrease your images sizes, just encode it to a WebP. WebP's are extremely sm
 
 Furthermore, for my icon, I wrote the SVG code directly into the HTML. This removes the communication between client and server for yet another file.
 
-{% highlight html %}
+```
 <div id="top">
     <a id="site" href="/">
         <svg id="logo" viewBox="0 0 12.7 12.7">
@@ -58,7 +58,7 @@ Furthermore, for my icon, I wrote the SVG code directly into the HTML. This remo
         <h1 id="title">{{ site.title }}</h1>
     </a>
 </div>
-{% endhighlight %}
+```
 
 {% include heading.html level=3 text="Measuring your site" %}
 
