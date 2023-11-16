@@ -1,6 +1,6 @@
 - name: Blog
   path: /blog/
-- name: About
-  path: /
 - name: Contact
   path: /contact/
+- name: More …
+  path: /links/
