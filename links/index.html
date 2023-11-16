@@ -1,0 +1,30 @@
+---
+layout: default
+title: Links
+description: All links related to Konstantin Tutsch
+---
+
+{% include heading.html level=2 text=page.title %}
+
+<p class="description">
+Are you looking for something? You will probably find it here.
+</p>
+
+{% include heading.html level=3 text="Website" %}
+
+<ul>
+    <li><a href="/">Homepage</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/contact/">Contact</a></li>
+    <li><a href="/tags/">Tags</a></li>
+    <li><a href="/privacy/">Privacy</a></li>
+    <li><a href="/disclaimer/">Disclaimer</a></li>
+</ul>
+
+{% include heading.html level=2 text="Other" %}
+
+<ul>
+    {% for item in site.data.social %}
+    <li>{% include social.html url=item.url name=item.name %}</li>
+    {% endfor %}
+</ul>
