@@ -135,7 +135,8 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
     color: inherit; /* no special highlighting for already clicked links */
-    text-decoration: underline var(--text-decoration);
+    text-decoration: underline;
+    text-decoration-thickness: var(--text-decoration);
     transition-duration: 0.3s;
 }
 a:hover, .selected {
