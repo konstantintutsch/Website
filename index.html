@@ -3,8 +3,48 @@ layout: default
 title: Blog
 description: Welcome to Konstantin Tutsch's website. Here you can discover lots of information about me, contact options and my personal blog.
 ---
+
+{% include heading.html level=2 text="Welcome 👋" %}
+
+<p class="description">
+Hi, I'm Konstantin Tutsch
+</p>
+
+<article>
+    <p>
+    Some of my interests include, among other things, …
+    </p>
+    <ul>
+        <li>Coffee <i>(especially espresso)</i></li>
+        <li>Software Development</li>
+        <li>Open-Source Software</li>
+    </ul>
+    <p>
+    In my <a href="/blog/">blog posts</a>, I write about technology-related topics and also ramble about them.
+    </p>
+    <p>
+    You'd like to contact me? <a href="/contact/">No problem!</a>
+    </p>
+</article>
+
+{% include heading.html level=2 text="Recent posts" %}
+
 {% for post in site.posts limit:site.newest %}
     {% include preview.html post=post %}
 {% endfor %}
 
-<h2 class="preview-navigator"><a href="/archive">All posts →</a></h2>
+<a class="preview-title" href="/blog/">All posts →</a>
+
+{% include heading.html level=2 text="Colophon" %}
+
+<article>
+   <p>
+   <a href="/Tag:Blog">This site</a> is written with/in HTML, CSS and Liquid <i>(compiled by <a href="https://jekyllrb.com">Jekyll</a>)</i>. Text is displayed in the font <a href="https://cantarell.gnome.org/">Cantarell</a>.
+   </p>
+   <p>
+   Feel free to subcribe to the {% include social.html url="/feed.xml" name="RSS feed" %} containing my blog posts.
+   </p>
+   <p>
+   The <i>uncompiled</i> source code can be examined and/or edited on <a href="https://codeberg.org/konstantintutsch/Website/">Codeberg</a>.
+   </p>
+</article>
