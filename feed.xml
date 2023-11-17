@@ -17,6 +17,8 @@ layout: null
                 {{ post.url | prepend: site.url }}
             </link>
             <description>
+                <p>{{ post.description }}</p>
+
                 {{ post.content }}
 
                 {% assign re = "Post: " | append: post.title %}
