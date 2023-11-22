@@ -8,7 +8,7 @@ port: 8000
 host: 0.0.0.0
 
 # Blogging
-newest: 8
+newest: 4
 collections:
     posts:
         output: true

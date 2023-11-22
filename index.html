@@ -12,22 +12,22 @@ Hi, I'm Konstantin Tutsch
 
 <article>
     <p>
-    Some of my interests include, among other things, …
-    </p>
-    <ul>
-        <li>Coffee <i>(especially espresso)</i></li>
-        <li>Software Development</li>
-        <li>Open-Source Software</li>
-    </ul>
-    <p>
-    On my <a href="/blog/">blog</a>, I primarily ramble about technology-related topics.
+    Some of my interests 🤔 include, among other things, coffee <i>(especially espresso)</i> ☕, software development 🧑‍💻 and open-source software 🐧
     </p>
     <p>
-    You'd like to contact me? <a href="/contact/">No problem</a>!
+    You can also check-out my <a href="/now/">now</a> page 🛰️ to get an impression on what I'm doing at the moment.
+    </p>
+    <p>
+    I also maintaine a <a href="/blog/">blog</a> 📝 where I primarily ramble about technology-related 💻 topics.
+    </p>
+    <p>
+    If you'd like to contact me, just visit my <a href="/contact/">contact</a> 📇 page!
     </p>
 </article>
 
-{% include heading.html level=2 text="Recent posts" %}
+{% include heading.html level=3 text="Recent posts" %}
+
+<p>Below is a little sample of my blog 😄</p>
 
 {% for post in site.posts limit:site.newest %}
     {% include preview.html post=post %}
@@ -35,17 +35,18 @@ Hi, I'm Konstantin Tutsch
 
 <a class="preview-title" href="/blog/">All posts →</a>
 
-{% include heading.html level=2 text="Colophon" %}
+{% include heading.html level=3 text="Colophon" %}
 
 <article>
+    <p>All technologies involved in creating this site are listed here 📚</p>
    <p>
-   This <a href="/Tag:Blog">site</a> is written with/in HTML, CSS and Liquid <i>(compiled by <a href="https://jekyllrb.com">Jekyll</a>)</i>. Text is displayed in the font <a href="https://cantarell.gnome.org/">Cantarell</a>.
+   My <a href="/Tag:Blog">website</a> is written in HTML, CSS and Liquid <i>(compiled by <a href="https://jekyllrb.com">Jekyll</a>)</i>. Text is displayed in the font <a href="https://cantarell.gnome.org/">Cantarell</a>. The text editor ⌨️ used to write that code is NeoVim.
    </p>
    <p>
-   Feel free to subcribe to the {% include social.html url="/feed.xml" name="RSS feed" %} containing my blog posts.
+   Feel free to subcribe to the {% include social.html url="/feed.xml" name="RSS feed" %} 🗞️ containing my blog posts.
    </p>
    <p>
-   The <i>uncompiled</i> source code can be examined and/or edited on <a href="https://codeberg.org/konstantintutsch/Website/">Codeberg</a>.
+   The <i>uncompiled</i> source code 📖 can be examined and/or edited on <a href="https://codeberg.org/konstantintutsch/Website/">Codeberg</a>.
    </p>
 </article>
 
