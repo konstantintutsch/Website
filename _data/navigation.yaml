@@ -1,3 +1,5 @@
+- name: Now
+  path: /now/
 - name: Blog
   path: /blog/
 - name: Contact
