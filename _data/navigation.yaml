@@ -1,7 +1,5 @@
 - name: Now
   path: /now/
-- name: Blog
-  path: /blog/
 - name: Contact
   path: /contact/
 - name: More …
