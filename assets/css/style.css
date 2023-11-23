@@ -15,6 +15,7 @@
     --bold: 800;
     --text-decoration: 0.1em;
     --border-size: 0.2rem;
+    --fade-time: 0.3s;
 }
 
 /* Global colors */
@@ -137,7 +138,7 @@ a {
     color: inherit; /* no special highlighting for already clicked links */
     text-decoration: underline;
     text-decoration-thickness: var(--text-decoration);
-    transition-duration: 0.3s;
+    transition-duration: var(--fade-time);
 }
 a:hover, .selected {
     background: var(--accent);
