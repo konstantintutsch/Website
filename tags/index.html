@@ -6,8 +6,10 @@ description: All tags of Konstantin Tutsch's blog.
 
 {% include heading.html level=2 text=page.title %}
 
-<ul>
-{% for tag in site.tags %}
-    <li><a href="/Tag:{{ tag.title }}">{{ tag.title }}</a></li>
-{% endfor %}
-</ul>
+<article>
+    <ul>
+    {% for tag in site.tags %}
+        <li><a href="/Tag:{{ tag.title }}">{{ tag.title }}</a></li>
+    {% endfor %}
+    </ul>
+</article>
