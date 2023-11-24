@@ -27,7 +27,7 @@ Hi, I'm Konstantin Tutsch
 
 {% include heading.html level=3 text="Recent posts" %}
 
-<p>Below is a little sample of my blog 😄</p>
+<p class="description">Below is a little sample of my blog 😄</p>
 
 {% for post in site.posts limit:site.newest %}
     {% include preview.html post=post %}
@@ -38,7 +38,7 @@ Hi, I'm Konstantin Tutsch
 {% include heading.html level=3 text="Colophon" %}
 
 <article>
-    <p>All technologies involved in creating this site are listed here 📚</p>
+    <p class="description">All technologies involved in creating this site are listed here 📚</p>
     <ul>
         <li><b>Code languages 📜:</b> This site is written in HTML, CSS, XML, Markdown and Liquid <i>(compiled by <a href="https://jekyllrb.com">Jekyll</a>).</i></li>
         <li><b>Text editor ⌨️:</b> I write all code and posts in NeoVim 🧑‍💻.</li>
