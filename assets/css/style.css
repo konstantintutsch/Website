@@ -11,6 +11,7 @@
 :root {
     --sans: "Cantarell", sans-serif;
     --mono: monospace;
+    --text-size: 1.3rem;
 
     --bold: 800;
     --text-decoration: 0.1em;
@@ -51,7 +52,7 @@ body {
     background: var(--background);
     color: var(--foreground);
     font-family: var(--sans);
-    font-size: 1.3rem;
+    font-size: var(--text-size);
 }
 
 header {
@@ -123,7 +124,7 @@ h4 {
 }
 
 h5 {
-    font-size: 1.3rem;
+    font-size: var(--text-size);
 }
 
 h6 {
@@ -170,6 +171,13 @@ del {
     background: transparent;
     color: var(--foreground); /* rremove link highlighting */
     text-decoration: none;
+}
+
+.image-link:hover {
+    background: var(--background);
+}
+.image-link img {
+    height: 2.6rem;
 }
 
 /* Post elements */
