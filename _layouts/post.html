@@ -17,13 +17,16 @@
             </article>
 
             <small class="tags-container"><b>Tagged with:</b> {% for tag in page.tags %}<a class="tag" href="/Tag:{{ tag }}">{{ tag }}</a>{% endfor %}</small>
-            <div class="reply">
+            <div class="info">
                 <h3>Reply to this post</h3>
-                <p>
-                    If you have any thoughts about the contents of this post, email me so we can have a fun little chat about it.<br>
-                    {% assign re = "Post: " | append: page.title %}<br>
-                    {% include social.html url="mail" name="Reply by email" subject=re %}
-                </p>
+                <p>If you have any thoughts about the contents of this post, email me so we can have a fun little chat about it.</p>
+                {% assign re = "Post: " | append: page.title %}
+                <p>{% include social.html url="mail" name="Reply by email" subject=re %}</p>
+            </div>
+            <div class="info">
+                <h3>Enjoyed this post?</h3>
+                <p>Maintaining this site is a lot of work. I hope you have found this post useful in one way or another. I would appreciate your support ❤️</p>
+                <p>{% include social.html url="https://ko-fi.com/konstantintutsch" name="Buy me a coffee" %}</p>
             </div>
         </main>
         <footer>
