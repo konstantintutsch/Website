@@ -260,11 +260,11 @@ code {
     margin: 0.2rem;
 }
 
-.reply {
+.info {
     border-top: solid var(--foreground) 0.1rem;
     text-align: center;
 }
-.reply p {
+.info p {
     margin-left: 5vw;
     margin-right: 5vw;
 }
