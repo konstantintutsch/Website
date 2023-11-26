@@ -21,9 +21,9 @@ layout: null
 
                 {{ post.content }}
 
-                {% assign re = "Post: " | append: post.title %}
-                <p>{% include social.html url="mail" name="Reply to this post by email" subject=re %}</p>
-                <p>{% include social.html url="https://ko-fi.com/konstantintutsch" name="Buy me a coffee ❤️" %}</p>
+                <p></p>
+                {% include replyto.html title=post.title %}
+                <p>{% include social.html id="ko-fi" name="Buy me a coffee ❤️" %}</p>
             </description>
             <pubDate>{% if post.time %}{% assign stamp = post.date | date: "%Y-%m-%d" | append: " " | append: post.time %}{% else %}{% assign stamp = post.date %}{% endif %}{{ stamp | date_to_rfc822 }}</pubDate>
             <guid>

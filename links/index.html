@@ -26,13 +26,16 @@ description: All links related to Konstantin Tutsch
 
     <p>If you like what I've been doing, you can tip me a bit here. Thank you for your support ❤️</p>
 
-    <a class="image-link" href="https://ko-fi.com/konstantintutsch" aria-label="Buy me a coffee at Ko-Fi"><img src="https://storage.ko-fi.com/cdn/kofi1.png?v=3" alt="Buy Me a Coffee at ko-fi.com"></a>
+    {% include social.html id="ko-fi" name='<img src="https://storage.ko-fi.com/cdn/kofi1.png?v=3" alt="Buy Me a Coffee at ko-fi.com">' classes="image-link" %}
 
     {% include heading.html level=2 text="Other" %}
 
     <ul>
-        {% for item in site.data.social %}
-        <li>{% include social.html url=item.url name=item.name %}</li>
-        {% endfor %}
+        <li>{% include social.html id="codeberg" name="Codeberg" %}</li>
+        <li>{% include social.html id="fediverse" name="Fediverse <i>e. g. Mastodon</i>" %}</li>
+        <li>{% include social.html id="github" name="GitHub" %}</li>
+        <li>{% include social.html id="liberapay" name="LiberaPay" %}</li>
+        <li>{% include social.html id="osm" name="OpenStreetMap" %}</li>
+        <li>{% include social.html id="musicbrainz" name="MusicBrainz" %}</li>
     </ul>
 </article>
