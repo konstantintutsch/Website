@@ -11,5 +11,3 @@
         <li><b>🧐 My rating:</b> {% for star in (1..include.stars)%}★{% endfor %}{% for star in (include.stars..4)%}☆{% endfor %} <i>({{ include.stars }}/5)</i></li>
     </ul>
 </div>
-
-{% include heading.html level=3 text="My opinion" %}
