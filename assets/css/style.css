@@ -221,7 +221,6 @@ ul {
 .book {
     margin-top: 2rem;
     padding-right: 1rem;
-    border: var(--border-size) solid var(--foreground);
     height: fit-content;
     width: fit-content;
 }
@@ -248,10 +247,8 @@ code {
     font-size: 1.15rem;
 }
 .highlight pre {
-    margin: 0 2rem 0 2rem;
-    padding: 1rem;
+    margin: 1rem 2rem 1rem 2rem;
     overflow-x: scroll;
-    border: solid var(--border-size) var(--gray);
 }
 
 .tags-container {
