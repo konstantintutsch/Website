@@ -122,21 +122,25 @@ These are important values to change, but **not** the full configuration file:
 ```
 host: "social.example.com"
 account-domain: "social.example.com"
-
+```
+```
 protocol: "http"
 bind-address: "0.0.0.0"
 port: 60000
-
+```
+```
 db-type: "postgres"
 db-address: "localhost"
 db-port: "5432"
 db-user: "gotosocial"
 db-password: "password"
 db-database: "gotosocial"
-
+```
+```
 storage-backend: "local"
 storage-local-base-path: "./storage"
-
+```
+```
 letsencrypt-enabled: false
 ```
 
@@ -155,9 +159,11 @@ GoToSocial itself is ready now:
 
 ```
 exit
-
+```
+```
 cp /mnt/storage/gotosocial/gotosocial.service /etc/systemd/system/gotosocial.service
-
+```
+```
 systemctl daemon-reload
 systemctl enable --now gotosocial
 ```
@@ -177,12 +183,14 @@ server {
   listen 443 ssl;
   listen [::]:443 ssl;
   server_name social.example.com;
- 
+```
+```
   ssl_certificate /etc/letsencrypt/live/social.example.com/fullchain.pem; # managed by Certbot
   ssl_certificate_key /etc/letsencrypt/live/social.example.com/privkey.pem; # managed by Certbot
   include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
   ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
-
+```
+```
   location / {
     proxy_pass http://127.0.0.1:60000;
     proxy_set_header Host $host;
@@ -191,19 +199,23 @@ server {
     proxy_set_header X-Forwarded-For $remote_addr;
     proxy_set_header X-Forwarded-Proto $scheme;
   }
-
+```
+```
   client_max_body_size 40M;
 }
-
+```
+```
 server {
     listen 80;
     listen [::]:80;
     server_name social.example.com;
-
+```
+```
     if ($host = social.example.com) {
         return 301 https://$host$request_uri;
     } # managed by Certbot
-
+```
+```
     return 404; # managed by Certbot
 }
 ```
@@ -218,7 +230,8 @@ certbot --nginx -d social.example.com
 
 ```
 ln -s /etc/nginx/sites-available/gotosocial /etc/nginx/sites-enabled/gotosocial
-
+```
+```
 systemctl enable --now nginx
 ```
 

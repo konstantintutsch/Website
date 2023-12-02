@@ -26,6 +26,12 @@ if [[ -f "${TIDY}" ]]
 then
     eval "find . -name \"*.html\" -exec ${TIDY} ${TIDY_ARGS} {} \;"
     eval "find . -name \"*.xml\" -exec ${TIDY} \-xml ${TIDY_ARGS} {} \;"
+else
+    for EXTENSION in "html" "xml"
+    do
+        echo "Extension “${EXTENSION}” …"
+        eval "find . -name \"*.${EXTENSION}\" -exec sed -i -e '/^[[:space:]]*$/d' -e 's/\t\+</</g' -e 's/\ \ \+</</g' {} \;"
+    done
 fi
 
 if [ ! -d "${HOME}/.mnt/website" ]
