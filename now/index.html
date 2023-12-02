@@ -3,6 +3,7 @@ layout: default
 title: Now page
 description: A page dedicated to what I'm doing at the moment.
 now: 2023-11-30
+location: Germany
 ---
 
 {% include heading.html level=2 text="Now" %}
@@ -16,6 +17,6 @@ now: 2023-11-30
     <p><b>Getting to know Fedora Linux 🐧:</b> I recently <a href="/gentoo-has-been-bugging-me/">moved away from Gentoo Linux</a> to Fedora. I am now leaning about Flatpak, SELinux, DNF and more.</p>
 </article>
 
-<small><i>Last updated on {{ page.now | date: "%B %-d, %Y" }}</i></small>
+<small><i>Last updated on {{ page.now | date: "%B %-d, %Y" }} from {{ page.location }}</i></small>
 <p></p>
 <small><i>This is my <a href="https://nownownow.com/about">now page</a>, inspired by <a href="https://sive.rs/">Derek Sivers</a>.</i></small>
