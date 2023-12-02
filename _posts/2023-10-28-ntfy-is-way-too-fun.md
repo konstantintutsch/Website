@@ -18,14 +18,14 @@ curl -d "Hi from the commandline 👋" "https://ntfy.example.com/test"
 
 or with a title, tag (the wave emoji) and a priority:
 
-{% highlight shell %}
+```
 curl \
     -H "Title: Greeting" \
     -H "Priority: urgent" \
     -H "Tags: wave" \
     -d "Hi from the commandline. Answer immediately!" \
     "https://ntfy.example.com/test"
-{% endhighlight %}
+```
 
 {% include image.html file="ntfy-hi-with-title-cmd.webp" alt="A notification with the title: '👋 Greeting', content: 'Hi from the commandline. Answer immediately!' and three red arrows point up" caption="And again, a screenshot from the Web UI" %}
 
@@ -43,9 +43,10 @@ Then, after I had discovered and done all that, the service *had* to be implemen
 
 A use case that comes to mind immediately is probably the reporting of downtime. This is also exactly what I did:
 
-{% highlight shell %}
+```
 #!/bin/bash
-
+```
+```
 ntfy-msg() {
     curl \
         -H "Title: ${1}" \
@@ -53,18 +54,21 @@ ntfy-msg() {
         -H "Tags: ${3}" \
         -d "${4}" \
         "https://ntfy.example.com/status"
-
 }
-
+```
+```
 # Web services
-
+```
+```
 WebService=("https://dav.example.com" "https://example.com" "https://social.example.com" "http://192.168.178.49:58080")
 WebName=("Radicale" "Website" "GoToSocial" "Pi-hole Web interface")
-
+```
+```
 for i in $(seq 0 $((${#WebService[@]}-1)))
 do
     http_status="$(curl -f -LI ${WebService[i]} -o /dev/null -s -w %{http_code})"
-
+```
+```
     if [[ $http_status != "200" ]] && [[ $http_status != "405" ]]
     then
         ntfy-msg \
@@ -74,13 +78,13 @@ do
             "There was an error for ${WebName[i]} (${WebService[i]}) with an HTTP Status Code ${http_status}."
     fi
 done
-{% endhighlight %}
+```
 
 Finally, I added this line to my crontab to let the script run every 5 minutes:
 
-{% highlight text %}
+```
 */5   *   *   *   *     bash /root/check_status
-{% endhighlight %}
+```
 
 {% include heading.html level=4 text="Updating" %}
 
@@ -90,9 +94,9 @@ I had always updated manually every Friday, but why bother with that?
 
 So I added another cronjob:
 
-{% highlight text %}
+```
   0   0   *   *   Fri   ntfy pub --title "Update executed" --priority low --tags arrow_double_up --wait-cmd hosting bash -c "apt update && apt upgrade -y"; sleep 5; ntfy pub --title "Reboot" --priority low --tags repeat_one hosting "System is rebooting after an update …"; sleep 5; reboot
-{% endhighlight %}
+```
 
 `--wait-cmd`: ntfy waits until the `bash -c "…"` is done running and the reports if it failed or succeeded
 
@@ -104,11 +108,13 @@ Then, ntfy CLI sends another notification announcing a reboot. Another five seco
 
 Another cool little thing I added, a post-commit hook to re-deploy this website once I've commit something, e. g. a new post.
 
-{% highlight shell %}
+```
 #!/bin/bash -i
-
+```
+```
 shopt -s expand_aliases
-
+```
+```
 ntfy-msg() {
     curl \
         -H "Title: $1" \
@@ -118,11 +124,13 @@ ntfy-msg() {
         "https://ntfy.example.com/status"
     exit
 }
-
+```
+```
 web-deploy || ntfy-msg "Deploying failed" "default" "x" "An error occurred while deploying the new version of konstantintutsch.de."
-
+```
+```
 ntfy-msg "Deploying successful" "low" "white_check_mark" "The new version of konstantintutsch.de was deployed successfully 🔥"
-{% endhighlight %}
+```
 
 `web-deploy` is an alias in my `.bashrc` to build the site with Jekyll and the copy it to the webdir.
 
