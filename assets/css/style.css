@@ -15,7 +15,7 @@
 
     --bold: 800;
     --text-decoration: 0.1em;
-    --border-size: 0.2rem;
+    --border-size: 0.1rem;
     --fade-time: 0.3s;
 }
 
@@ -248,8 +248,10 @@ code {
     font-size: 1.15rem;
 }
 .highlight pre {
-    margin: 0;
+    margin: 0 2rem 0 2rem;
+    padding: 1rem;
     overflow-x: scroll;
+    border: solid var(--border-size) var(--gray);
 }
 
 .tags-container {
@@ -261,7 +263,7 @@ code {
 }
 
 .info {
-    border-top: solid var(--foreground) 0.1rem;
+    border-top: solid var(--foreground) var(--border-size);
     text-align: center;
 }
 .info p {
