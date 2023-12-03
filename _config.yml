@@ -8,6 +8,7 @@ host: 0.0.0.0
 
 # Blogging
 newest: 4
+highlighter: none
 collections:
     posts:
         output: true
