@@ -36,7 +36,7 @@ description: Welcome to Konstantin Tutsch's website. Here you can discover lots 
         <li><b>Feeds 🗞️:</b> Available are a <a href="/feed.xml">RSS feed</a> 📰 and a <a href="/sitemap.xml">sitemap</a> 🗃️.</li>
         <li><b>Source code 📖:</b> The <i>uncompiled</i> source code can be examined and/or edited 🧐 on <a href="https://codeberg.org/konstantintutsch/Website/">Codeberg</a>.</li>
     </ul>
-    <small>🚀 <i>Website last deployed on {{ site.time | date: "the %B %-d, %Y at %H:%M:%S %Z" }}</i></small>
+    <small>🚀 <i>Website last deployed on {{ site.time | utc | date: "the %B %-d, %Y at %H:%M:%S %Z" }}</i></small>
 </article>
 
 <!-- Mastodon verification -->
