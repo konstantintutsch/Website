@@ -246,7 +246,7 @@ code {
     font-family: var(--mono);
     font-size: 1.15rem;
 }
-.highlight pre {
+pre {
     margin: 1rem 2rem 1rem 2rem;
     overflow-x: scroll;
 }
