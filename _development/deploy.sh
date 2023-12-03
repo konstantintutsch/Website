@@ -19,17 +19,6 @@ JEKYLL_ENV=production jekyll build
 
 cd "./_site"
 
-# Tidy up Liquid's access blank spaces and wrong indentation
-TIDY="/usr/bin/tidy"
-TIDY_ARGS="\-modify -wrap 0 \-utf8 \-quiet"
-if [[ -f "${TIDY}" ]]
-then
-    eval "find . -name \"*.html\" -exec ${TIDY} ${TIDY_ARGS} {} \;"
-    eval "find . -name \"*.xml\" -exec ${TIDY} \-xml ${TIDY_ARGS} {} \;"
-else
-    echo "HTML Tidy not found. Exiting …"
-fi
-
 if [ ! -d "${HOME}/.mnt/website" ]
 then
     mkdir -p "${HOME}/.mnt/website"
