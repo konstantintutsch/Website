@@ -32,31 +32,26 @@ server {
   listen 443 ssl;
   listen [::]:443 ssl;
   server_name example1.com;
-```
-```
+
   ssl_certificate /etc/letsencrypt/live/example1.com/fullchain.pem; # managed by Certbot
   ssl_certificate_key /etc/letsencrypt/live/example1.com/privkey.pem; # managed by Certbot
   include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
   ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
-```
-```
+
   location / {
     proxy_pass https://127.0.0.1:59000;
   }
 }
-```
-```
+
 server {
   listen 80;
   listen [::]:80;
   server_name example1.com;
-```
-```
+
   if ($host = example1.com) {
     return 301 https://$host$request_uri;
   } # managed by Certbot
-```
-```
+
   return 404; # managed by Certbot
 }
 ```
@@ -68,31 +63,26 @@ server {
   listen 443 ssl;
   listen [::]:443 ssl;
   server_name example2.com;
-```
-```
+
   ssl_certificate /etc/letsencrypt/live/example2.com/fullchain.pem; # managed by Certbot
   ssl_certificate_key /etc/letsencrypt/live/example2.com/privkey.pem; # managed by Certbot
   include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
   ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
-```
-```
+
   location / {
     proxy_pass https://127.0.0.1:60000;
   }
 }
-```
-```
+
 server {
   listen 80;
   listen [::]:80;
   server_name example2.com;
-```
-```
+
   if ($host = example2.com) {
     return 301 https://$host$request_uri;
   } # managed by Certbot
-```
-```
+
   return 404; # managed by Certbot
 }
 ```

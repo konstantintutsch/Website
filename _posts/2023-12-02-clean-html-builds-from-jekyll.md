@@ -53,26 +53,21 @@ You can put the script anywhere you like, but the filepath has to have an unders
 
 ```
 #!/bin/bash
-```
-```
+
 JEKYLL_ENV=production jekyll build
-```
-```
+
 cd "./_site"
-```
-```
+
 for EXTENSION in "html" "xml"
 do
     echo "Extension “${EXTENSION}” …"
     eval "find . -name \"*.${EXTENSION}\" -exec sed -i -e '/^[[:space:]]*$/d' -e 's/\t\+</</g' -e 's/\ \ \+</</g' {} \;"
 done
-```
-```
+
 sshfs -o reconnect,password_stdin ${YOURUSER}@${SERVER}:/${WEBROOT} ${MOUNT} <<< "${PASSWORD}"
 rsync -rvz --progress --delete ./ ${MOUNT}
 umount ${MOUNT}
-```
-```
+
 if [[ "${PWD##*/}" == "_site" ]]
 then 
     cd ..
@@ -85,15 +80,13 @@ You can create a simple git hook (`.git/hooks/pre-push`) to accomplish that.
 
 ```
 #!/bin/bash
-```
-```
+
 YOURUSER=…
 SERVER=…
 WEBROOT=…
 MOUNT=…
 PASSWORD=…
-```
-```
+
 ./_development/deploy.sh
 ```
 

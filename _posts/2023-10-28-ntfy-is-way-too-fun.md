@@ -45,8 +45,7 @@ A use case that comes to mind immediately is probably the reporting of downtime.
 
 ```
 #!/bin/bash
-```
-```
+
 ntfy-msg() {
     curl \
         -H "Title: ${1}" \
@@ -55,20 +54,16 @@ ntfy-msg() {
         -d "${4}" \
         "https://ntfy.example.com/status"
 }
-```
-```
+
 # Web services
-```
-```
+
 WebService=("https://dav.example.com" "https://example.com" "https://social.example.com" "http://192.168.178.49:58080")
 WebName=("Radicale" "Website" "GoToSocial" "Pi-hole Web interface")
-```
-```
+
 for i in $(seq 0 $((${#WebService[@]}-1)))
 do
     http_status="$(curl -f -LI ${WebService[i]} -o /dev/null -s -w %{http_code})"
-```
-```
+
     if [[ $http_status != "200" ]] && [[ $http_status != "405" ]]
     then
         ntfy-msg \
@@ -110,11 +105,9 @@ Another cool little thing I added, a post-commit hook to re-deploy this website 
 
 ```
 #!/bin/bash -i
-```
-```
+
 shopt -s expand_aliases
-```
-```
+
 ntfy-msg() {
     curl \
         -H "Title: $1" \
@@ -124,11 +117,9 @@ ntfy-msg() {
         "https://ntfy.example.com/status"
     exit
 }
-```
-```
+
 web-deploy || ntfy-msg "Deploying failed" "default" "x" "An error occurred while deploying the new version of konstantintutsch.de."
-```
-```
+
 ntfy-msg "Deploying successful" "low" "white_check_mark" "The new version of konstantintutsch.de was deployed successfully 🔥"
 ```
 
