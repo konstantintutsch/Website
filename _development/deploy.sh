@@ -21,17 +21,13 @@ cd "./_site"
 
 # Tidy up Liquid's access blank spaces and wrong indentation
 TIDY="/usr/bin/tidy"
-TIDY_ARGS="\-modify \-indent \-utf8 \-quiet"
+TIDY_ARGS="\-modify -wrap 0 \-utf8 \-quiet"
 if [[ -f "${TIDY}" ]]
 then
     eval "find . -name \"*.html\" -exec ${TIDY} ${TIDY_ARGS} {} \;"
     eval "find . -name \"*.xml\" -exec ${TIDY} \-xml ${TIDY_ARGS} {} \;"
 else
-    for EXTENSION in "html" "xml"
-    do
-        echo "Extension “${EXTENSION}” …"
-        eval "find . -name \"*.${EXTENSION}\" -exec sed -i -e '/^[[:space:]]*$/d' -e 's/\t\+</</g' -e 's/\ \ \+</</g' {} \;"
-    done
+    echo "HTML Tidy not found. Exiting …"
 fi
 
 if [ ! -d "${HOME}/.mnt/website" ]
