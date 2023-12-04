@@ -259,8 +259,11 @@ pre {
     margin: 0.2rem;
 }
 
+hr {
+    border-top: solid var(--gray) var(--border-size);
+}
+
 .info {
-    border-top: solid var(--foreground) var(--border-size);
     text-align: center;
 }
 .info p {
