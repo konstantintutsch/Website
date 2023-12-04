@@ -1,6 +1,6 @@
 module Jekyll
   module TOUTC
-    def utc(stamp)
+    def to_utc(stamp)
       time(stamp).utc
     end
   end

@@ -1,5 +1,5 @@
 def apply_modified(page)
-  unless page.data['title'] == "Blog" ||page.data['title'] == "Archive"
+  unless page.data['title'] == "Blog" || page.data['title'] == "Archive"
     # get last modified from file system
     modification_time = File.mtime page.path
   end
