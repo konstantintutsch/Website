@@ -17,11 +17,17 @@
             </article>
 
             <small class="tags-container"><b>Tagged with:</b> {% for tag in page.tags %}<a class="tag" href="/Tag:{{ tag }}">{{ tag }}</a>{% endfor %}</small>
+
+            <hr>
+
             <div class="info">
                 <h3>Reply to this post</h3>
                 <p>If you have any thoughts about the contents of this post, email me so we can have a fun little chat about it.</p>
                 {% include replyto.html title=page.title %}
             </div>
+
+            <hr>
+
             <div class="info">
                 <h3>Enjoyed this post?</h3>
                 <p>I hope that you have found this post useful in one way or another. I would appreciate your support ❤️</p>
