@@ -19,7 +19,7 @@ layout: null
                 {{ post.content }}
 
                 <p></p>
-                {% include replyto.html title=post.title %}
+                <p>{% include social.html id="mail" name="Reply by email" extra=post.subject %}</p>
                 <p>{% include social.html id="ko-fi" name="Buy me a coffee ❤️" %}</p>
             </description>
             <pubDate>{% if post.time %}{% assign stamp = post.date | date: "%Y-%m-%d" | append: " " | append: post.time %}{% else %}{% assign stamp = post.date %}{% endif %}{{ stamp | date_to_rfc822 }}</pubDate>
