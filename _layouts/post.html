@@ -23,7 +23,7 @@
             <div class="info">
                 <h3>Reply to this post</h3>
                 <p>If you have any thoughts about the contents of this post, email me so we can have a fun little chat about it.</p>
-                {% include replyto.html title=page.title %}
+                <p>{% include social.html id="mail" name="Reply by email" extra=page.subject %}</p>
             </div>
 
             <hr>
