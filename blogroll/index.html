@@ -1,0 +1,15 @@
+---
+layout: default
+title: Blogroll
+description: A list of blogs Konstantin Tutsch is reading.
+---
+
+{% include heading.html level=2 text=page.title %}
+
+<p class="description">This is my Blogroll! A list of all the blogs I'm reading. 🧐</p>
+
+<ul>
+{% for blog in site.data.blogroll %}
+    <li><b><a href="{{ blog.website }}">{{ blog.name }}</a></b> <a href="{{ blog.rss }}">RSS</a></li>
+{% endfor %}
+</ul>

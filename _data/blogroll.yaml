@@ -1,0 +1,15 @@
+- name: Benjamin Hollon's Musings
+  website: https://benjaminhollon.com/musings/
+  rss: https://benjaminhollon.com/musings/feed/
+- name: Kev Quirk
+  website: https://kevquirk.com/
+  rss: https://kevquirk.com/feed
+- name: Joel Chrono
+  website: https://joelchrono.xyz/
+  rss: https://joelchrono.xyz/feed.xml
+- name: Garrit Franke
+  website: https://garrit.xyz/
+  rss: https://garrit.xyz/rss.xml
+- name: Clayton Errington
+  website: https://claytonerrington.com/
+  rss: https://claytonerrington.com/feed.xml
