@@ -1,0 +1,7 @@
+<hr>
+
+<div class="info">
+    <h3>{{ include.heading }}</h3>
+    <p>{{ include.text }}</p>
+    <p>{% if include.link %}{{ include.link }}{% else %}{% include social.html id=include.link_id name=include.link_name extra=include.link_extra %}{% endif %}</p>
+</div>
