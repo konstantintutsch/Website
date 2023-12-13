@@ -106,6 +106,6 @@ systemctl enable --now dnf-automatic-install.timer
 
 {% include heading.html level=3 text="Done" %}
 
-Next time there are updates due, you will now receive an e-mail telling you to not worry about it! 🥳
+Next time there are updates due, you will receive an e-mail telling you to not worry about it! 🥳
 
 If you want to have a closer look at DNF Automatic, check out it's [documentation](https://dnf.readthedocs.io/en/latest/automatic.html).
