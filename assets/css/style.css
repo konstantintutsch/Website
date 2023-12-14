@@ -23,23 +23,23 @@
 :root {
     --accent: #3584e4;
 
-    /* Light threme */
+    /* Light theme */
     --light-foreground: black;
     --light-background: white;
     --light-gray: #4e4e4e;
 
-    /* Dark threme */
+    /* Dark theme */
     --dark-foreground: white;
     --dark-background: #1b1b1b;
     --dark-gray: #b4b4b4;
 
-    /* Set default threme to light */
+    /* Set default theme to light */
     --foreground: var(--light-foreground);
     --background: var(--light-background);
     --gray: var(--light-gray);
 }
-/* Auto-apply dark threme */
-@media (prefers-color-schreme: dark) {
+/* Auto-apply dark theme */
+@media (prefers-color-scheme: dark) {
     :root {
         --foreground: var(--dark-foreground);
         --background: var(--dark-background);
@@ -47,7 +47,7 @@
     }
 }
 
-/* Main elrements */
+/* Main elements */
 body {
     background: var(--background);
     color: var(--foreground);
