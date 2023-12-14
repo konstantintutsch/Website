@@ -1,5 +1,5 @@
 ---
 layout: tag
 title: Book
-description: reading
+description: A list of books I've read and my thoughts about each book.
 ---

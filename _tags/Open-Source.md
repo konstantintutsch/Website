@@ -1,5 +1,5 @@
 ---
 layout: tag
 title: Open-Source
-description: open-source and contributing to open-source projects
+description: Everything about contributing to open-source.
 ---
