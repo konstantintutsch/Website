@@ -1,6 +1,9 @@
 # Site
 title: Konstantin Tutsch
 url: https://konstantintutsch.com
+exclude:
+  - LICENSE
+  - README.md
 
 # Serving
 port: 8000
