@@ -1,0 +1,13 @@
+date: 2023-12-13
+location: "Germany"
+activities:
+  - topic: "Reading 📑"
+    content: "book"
+  - topic: "Music 📻"
+    content: "I'm starting to like rock music quite a bit, especially from <i>The Beatles</i>, <i>Electric Light Orchestra</i> and <i>Nirvana</i>. 🎸"
+  - topic: "Programming 🧑‍💻"
+    content: "I'm  trying to figure out how to programm Bluetooth in C on Linux with BlueZ. There isn't any documentation 🥲"
+  - topic: "Photography 📷"
+    content: "I am considering buying a semi-professional camera to get started with photography. 🧠"
+  - topic: "Getting to know Fedora Linux 🐧"
+    content: 'I recently <a href="/gentoo-has-been-bugging-me/">moved away from Gentoo Linux</a> to Fedora. I am now leaning about Flatpak, SELinux, DNF and more.'

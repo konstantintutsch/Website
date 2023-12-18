@@ -2,22 +2,22 @@
 layout: default
 title: Now
 description: A page dedicated to what I'm doing at the moment.
-now: 2023-12-13
-location: Germany
 ---
+
+{% assign now = site.data.now.date %}
+{% assign location = site.data.now.location %}
+{% assign book = site.data.books.last %}
 
 {% include heading.html level=2 text="Now" %}
 
 <p class="description">What I'm currently doing! ⏳</p>
 
 <article>
-    <p><b>Reading 📑:</b> <i>So Long, and Thanks for All the Fish</i> 🛸 by <i>Douglas Adams</i>.</p>
-    <p><b>Music 📻:</b> I'm starting to like rock music quite a bit, especially from <i>The Beatles</i>, <i>Electric Light Orchestra</i> and <i>Nirvana</i>. 🎸</p>
-    <p><b>Programming 🧑‍💻:</b> I'm  trying to figure out how to programm Bluetooth in C on Linux with BlueZ. There isn't any documentation 🥲</p>
-    <p><b>Photography 📷:</b> I am considering buying a semi-professional camera to get started with photography. 🧠</p>
-    <p><b>Getting to know Fedora Linux 🐧:</b> I recently <a href="/gentoo-has-been-bugging-me/">moved away from Gentoo Linux</a> to Fedora. I am now leaning about Flatpak, SELinux, DNF and more.</p>
+{% for item in site.data.now.activities %}
+    <p><b>{{ item.topic }}:</b> {% if item.content == "book" %}<u>{{ book.title }}</u> by <u>{{ book.author }}</u>{% else %}{{ item.content }}{% endif %}</p>
+{% endfor %}
 </article>
 
-<small><i>Last updated on {{ page.now | date: "%B %-d, %Y" }} from {{ page.location }}</i></small>
+<small><i>Last updated on {{ now | date: "%B %-d, %Y" }} from {{ location }}</i></small>
 <p></p>
 <small><i>This is my <a href="https://nownownow.com/about">now page</a>, inspired by <a href="https://sive.rs/">Derek Sivers</a>.</i></small>
