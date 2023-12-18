@@ -1,4 +1,4 @@
-date: 2023-12-13
+date: 2023-12-18
 location: "Germany"
 activities:
   - topic: "Reading 📑"
@@ -6,7 +6,7 @@ activities:
   - topic: "Music 📻"
     content: "I'm starting to like rock music quite a bit, especially from <i>The Beatles</i>, <i>Electric Light Orchestra</i> and <i>Nirvana</i>. 🎸"
   - topic: "Programming 🧑‍💻"
-    content: "I'm  trying to figure out how to programm Bluetooth in C on Linux with BlueZ. There isn't any documentation 🥲"
+    content: "I'm trying to figure out how to write software for a BTHome compatible door sensor. I am coding in C with the SimpleBLE library 🚪"
   - topic: "Photography 📷"
     content: "I am considering buying a semi-professional camera to get started with photography. 🧠"
   - topic: "Getting to know Fedora Linux 🐧"
