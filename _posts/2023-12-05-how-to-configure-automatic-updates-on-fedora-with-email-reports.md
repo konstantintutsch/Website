@@ -4,7 +4,7 @@ image:
 title: How to configure automatic updates on Fedora with e-mail reports
 description: How to use DNF Automatic and Postfix for automatically updating your Fedora server and sending reports via e-mail about the update.
 tags: Self-hosting
-time: 20:03:09 +0100
+time: 2023-12-05 20:03:09 +0100
 ---
 
 {% include heading.html level=3 text="Requirements" %}

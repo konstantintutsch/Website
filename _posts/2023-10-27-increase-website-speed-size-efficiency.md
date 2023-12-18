@@ -3,7 +3,7 @@ layout: post
 title: Increasing the efficiency of a website
 description: How I have and you can improve the speed, transfer size and overall efficiency of a website.
 tags: Blog Self-hosting
-time: 21:19:00 +0200
+time: 2023-10-27 21:19:00 +0200
 ---
 
 {% include heading.html level=3 text="Why" %}

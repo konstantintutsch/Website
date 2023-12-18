@@ -4,7 +4,7 @@ image:
 title: My app defaults, because everyone is doing them
 description: A list of the apps I have been using.
 tags: Opinion
-time: 22:21:23 +0100
+time: 2023-11-07 22:21:23 +0100
 ---
 Lately, many people have posted their "app defaults". I decided to join in.
 

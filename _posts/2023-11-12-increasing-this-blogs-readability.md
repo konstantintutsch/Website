@@ -4,7 +4,7 @@ image: website-after-com.webp
 title: Increasing this blog's readability
 description: I have improved this blog's readability. Here's how.
 tags: Blog
-time: 19:21:32 +0100
+time: 2023-11-12 19:21:32 +0100
 ---
 
 In the last few weeks, I have gradually tried to improve this website's readability and efficiency.
