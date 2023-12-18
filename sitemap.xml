@@ -7,7 +7,6 @@ layout: null
     {% if page.url != "/.htaccess" and page.url != "/errors/403.html" and page.url != "/errors/404.html" and page.url != "/feed.xml" and page.url != "/robots.txt" and page.url != "/sitemap.xml" %}
     <url>
         <loc>{{ site.url }}{{ page.url | remove: 'index.html' }}</loc>
-        <lastmod>{% if page.last_modified %}{% assign modified = page.last_modified %}{% else %}{% assign modified = site.posts[0].date | date: "%Y-%m-%d " | append: site.posts[0].time %}{% endif %}{{ modified | date_to_xmlschema }}</lastmod>
     </url>
     {% endif %}
     {% endfor %}
@@ -15,7 +14,7 @@ layout: null
     {% for post in site.posts %}
     <url>
         <loc>{{ site.url }}{{ post.url | remove: 'index.html' }}</loc>
-        <lastmod>{{ post.last_modified | date_to_xmlschema }}</lastmod>
+        <lastmod>{% if post.time %}{{ post.time | date_to_xmlschema }}{% else %}{{ post.date | date_to_xmlschema }}{% endif %}</lastmod>
     </url>
     {% endfor %}
 </urlset>

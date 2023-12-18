@@ -4,7 +4,7 @@ image:
 title: Gentoo has been bugging me
 description: Gentoo Linux has been irritating me. It still is one of the greatest Linux distributions, but I decided to move to Fedora.
 tags: Opinion Linux
-time: 10:39:54 +0100
+time: 2023-11-20 10:39:54 +0100
 ---
 
 {% include heading.html level=3 text="Gentoo is great, but …" %}

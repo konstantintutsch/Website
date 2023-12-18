@@ -4,7 +4,7 @@ image:
 title: It has become difficult to make contributions to OpenStreetMap
 description: I haven't made a single contribution to OpenStreetMap in the last 4 months and I don't like that.
 tags: Opinion Open-Source
-time: 20:30:03 +0100
+time: 2023-12-04 20:30:03 +0100
 ---
 
 I have had a lot of fun while contributing to OpenStreetMap. It always was a great motivation for taking a long walk and then updating or adding new information to OSM.

@@ -4,7 +4,7 @@ image:
 title: Personal preferences and technology
 description: Don't judge which technology other people are using, except when their choice is somewhat morally challenging of course.
 tags: Opinion
-time: 20:07:23 +0100
+time: 2023-11-17 20:07:23 +0100
 ---
 
 {% include heading.html level=3 text="Choices are judged to much" %}

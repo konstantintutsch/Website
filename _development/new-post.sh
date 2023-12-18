@@ -8,7 +8,7 @@ fi
 
 # All available tags
 TAGS=("layout" "image" "title" "description" "tags" "time")
-VALUES=("post" ""      ""      ""            ""     "00:00:00 +0000")
+VALUES=("post" ""      ""      ""            ""     "1970-01-01 00:00:00 +0000")
 
 # Set values of tags if not already set
 for i in ${!TAGS[@]}
@@ -51,7 +51,7 @@ do
     fi
 done
 # apply time
-sed -i -e "s/time: 00:00:00 +0000/time: $(date +"%H:%M:%S %z")/g" "${FILE}" || echo "Could not apply current time to post “${VALUES[2]}”"
+sed -i -e "s/time: 1970-01-01 00:00:00 +0000/time: $(date +"%Y-%m-%d %H:%M:%S %z")/g" "${FILE}" || echo "Could not apply current time to post “${VALUES[2]}”"
 
 # deploy new post with git post-commit hook
 git add "${FILE}"

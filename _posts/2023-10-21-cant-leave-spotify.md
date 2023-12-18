@@ -3,7 +3,7 @@ layout: post
 title: I can't leave Spotify
 description: I can't leave Spotify. It's not open-source and collects data, but I am keeping it anyways.
 tags: Opinion Privacy
-time: 15:05:00 +0200
+time: 2023-10-21 15:05:00 +0200
 ---
 
 {% include heading.html level=3 text="I've tried" %}
