@@ -14,7 +14,7 @@ description: A page dedicated to what I'm doing at the moment.
 
 <article>
 {% for item in site.data.now.activities %}
-    <p><b>{{ item.topic }}:</b> {% if item.content == "book" %}<u>{{ book.title }}</u> by <u>{{ book.author }}</u>{% else %}{{ item.content }}{% endif %}</p>
+    <p><b>{{ item.topic }}:</b> {% if item.content == "book" %}{{ book.title }} by {{ book.author }}{% else %}{{ item.content }}{% endif %}</p>
 {% endfor %}
 </article>
 
