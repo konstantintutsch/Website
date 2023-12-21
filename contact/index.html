@@ -1,19 +1,14 @@
 ---
-layout: default
+layout: page
 title: Contact
-description: How to contact Konstantin Tutsch, all options are listed on this page and kept updated.
+description: If you wish to contact me, all options are listed on this page and kept updated. 💬
 ---
-{% include heading.html level=2 text="Contact" %}
 
-<p class="description">If you wish to reach me, all posibilities are listed here. 💬</p>
+{% include heading.html level=3 text="E-Mail" %}
 
-<article>
-    {% include heading.html level=3 text="E-Mail" %}
+<p>You, of course, can contact me via email 📧. I'll respond fairly quickly. E-Mail is also my preferred communication method for this blog. You can reach me at {% include social.html id="mail" %}</p>
+<p>In case you want to encrypt 🔐 your email, here's my <a href="{% link assets/gpg.asc %}">public GPG key</a>. Use the mail address 🧾 encoded to the file. The one above is a changing alias so I can prevent spam, there is no GPG key for it.</p>
 
-    <p>You, of course, can contact me via email 📧. I'll respond fairly quickly. E-Mail is also my preferred communication method for this blog. You can reach me at {% include social.html id="mail" %}</p>
-    <p>In case you want to encrypt 🔐 your email, here's my <a href="{% link assets/gpg.asc %}">public GPG key</a>. Use the mail address 🧾 encoded to the file. The one above is a changing alias so I can prevent spam, there is no GPG key for it.</p>
+{% include heading.html level=3 text="The Fediverse" %}
 
-    {% include heading.html level=3 text="The Fediverse" %}
-
-    <p>If you just want to quickly share a small though of yours 🧐 with me, this is the place. Just tag me {% include social.html id="fediverse" %}<br></p>
-</article>
+<p>If you just want to quickly share a small though of yours 🧐 with me, this is the place. Just tag me {% include social.html id="fediverse" %}</p>

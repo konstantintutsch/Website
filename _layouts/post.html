@@ -1,31 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        {% include head.html %}
-    </head>
-    <body>
-        <header>
-            {% include navigation.html %}
-        </header>
-        <main>
-            <h2>{{ page.title }}</h2>
-            <p class="date">{{ page.date | date_to_string }}</p>
-            <p class="description">{{ page.description }}</p>
+---
+layout: default
+---
 
-            <article>
-                {{ content }}
-            </article>
+<h2>{{ page.title }}</h2>
+<p class="date">{{ page.date | date_to_string }}</p>
+<p class="description">{{ page.description }}</p>
 
-            <small class="tags-container"><b>Tagged with:</b> {% for tag in page.tags %}<a class="tag" href="/Tag:{{ tag }}">{{ tag }}</a>{% endfor %}</small>
+<article>
+    {{ content }}
+</article>
 
-            {% include info.html heading="Reply to this post" text="If you have any thoughts about the contents of this post, email me so we can have a fun little chat about it 🤯" link_id="mail" link_name="Reply by email" link_extra=page.subject %}
+<small class="tags-container"><b>Tagged with:</b> {% for tag in page.tags %}<a class="tag" href="/Tag:{{ tag }}">{{ tag }}</a>{% endfor %}</small>
 
-            {% include info.html heading="Enjoyed this post?" text="I hope that you have found this post useful in one way or another. I would appreciate your support ❤️" link_id="ko-fi" link_name="Buy me a coffee" %}
+{% include info.html heading="Reply to this post" text="If you have any thoughts about the contents of this post, email me so we can have a fun little chat about it 🤯" link_id="mail" link_name="Reply by email" link_extra=page.subject %}
+
+{% include info.html heading="Enjoyed this post?" text="I hope that you have found this post useful in one way or another. I would appreciate your support ❤️" link_id="ko-fi" link_name="Buy me a coffee" %}
             
-            {% include info.html heading="Want to not miss a post?" text="That's easy! I provide a RSS feed so you can stay up to date with my blog and what I'm doing ⏳" link='<a href="/feed.xml">Subscribe via RSS</a>' %}
-        </main>
-        <footer>
-            {% include footer.html %}
-        </footer>
-    </body>
-</html>
+{% include info.html heading="Want to not miss a post?" text="That's easy! I provide a RSS feed so you can stay up to date with my blog and what I'm doing ⏳" link='<a href="/feed.xml">Subscribe via RSS</a>' %}

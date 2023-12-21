@@ -1,9 +1,8 @@
 ---
-layout: default
+layout: page
 title: Privacy
-description: Privacy policy for konstantintutsch.de
+description: Privacy policy for this site
 ---
-<h2>{{ page.title }}</h2>
 
 <ol>
     <li><a href="#1-tracking">Tracking</a></li>
@@ -11,24 +10,23 @@ description: Privacy policy for konstantintutsch.de
     <li><a href="#3-hosting">Hosting</a></li>
 </ol>
 
-<article>
-    {% include heading.html level=3 text="1. Tracking" %}
+{% include heading.html level=3 text="1. Tracking" %}
 
-    <p>The website does not collect personal data.</p>
+<p>The website does not collect personal data.</p>
 
-    {% include heading.html level=3 text="2. Data stored" %}
+{% include heading.html level=3 text="2. Data stored" %}
 
-    <p>Anonymous metadata from HTTP requests <b>is</b> stored in the webserver's log.</p>
-    <p>This includes:</p>
-    <ul>
-        <li>Requested file <i>(e. g. that someone visited /privacy)</i></li>
-        <li>User-Agent <i>(which browser and OS visited)</i></li>
-        <li>Client domain <i>(this could reveal the visitors ISP)</i></li>
-        <li>Referrer <i>(e. g. someone visited after using search engine X)</i></li>
-    </ul>
+<p>Anonymous metadata from HTTP requests <b>is</b> stored in the webserver's log.</p>
+<p>This includes:</p>
 
-    {% include heading.html level=3 text="3. Hosting" %}
+<ul>
+    <li>Requested file <i>(e. g. that someone visited /privacy)</i></li>
+    <li>User-Agent <i>(which browser and OS visited)</i></li>
+    <li>Client domain <i>(this could reveal the visitors ISP)</i></li>
+    <li>Referrer <i>(e. g. someone visited after using search engine X)</i></li>
+</ul>
 
-    <p>The website is hosted on a <a href="https://strato.de" rel="nofollow">STRATO AG</a> managed hosting server in Germany.</p>
-    <p>STRATO retains the right to <b>access</b> and <b>process all log data</b>. See their <a href="https://www.strato.de/datenschutz/" rel="nofollow">privacy policy</a>.</p>
-</article>
+{% include heading.html level=3 text="3. Hosting" %}
+
+<p>The website is hosted on a <a href="https://strato.de" rel="nofollow">STRATO AG</a> managed hosting server in Germany.</p>
+<p>STRATO retains the right to <b>access</b> and <b>process all log data</b>. See their <a href="https://www.strato.de/datenschutz/" rel="nofollow">privacy policy</a>.</p>
