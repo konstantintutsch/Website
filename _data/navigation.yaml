@@ -1,6 +1,37 @@
-- name: Now
-  path: /now/
-- name: Contact
-  path: /contact/
-- name: More …
-  path: /links/
+header:
+  - name: Now
+    path: /now/
+  - name: Contact
+    path: /contact/
+  - name: More …
+    path: /links/
+
+more:
+  - name: "Homepage"
+    path: "/"
+  - name: "Blog"
+    path: "/blog/"
+  - name: "Contributions"
+    path: "/contributions/"
+  - name: "Blogroll"
+    path: "/blogroll/"
+  - name: "Tags"
+    path: "/tags/"
+  - name: "Colophon"
+    path: "/colophon/"
+  - name: "RSS feed"
+    path: "/feed.xml"
+
+social:
+  - name: "Codeberg"
+    id: "codeberg"
+  - name: "Fediverse <i>e. g. Mastodon</i>"
+    id: "fediverse"
+  - name: "GitHub"
+    id: "github"
+  - name: "LiberaPay"
+    id: "liberapay"
+  - name: "OpenStreetMap"
+    id: "osm"
+  - name: "MusicBrainz"
+    id: "musicbrainz"
