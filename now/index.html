@@ -1,22 +1,16 @@
 ---
-layout: default
+layout: page
 title: Now
-description: A page dedicated to what I'm doing at the moment.
+description: What I'm currently doing! ⏳
 ---
 
 {% assign now = site.data.now.date %}
 {% assign location = site.data.now.location %}
 {% assign book = site.data.books.last %}
 
-{% include heading.html level=2 text="Now" %}
-
-<p class="description">What I'm currently doing! ⏳</p>
-
-<article>
 {% for item in site.data.now.activities %}
-    <p><b>{{ item.topic }}:</b> {% if item.content == "book" %}{{ book.title }} by {{ book.author }}{% else %}{{ item.content }}{% endif %}</p>
+<p><b>{{ item.topic }}:</b> {% if item.content == "book" %}{{ book.title }} by {{ book.author }}{% else %}{{ item.content }}{% endif %}</p>
 {% endfor %}
-</article>
 
 <small><i>Last updated on {{ now | date: "%B %-d, %Y" }} from {{ location }}</i></small>
 <p></p>
