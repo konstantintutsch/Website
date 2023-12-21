@@ -1,0 +1,26 @@
+verifiable:
+  - name: "KDE Project"
+    role: "Translator  (🇩🇪)"
+    url: "https://phabricator.kde.org/p/konstantin/"
+    active: false
+  - name: "Arcticons"
+    role: "Icon Designer ✒️; Creator of f-droid_check.sh ⚙️"
+    url: "https://github.com/Donnnno/Arcticons/commit/17e3fb6c6577d600fed4fa14afb2a800b180ec43"
+    active: false
+  - name: "Gentoo Wiki"
+    role: "Translator (🇩🇪); Article writer 📝"
+    url: "https://wiki.gentoo.org/wiki/Special:Contributions/KonstantinTutsch"
+    active: false
+  - name: "Gentoo GURU repository"
+    role: "Package maintainer 📦"
+    url: "https://gitweb.gentoo.org/repo/proj/guru.git/log/?h=dev&qt=author&q=Konstantin+Tutsch"
+    active: false
+  - name: "Table Habit app"
+    role: "Translator (🇩🇪)"
+    url: "https://github.com/FriesI23/mhabit/commits?author=konstantintutsch"
+    active: true
+
+other:
+  - Translations (🇩🇪) for GNOME (l10.gnome.org)
+  - Translations (🇩🇪) for Tusky (tusky.app)
+  - Translations (🇩🇪) for /e/OS (e.foundation)

@@ -3,6 +3,8 @@ site:
     path: "/"
   - name: "Blog"
     path: "/blog/"
+  - name: "Contributions"
+    path: "/contributions/"
   - name: "Blogroll"
     path: "/blogroll/"
   - name: "Tags"

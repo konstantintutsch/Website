@@ -1,0 +1,32 @@
+---
+layout: page
+title: Contributions
+description: A list of all my contributions to open-source projects. 🤝
+---
+
+{% assign active = site.data.contributions.verifiable | where: "active", true %}
+{% assign inactive = site.data.contributions.verifiable | where: "active", false %}
+
+{% include heading.html level=3 text="Active" %}
+
+<ul>
+{% for item in active %}
+    <li><b><a href="{{ item.url }}">{{ item.name }}</a></b> {{ item.role }}</li>
+{% endfor %}
+</ul>
+
+{% include heading.html level=3 text="Inactive" %}
+
+<ul>
+{% for item in inactive %}
+    <li><b><a href="{{ item.url }}">{{ item.name }}</a></b> {{ item.role }}</li>
+{% endfor %}
+</ul>
+
+{% include heading.html level=4 text="Not verifiable" %}
+
+<ul>
+{% for contribution in site.data.contributions.other %}
+    <li>{{ contribution }}</li>
+{% endfor %}
+</ul>
