@@ -56,7 +56,7 @@
 
                 <h1 class="hidden">{{ site.title }}</h1>
                 <nav class="main-menu">
-                {% for item in site.data.navigation %}
+                {% for item in site.data.navigation.header %}
                     <a {% if page.url == item.path %}class="selected"{% endif %} href="{{ item.path }}">{{ item.name }}</a>
                 {% endfor %}
                 </nav>
