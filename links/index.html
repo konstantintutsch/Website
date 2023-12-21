@@ -7,16 +7,9 @@ description: Are you looking for something related to me? You will probably find
 {% include heading.html level=3 text="Website" %}
 
 <ul>
-    <li><a href="/">Homepage</a></li>
-    <li><a href="/now/">Now</a></li>
-    <li><a href="/blog/">Blog</a></li>
-    <li><a href="/contact/">Contact</a></li>
-    <li><a href="/blogroll/">Blogroll</a></li>
-    <li><a href="/tags/">Tags</a></li>
-    <li><a href="/colophon/">Colophon</a>
-    <li><a href="/privacy/">Privacy</a></li>
-    <li><a href="/disclaimer/">Disclaimer</a></li>
-    <li><a href="/feed.xml">RSS feed</a></li>
+{% for item in site.data.other.site %}
+    <li><a href="{{ item.path }}">{{ item.name }}</a></li>
+{% endfor %}
 </ul>
 
 {% include heading.html level=3 text="Support me" %}
@@ -28,10 +21,7 @@ description: Are you looking for something related to me? You will probably find
 {% include heading.html level=2 text="Other" %}
 
 <ul>
-    <li>{% include social.html id="codeberg" name="Codeberg" %}</li>
-    <li>{% include social.html id="fediverse" name="Fediverse <i>e. g. Mastodon</i>" %}</li>
-    <li>{% include social.html id="github" name="GitHub" %}</li>
-    <li>{% include social.html id="liberapay" name="LiberaPay" %}</li>
-    <li>{% include social.html id="osm" name="OpenStreetMap" %}</li>
-    <li>{% include social.html id="musicbrainz" name="MusicBrainz" %}</li>
+{% for item in site.data.other.social %}
+    <li>{% include social.html id=item.id name=item.name %}</li>
+{% endfor %}
 </ul>
