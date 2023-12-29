@@ -1,0 +1,11 @@
+---
+layout: page
+title: Photography
+description: Photos taken by Konstantin Tutsch
+emoji: 📸
+---
+
+{% assign photography = site.data.photos | reverse %}
+{% for image in photography %}
+    {% include photography.html photo=image %}
+{% endfor %}

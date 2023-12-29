@@ -11,6 +11,8 @@ more:
     path: "/"
   - name: "Blog"
     path: "/blog/"
+  - name: "Photography"
+    path: "/photos/"
   - name: "Contributions"
     path: "/contributions/"
   - name: "Blogroll"
