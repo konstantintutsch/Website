@@ -4,6 +4,8 @@ url: https://konstantintutsch.com
 exclude:
   - LICENSE
   - README.md
+assets:
+  images: "assets/images"
 
 # Serving
 port: 8000
