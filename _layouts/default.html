@@ -1,11 +1,6 @@
 <!DOCTYPE html> 
 <html lang="en">
     <head>
-        {% if page.image %}
-            {% assign image = page.image %}
-        {% else %}
-            {% assign image = "banner.webp" %}
-        {% endif %}
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1, user-scalable=yes, minimal-ui">
 
@@ -21,7 +16,7 @@
         <!-- Twitter -->
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="{{ page.title }}">
-        <meta name="twitter:image" content="{{ site.url }}/assets/images/{{ image }}">
+        <meta name="twitter:image" content="{{ site.url }}/{{ site.assets.images }}/banner.webp">
         <meta name="twitter:description" content="{{ page.description }}">
 
         <!-- Icons -->
