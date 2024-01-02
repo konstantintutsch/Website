@@ -5,7 +5,7 @@ description: A gallery of photos taken by Konstantin Tutsch.
 emoji: 📸
 ---
 
-{% assign photography = site.data.photos | reverse %}
+{% assign photography = site.data.photography | reverse %}
 {% for image in photography %}
     {% include photography.html photo=image %}
 {% endfor %}
