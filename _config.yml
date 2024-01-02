@@ -23,7 +23,7 @@ collections:
         permalink: /Tag::title/
     photos:
         output: true
-        permalink: /photography/:slug/
+        permalink: /gallery/:slug/
 defaults:
     - scope:
           type: "photos"

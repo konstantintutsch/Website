@@ -36,4 +36,4 @@ Redirect 301 /posts /blog
 Redirect 301 /index.xml /feed.xml
 Redirect 301 /feed.rss /feed.xml
 Redirect 301 /about /
-Redirect 301 /photos /photography
+Redirect 301 /photos /gallery
