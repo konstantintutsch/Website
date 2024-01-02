@@ -9,7 +9,7 @@ emoji: 📸
 <div class="gallery">
 {% for image in photos %}
     <a class="gallery-item" href="{{ image.url }}">
-        <img src="/{{ site.assets.images }}/{{ image.file }}" alt="{{ image.description }}" loading="lazy">
+        <img src="/{{ site.assets.images }}/{{ image.file }}-thumbnail.webp" alt="{{ image.description }}" loading="lazy">
     </a>
 {% endfor %}
 </div>
