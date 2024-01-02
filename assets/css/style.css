@@ -12,6 +12,7 @@
     --sans: "Cantarell", sans-serif;
     --mono: monospace;
     --text-size: 1.3rem;
+    --small-text-size: 0.95rem;
 
     --bold: 800;
     --text-decoration: 0.1em;
@@ -104,7 +105,7 @@ h1, h2, h3, h4, h5, h6, b {
 }
 
 small {
-    font-size: 0.95rem;
+    font-size: var(--small-text-size);
 }
 
 h1 {
@@ -208,14 +209,14 @@ ul {
 .image-display {
     margin: 0 auto 1rem auto;
     display: block;
-    max-height: 25rem;
+    max-height: 35rem;
     max-width: 100%;
 }
 .image-caption {
     margin: 0 auto 0 auto;
     display: block;
     text-align: center;
-    font-style: italic;
+    font-size: var(--small-text-size);
 }
 
 .book {
@@ -272,6 +273,31 @@ hr {
     margin-right: 5vw;
 }
 
+/* Photography */
+.gallery {
+    width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 1rem;
+}
+
+.gallery-item {
+    overflow: hidden;
+    width: 15vw;
+    height: 15vw;
+}
+.gallery-item img {
+    object-fit: cover;
+    object-position: center center;
+    width: inherit;
+    height: inherit;
+    transition-duration: var(--fade-time);
+}
+.gallery-item img:hover {
+    webkit-filter: blur(5px);
+    filter: blur(5px);
+}
+
 @media only screen and (max-width: 750px) { /* Phone */
     .logo {
         height: 3rem;
@@ -284,6 +310,14 @@ hr {
     }
     .preview {
         margin-bottom: 0rem;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, auto);
+    }
+    .gallery-item {
+        width: 43vw;
+        height: 43vw;
     }
 
     footer {

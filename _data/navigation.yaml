@@ -1,6 +1,6 @@
 header:
-  - name: Now
-    path: /now/
+  - name: Photography
+    path: /photography/
   - name: Contact
     path: /contact/
   - name: More …
@@ -11,8 +11,8 @@ more:
     path: "/"
   - name: "Blog"
     path: "/blog/"
-  - name: "Photography"
-    path: "/photography/"
+  - name: "Now"
+    path: "/now/"
   - name: "Contributions"
     path: "/contributions/"
   - name: "Blogroll"

@@ -5,22 +5,22 @@ layout: null
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     {% for page in site.pages %}
-    {% if page.url != "/.htaccess" and page.url != "/errors/403.html" and page.url != "/errors/404.html" and page.url != "/feed.xml" and page.url != "/robots.txt" and page.url != "/sitemap.xml" and page.url != "/now/" and page.url != "/photos/" %}
+    {% if page.url != "/.htaccess" and page.url != "/errors/403.html" and page.url != "/errors/404.html" and page.url != "/feed.xml" and page.url != "/robots.txt" and page.url != "/sitemap.xml" and page.url != "/now/" %}
     <url>
         <loc>{{ site.url }}{{ page.url }}</loc>
     </url>
     {% endif %}
     {% endfor %}
 
+    {% for image in site.photos %}
     <url>
-        <loc>{{ site.url }}/photography/</loc>
-        <lastmod>{{ site.data.photos.last.published | date_to_xmlschema }}</lastmod>
-        {% for image in site.data.photos %}
+        <loc>{{ site.url }}{{ image.url }}</loc>
         <image:image>
             <image:loc>{{ site.url }}/{{ site.assets.images }}/{{ image.file }}</image:loc>
         </image:image>
-        {% endfor %}
     </url>
+    {% endfor %}
+
     <url>
         <loc>{{ site.url }}/now/</loc>
         <lastmod>{{ site.data.now.date | date_to_xmlschema }}</lastmod>
