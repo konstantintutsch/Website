@@ -1,6 +1,6 @@
 header:
-  - name: Photography
-    path: /photography/
+  - name: Gallery
+    path: /gallery/
   - name: Contact
     path: /contact/
   - name: More …
