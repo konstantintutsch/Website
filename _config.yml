@@ -21,3 +21,11 @@ collections:
     tags:
         output: true
         permalink: /Tag::title/
+    photos:
+        output: true
+        permalink: /photography/:slug/
+defaults:
+    - scope:
+          type: "photos"
+      values:
+          layout: "photo"

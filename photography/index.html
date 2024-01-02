@@ -1,11 +1,15 @@
 ---
 layout: page
 title: Photography
-description: A gallery of photos taken by Konstantin Tutsch.
+description: A gallery of photos taken by Konstantin Tutsch
 emoji: 📸
 ---
 
-{% assign photography = site.data.photography | reverse %}
-{% for image in photography %}
-    {% include photography.html photo=image %}
+{% assign photos = site.photos | sort: "date" | reverse %}
+<div class="gallery">
+{% for image in photos %}
+    <a class="gallery-item" href="{{ image.url }}">
+        <img src="/{{ site.assets.images }}/{{ image.file }}" alt="{{ image.description }}" loading="lazy">
+    </a>
 {% endfor %}
+</div>
