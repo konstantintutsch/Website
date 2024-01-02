@@ -13,7 +13,7 @@ layout: null
     {% endfor %}
 
     <url>
-        <loc>{{ site.url }}/photos/</loc>
+        <loc>{{ site.url }}/photography/</loc>
         <lastmod>{{ site.data.photos.last.published | date_to_xmlschema }}</lastmod>
         {% for image in site.data.photos %}
         <image:image>

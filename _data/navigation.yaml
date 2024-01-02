@@ -12,7 +12,7 @@ more:
   - name: "Blog"
     path: "/blog/"
   - name: "Photography"
-    path: "/photos/"
+    path: "/photography/"
   - name: "Contributions"
     path: "/contributions/"
   - name: "Blogroll"
