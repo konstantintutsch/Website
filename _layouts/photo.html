@@ -3,3 +3,18 @@ layout: page
 ---
 
 {% include image.html file=page.file alt=page.description caption=page.location %}
+
+{% assign names = "Aperture, Camera, Focal length, ISO, Shutter speed" | split: ", " %}
+{% assign values_string = "ƒ/" | append: page.aperture | append: "," | append: page.camera | append: "," | append: page.focal | append: "," | append: page.iso | append: "," | append: page.shutter %}
+{% assign values = values_string | split: "," %}
+
+<table>
+    <tbody>
+        {% for i in (0..names.size) %}
+        <tr>
+            <td>{{ names[i] }}</td>
+            <td>{{ values[i] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
