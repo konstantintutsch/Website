@@ -31,6 +31,8 @@ social:
     id: "fediverse"
   - name: "GitHub"
     id: "github"
+  - name: "Ko-Fi"
+    id: "ko-fi"
   - name: "LiberaPay"
     id: "liberapay"
   - name: "OpenStreetMap"
