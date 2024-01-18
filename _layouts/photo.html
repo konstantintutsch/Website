@@ -2,7 +2,8 @@
 layout: page
 ---
 
-{% include image.html file=page.file alt=page.description caption=page.location %}
+{% assign meta = page.date | date_to_string | prepend: " — " | prepend: page.location %}
+{% include image.html file=page.file alt=page.description caption=meta %}
 
 {% assign names = "Aperture, Camera, Focal length, ISO, Shutter speed" | split: ", " %}
 {% assign values_string = "ƒ/" | append: page.aperture | append: "," | append: page.camera | append: "," | append: page.focal | append: "," | append: page.iso | append: "," | append: page.shutter %}
