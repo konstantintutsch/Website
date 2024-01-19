@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Increasing the efficiency of a website
 description: How I have and you can improve the speed, transfer size and overall efficiency of a website.
 tags: Blog Self-hosting

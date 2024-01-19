@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Ntfy is way too fun
 description: I have begun to self-host Ntfy on my Raspberry Pi. This post is about all the possibilities of such a notification service and all I have now automated.
 tags: Self-hosting

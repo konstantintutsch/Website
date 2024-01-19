@@ -1,6 +1,4 @@
 ---
-layout: post
-image: website-after-com.webp
 title: Increasing this blog's readability
 description: I have improved this blog's readability. Here's how.
 tags: Blog
