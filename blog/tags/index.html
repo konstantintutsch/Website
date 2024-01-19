@@ -7,6 +7,6 @@ emoji: 🏷️
 
 <ul>
 {% for tag in site.tags %}
-    <li><a href="/Tag:{{ tag.title }}">{{ tag.title }}</a></li>
+    <li><a href="{{ tag.url }}">{{ tag.title }}</a></li>
 {% endfor %}
 </ul>
