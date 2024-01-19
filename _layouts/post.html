@@ -10,7 +10,7 @@ layout: default
     {{ content }}
 </article>
 
-<small class="tags-container"><b>Tagged with:</b> {% for tag in page.tags %}<a class="tag" href="/Tag:{{ tag }}">{{ tag }}</a>{% endfor %}</small>
+<small class="tags-container"><b>Tagged with:</b> {% for tag in page.tags %}<a class="tag" href="/blog/tags/{{ tag | slugify }}">{{ tag }}</a>{% endfor %}</small>
 
 {% include info.html heading="Reply to this post" text="If you have any thoughts about the contents of this post, email me so we can have a fun little chat about it 🤯" link_id="mail" link_name="Reply by email" link_extra=page.subject %}
 

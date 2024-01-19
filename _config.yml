@@ -20,7 +20,7 @@ collections:
         permalink: /blog/:slug/
     tags:
         output: true
-        permalink: /Tag::title/
+        permalink: /blog/tags/:slug/
     photos:
         output: true
         permalink: /gallery/:slug/
