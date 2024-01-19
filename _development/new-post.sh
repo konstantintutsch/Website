@@ -6,9 +6,12 @@ then
     exit 1
 fi
 
+DATE="$(date +%Y-%m-%d)"
+PREPEND_URL="https://konstantintutsch.com/blog/"
+
 # All available tags
-TAGS=("image"   "title" "description" "tags" "time")
-VALUES=(""      ""      ""            ""     "1970-01-01 00:00:00 +0000")
+TAGS=("title"   "description" "tags" "time")
+VALUES=(""      ""            ""     "1970-01-01 00:00:00 +0000")
 
 # Set values of tags if not already set
 for i in ${!TAGS[@]}
@@ -19,14 +22,14 @@ do
     fi
 done
 
-# define filename with slugified title
-URL="$(echo ${VALUES[2]} | tr -dc "[:alnum:]\n\r\ " | tr "[:upper:]" "[:lower:]" | tr "\ " "-" | sed "s/--/-/g" )"
-FILE="./_posts/$(date +%Y-%m-%d)-${URL}.md"
+# set url
+read -p "Choose the URL to your new post (without a following /): ${PREPEND_URL}" "URL"
+FILE="./_posts/${DATE}-${URL}.md"
+
+# create file with tags and values
 appendf() {
     echo "$1" >> "$FILE" || echo "Could not append line “${1}” to “${FILE}”"
 }
-
-# create file with tags and values
 touch "$FILE"
 appendf "---"
 for i in ${!TAGS[@]}
@@ -46,18 +49,18 @@ do
         jekyll serve
     elif [[ ${DEPLOY} == "delete" ]]
     then
-        rm "${FILE}" || echo "Failed to delete post “${VALUES[2]}”"
+        rm "${FILE}" || echo "Failed to delete post “${VALUES[0]}”"
         exit
     fi
 done
 # apply time
-sed -i -e "s/time: 1970-01-01 00:00:00 +0000/time: $(date +"%Y-%m-%d %H:%M:%S %z")/g" "${FILE}" || echo "Could not apply current time to post “${VALUES[2]}”"
+sed -i -e "s/time: 1970-01-01 00:00:00 +0000/time: $(date +"%Y-%m-%d %H:%M:%S %z")/g" "${FILE}" || echo "Could not apply current time to post “${VALUES[0]}”"
 
 # deploy new post with git post-commit hook
 git add "${FILE}"
 git add "./assets/images"
-git commit -m "New post: ${VALUES[2]}"
+git commit -m "New post: ${VALUES[0]}"
 git push -u origin main
 
-printf -v toot_content '🆕📑 %s #blog\n\nhttps://konstantintutsch.com/blog/%s/' "${VALUES[2]}" "${URL}"
+printf -v toot_content '🆕📑 %s #blog\n\n%s%s/' "${VALUES[0]}" "${PREPEND_URL}" "${URL}"
 toot post "${toot_content}"
