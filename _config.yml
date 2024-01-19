@@ -26,6 +26,14 @@ collections:
         permalink: /gallery/:slug/
 defaults:
     - scope:
+          type: "posts"
+      values:
+          layout: "post"
+    - scope:
+          type: "tags"
+      values:
+          layout: "tag"
+    - scope:
           type: "photos"
       values:
           layout: "photo"

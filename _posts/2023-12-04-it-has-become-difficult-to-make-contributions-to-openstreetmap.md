@@ -1,6 +1,4 @@
 ---
-layout: post
-image: 
 title: It has become difficult to make contributions to OpenStreetMap
 description: I haven't made a single contribution to OpenStreetMap in the last 4 months and I don't like that.
 tags: Opinion Open-Source

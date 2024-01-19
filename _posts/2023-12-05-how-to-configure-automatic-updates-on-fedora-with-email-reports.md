@@ -1,6 +1,4 @@
 ---
-layout: post
-image: 
 title: How to configure automatic updates on Fedora with e-mail reports
 description: How to use DNF Automatic and Postfix for automatically updating your Fedora server and sending reports via e-mail about the update.
 tags: Self-hosting

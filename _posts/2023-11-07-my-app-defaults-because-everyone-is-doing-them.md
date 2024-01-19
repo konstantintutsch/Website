@@ -1,6 +1,4 @@
 ---
-layout: post
-image: 
 title: My app defaults, because everyone is doing them
 description: A list of the apps I have been using.
 tags: Opinion

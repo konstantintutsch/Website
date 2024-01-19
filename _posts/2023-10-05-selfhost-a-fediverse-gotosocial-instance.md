@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Self-hosting on a Raspberry Pi: GoToSocial 🦥"
 description: How to self-host GoToSocial, a light-weight fediverse server. GoToSocial is compatible with most Mastodon clients.
 tags: Self-hosting Linux

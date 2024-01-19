@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "A single webserver serving multiple domains"
 description: How to host multiple websites with a single webserver. (Nignx)
 tags: Self-hosting

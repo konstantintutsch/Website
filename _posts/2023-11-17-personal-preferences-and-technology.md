@@ -1,6 +1,4 @@
 ---
-layout: post
-image: 
 title: Personal preferences and technology
 description: Don't judge which technology other people are using, except when their choice is somewhat morally challenging of course.
 tags: Opinion
