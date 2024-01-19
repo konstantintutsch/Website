@@ -59,5 +59,5 @@ git add "./assets/images"
 git commit -m "New post: ${VALUES[2]}"
 git push -u origin main
 
-printf -v toot_content '🆕📑 %s #blog\n\nhttps://konstantintutsch.com/%s/' "${VALUES[2]}" "${URL}"
+printf -v toot_content '🆕📑 %s #blog\n\nhttps://konstantintutsch.com/blog/%s/' "${VALUES[2]}" "${URL}"
 toot post "${toot_content}"

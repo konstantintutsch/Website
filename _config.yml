@@ -17,7 +17,7 @@ highlighter: none
 collections:
     posts:
         output: true
-        permalink: /:slug/
+        permalink: /blog/:slug/
     tags:
         output: true
         permalink: /Tag::title/
