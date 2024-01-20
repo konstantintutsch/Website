@@ -1,7 +1,6 @@
 ---
 title: Rose and dew
 description: A close-up of a pink rose with dew drops
-emoji: ❄️
 file: IMG_0769.jpg
 location: Wuppertal, Germany
 date: 2024-01-13

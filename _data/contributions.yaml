@@ -4,15 +4,15 @@ verifiable:
     url: "https://phabricator.kde.org/p/konstantin/"
     active: false
   - name: "Arcticons"
-    role: "Icon Designer ✒️; Creator of f-droid_check.sh ⚙️"
+    role: "Icon Designer; Creator of f-droid_check.sh"
     url: "https://github.com/Donnnno/Arcticons/commit/17e3fb6c6577d600fed4fa14afb2a800b180ec43"
     active: false
   - name: "Gentoo Wiki"
-    role: "Translator (🇩🇪); Article writer 📝"
+    role: "Translator (🇩🇪); Article writer"
     url: "https://wiki.gentoo.org/wiki/Special:Contributions/KonstantinTutsch"
     active: false
   - name: "Gentoo GURU repository"
-    role: "Package maintainer 📦"
+    role: "Package maintainer"
     url: "https://gitweb.gentoo.org/repo/proj/guru.git/log/?h=dev&qt=author&q=Konstantin+Tutsch"
     active: false
   - name: "Table Habit app"
