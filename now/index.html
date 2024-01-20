@@ -9,7 +9,8 @@ description: What I'm currently doing!
 {% assign book = site.data.books.last %}
 
 {% for item in site.data.now.activities %}
-<p><b>{{ item.topic }}:</b> {% if item.content == "book" %}{{ book.title }} by {{ book.author }}{% else %}{{ item.content }}{% endif %}</p>
+{% include heading.html level=3 text=item.topic %}
+<p>{{ item.content }}</p>
 {% endfor %}
 
 <small><i>Last updated on {{ now | date: "%B %-d, %Y" }} from {{ location }}</i></small>
