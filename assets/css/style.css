@@ -140,6 +140,7 @@ a {
     color: inherit; /* no special highlighting for already clicked links */
     text-decoration: underline;
     text-decoration-thickness: var(--text-decoration);
+    text-underline-offset: var(--text-decoration);
     transition-duration: var(--fade-time);
 }
 a:hover, .selected {
