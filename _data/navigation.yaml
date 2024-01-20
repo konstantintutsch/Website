@@ -1,18 +1,18 @@
 header:
-  - name: Gallery
-    path: /gallery/
-  - name: Contact
-    path: /contact/
-  - name: More …
-    path: /links/
+  - name: "Now"
+    path: "/now/"
+  - name: "Gallery"
+    path: "/gallery/"
+  - name: "More …"
+    path: "/links/"
 
 more:
   - name: "Homepage"
     path: "/"
   - name: "Blog"
     path: "/blog/"
-  - name: "Now"
-    path: "/now/"
+  - name: "Contact"
+    path: "/contact/"
   - name: "Contributions"
     path: "/contributions/"
   - name: "Blogroll"
@@ -39,3 +39,14 @@ social:
     id: "osm"
   - name: "MusicBrainz"
     id: "musicbrainz"
+
+home:
+  - name: "Gallery"
+    path: "/gallery/"
+    desc: "a showcase of my favorite shots"
+  - name: "Blog"
+    path: "/blog/"
+    desc: "long-form thoughts and technical posts"
+  - name: "Now"
+    path: "/now/"
+    desc: "a more frequently updated About page"

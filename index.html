@@ -1,23 +1,24 @@
 ---
 layout: default
 title: Konstantin Tutsch
-description: Welcome to Konstantin Tutsch's website. Here you can discover lots of information about me, contact options and my personal blog.
+description: Welcome to Konstantin Tutsch's website. Discover lots of information about me, contact options, my photography and my personal blog.
 ---
 
-{% include heading.html level=2 text="Welcome 👋" %}
+{% include heading.html level=2 text=page.title %}
 
 <article>
-    <p>Hi! I'm Konstantin Tutsch,</p>
-    <p>some of my interests include, among other things, coffee <i>(especially espresso)</i> ☕, software development 🧑‍💻, open-source software 🐧 and photography 📸</p>
-    <p>You can also check-out my <a href="/now/">now</a> page 🛰️ to get an impression on what I'm doing at the moment.</p>
-    <p>I also maintaine a <a href="/blog/">blog</a> 📝 where I primarily ramble about technology-related 💻 topics.</p>
-    <p>This website also contains a <a href="/gallery/">gallery</a> 📷 on which I showcase some of my favorite shots.</p>
-    <p>If you'd like to contact me, just visit my <a href="/contact/">contact</a> 📇 page!</p>
+    <p class="description">Hi! My name is Konstantin Tutsch 👋, welcome to my website. Please let me introduce myself:</p>
+    <p>I've got many interests, but I'm especially focused on <b>technology</b>, <b>photography</b> and <b>espresso</b>. I am a hobby photographer and am learning <i>(backend-)</i> programming.</p>
+    <ul>
+    {% for page in site.data.navigation.home %}
+        <li><a href="{{ page.path }}">{{ page.name }}</a> – {{ page.desc }}</li>
+    {% endfor %}
+    </ul>
 </article>
 
 {% include heading.html level=3 text="Recent posts" %}
 
-<p class="description">You are interested in my blog? 📝</p>
+<p class="description">For those interested in my blog …</p>
 
 {% for post in site.posts limit:site.newest %}
     {% include preview.html post=post %}

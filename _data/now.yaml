@@ -1,13 +1,13 @@
 date: 2023-12-29
 location: "Germany"
 activities:
-  - topic: "Reading 📑"
+  - topic: "Reading"
     content: "book"
-  - topic: "Music 📻"
-    content: "I'm starting to like rock music quite a bit, especially from <i>The Beatles</i>, <i>Electric Light Orchestra</i> and <i>Nirvana</i>. 🎸"
-  - topic: "Programming 🧑‍💻"
-    content: "I'm trying to figure out how to write software for a BTHome compatible door sensor. I am coding in C with the SimpleBLE library 🚪"
-  - topic: "Photography 📷"
-    content: "I've bought a Canon EOS R50 with two lenses and am getting started with photography and photo editing 🧠"
-  - topic: "Getting to know Fedora Linux 🐧"
+  - topic: "Music"
+    content: "I'm starting to like rock music quite a bit, especially from <i>The Beatles</i>, <i>Electric Light Orchestra</i> and <i>Nirvana</i>."
+  - topic: "Programming"
+    content: "I'm trying to figure out how to write software for a BTHome compatible door sensor. I am coding in C with the SimpleBLE library"
+  - topic: "Photography"
+    content: "I've bought a Canon EOS R50 with two lenses and am getting started with photography and photo editing"
+  - topic: "Getting to know Fedora Linux"
     content: 'I recently <a href="/gentoo-has-been-bugging-me/">moved away from Gentoo Linux</a> to Fedora. I am now leaning about Flatpak, SELinux, DNF and more.'
