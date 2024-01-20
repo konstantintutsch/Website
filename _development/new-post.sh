@@ -64,3 +64,12 @@ git push -u origin main
 
 printf -v toot_content '🆕📑 %s #blog\n\n%s%s/' "${VALUES[0]}" "${PREPEND_URL}" "${URL}"
 toot post "${toot_content}"
+
+# submit to search engines
+SITEMAP="${PREPEND_URL}${URL}/sitemap.xml"
+RSS="${PREPEND_URL}${URL}/feed.xml"
+echo "Requesting indexing …"
+wget -O- "https://www.google.com/webmasters/tools/ping?sitemap=${SITEMAP}"
+wget -O- "https://www.google.com/webmasters/tools/ping?sitemap=${RSS}"
+wget -O- "https://www.bing.com/ping?sitemap=${SITEMAP}"
+wget -O- "https://www.bing.com/ping?sitemap=${RSS}"
