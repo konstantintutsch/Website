@@ -6,8 +6,8 @@ This repository contains Konstantin Tutsch's personal website's source code. The
 
 ## Licensing
 
-- All code is licensed under the [MIT License](LICENSE)
-- All content licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) unless otherwise stated
+- All code licensed under the [MIT License](LICENSE)
+- All work licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) unless otherwise stated
 
 ## Contributing
 

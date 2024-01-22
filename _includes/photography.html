@@ -1,3 +1,0 @@
-{% assign photo = include.photo %}
-{% assign photodotcaption = photo.published | date_to_string | append: " - " | append: photo.alt %}
-{% include image.html file=photo.file alt=photo.alt caption=photodotcaption %}

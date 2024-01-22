@@ -2,7 +2,7 @@
 layout: page
 ---
 
-{% assign meta = page.date | date_to_string | prepend: " — " | prepend: page.location %}
+{% assign meta = page.date | date_to_string: "ordinal", "US" | prepend: " — " | prepend: page.location %}
 {% include image.html file=page.file alt=page.description caption=meta %}
 
 {% assign names = "Aperture, Camera, Focal length, ISO, Shutter speed" | split: ", " %}
