@@ -23,12 +23,12 @@ more:
     path: "/feed.xml"
 
 social:
-  - name: "Codeberg"
-    id: "codeberg"
-  - name: "Fediverse <i>e. g. Mastodon</i>"
-    id: "fediverse"
   - name: "GitHub"
     id: "github"
+  - name: "Mastodon"
+    id: "fediverse"
+  - name: "Codeberg"
+    id: "codeberg"
   - name: "Ko-Fi"
     id: "ko-fi"
   - name: "LiberaPay"
