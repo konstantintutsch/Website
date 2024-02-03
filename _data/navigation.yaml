@@ -27,16 +27,10 @@ social:
     id: "github"
   - name: "Mastodon"
     id: "fediverse"
-  - name: "Codeberg"
-    id: "codeberg"
-  - name: "Ko-Fi"
-    id: "ko-fi"
   - name: "LiberaPay"
     id: "liberapay"
   - name: "OpenStreetMap"
     id: "osm"
-  - name: "MusicBrainz"
-    id: "musicbrainz"
 
 home:
   - name: "Gallery"
