@@ -69,7 +69,6 @@ toot post "${toot_content}"
 SITEMAP="${PREPEND_URL}${URL}/sitemap.xml"
 RSS="${PREPEND_URL}${URL}/feed.xml"
 echo "Requesting indexing …"
-wget -O- "https://www.google.com/webmasters/tools/ping?sitemap=${SITEMAP}"
-wget -O- "https://www.google.com/webmasters/tools/ping?sitemap=${RSS}"
+# Google Sitemap ping deprecated
 wget -O- "https://www.bing.com/ping?sitemap=${SITEMAP}"
 wget -O- "https://www.bing.com/ping?sitemap=${RSS}"
