@@ -48,7 +48,7 @@ Here are all the necessary configuration parameters:
 
 {% include heading.html level=4 text="[commands]" %}
 
-- `random_sleep`: The interval *(in seconds)* between searching for new updates. — `yes` / `no`
+- `random_sleep`: The interval *(in seconds)* between searching for new updates. — e. g. `3600`
 - `download_updates`: If packages that can be updated should be downloaded automatically. — `yes` / `no`
 - `apply_updates`: If updates for packages should be installed automatically. — `yes` / `no`
 - `reboot`: Whether to reboot after updates. — `never` / `when-changed` / `when-needed`
