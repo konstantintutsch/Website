@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ "${PWD##*/}" != "Website" ]]
+if [[ "${PWD##*/}" != "website" ]]
 then
     echo "Not in root of the website's source. Exiting …"
     exit 1
