@@ -3,19 +3,4 @@ layout: page
 ---
 
 {% assign meta = page.date | date_to_string: "ordinal", "US" | prepend: " — " | prepend: page.location %}
-{% include image.html file=page.file alt=page.description caption=meta %}
-
-{% assign names = "Aperture, Camera, Focal length, ISO, Shutter speed" | split: ", " %}
-{% assign values_string = "ƒ/" | append: page.aperture | append: "," | append: page.camera | append: "," | append: page.focal | append: "," | append: page.iso | append: "," | append: page.shutter %}
-{% assign values = values_string | split: "," %}
-
-<table>
-    <tbody>
-        {% for i in (0..names.size) %}
-        <tr>
-            <td>{{ names[i] }}</td>
-            <td>{{ values[i] }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+{% include image.html file=page.file alt=page.description caption=meta aperture=page.aperture camera=page.camera focal=page.focal iso=page.iso shutter=page.shutter %}

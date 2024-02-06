@@ -2,3 +2,22 @@
     <a href="/{{ site.assets.images }}/{{ include.file }}"><img class="image-display" src="/{{ site.assets.images }}/{{ include.file }}" alt="{{ include.alt }}" loading="lazy"></a>
     <figcaption class="image-caption">{{ include.caption }}</figcaption>
 </figure>
+
+{% if include.camera %}
+
+{% assign names = "Aperture, Camera, Focal length, ISO, Shutter speed" | split: ", " %}
+{% assign values_string = "ƒ/" | append: include.aperture | append: "," | append: include.camera | append: "," | append: include.focal | append: "," | append: include.iso | append: "," | append: include.shutter %}
+{% assign values = values_string | split: "," %}
+
+<table>
+    <tbody>
+        {% for i in (0..names.size) %}
+        <tr>
+            <td>{{ names[i] }}</td>
+            <td>{{ values[i] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endif %}
