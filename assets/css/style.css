@@ -276,6 +276,7 @@ hr {
 
 /* Photography */
 .gallery {
+    margin-top: 4rem;
     width: fit-content;
     display: grid;
     grid-template-columns: repeat(3, auto);
@@ -297,6 +298,10 @@ hr {
 .gallery-item img:hover {
     webkit-filter: blur(5px);
     filter: blur(5px);
+    background: transparent;
+}
+.gallery-item:hover {
+    background: transparent;
 }
 
 tr, td {
@@ -329,6 +334,7 @@ table {
     }
 
     .gallery {
+        margin-top: 2rem;
         grid-template-columns: repeat(2, auto);
     }
     .gallery-item {
