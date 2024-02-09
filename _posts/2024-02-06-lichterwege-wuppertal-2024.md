@@ -17,4 +17,4 @@ I took some pictures of an event called “Lichterwege” *(ways of light, but s
 
 {% include image.html file="20240206_0005.jpg" alt="A row of colorfull glasses filled with candles glowing onto the pavement" caption="Wuppertal, Germany" aperture=5 camera="Canon EOS R50" focal="55mm" iso=400 shutter="1/2s" %}
 
-{% include image.html file="20240206_0006.jpg" alt="A row of colorfull glasses filled with candles lined up on stairs illuminting them. In focus is a transparent glass." caption="Wuppertal, Germany" aperture=5 camera="Canon EOS R50" focal="55mm" iso=400 shutter="1/2,5s" %}
+{% include image.html file="20240206_0006.jpg" alt="A row of colorfull glasses filled with candles lined up on stairs illuminting them. In focus is a transparent glass." caption="Wuppertal, Germany" aperture=5 camera="Canon EOS R50" focal="55mm" iso=400 shutter="2/5s" %}
