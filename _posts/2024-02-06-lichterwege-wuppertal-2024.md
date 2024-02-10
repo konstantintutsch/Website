@@ -1,5 +1,5 @@
 ---
-title: I took photos of some candles
+title: Lichterwege Wuppertal – 2024
 description: Photography of the Lichterwege in Wuppertal Osterbaum, Germany.
 tags: Photography
 time: 2024-02-06 21:08:16 +0100
