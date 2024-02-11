@@ -14,6 +14,7 @@ JEKYLL_ENV=production jekyll build
 cd "./_site"
 
 rsync -rvz --progress --delete ./ "root@${DOMAIN}:/var/www/${DOMAIN}"
+ssh "root@${DOMAIN}" "chown -R www-data:www-data /var/www/${DOMAIN}"
 
 if [[ "${PWD##*/}" == "_site" ]]
 then 
