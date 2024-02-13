@@ -57,7 +57,7 @@ body {
 }
 
 header {
-    margin: 2rem auto 1rem auto;
+    margin: 2rem auto 3rem auto;
     left: 0;
     min-height: 3vh;
     text-align: center;
@@ -276,7 +276,6 @@ hr {
 
 /* Photography */
 .gallery {
-    margin-top: 4rem;
     width: fit-content;
     display: grid;
     grid-template-columns: repeat(3, auto);
