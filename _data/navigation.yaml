@@ -21,6 +21,8 @@ more:
     path: "/colophon/"
   - name: "RSS feed"
     path: "/feed.xml"
+  - name: "Analytics"
+    path: "https://analytics.konstantintutsch.com/share/AFfZHMqURVdvzboN/konstantintutsch.com"
 
 social:
   - name: "GitHub"
