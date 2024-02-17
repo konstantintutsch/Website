@@ -11,7 +11,8 @@
 
 <table>
     <tbody>
-        {% for i in (0..names.size) %}
+        {% assign size = names.size | minus: 1 %}
+        {% for i in (0..size) %}
         <tr>
             <td>{{ names[i] }}</td>
             <td>{{ values[i] }}</td>
