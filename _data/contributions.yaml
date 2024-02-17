@@ -19,6 +19,10 @@ verifiable:
     role: "Translator (🇩🇪)"
     url: "https://github.com/FriesI23/mhabit/commits?author=konstantintutsch"
     active: true
+  - name: "Various translations"
+    role: "via Hosted Weblate; Translator (🇩🇪)"
+    url: "https://hosted.weblate.org/user/konstantintutsch/"
+    active: true
 
 other:
   - Translations (🇩🇪) for GNOME (l10.gnome.org)
