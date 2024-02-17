@@ -24,6 +24,9 @@ collections:
     photos:
         output: true
         permalink: /gallery/:slug/
+    errors:
+        output: true
+        permalink: /error/:slug.html
 defaults:
     - scope:
           type: "posts"
@@ -37,3 +40,7 @@ defaults:
           type: "photos"
       values:
           layout: "photo"
+    - scope:
+          type: "errors"
+      values:
+          layout: "error"

@@ -2,8 +2,9 @@
 layout: null
 ---
 # Custom errros
-ErrorDocument 403 /errors/403.html
-ErrorDocument 404 /errors/404.html
+{% for error in site.errors %}
+ErrorDocument {{ error.title }} {{ error.url }}
+{% endfor %}
 
 # Charset
 AddCharset UTF-8 .html
