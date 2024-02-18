@@ -3,14 +3,18 @@
   <id>net.codelogistics.webapps</id>
 
   <name>Web Apps</name>
-  <summary>Install websites as desktop applications</summary>
+  <summary>Install websites as apps</summary>
 
   <metadata_license>FSFAP</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
 
   <description>
     <p>
-      Install websites as desktop apps. This is similar to the &quot;Install as App&quot; feature found in several commonly used web browsers.
+      Install websites as desktop apps, so that they appear in their own windows separate from any browsers installed.
+      Links to websites other than the one installed open in a new browser window.
+
+      This is similar to the &quot;Install as App&quot; feature found in popular web browsers.
+      It uses the WebKit engine which is also used by GNOME Web and Safari, so most websites are likely to run without issues.
     </p>
   </description>
 

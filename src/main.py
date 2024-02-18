@@ -21,6 +21,7 @@ import os
 import pickle
 import sys
 import gi
+from pathlib import Path
 
 gi.require_version('Gtk', '4.0')
 gi.require_version("Adw", '1')
@@ -90,11 +91,8 @@ class WebappsApplication(Gtk.Application):
 def main(version):
     """The application's entry point."""
 
-    if os.path.exists(os.path.expanduser('~/.local/share/net.codelogistics.webapps/')):
-        pass
-    else:
-        os.mkdir(os.path.expanduser('~/.local/share/net.codelogistics.webapps/'))
-        os.mkdir(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/'))
+    Path(os.path.expanduser("~/.local/share/net.codelogistics.webapps/webapps/")).mkdir(parents=True, exist_ok=True)
+    Path(os.path.expanduser("~/.local/share/xdg-desktop-portal/icons/192x192/")).mkdir(parents=True, exist_ok=True)
 
     app = WebappsApplication(args = sys.argv)
     return app.run()
