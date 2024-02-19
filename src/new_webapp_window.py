@@ -153,7 +153,7 @@ class NewWebAppWindow(Gtk.Dialog):
     def install_webapp(self, button, widgets, parent):
         self.destroy()
         if widgets[1].get_text() == "":
-            url = "https://codelogistics.net/"
+            url = "about:blank"
         else:
             url = widgets[1].get_text()
         if not url.startswith('http'):

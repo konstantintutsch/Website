@@ -63,12 +63,15 @@ class WebappsApplication(Gtk.Application):
         """Callback for the app.about action."""
         about = Adw.AboutWindow(transient_for=self.props.active_window, modal=True,)
         about.set_application_name("Web Apps")
+        about.set_comments("Install websites as apps")
         about.set_developer_name("Satvik Patwardhan")
         about.set_application_icon('net.codelogistics.webapps')
         about.set_version('0.2.1')
         about.set_license_type(Gtk.License.GPL_3_0)
         about.set_developers(['Satvik Patwardhan'])
         about.set_copyright('© 2023 Satvik Patwardhan')
+        about.set_website("https://codelogistics.net/")
+        about.set_issue_url("https://codeberg.org/eyekay/webapps/issues")
 
         about.present()
 
