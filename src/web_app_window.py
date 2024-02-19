@@ -32,8 +32,8 @@ class WebAppWindow(Gtk.ApplicationWindow):
         Adw.init()
         self.set_title(state[0])
         self.set_default_size(800,600)
-        if os.path.exists(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/' + state[0] + '.window')):
-            restore_window = open(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/' + state[0] + '.window'), 'r').read()
+        if os.path.exists(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/' + state[0].replace(' ', '-') + '.window')):
+            restore_window = open(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/' + state[0].replace(' ', '-') + '.window'), 'r').read()
             if restore_window == "True":
                 self.maximize()
         self.set_default_icon_name("net.codelogistics.webapps")
@@ -42,15 +42,21 @@ class WebAppWindow(Gtk.ApplicationWindow):
         box = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
 
         context = WebKit.WebContext.get_default()
-        network_session = WebKit.NetworkSession.get_default()
-        cookies = network_session.get_cookie_manager()
+        if state[7]:
+            network_session = WebKit.NetworkSession.new_ephemeral()
+        else:
+            network_session = WebKit.NetworkSession.get_default()
+            cookies = network_session.get_cookie_manager()
         self.webview = WebKit.WebView()
-        user_content_manager = self.webview.get_user_content_manager()
+        settings = self.webview.get_settings()
+        if not state[6]:
+            settings.set_enable_javascript(False)
 
-        storage = WebKit.CookiePersistentStorage.TEXT
-        policy = WebKit.CookieAcceptPolicy.ALWAYS
-        cookies.set_accept_policy(policy)
-        cookies.set_persistent_storage(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/' + state[0] + '.cookies.txt'), storage)
+        if not state[7]:
+            storage = WebKit.CookiePersistentStorage.TEXT
+            policy = WebKit.CookieAcceptPolicy.ALWAYS
+            cookies.set_accept_policy(policy)
+            cookies.set_persistent_storage(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/' + state[0].replace(' ', '-') + '.cookies.txt'), storage)
 
         self.webview.set_vexpand(True)
         if state[1] == "":
@@ -147,7 +153,7 @@ class WebAppWindow(Gtk.ApplicationWindow):
                 decision.ignore()
 
     def on_close(self, window, state):
-        with open(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/' + state[0] + '.window'), 'w') as restore_file:
+        with open(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/' + state[0].replace(' ', '-') + '.window'), 'w') as restore_file:
             restore_file.write(str(self.is_maximized()))
         self.webview.terminate_web_process()
 

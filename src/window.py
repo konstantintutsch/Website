@@ -19,6 +19,7 @@
 
 import os
 import gi
+import pickle
 gi.require_version("Adw", '1')
 from gi.repository import Gtk, Gio, Adw
 from .new_webapp_window import NewWebAppWindow
@@ -104,7 +105,9 @@ class WebAppsWindow(Gtk.ApplicationWindow):
         for i in os.listdir(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/')):
             if not i.endswith(".cookies.txt") and not i.endswith(".window"):
                 rows[i] = [Adw.ActionRow(), Gtk.Button()]
-                rows[i][0].set_title(i)
+                with open(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/') + i, 'rb') as f:
+                    tmpstate = pickle.load(f)
+                rows[i][0].set_title(tmpstate[0])
                 rows[i][1].add_css_class('destructive-action')
                 rows[i][1].set_icon_name('user-trash-symbolic')
                 rows[i][1].connect("clicked", self.delete_row, i)

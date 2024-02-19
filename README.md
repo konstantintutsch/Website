@@ -24,7 +24,6 @@ where NAME is the name of the Web App. This is case-sensitive.
 ## Todos
 
 * Edit webapps
-* Enable/ disable javascript, cookies
 * Remove Herobrine
 
 ## Credits
