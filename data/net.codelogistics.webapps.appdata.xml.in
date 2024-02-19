@@ -5,6 +5,10 @@
   <name>Web Apps</name>
   <summary>Install websites as apps</summary>
 
+  <developer id="net.codelogistics">
+  <name>Satvik Patwardhan</name>
+</developer>
+
   <metadata_license>FSFAP</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
 
@@ -20,6 +24,8 @@
 
   <content_rating type="oars-1.0" />
   <url type="homepage">https://codeberg.org/eyekay/webapps</url>
+  <url type="vcs-browser">https://codeberg.org/eyekay/webapps</url>
+  <url type="bugtracker">https://codeberg.org/eyekay/webapps/issues</url>
 
   <launchable type="desktop-id">net.codelogistics.webapps.desktop</launchable>
   <screenshots>
