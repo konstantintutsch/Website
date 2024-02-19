@@ -58,5 +58,6 @@ def write_desktop_file(name, icon_path):
         desktop_file.write('Exec=flatpak run net.codelogistics.webapps ' + name.replace(' ', '-') + '\n')
         desktop_file.write('Terminal=false\n')
         desktop_file.write('Type=Application\n')
+        desktop_file.write('Categories=Network;\n')
     os.system('chmod +x "' + os.path.expanduser('~/.local/share/applications/net.codelogistics.webapps.' + name.replace(' ', '-') + '.desktop"'))
     
