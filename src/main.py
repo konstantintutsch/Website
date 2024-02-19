@@ -65,7 +65,7 @@ class WebappsApplication(Gtk.Application):
         about.set_application_name("Web Apps")
         about.set_developer_name("Satvik Patwardhan")
         about.set_application_icon('net.codelogistics.webapps')
-        about.set_version('0.1.0')
+        about.set_version('0.2.0')
         about.set_license_type(Gtk.License.GPL_3_0)
         about.set_developers(['Satvik Patwardhan'])
         about.set_copyright('© 2023 Satvik Patwardhan')

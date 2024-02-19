@@ -19,7 +19,7 @@
   </description>
 
   <content_rating type="oars-1.0" />
-  <url type="homepage">https://codelogsitics.net/</url>
+  <url type="homepage">https://codeberg.org/eyekay/webapps</url>
 
   <launchable type="desktop-id">net.codelogistics.webapps.desktop</launchable>
   <screenshots>
@@ -35,9 +35,9 @@
   </screenshots>
 
   <releases>
-    <release version="0.1.0" date="2023-08-01">
+    <release version="0.2.0" date="2024-02-19">
       <description>
-        <p>Adds a web app installer</p>
+        <p>Fixes several bugs</p>
       </description>
     </release>
   </releases>
