@@ -41,9 +41,9 @@
   </screenshots>
 
   <releases>
-    <release version="0.2.0" date="2024-02-19">
+    <release version="0.2.1" date="2024-02-19">
       <description>
-        <p>Fixes several bugs</p>
+        <p>Fix Flatpak appdata</p>
       </description>
     </release>
   </releases>
