@@ -13,13 +13,18 @@ This is currently a Flatpak-only application.
 
 ## Usage
 
+### For end-users
+
+Open 'Web Apps' for the main interface, or the name of the web app for the web app itself, from the menu.
+
+### Command line
 `flatpak run net.codelogistics.webapps`
 
 For running a specific Web App,
 
 `flatpak run net.codelogistics.webapps NAME`
 
-where NAME is the name of the Web App. This is case-sensitive.
+where NAME is the name of the Web App (replace spaces with '-' if applicable). This is case-sensitive.
 
 ## Todos
 
