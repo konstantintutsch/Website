@@ -7,9 +7,11 @@ Install websites as desktop applications.
 Made with Gtk4, WebKitGTK, libadwaita and Flatpak.
 
 ## Dependencies
-org.gnome.Platform 45
 
-This is currently a Flatpak-only application. It needs access to the host's xdg-data dirs to add new apps to the menus.
+org.gnome.Platform 45
+libportal 0.7.1
+
+This is a Flatpak-only application. It uses portals to create and remove shortcuts.
 
 ## Usage
 
@@ -18,6 +20,7 @@ This is currently a Flatpak-only application. It needs access to the host's xdg-
 Open 'Web Apps' for the main interface, or the name of the web app for the web app itself, from the menu.
 
 ### Command line
+
 `flatpak run net.codelogistics.webapps`
 
 For running a specific Web App,
