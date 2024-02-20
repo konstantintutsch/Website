@@ -11,7 +11,7 @@ description: Welcome to Konstantin Tutsch's website. Discover lots of informatio
     <p>I've got many interests, but I'm especially focused on <b>technology</b>, <b>photography</b> and <b>espresso</b>. I am a hobby photographer and am learning programming <i>(C at the moment)</i>.</p>
     <ul>
     {% for page in site.data.navigation.home %}
-        <li><a href="{{ page.path }}">{{ page.name }}</a> – {{ page.desc }}</li>
+    <li><a data-umami-event="Introduction {{ page.name }}" href="{{ page.path }}">{{ page.name }}</a> – {{ page.desc }}</li>
     {% endfor %}
     </ul>
 </article>
@@ -24,4 +24,4 @@ description: Welcome to Konstantin Tutsch's website. Discover lots of informatio
     {% include preview.html post=post %}
 {% endfor %}
 
-<a class="preview-title" href="/blog/">All posts →</a>
+<a class="preview-title" data-umami-event="Introduction All posts" href="/blog/">All posts →</a>

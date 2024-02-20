@@ -41,7 +41,7 @@
     <body>
         <header>
             <div id="top">
-                <a class="invisible" href="/" aria-label="Go to blog page">
+                <a class="invisible" data-umami-event="NavBar Icon" href="/" aria-label="Go to blog page">
                     <svg class="logo" viewBox="0 0 12.7 12.7">
                         <g stroke-linecap="square">
                             <circle id="path788" cx="6.35" cy="6.35" r="5" fill="none"/>
@@ -57,7 +57,7 @@
                 <h1 class="hidden">{{ site.title }}</h1>
                 <nav class="main-menu">
                 {% for item in site.data.navigation.header %}
-                    <a {% if page.url == item.path %}class="selected"{% endif %} href="{{ item.path }}">{{ item.name }}</a>
+                <a {% if page.url == item.path %}class="selected"{% endif %} data-umami-event="NavBar {{ item.name }}" href="{{ item.path }}">{{ item.name }}</a>
                 {% endfor %}
                 </nav>
             </div>
@@ -69,7 +69,7 @@
             {% include social.html id="fediverse" classes="hidden" %}
         </main>
         <footer>
-            <small>© All work licensed under <b><a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></b> unless otherwise stated. — <a href="/privacy">Privacy</a> | <a href="/disclaimer">Disclaimer</a></small>
+            <small>© All work licensed under <b><a data-umami-event="CC BY-SA 4.0 notice" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></b> unless otherwise stated. — <a data-umami-event="Privacy" href="/privacy">Privacy</a> | <a data-umami-event="Disclaimer" href="/disclaimer">Disclaimer</a></small>
         </footer>
     </body>
 </html>

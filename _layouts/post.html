@@ -10,8 +10,8 @@ layout: default
     {{ content }}
 </article>
 
-<small class="tags-container"><b>Tagged with:</b> {% for tag in page.tags %}<a class="tag" href="/blog/tags/{{ tag | slugify }}">{{ tag }}</a>{% endfor %}</small>
+<small class="tags-container"><b>Tagged with:</b> {% for tag in page.tags %}<a class="tag" data-umami-event="{{ tag }}" href="/blog/tags/{{ tag | slugify }}">{{ tag }}</a>{% endfor %}</small>
 
 {% include info.html heading="Reply to this post" text="If you have any thoughts about the contents of this post, email me so we can have a fun little chat about it 🤯" link_id="mail" link_name="Reply by email" link_extra=page.subject %}
 
-{% include info.html heading="Want to not miss a post?" text="That's easy! I provide a RSS feed so you can stay up to date with my blog and what I'm doing ⏳" link='<a href="/feed.xml">Subscribe via RSS</a>' %}
+{% include info.html heading="Want to not miss a post?" text="That's easy! I provide a RSS feed so you can stay up to date with my blog and what I'm doing ⏳" link='<a data-umami-event="Subscribe via RSS" href="/feed.xml">Subscribe via RSS</a>' %}
