@@ -15,3 +15,5 @@ layout: default
 {% include info.html heading="Reply to this post" text="If you have any thoughts about the contents of this post, email me so we can have a fun little chat about it 🤯" link_id="mail" link_name="Reply by email" link_extra=page.subject %}
 
 {% include info.html heading="Want to not miss a post?" text="That's easy! I provide a RSS feed so you can stay up to date with my blog and what I'm doing ⏳" link='<a data-umami-event="Subscribe via RSS" href="/feed.xml">Subscribe via RSS</a>' %}
+
+{% assign repo_path = "/website/edit/main/" | append: page.path %}{% include info.html heading="Found a mistake?" text="That's bad! But you can help me correct my error. All posts are available on GitHub. Just open a pull request with your fix. I'll merge it! 👌" link_id="github" link_name="Edit on GitHub" link_extra=repo_path %}
