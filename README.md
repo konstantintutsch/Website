@@ -9,6 +9,7 @@ Made with Gtk4, WebKitGTK, libadwaita and Flatpak.
 ## Dependencies
 
 org.gnome.Platform 45
+
 libportal 0.7.1
 
 This is a Flatpak-only application. It uses portals to create and remove shortcuts.

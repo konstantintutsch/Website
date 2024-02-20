@@ -70,16 +70,16 @@ class NewWebAppWindow(Gtk.Dialog):
         url_row.set_title("URL")
         prefs_list.append(url_row)
 
-        icon_row = Adw.ActionRow()
-        icon_row.set_title("Icon")
-        icon_row.set_subtitle("Default Favicon")
+        self.icon_row = Adw.ActionRow()
+        self.icon_row.set_title("Icon")
+        self.icon_row.set_subtitle("Default Favicon")
         select_icon_button = Gtk.Button()
         button_content = Adw.ButtonContent()
         button_content.set_label("Browse")
         button_content.set_icon_name("folder-open-symbolic")
         select_icon_button.set_child(button_content)
-        icon_row.add_suffix(select_icon_button)
-        prefs_list.append(icon_row)
+        self.icon_row.add_suffix(select_icon_button)
+        prefs_list.append(self.icon_row)
 
         show_navigation_row = Adw.ActionRow()
         show_navigation_row.set_title("Show Navigation Options")
@@ -141,7 +141,8 @@ class NewWebAppWindow(Gtk.Dialog):
         prefs_list_clamp.set_child(prefs_list)
         box.append(prefs_list_clamp)
 
-        self.add_button.connect("clicked", self.install_webapp, [name_row, url_row, icon_row, show_navs_switch, strict_domain_switch, loading_bar_switch, javascript_switch, incognito_switch], parent)
+        self.add_button.connect("clicked", self.install_webapp, [name_row, url_row, self.icon_row, show_navs_switch, strict_domain_switch, loading_bar_switch, javascript_switch, incognito_switch], parent)
+        select_icon_button.connect("clicked", self.choose_icon)
         self.set_child(box)
 
     def enable_install(self, entry):
@@ -149,6 +150,17 @@ class NewWebAppWindow(Gtk.Dialog):
             self.add_button.set_sensitive(False)
         else:
             self.add_button.set_sensitive(True)
+
+    def choose_icon(self, button):
+        def choose_icon_finish(dialog, result):
+            file = choose_dialog.open_finish(result)
+            self.icon_row.set_subtitle(file.get_path())
+        choose_dialog = Gtk.FileDialog()
+        pngfilter = Gtk.FileFilter()
+        pngfilter.set_name("PNG")
+        pngfilter.add_suffix("png")
+        choose_dialog.set_default_filter(pngfilter)
+        choose_dialog.open(self, None, choose_icon_finish)
 
     def install_webapp(self, button, widgets, parent):
         self.destroy()
