@@ -13,7 +13,7 @@ Umami is a self-hostable analytics platform. Like Google Analytics, but privacy 
 
 You can self-host Umami to ensure that all analytics data stays on your system and you have full control.
 
-The Umami developers also provide a cloud solution so you can subscribe to if you don't feel comfortable self-hosting.
+The Umami developers also provide a cloud solution you can subscribe to if you don't feel comfortable self-hosting.
 
 {% include heading.html level=4 text="Prerequisites" %}
 
