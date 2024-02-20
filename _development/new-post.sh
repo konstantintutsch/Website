@@ -62,7 +62,8 @@ git add "./assets/images"
 git commit -m "New post: ${VALUES[0]}"
 git push -u origin main
 
-printf -v toot_content '%s #blog\n\n%s%s/' "${VALUES[0]}" "${PREPEND_URL}" "${URL}"
+for TAG in ${VALUES[2]}; do printf -v HASHTAGS '%s#%s ' "${HASHTAGS}" "${TAG}"
+printf -v toot_content '%s #blog\n\n%s%s/\n\n%s' "${VALUES[0]}" "${PREPEND_URL}" "${URL}" "${HASHTAGS}"
 toot post "${toot_content}"
 
 # submit to search engines
