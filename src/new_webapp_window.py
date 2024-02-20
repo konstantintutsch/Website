@@ -161,9 +161,9 @@ class NewWebAppWindow(Gtk.Dialog):
         if not url.endswith('/'):
             url += '/'
         state = [widgets[0].get_text(), url, widgets[2].get_subtitle(), widgets[3].get_active(), widgets[4].get_active(), widgets[5].get_active(), widgets[6].get_active(), widgets[7].get_active()]
-        with open(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/' + state[0].replace(' ', '-')), 'wb') as f:
+        with open('.var/app/net.codelogistics.webapps/webapps/' + state[0].replace(' ', '-'), 'wb') as f:
             pickle.dump(state, f)
 
-        desktop_filer(state[0], state[1], state[2])
+        desktop_filer(parent, state[0], state[1], state[2])
 
         parent.refresh_rows()

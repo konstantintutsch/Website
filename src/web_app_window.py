@@ -22,6 +22,7 @@ from urllib import parse
 import gi
 gi.require_version("Adw", '1')
 gi.require_version("WebKit", "6.0")
+
 from gi.repository import Gtk, Gdk, Gio, Adw, WebKit
 
 class WebAppWindow(Gtk.ApplicationWindow):
@@ -32,8 +33,8 @@ class WebAppWindow(Gtk.ApplicationWindow):
         Adw.init()
         self.set_title(state[0])
         self.set_default_size(800,600)
-        if os.path.exists(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/' + state[0].replace(' ', '-') + '.window')):
-            restore_window = open(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/' + state[0].replace(' ', '-') + '.window'), 'r').read()
+        if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + state[0].replace(' ', '-') + '.window'):
+            restore_window = open('.var/app/net.codelogistics.webapps/webapps/' + state[0].replace(' ', '-') + '.window', 'r').read()
             if restore_window == "True":
                 self.maximize()
         self.set_default_icon_name("net.codelogistics.webapps")
@@ -56,7 +57,7 @@ class WebAppWindow(Gtk.ApplicationWindow):
             storage = WebKit.CookiePersistentStorage.TEXT
             policy = WebKit.CookieAcceptPolicy.ALWAYS
             cookies.set_accept_policy(policy)
-            cookies.set_persistent_storage(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/' + state[0].replace(' ', '-') + '.cookies.txt'), storage)
+            cookies.set_persistent_storage('.var/app/net.codelogistics.webapps/webapps/' + state[0].replace(' ', '-') + '.cookies.txt', storage)
 
         self.webview.set_vexpand(True)
         if state[1] == "":
@@ -153,7 +154,7 @@ class WebAppWindow(Gtk.ApplicationWindow):
                 decision.ignore()
 
     def on_close(self, window, state):
-        with open(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/' + state[0].replace(' ', '-') + '.window'), 'w') as restore_file:
+        with open('.var/app/net.codelogistics.webapps/webapps/' + state[0].replace(' ', '-') + '.window', 'w') as restore_file:
             restore_file.write(str(self.is_maximized()))
         self.webview.terminate_web_process()
 

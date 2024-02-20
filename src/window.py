@@ -20,8 +20,10 @@
 import os
 import gi
 import pickle
+
 gi.require_version("Adw", '1')
-from gi.repository import Gtk, Gio, Adw
+
+from gi.repository import Gtk, Gio, Adw, Xdp
 from .new_webapp_window import NewWebAppWindow
 
 icon_path = __file__.rpartition(os.path.sep)[0] + '/data/icons/hicolor/48x48/apps/net.codelogistics.webapps.png'
@@ -88,7 +90,7 @@ class WebAppsWindow(Gtk.ApplicationWindow):
         self.no_webapps_page.set_description("Press the Add Web App button to create one")
         self.no_webapps_page.set_icon_name("web-browser-symbolic")
 
-        if len(os.listdir(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/'))) > 0:
+        if len(os.listdir('.var/app/net.codelogistics.webapps/webapps/')) > 0:
             self.box.append(self.clamp)
 
         else:
@@ -102,10 +104,10 @@ class WebAppsWindow(Gtk.ApplicationWindow):
 
     def add_rows(self, apps_list):
         rows = {}
-        for i in os.listdir(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/')):
+        for i in os.listdir('.var/app/net.codelogistics.webapps/webapps/'):
             if not i.endswith(".cookies.txt") and not i.endswith(".window"):
                 rows[i] = [Adw.ActionRow(), Gtk.Button()]
-                with open(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/') + i, 'rb') as f:
+                with open('.var/app/net.codelogistics.webapps/webapps/' + i, 'rb') as f:
                     tmpstate = pickle.load(f)
                 rows[i][0].set_title(tmpstate[0])
                 rows[i][1].add_css_class('destructive-action')
@@ -138,13 +140,13 @@ class WebAppsWindow(Gtk.ApplicationWindow):
 
 
     def delete_row(self, button, app):
-        os.remove(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/' + app))
-        if os.path.exists(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/' + app + '.window')):
-            os.remove(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/' + app + '.window'))
-        if os.path.exists(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/' + app + '.cookies.txt')):
-            os.remove(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/' + app + '.cookies.txt'))
-        if os.path.exists(os.path.expanduser('~/.local/share/xdg-desktop-portal/icons/192x192/net.codelogistics.webapps.' + app + '.png')):
-            os.remove(os.path.expanduser('~/.local/share/xdg-desktop-portal/icons/192x192/net.codelogistics.webapps.' + app + '.png'))
-        if os.path.exists(os.path.expanduser('~/.local/share/applications/net.codelogistics.webapps.' + app + '.desktop')):
-            os.remove(os.path.expanduser('~/.local/share/applications/net.codelogistics.webapps.' + app + '.desktop'))
+        os.remove('.var/app/net.codelogistics.webapps/webapps/' + app)
+        if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + app + '.window'):
+            os.remove('.var/app/net.codelogistics.webapps/webapps/' + app + '.window')
+        if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + app + '.cookies.txt'):
+            os.remove('.var/app/net.codelogistics.webapps/webapps/' + app + '.cookies.txt')
+        if os.path.exists('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + app + '.png'):
+            os.remove('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + app + '.png')
+        portal = Xdp.Portal()
+        portal.dynamic_launcher_uninstall("net.codelogistics.webapps." + app.replace(' ', '-') + ".desktop")
         self.refresh_rows()

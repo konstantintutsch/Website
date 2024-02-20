@@ -23,6 +23,21 @@
         "*.a"
     ],
     "modules" : [
+    	{
+    	"name" : "libportal",
+    	"buildsystem" : "meson",
+    	"config-opts" : [
+      		"-Ddocs=false",
+      		"-Dintrospection=true"
+      	],
+    	"sources": [
+    		{
+      		"type": "git",
+        	"url": "https://github.com/flatpak/libportal.git",
+        	"tag": "0.7.1"
+        	}
+        ]
+        },
         {
             "name" : "webapps",
             "builddir" : true,

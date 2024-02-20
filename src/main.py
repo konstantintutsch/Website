@@ -25,6 +25,8 @@ from pathlib import Path
 
 gi.require_version('Gtk', '4.0')
 gi.require_version("Adw", '1')
+gi.require_version('GIRepository', '2.0')
+gi.require_version('Xdp', '1.0')
 
 from gi.repository import Gtk, GModule, GObject, GIRepository, Gio, GLib, Adw
 from .window import WebAppsWindow
@@ -34,7 +36,7 @@ class WebappsApplication(Gtk.Application):
     """The main application singleton class."""
 
     def __init__(self, args):
-        if len(args) > 1 and args[1] in os.listdir(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/')):
+        if len(args) > 1 and args[1] in os.listdir('.var/app/net.codelogistics.webapps/webapps/'):
             super().__init__(application_id='net.codelogistics.webapps.' + args[1],
                          flags=Gio.ApplicationFlags.DEFAULT_FLAGS)
         else:
@@ -50,8 +52,8 @@ class WebappsApplication(Gtk.Application):
         We raise the application's main window, creating it if
         necessary.
         """
-        if len(self.args) == 2 and self.args[1] in os.listdir(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/')):
-            with open(os.path.expanduser('~/.local/share/net.codelogistics.webapps/webapps/' + self.args[1]), 'rb') as f:
+        if len(self.args) == 2 and self.args[1] in os.listdir('.var/app/net.codelogistics.webapps/webapps'):
+            with open('.var/app/net.codelogistics.webapps/webapps/' + self.args[1], 'rb') as f:
                 state = pickle.load(f)
             win = WebAppWindow(application=self, state = state)
             win.present()
@@ -94,9 +96,10 @@ class WebappsApplication(Gtk.Application):
 def main(version):
     """The application's entry point."""
 
-    Path(os.path.expanduser("~/.local/share/net.codelogistics.webapps/webapps/")).mkdir(parents=True, exist_ok=True)
-    Path(os.path.expanduser("~/.local/share/xdg-desktop-portal/icons/192x192/")).mkdir(parents=True, exist_ok=True)
+    Path(".var/app/net.codelogistics.webapps/webapps/").mkdir(parents=True, exist_ok=True)
+    Path(".var/app/net.codelogistics.webapps/icons/192x192/").mkdir(parents=True, exist_ok=True)
 
     app = WebappsApplication(args = sys.argv)
     return app.run()
+
 

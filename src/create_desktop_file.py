@@ -5,9 +5,15 @@ import shutil
 import sys
 import gi
 gi.require_version("WebKit", "6.0")
-from gi.repository import Gtk, WebKit
 
-def desktop_filer(name, url, icon):
+from gi.repository import Gtk, GLib, Gio, WebKit, Xdp
+
+global app
+global parentwindow
+
+def desktop_filer(parent, name, url, icon):
+    global parentwindow
+    parentwindow = parent
     if icon != "Default Favicon":
         icon_path = icon
         write_desktop_file(name, icon_path)
@@ -29,35 +35,52 @@ def desktop_filer(name, url, icon):
 def favicon_loaded(webview, favicon, name):
     favicon = webview.get_favicon()
     if favicon:
-        icon_path = os.path.expanduser('~/.local/share/xdg-desktop-portal/icons/192x192/net.codelogistics.webapps.' + name.replace(' ', '-') + '.png')
+        icon_path = '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + name.replace(' ', '-') + '.png'
         with open(icon_path, 'wb') as f:
             f.write(favicon.save_to_png_bytes().get_data())
     else:
         favicon = '/app/share/icons/hicolor/48x48/apps/net.codelogistics.webapps.png'
-        icon_path = os.path.expanduser('~/.local/share/xdg-desktop-portal/icons/192x192/net.codelogistics.webapps.' + name.replace(' ', '-') + '.png')
+        icon_path = '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + name.replace(' ', '-') + '.png'
         shutil.copyfile(favicon, icon_path)
 
 def check_if_favicon(end_time, name):
     while time.time() < end_time:
-        if os.path.exists(os.path.expanduser('~/.local/share/xdg-desktop-portal/icons/192x192/net.codelogistics.webapps.' + name.replace(' ', '-') + '.png')):
-            icon_path = os.path.expanduser('~/.local/share/xdg-desktop-portal/icons/192x192/net.codelogistics.webapps.' + name.replace(' ', '-') + '.png')
+        if os.path.exists('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + name.replace(' ', '-') + '.png'):
+            icon_path = '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + name.replace(' ', '-') + '.png'
+            while os.path.getsize(icon_path) < 1:
+                pass
             write_desktop_file(name, icon_path)
             break
     else:
         favicon = '/app/share/icons/hicolor/48x48/apps/net.codelogistics.webapps.png'
-        icon_path = os.path.expanduser('~/.local/share/xdg-desktop-portal/icons/192x192/net.codelogistics.webapps.' + name.replace(' ', '-') + '.png')
+        icon_path = '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + name.replace(' ', '-') + '.png'
         shutil.copyfile(favicon, icon_path)
         write_desktop_file(name, icon_path)
 
 def write_desktop_file(name, icon_path):
-    with open(os.path.expanduser('~/.local/share/applications/net.codelogistics.webapps.' + name.replace(' ', '-') + '.desktop'), 'w') as desktop_file:
-        desktop_file.write('[Desktop Entry]\n')
+    global app
+    app = name
+    portal = Xdp.Portal()
+    with open(icon_path, 'rb') as f:
+        icon = Gio.BytesIcon.new(GLib.Bytes.new(f.read())).serialize()
+    portal.dynamic_launcher_prepare_install(None, name, icon, Xdp.LauncherType.APPLICATION, None, False, False, None, finish_install)
 
-        desktop_file.write('Name={}\n'.format(name))
-        desktop_file.write('Icon=' + icon_path.replace(' ', '-') + '\n')
-        desktop_file.write('Exec=flatpak run net.codelogistics.webapps ' + name.replace(' ', '-') + '\n')
-        desktop_file.write('Terminal=false\n')
-        desktop_file.write('Type=Application\n')
-        desktop_file.write('Categories=Network;\n')
-    os.system('chmod +x "' + os.path.expanduser('~/.local/share/applications/net.codelogistics.webapps.' + name.replace(' ', '-') + '.desktop"'))
-    
+def finish_install(portal, result):
+    global app
+    global parentwindow
+    try:
+        variant = portal.dynamic_launcher_prepare_install_finish(result)
+    except:
+        if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + app):
+            os.remove('.var/app/net.codelogistics.webapps/webapps/' + app)
+        if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + app + '.window'):
+            os.remove('.var/app/net.codelogistics.webapps/webapps/' + app + '.window')
+        if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + app + '.cookies.txt'):
+            os.remove('.var/app/net.codelogistics.webapps/webapps/' + app + '.cookies.txt')
+        if os.path.exists('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + app + '.png'):
+            os.remove('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + app + '.png')
+        parentwindow.refresh_rows()
+        return
+    app = variant['name'].replace(' ', '-')
+    notCancelled = portal.dynamic_launcher_install(variant['token'],"net.codelogistics.webapps." + app + ".desktop", '[Desktop Entry]\nExec = webapps ' + variant['name'].replace(' ', '-') + '\nTerminal=false\nType=Application\nCategories=Network;')
+
