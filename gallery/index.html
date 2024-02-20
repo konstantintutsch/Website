@@ -8,7 +8,7 @@ description: A showcase of Konstantin Tutsch's favourite shots.
 <div class="gallery">
 {% for image in photos %}
     <a class="gallery-item" href="{{ image.url }}">
-        <img data-umami-event="Gallery {{ image.file }}" src="/{{ site.assets.images }}/{{ image.file }}-thumbnail.webp" alt="{{ image.description }}" loading="lazy">
+        <img data-umami-event="gallery-{{ image.file }}" src="/{{ site.assets.images }}/{{ image.file }}-thumbnail.webp" alt="{{ image.description }}" loading="lazy">
     </a>
 {% endfor %}
 </div>

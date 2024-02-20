@@ -256,7 +256,7 @@ Once you've added your website, click on the `Edit` button besides it's name. Na
 If you also want to track which links, buttons or else are clicked on your website, you can add the `data-umami-event` attribute to them.
 
 ```
-<a data-umami-event="github" href="https://github.com/konstantintutsch">GitHub</a>
+<a data-umami-event="social-github" href="https://github.com/konstantintutsch">GitHub</a>
 ```
 
 Analytics are setup now too! That's it 🥳

@@ -11,7 +11,7 @@ description: A list of Konstantin Tutsch's contributions to open-source projects
 
 <ul>
 {% for item in active %}
-<li><b><a data-umami-event="Active {{ item.name }}" href="{{ item.url }}">{{ item.name }}</a></b> {{ item.role }}</li>
+<li><b><a data-umami-event="contribution-{{ item.name | slugify }}" href="{{ item.url }}">{{ item.name }}</a></b> {{ item.role }}</li>
 {% endfor %}
 </ul>
 
@@ -19,7 +19,7 @@ description: A list of Konstantin Tutsch's contributions to open-source projects
 
 <ul>
 {% for item in inactive %}
-<li><b><a data-umami-event="Inactive {{ item.name }}" href="{{ item.url }}">{{ item.name }}</a></b> {{ item.role }}</li>
+<li><b><a data-umami-event="contribution-{{ item.name | slugify }}" href="{{ item.url }}">{{ item.name }}</a></b> {{ item.role }}</li>
 {% endfor %}
 </ul>
 

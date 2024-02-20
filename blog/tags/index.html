@@ -6,6 +6,6 @@ description: A list of all tags used by my blog.
 
 <ul>
 {% for tag in site.tags %}
-<li><a data-umami-event="{{ tag.title }}" href="{{ tag.url }}">{{ tag.title }}</a></li>
+<li><a data-umami-event="tag-{{ tag.title | slugify }}" href="{{ tag.url }}">{{ tag.title }}</a></li>
 {% endfor %}
 </ul>
