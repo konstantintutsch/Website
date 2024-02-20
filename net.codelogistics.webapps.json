@@ -1,7 +1,7 @@
 {
     "app-id" : "net.codelogistics.webapps",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "44",
+    "runtime-version" : "45",
     "sdk" : "org.gnome.Sdk",
     "command" : "webapps",
     "finish-args" : [
@@ -9,8 +9,7 @@
         "--share=ipc",
         "--socket=fallback-x11",
         "--device=dri",
-        "--socket=wayland",
-        "--filesystem=xdg-data"
+        "--socket=wayland"
     ],
     "cleanup" : [
         "/include",

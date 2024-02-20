@@ -7,7 +7,7 @@ Install websites as desktop applications.
 Made with Gtk4, WebKitGTK, libadwaita and Flatpak.
 
 ## Dependencies
-org.gnome.Platform 44
+org.gnome.Platform 45
 
 This is currently a Flatpak-only application. It needs access to the host's xdg-data dirs to add new apps to the menus.
 
