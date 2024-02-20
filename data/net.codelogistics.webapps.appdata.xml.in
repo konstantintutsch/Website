@@ -41,9 +41,9 @@
   </screenshots>
 
   <releases>
-    <release version="0.2.2" date="2024-02-19">
+    <release version="0.3.0" date="2024-02-20">
       <description>
-        <p>The default webpage loaded if a URL was not given is now about:blank.</p>
+        <p>Parts of the program have been rewritten to use XDG desktop portals.</p>
       </description>
     </release>
   </releases>
