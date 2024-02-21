@@ -2,6 +2,7 @@
 title: My Linux journey
 description: My Linux journey. The distributions I've used and what I think about them.
 tags: Linux
+time: 2023-09-14 01:00:00 +0200
 ---
 
 {% include heading.html level=3 text="The beginning" %}

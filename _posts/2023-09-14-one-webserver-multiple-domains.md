@@ -2,6 +2,7 @@
 title: "A single webserver serving multiple domains"
 description: How to host multiple websites with a single webserver. (Nignx)
 tags: Self-hosting
+time: 2023-09-14 02:00:00 +0200
 ---
 
 {% include heading.html level=3 text="My setup and the importance to me" %}
