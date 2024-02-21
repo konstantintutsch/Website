@@ -7,7 +7,7 @@ time: 2024-02-20 17:11:39 +0100
 
 {% include heading.html level=3 text="What is Umami?" %}
 
-Umami is a self-hostable analytics platform. Like Google Analytics, but privacy preserving, open-source and without extreme tracking. You can have a look at <a data-umami-event="Umami" href="https://umami.is/">their website</a> if you're interested and want to learn more.
+Umami is a self-hostable analytics platform. Like Google Analytics, but privacy preserving, open-source and without extreme tracking. You can have a look at <a data-umami-event="reference-umami" href="https://umami.is/">their website</a> if you're interested and want to learn more.
 
 {% include heading.html level=3 text="Self-hostig on Linux" %}
 
