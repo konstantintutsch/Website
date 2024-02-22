@@ -13,7 +13,7 @@ But for some reason, the school administration one day simply decided that we ha
 
 There was just one small problem: the app that was chosen didn't work, at all. It freezes, loses data and is buggy. Not good for a fucking note-taking app. But I have to say that I'm impressed a little bit too: I've never experienced any other app freezing so often and having so many bugs. 🥲
 
-I recently took notes in math class. In the next lesson, I wanted to read my notes. No chance, they were just gone. I asked a friend to send me his notes and everything was fine again. But that is just something that shouldn't happen. A notes app should be able to keep notes. Fucking *Notabily*, avoid that app at all cost!
+I recently took notes in math class. In the next lesson, I wanted to read my notes. No chance, they were just gone. I asked a friend to send me his notes and everything was fine again. But that is just something that shouldn't happen. A notes app should be able to keep notes. Fucking *Notability*, avoid that app at all cost!
 
 Of course you could now say that I'm an isolated case. But I have to disappoint you. I know at least two people who experienced the **exact** same. I can understand why a school forces the use of specific software. But I can't understand why you would choose such an inferior app.
 
