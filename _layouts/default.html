@@ -6,7 +6,7 @@
 
         <!-- SEO -->
         <link rel="canonical" href="{{ site.url }}{{ page.url }}">
-        <title>{{ page.title }}</title>
+        <title>{{ page.title }}{% unless page.url == "/" %} | {{ site.title }}{% endunless %}</title>
         <meta name="description" content="{{ page.description }}">
         <meta property="og:title" content="{{ page.title }}">
         <meta property="og:image" content="{{ site.url }}/{{ site.assets.images }}/banner.webp">
