@@ -188,7 +188,6 @@ del {
 }
 .preview-title {
     font-size: 1.6rem;
-    font-weight: var(--bold);
 }
 
 .preview-title + .date {
