@@ -7,17 +7,17 @@
         <!-- SEO -->
         <link rel="canonical" href="{{ site.url }}{{ page.url }}">
         <title>{{ page.title }}{% unless page.url == "/" %} | {{ site.title }}{% endunless %}</title>
-        <meta name="description" content="{{ page.description }}">
+        <meta name="description" content="{{ page.description | strip_html }}">
         <meta property="og:title" content="{{ page.title }}">
         <meta property="og:image" content="{{ site.url }}/{{ site.assets.images }}/banner.webp">
         <meta property="og:type" content="article">
         <meta property="og:site_name" content="{{ site.title }}">
-        <meta property="og:description" content="{{ page.description }}">
+        <meta property="og:description" content="{{ page.description | strip_html }}">
         <!-- Twitter -->
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="{{ page.title }}">
         <meta name="twitter:image" content="{{ site.url }}/{{ site.assets.images }}/banner.webp">
-        <meta name="twitter:description" content="{{ page.description }}">
+        <meta name="twitter:description" content="{{ page.description | strip_html }}">
 
         <!-- Icons -->
         <link rel="icon" href="/assets/images/favicon-48.png" type="image/png" sizes="48x48">
