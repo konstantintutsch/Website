@@ -10,8 +10,8 @@ DATE="$(date +%Y-%m-%d)"
 PREPEND_URL="https://konstantintutsch.com/blog/"
 
 # All available tags
-TAGS=("title"   "description" "tags" "time")
-VALUES=(""      ""            ""     "1970-01-01 00:00:00 +0000")
+TAGS=("title"   "description" "tags" "time" "index")
+VALUES=(""      ""            ""     "1970-01-01 00:00:00 +0000" "")
 
 # Set values of tags if not already set
 for i in ${!TAGS[@]}
