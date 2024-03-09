@@ -5,6 +5,12 @@ layout: default
 <h2>{{ page.title }}</h2>
 
 <p class="description">{{ page.description }}</p>
-<p>Contact {% include social.html id="webmaster" %} if this error is critical. You can have a look at one of my <a data-umami-event="nav-blog" href="/blog/">blog posts</a> in the meantime 😄</p>
+</p>
+<p>You can have a look at one of my <a data-umami-event="nav-blog" href="/blog/">blog posts</a> in the meantime 😄</p>
+
+<ul>
+    <li><a data-umami-event="nav-status" href="https://status.konstantintutsch.com/status/website">Website status</a></li>
+    <li>{% include social.html id="webmaster" %}</li>
+</ul>
 
 {{ page.content }}
