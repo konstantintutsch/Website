@@ -5,6 +5,9 @@ User-agent: *
 Allow: /
 Sitemap: {{ site.url }}/sitemap.xml
 
+User-agent *
+Disallow: /maintenance.html
+
 {% for post in site.posts %}
 {% if post.index == false %}
 User-agent: *
