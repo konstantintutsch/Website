@@ -34,6 +34,7 @@ where NAME is the name of the Web App (replace spaces with '-' if applicable). T
 
 * Edit already created web apps
 * The different web apps have the same application ID (and therefore the same icon) on X11
+* Deal with file downloads
 
 ## Credits
 
