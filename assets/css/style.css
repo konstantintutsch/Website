@@ -153,6 +153,13 @@ del {
     text-decoration-thickness: var(--text-decoration);
 }
 
+sup {
+    font-size: 0.85rem;
+}
+sup a {
+    text-decoration: none;
+}
+
 .description {
     font-size: 1.5rem;
     font-weight: lighter;
