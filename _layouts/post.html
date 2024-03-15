@@ -18,7 +18,7 @@ layout: default
 
 <ol>
 {% for reference in page.references %}
-    <li><a id="{{ forloop.index }}" href="{{ reference }}">{{ reference }}</a></li>
+    <li><a class="reference" id="{{ forloop.index }}" href="{{ reference }}">{{ reference }}</a></li>
 {% endfor %}
 </ol>
 {% endif %}

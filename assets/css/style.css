@@ -165,6 +165,10 @@ sup a {
     font-weight: lighter;
 }
 
+.reference {
+    line-break: anywhere;
+}
+
 /* Standard classes */
 .hidden {
     position: absolute;
