@@ -20,7 +20,7 @@ layout: null
 
                 <p></p>
                 <p>{% include social.html id="mail" name="Reply by email" extra=post.subject %}</p>
-                <p>{% include social.html id="ko-fi" name="Buy me a coffee ❤️" %}</p>
+                {% assign repo_path = "/website/edit/main/" | append: post.path %}<p>{% include social.html id="github" name="Edit on GitHub" extra=repo_path %}</p>
             </description>
             <pubDate>{% if post.time %}{% assign stamp = post.date | date: "%Y-%m-%d" | append: " " | append: post.time %}{% else %}{% assign stamp = post.date %}{% endif %}{{ stamp | date_to_rfc822 }}</pubDate>
             <guid>{{ post.url | prepend: site.url }}</guid>
