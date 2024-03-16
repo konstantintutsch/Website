@@ -5,7 +5,7 @@ User-agent: *
 Allow: /
 Sitemap: {{ site.url }}/sitemap.xml
 
-User-agent *
+User-agent: *
 Disallow: /maintenance.html
 
 {% for post in site.posts %}
