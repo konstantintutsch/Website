@@ -65,11 +65,3 @@ git push -u origin main
 for TAG in ${VALUES[2]}; do HASHTAG="${TAG//-/}"; printf -v HASHTAGS '%s#%s ' "${HASHTAGS}" "${HASHTAG}"; done
 printf -v toot_content '%s #blog\n\n%s%s/\n\n%s' "${VALUES[0]}" "${PREPEND_URL}" "${URL}" "${HASHTAGS}"
 toot post "${toot_content}"
-
-# submit to search engines
-SITEMAP="${PREPEND_URL}${URL}/sitemap.xml"
-RSS="${PREPEND_URL}${URL}/feed.xml"
-echo "Requesting indexing …"
-# Google Sitemap ping deprecated
-wget -O- "https://www.bing.com/ping?sitemap=${SITEMAP}"
-wget -O- "https://www.bing.com/ping?sitemap=${RSS}"
