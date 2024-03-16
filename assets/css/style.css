@@ -256,7 +256,7 @@ blockquote p:last-of-type {
 code {
     color: var(--gray);
     font-family: var(--mono);
-    font-size: 1.15rem;
+    font-size: 0.85em;
 }
 pre {
     margin: 1rem 2rem 1rem 2rem;
