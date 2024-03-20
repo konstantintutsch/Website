@@ -1,6 +1,7 @@
 # Site
 title: Konstantin Tutsch
 url: https://konstantintutsch.com
+permalink: pretty
 exclude:
   - LICENSE
   - README.md
