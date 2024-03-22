@@ -12,15 +12,6 @@ layout: null
     {% endif %}
     {% endfor %}
 
-    {% for image in site.photos %}
-    <url>
-        <loc>{{ site.url }}{{ image.url }}</loc>
-        <image:image>
-            <image:loc>{{ site.url }}/{{ site.assets.images }}/{{ image.file }}</image:loc>
-        </image:image>
-    </url>
-    {% endfor %}
-
     {% for post in site.posts %}
     <url>
         <loc>{{ site.url }}{{ post.url | remove: 'index.html' }}</loc>
