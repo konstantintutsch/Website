@@ -1,6 +1,6 @@
 header:
-  - name: "Gallery"
-    path: "/gallery/"
+  - name: "Blog"
+    path: "/blog/"
   - name: "Contact"
     path: "/contact/"
   - name: "More …"
@@ -9,8 +9,6 @@ header:
 more:
   - name: "Homepage"
     path: "/"
-  - name: "Blog"
-    path: "/blog/"
   - name: "Contributions"
     path: "/contributions/"
   - name: "Blogroll"
@@ -33,9 +31,6 @@ social:
     id: "osm"
 
 home:
-  - name: "Gallery"
-    path: "/gallery/"
-    desc: "a showcase of my favorite shots"
   - name: "Blog"
     path: "/blog/"
     desc: "long-form thoughts and technical posts"
