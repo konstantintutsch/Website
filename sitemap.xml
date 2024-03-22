@@ -16,6 +16,13 @@ layout: null
     <url>
         <loc>{{ site.url }}{{ post.url | remove: 'index.html' }}</loc>
         <lastmod>{% if post.time %}{{ post.time | date_to_xmlschema }}{% else %}{{ post.date | date_to_xmlschema }}{% endif %}</lastmod>
+        {% if post.images %}
+        <image:image>
+            {% for image in post.images %}
+            <image:loc>{{ site.url }}/{{ site.assets.images }}/{{ image }}</image:loc>
+            {% endfor %}
+        </image:image>
+        {% endif %}
     </url>
     {% endfor %}
 </urlset>
