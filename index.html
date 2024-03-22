@@ -7,8 +7,8 @@ description: Welcome to Konstantin Tutsch's website. Discover lots of informatio
 {% include heading.html level=2 text=page.title %}
 
 <article>
-    <p class="description">Hi! My name is Konstantin Tutsch 👋, welcome to my website. Please let me introduce myself:</p>
-    <p>I've got many interests, but I'm especially focused on <b>technology</b>, <b>photography</b> and <b>espresso</b>. I am a hobby photographer and am learning programming <i>(C at the moment)</i>.</p>
+    <p class="description">Hi! My name is Konstantin Tutsch 👋, welcome to my website</p>
+    <p>This blog is mainly about <b>technology</b>, <b>photography</b> and <b>my opinion</b><sup><a href="/disclaimer/#opinions">*</a></sup>. You can also visit my {% include social.html id="github" name="GitHub" %} profile 🚀</p>
     <ul>
     {% for page in site.data.navigation.home %}
     <li><a data-umami-event="nav-{{ page.name | slugify }}" href="{{ page.path }}">{{ page.name }}</a> – {{ page.desc }}</li>
