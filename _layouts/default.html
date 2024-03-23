@@ -57,7 +57,7 @@
                 <h1 class="hidden">{{ site.title }}</h1>
                 <nav class="main-menu">
                 {% for item in site.data.navigation.header %}
-                <a {% if page.url == item.path %}class="selected"{% endif %} data-umami-event="nav-{{ item.name | slugify }}" href="{{ item.path }}">{{ item.name }}</a>
+                {% capture path %}{% link {{ item.path }} %}{% endcapture %}<a {% if page.url == path %}class="selected"{% endif %} data-umami-event="nav-{{ item.name | slugify }}" href="{{ path }}">{{ item.name }}</a>
                 {% endfor %}
                 </nav>
             </div>
@@ -69,7 +69,7 @@
             {% include social.html id="fediverse" classes="hidden" %}
         </main>
         <footer>
-            <small>© All work licensed under <b><a data-umami-event="content-license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></b> unless otherwise stated. — <a data-umami-event="nav-privacy" href="/privacy">Privacy</a> | <a data-umami-event="nav-disclaimer" href="/disclaimer">Disclaimer</a></small>
+            <small>© All work licensed under <b><a data-umami-event="content-license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></b> unless otherwise stated. — <a data-umami-event="nav-privacy" href="{% link privacy.html %}">Privacy</a> | <a data-umami-event="nav-disclaimer" href="{% link disclaimer.html %}">Disclaimer</a></small>
         </footer>
     </body>
 </html>
