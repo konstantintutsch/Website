@@ -1,6 +1,0 @@
----
-layout: default
----
-
-{% assign meta = page.date | date_to_string: "ordinal", "US" | prepend: " — " | prepend: page.location %}
-{% include image.html file=page.file alt=page.description caption=meta aperture=page.aperture camera=page.camera focal=page.focal iso=page.iso shutter=page.shutter %}

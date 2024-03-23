@@ -1,24 +1,24 @@
 header:
   - name: "Blog"
-    path: "/blog/"
+    path: "blog.html"
   - name: "Contact"
-    path: "/contact/"
+    path: "contact.html"
   - name: "More …"
-    path: "/links/"
+    path: "links.html"
 
 more:
   - name: "Homepage"
-    path: "/"
+    path: "index.html"
   - name: "Contributions"
-    path: "/contributions/"
+    path: "contributions.html"
   - name: "Blogroll"
-    path: "/blogroll/"
+    path: "blogroll.html"
   - name: "Tags"
-    path: "/blog/tags/"
+    path: "tags.html"
   - name: "Colophon"
-    path: "/colophon/"
+    path: "colophon.html"
   - name: "RSS feed"
-    path: "/feed.xml"
+    path: "feed.xml"
 
 social:
   - name: "GitHub"
