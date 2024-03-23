@@ -18,8 +18,6 @@ description: Welcome to Konstantin Tutsch's website. Discover lots of informatio
 
 {% include heading.html level=3 text="Recent posts" %}
 
-<p class="description">For those interested in my blog …</p>
-
 {% for post in site.posts limit:site.newest %}
     {% include preview.html post=post %}
 {% endfor %}
