@@ -5,18 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1, user-scalable=yes, minimal-ui">
 
         <!-- SEO -->
+        {% if page.images %}
+            {% assign image = page.images[0] %}
+        {% else %}
+            {% assign image = "banner.webp" %}
+        {% endif %}
         <link rel="canonical" href="{{ site.url }}{{ page.url }}">
         <title>{{ page.title }}{% unless page.url == "/" %} | {{ site.title }}{% endunless %}</title>
         <meta name="description" content="{{ page.description | strip_html }}">
         <meta property="og:title" content="{{ page.title }}">
-        <meta property="og:image" content="{{ site.url }}/{{ site.assets.images }}/banner.webp">
+        <meta property="og:image" content="{{ site.url }}/{{ site.assets.images }}/{{ image }}">
         <meta property="og:type" content="article">
         <meta property="og:site_name" content="{{ site.title }}">
         <meta property="og:description" content="{{ page.description | strip_html }}">
         <!-- Twitter -->
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="{{ page.title }}">
-        <meta name="twitter:image" content="{{ site.url }}/{{ site.assets.images }}/banner.webp">
+        <meta name="twitter:image" content="{{ site.url }}/{{ site.assets.images }}/{{ image }}">
         <meta name="twitter:description" content="{{ page.description | strip_html }}">
 
         <!-- Icons -->
