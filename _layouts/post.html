@@ -2,11 +2,11 @@
 layout: default
 ---
 
-<h2>{{ page.title }}</h2>
-<p class="date">{{ page.date | date_to_string: "ordinal", "US" }}</p>
-<p class="description">{{ page.description }}</p>
-
 <article>
+    <h2>{{ page.title }}</h2>
+    <p class="date">{{ page.date | date_to_string: "ordinal", "US" }}</p>
+    <p class="description">{{ page.description }}</p>
+
     {{ content }}
 </article>
 
