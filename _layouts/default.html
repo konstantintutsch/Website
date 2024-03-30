@@ -6,7 +6,7 @@
 
         <!-- SEO -->
         {% if page.images %}
-            {% assign image = page.images[0] %}
+            {% assign image = page.images[0] | append: "-thumbnail.jpg" %}
         {% else %}
             {% assign image = "banner.webp" %}
         {% endif %}
