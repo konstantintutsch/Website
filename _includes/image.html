@@ -1,9 +1,17 @@
+{% if include.camera %}
+    {% assign photography = true %}
+    {% assign image = include.file | append: "-thumbnail.jpg" %}
+{% else %}
+    {% assign photography = true %}
+    {% assign image = include.file %}
+{% endif %}
+
 <figure class="image">
-    <a href="/{{ site.assets.images }}/{{ include.file }}" data-umami-event="image-{{ include.file }}"><img class="image-display" src="/{{ site.assets.images }}/{{ include.file }}" alt="{{ include.alt }}" loading="lazy"></a>
+    <a href="/{{ site.assets.images }}/{{ include.file }}" data-umami-event="image-{{ include.file }}"><img class="image-display" src="/{{ site.assets.images }}/{{ image }}" alt="{{ include.alt }}" loading="lazy"></a>
     <figcaption class="image-caption">{{ include.caption }}</figcaption>
 </figure>
 
-{% if include.camera %}
+{% if photography == true %}
 
 {% assign names = "Aperture, Camera, Focal length, ISO, Shutter speed" | split: ", " %}
 {% assign values_string = "ƒ/" | append: include.aperture | append: "," | append: include.camera | append: "," | append: include.focal | append: "," | append: include.iso | append: "," | append: include.shutter %}

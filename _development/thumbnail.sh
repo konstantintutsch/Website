@@ -2,4 +2,4 @@
 
 FILE="${1}"
 
-ffmpeg -i "${FILE}" -quality 100 -compression_level 6 -vf scale=512:-1 "${FILE}-thumbnail.webp"
+ffmpeg -i "${FILE}" -quality 100 -compression_level 3 -vf scale=-1:1500 "${FILE}-thumbnail.jpg"
