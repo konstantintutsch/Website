@@ -1,6 +1,6 @@
 ---
 title: Urban Photography – Berlin in March 2024
-description: Street & Urban Photography from a trip to Berlin in March 2024
+description: Street- and Urban Photography from a trip to Berlin in March 2024
 tags: Photography
 time: 2024-03-30 20:55:52 +0100
 index: true
