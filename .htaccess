@@ -23,18 +23,19 @@ AddType font/woff2 .woff2
 ExpiresByType font/woff2 "access plus 1 years"
 
 # Moved files
-Redirect 301 /posts /blog
-Redirect 301 /index.xml /feed.xml
-Redirect 301 /feed.rss /feed.xml
+Redirect 301 /posts {% link blog.html %}
+Redirect 301 /index.xml {% link feed.xml %}
+Redirect 301 /feed.rss {% link feed.xml %}
 Redirect 301 /about /
-Redirect 301 /photos /gallery
-Redirect 301 /my-linux-journey/ /blog/my-linux-journey/
-Redirect 301 /one-webserver-multiple-domains/ /blog/one-webserver-multiple-domains/
-Redirect 301 /selfhost-a-fediverse-gotosocial-instance/ /blog/selfhost-a-fediverse-gotosocial-instance/
-Redirect 301 /cant-leave-spotify/ /blog/cant-leave-spotify/
-Redirect 301 /my-app-defaults-because-everyone-is-doing-them/ /blog/my-app-defaults-because-everyone-is-doing-them/
-Redirect 301 /increasing-this-blogs-readability/ /blog/increasing-this-blogs-readability/
-Redirect 301 /personal-preferences-and-technology/ /blog/personal-preferences-and-technology/
-Redirect 301 /gentoo-has-been-bugging-me/ /blog/gentoo-has-been-bugging-me/
-Redirect 301 /it-has-become-difficult-to-make-contributions-to-openstreetmap/ /blog/it-has-become-difficult-to-make-contributions-to-openstreetmap/
-Redirect 301 /how-to-configure-automatic-updates-on-fedora-with-email-reports/ /blog/how-to-configure-automatic-updates-on-fedora-with-email-reports/
+Redirect 301 /photos {% link _tags/Photography.md %}
+Redirect 301 /my-linux-journey/ {% link _posts/2023-09-14-my-linux-journey.md %}
+Redirect 301 /one-webserver-multiple-domains/ {% link _posts/2023-09-14-one-webserver-multiple-domains.md %}
+Redirect 301 /selfhost-a-fediverse-gotosocial-instance/ {% link _posts/2023-10-05-selfhost-a-fediverse-gotosocial-instance.md %}
+Redirect 301 /cant-leave-spotify/ {% link _posts/2023-10-21-cant-leave-spotify.md %}
+Redirect 301 /my-app-defaults-because-everyone-is-doing-them/ {% link _posts/2023-11-07-my-app-defaults-because-everyone-is-doing-them.md %}
+Redirect 301 /increasing-this-blogs-readability/ {% link _posts/2023-11-12-increasing-this-blogs-readability.md %}
+Redirect 301 /personal-preferences-and-technology/ {% link _posts/2023-11-17-personal-preferences-and-technology.md %}
+Redirect 301 /gentoo-has-been-bugging-me/ {% link _posts/2023-11-20-gentoo-has-been-bugging-me.md %}
+Redirect 301 /it-has-become-difficult-to-make-contributions-to-openstreetmap/ {% link _posts/2023-12-04-it-has-become-difficult-to-make-contributions-to-openstreetmap.md %}
+Redirect 301 /how-to-configure-automatic-updates-on-fedora-with-email-reports/ {% link _posts/2023-12-05-how-to-configure-automatic-updates-on-fedora-with-email-reports.md %}
+Redirect 301 /gallery {% link _tags/Photography.md %}
