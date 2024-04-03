@@ -2,7 +2,7 @@
     {% assign photography = true %}
     {% assign image = include.file | append: "-thumbnail.jpg" %}
 {% else %}
-    {% assign photography = true %}
+    {% assign photography = false %}
     {% assign image = include.file %}
 {% endif %}
 
