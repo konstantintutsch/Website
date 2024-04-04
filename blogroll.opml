@@ -1,0 +1,15 @@
+---
+layout: null
+permalink: /blogroll/konstantintutsch.opml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+    <head>
+        <title>{{ site.title }}'s Blogroll</title>
+    </head>
+    <body>
+    {% for blog in site.data.blogroll %}
+        <outline title="{{ blog.name }}" text="{{ blog.name }}" xmlUrl="{{ blog.feed }}" htmlUrl="{{ blog.website }}" type="rss"></outline>
+    {% endfor %}
+    </body>
+</opml>
