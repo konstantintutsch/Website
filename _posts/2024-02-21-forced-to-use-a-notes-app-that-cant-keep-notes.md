@@ -3,6 +3,7 @@ title: I'm forced to use a notes app that can't keep notes
 description: At school we are obliged to use a specific notes app. That app loses data when it feels like it and there is no possibility to switch software.
 tags: Opinion
 time: 2024-02-21 09:29:50 +0100
+index: false
 ---
 
 About two years ago, our grade started using iPads instead of pen and paper. I still really appreciate that switch. No heavy books, empty pens or paper that needs to be replenished. We were free to use whichever app we liked to take our notes. I was pretty happy with the situation.

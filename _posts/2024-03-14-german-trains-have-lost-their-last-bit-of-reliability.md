@@ -3,7 +3,7 @@ title: German trains have lost their last bit of reliability
 description: My opinion on the arrogance of the GDL. The biggest labor union in Germany for train drivers.
 tags: Opinion
 time: 2024-03-14 17:07:30 +0100
-index: true
+index: false
 references:
     - https://web.archive.org/web/20240310125339/https://www.tagesschau.de/wirtschaft/bahn-gdl-streik-130.html
     - https://web.archive.org/web/20240311122950/https://www.tagesschau.de/wirtschaft/verbraucher/rechte-bahnkunden-streik-gdl-106.html

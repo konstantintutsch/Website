@@ -3,6 +3,7 @@ title: Lichterwege Wuppertal – 2024
 description: Photography of the Lichterwege in Wuppertal Osterbaum, Germany.
 tags: Photography
 time: 2024-02-06 21:08:16 +0100
+index: false
 images:
     - "20240206_0004.jpg"
     - "20240206_0005.jpg"
