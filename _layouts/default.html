@@ -49,6 +49,7 @@
         </header>
         <main>
             {{ content }}
+            <p class="info">‽ About: <a href="{% link disclaimer.html %}">Disclaimer</a>, <a href="{% link privacy.html%}">Privacy</a></p>
 
             <!-- Mastodon verification -->
             {% include social.html id="fediverse" classes="hidden" %}
