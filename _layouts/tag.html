@@ -1,16 +1,16 @@
 ---
-layout: default
+layout: page
 ---
-
-<h2>Tag: {{ page.title }}</h2>
-<p class="description">{{ page.description }}</p>
 
 {% assign counter = 0 %}
 {% for post in site.posts %}
-    {% if post.tags contains page.title %}
+    {% if post.tags contains page.name %}
         {% include preview.html post=post %}
         {% assign counter = counter | plus: 1 %}
     {% endif %}
 {% endfor %}
 
-<small><i>There {% if counter == 1 %}is{% else %}are a total of{% endif %} {{ counter }} {% if counter == 1 %}post{% else %}posts{% endif %} assigned to this <a data-umami-event="nav-tags" href="{% link tags.html %}">tag</a>.</i></small>
+<small>
+    <p><i>There {% if counter == 1 %}is{% else %}are a total of{% endif %} {{ counter }} {% if counter == 1 %}post{% else %}posts{% endif %} assigned to this <a data-umami-event="nav-tags" href="{% link tags.html %}">tag</a>.</i></p>
+    <p>{% include all-posts.html %}</p>
+</small>

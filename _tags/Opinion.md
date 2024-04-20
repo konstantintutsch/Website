@@ -1,4 +1,4 @@
 ---
-title: Opinion
+name: Opinion
 description: My opinions
 ---

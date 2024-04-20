@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Blog
-description: About technology, photography and my opinion<sup><a href="/disclaimer/#opinions">*</a></sup>
+description: Technology, photography and my opinion<sup><a href="/disclaimer/#opinions">*</a></sup>
 ---
 
 {% assign counter = 0 %}
@@ -10,4 +10,7 @@ description: About technology, photography and my opinion<sup><a href="/disclaim
     {% assign counter = counter | plus: 1 %}
 {% endfor %}
 
-<small><i>My blog contains {{ counter }} posts.</i></small>
+<small>
+    <p><i>I've published a total of {{ counter }} posts!</i></p>
+    <p><a data-umami-event="nav-konstantin-tutsch" href="{% link home.html %}">↖ {{ site.owner }}</a></p>
+</small>

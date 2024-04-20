@@ -3,14 +3,13 @@ layout: default
 ---
 
 <article>
-    <h2>{{ page.title }}</h2>
-    <p class="date">{{ page.date | date_to_string: "ordinal", "US" }}</p>
-    <p class="description">{{ page.description }}</p>
+    <p class="post-date">{{ page.date | date_to_string: "ordinal", "US" }}</p>
+    <h2 class="post-title">{{ page.title }}</h2>
+
+    <hr>
 
     {{ content }}
 </article>
-
-<small class="tags-container"><b>Tagged with:</b> {% for tag in page.tags %}<a class="tag" data-umami-event="tag-{{ tag | slugify }}" href="/blog/tags/{{ tag | slugify }}">{{ tag }}</a>{% endfor %}</small>
 
 {% if page.references %}
 <hr>
@@ -23,8 +22,14 @@ layout: default
 </ol>
 {% endif %}
 
-{% include info.html heading="Reply to this post" text="If you have any thoughts about the contents of this post, email me so we can have a fun little chat about it 🤯" link_id="mail" link_name="Reply by email" link_extra=page.subject %}
+<hr>
 
-{% include info.html heading="Want to not miss a post?" text="That's easy! I provide a RSS feed so you can stay up to date with my blog and what I'm doing ⏳" link='<a data-umami-event="nav-rss-feed" href="/feed.xml">Subscribe via RSS</a>' %}
-
-{% assign repo_path = "/website/edit/main/" | append: page.path %}{% assign edit_event = page.time | date: "%Y%m%d-%Hh" | prepend: "edit-blog-" | slugify %}{% include info.html heading="Found a mistake?" text="That's bad! But you can help me correct my error. All posts are available on GitHub. Just open a pull request with your fix. I'll merge it! 👌" link_id="github" link_name="Edit on GitHub" link_extra=repo_path link_event=edit_event %}
+<small>
+    <p><a href="{% link feed.xml %}">Subscribe via RSS</a></p>
+    <p>{% include social.html id="github" name="Edit on GitHub" extra=page.edit event="edit-post" %}</p>
+    <p>{% include social.html id="mail" name="Reply by email" extra=page.subject event="reply-email" %}</p>
+    <p>{% include social.html id="fediverse" name="Comment via Mastodon" %}</p>
+    <p>{% include all-posts.html %}</p>
+    <p>© {{ site.owner }}: <a data-umami-event="cc-by-sa-4.0" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p>
+    <p>⤇ Tags: {% for tag in page.tags %}<a data-umami-event="tag-{{ tag | slugify }}" href="/blog/tags/{{ tag | slugify }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
+</small>

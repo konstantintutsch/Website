@@ -1,4 +1,4 @@
 ---
-title: Linux
+name: Linux
 description: Every blog post about a topic regarding or involving Linux and/or a Linux distribution.
 ---
