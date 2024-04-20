@@ -3,7 +3,10 @@ layout: default
 ---
 
 <article>
-    <p class="post-date">{{ page.date | date_to_string: "ordinal", "US" }}</p>
+    <div class="post-head">
+        <p class="post-date">{{ page.date | date_to_string: "ordinal", "US" }}</p>
+        <p class="post-home">{% include nav-home.html %}</p>
+    </div>
     <h2 class="post-title">{{ page.title }}</h2>
 
     <hr>
@@ -28,6 +31,5 @@ layout: default
 <p class="info">{% include social.html id="github" name="Edit on GitHub" extra=page.edit event="edit-post" %}</p>
 <p class="info">{% include social.html id="mail" name="Reply by email" extra=page.subject event="reply-email" %}</p>
 <p class="info">{% include social.html id="fediverse" name="Comment via Mastodon" %}</p>
-<p class="info">{% include all-posts.html %}</p>
 <p class="info">© {{ site.owner }}: <a data-umami-event="cc-by-sa-4.0" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p>
 <p class="info">⤇ Tags: {% for tag in page.tags %}<a data-umami-event="tag-{{ tag | slugify }}" href="/blog/tags/{{ tag | slugify }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
