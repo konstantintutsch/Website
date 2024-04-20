@@ -1,4 +1,4 @@
 <div class="preview">
-    <a class="preview-title" data-umami-event="blog-{{ include.post.time | date: "%Y%m%d-%Hh" | slugify }}" href="{{ include.post.url }}">{{ include.post.title }}</a>
-    <p class="date">{{ include.post.date | date_to_string: "ordinal", "US" }}</p>
+    <a id="{{ include.post.title | slugify }}" class="preview-title" data-umami-event="blog-{{ include.post.time | date: "%Y%m%d-%Hh" | slugify }}" href="{{ include.post.url }}">{{ include.post.title }}</a>
+    <p class="preview-date">{{ include.post.date | date_to_string: "ordinal", "US" }}</p>
 </div>

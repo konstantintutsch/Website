@@ -15,7 +15,7 @@
     --small-text-size: 0.95rem;
 
     --bold: 800;
-    --text-decoration: 0.1em;
+    --text-decoration: 0.07em;
     --border-size: 0.1rem;
     --fade-time: 0.3s;
 }
@@ -32,7 +32,6 @@
     /* Dark theme */
     --dark-foreground: white;
     --dark-background: #1b1b1b;
-    --dark-gray: #b4b4b4;
 
     /* Set default theme to light */
     --foreground: var(--light-foreground);
@@ -57,9 +56,9 @@ body {
 }
 
 header {
-    margin: 2rem auto 3rem auto;
+    margin: 0 auto 0 auto;
     left: 0;
-    min-height: 3vh;
+    min-height: 0;
     text-align: center;
 }
 
@@ -72,35 +71,14 @@ main {
 }
 
 footer {
-    margin: 3rem auto 1rem auto;
+    margin: 0 auto 0 auto;
     left: 0;
-    min-height: 2vh;
+    min-height: 0;
     text-align: center;
 }
 
-.logo {
-    margin-right: 0.2rem;
-    display: inline;
-    vertical-align: middle;
-    height: 2.7rem;
-}
-.logo g {
-    stroke: var(--foreground);
-}
-
-.main-menu {
-    display: inline;
-    vertical-align: middle;
-    font-weight: var(--bold);
-}
-.main-menu a, .selected {
-    margin: 0.1rem;
-    padding: 0.1rem 0.2rem 0.1rem 0.2rem;
-    font-size: 1.2rem;
-}
-
 /* Typography */
-h1, h2, h3, h4, h5, h6, b {
+b {
     font-weight: var(--bold);
 }
 
@@ -133,14 +111,14 @@ h6 {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    margin: 2rem auto 2rem 0;
+    margin: 1rem auto 1rem 0;
 }
 
 a {
     color: inherit; /* no special highlighting for already clicked links */
     text-decoration: underline;
     text-decoration-thickness: var(--text-decoration);
-    text-underline-offset: var(--text-decoration);
+    text-underline-offset: calc(var(--text-decoration) * 1.5);
     transition-duration: var(--fade-time);
 }
 a:hover, .selected {
@@ -160,11 +138,6 @@ sup a {
     text-decoration: none;
 }
 
-.description {
-    font-size: 1.5rem;
-    font-weight: lighter;
-}
-
 .reference {
     line-break: anywhere;
 }
@@ -182,7 +155,7 @@ sup a {
 
 .invisible, .invisible:hover {
     background: transparent;
-    color: var(--foreground); /* rremove link highlighting */
+    color: var(--foreground); /* remove link highlighting */
     text-decoration: none;
 }
 
@@ -200,18 +173,23 @@ sup a {
 .preview-title {
     font-size: 1.6rem;
 }
-
-.preview-title + .date {
+.preview-date {
+    font-size: var(--small-text-size);
+    text-transform: uppercase;
+}
+.preview-title + .preview-date {
     margin-top: 0;
 }
-h2 + .date {
-    margin-top: -2rem;
+
+.post-date {
+    font-size: var(--small-text-size);
+    font-weight: var(--bold);
+    text-transform: uppercase;
 }
 
 li + li {
     margin: 0.8rem auto 0 0;
 }
-
 ul {
     margin: 1rem auto 2rem 0;
 }
@@ -230,23 +208,16 @@ ul {
     font-size: var(--small-text-size);
 }
 
-.book {
-    margin-top: 2rem;
-    padding-right: 1rem;
-    height: fit-content;
-    width: fit-content;
-}
-
 blockquote {
-    margin: 3rem auto 3rem 0;
-    border-left: solid 0.3rem var(--gray);
+    margin: 2rem auto 2rem 0;
+    /*border-left: solid var(--text-decoration) var(--foreground);*/
     padding: 0.07rem 0 0.07rem 0;
 }
 blockquote p {
     margin-left: 1rem;
-    color: var(--gray);
+    color: var(--foreground);
     font-style: italic;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
 }
 blockquote p:last-of-type {
     font-style: normal;
@@ -263,56 +234,12 @@ pre {
     overflow-x: scroll;
 }
 
-.tags-container {
-    margin: 1rem auto 0 0;
-    display: inline-block;
-}
-.tag {
-    margin: 0.2rem;
-}
-
 hr {
     margin: 2rem 0 2rem 0;
-    border-top: solid var(--gray) var(--border-size);
-}
-
-.info {
-    text-align: center;
-}
-.info p {
-    margin-left: 5vw;
-    margin-right: 5vw;
+    border-top: solid var(--foreground) var(--text-decoration);
 }
 
 /* Photography */
-.gallery {
-    width: fit-content;
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    gap: 1rem;
-}
-
-.gallery-item {
-    overflow: hidden;
-    width: 15vw;
-    height: 15vw;
-}
-.gallery-item img {
-    object-fit: cover;
-    object-position: center center;
-    width: inherit;
-    height: inherit;
-    transition-duration: var(--fade-time);
-}
-.gallery-item img:hover {
-    webkit-filter: blur(5px);
-    filter: blur(5px);
-    background: transparent;
-}
-.gallery-item:hover {
-    background: transparent;
-}
-
 tr, td {
     border: none;
 }
@@ -329,10 +256,6 @@ table {
 }
 
 @media only screen and (max-width: 750px) { /* Phone */
-    .logo {
-        height: 3rem;
-    }
-        
     main {
         left: 5vw;
         min-height: 60vh;
@@ -340,18 +263,5 @@ table {
     }
     .preview {
         margin-bottom: 0rem;
-    }
-
-    .gallery {
-        margin-top: 2rem;
-        grid-template-columns: repeat(2, auto);
-    }
-    .gallery-item {
-        width: 43vw;
-        height: 43vw;
-    }
-
-    footer {
-        margin-bottom: 5vw;
     }
 }

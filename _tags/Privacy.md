@@ -1,4 +1,4 @@
 ---
-title: Privacy
+name: Privacy
 description: Posts about digital privacy
 ---

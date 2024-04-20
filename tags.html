@@ -7,6 +7,8 @@ permalink: /blog/tags/
 
 <ul>
 {% for tag in site.tags %}
-<li><a data-umami-event="tag-{{ tag.title | slugify }}" href="{{ tag.url }}">{{ tag.title }}</a></li>
+<li><a data-umami-event="tag-{{ tag.title | slugify }}" href="{{ tag.url }}">{{ tag.name }}</a></li>
 {% endfor %}
 </ul>
+
+<small><p>{% include all-posts.html %}</p></small>
