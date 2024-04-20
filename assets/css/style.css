@@ -138,6 +138,10 @@ sup a {
     text-decoration: none;
 }
 
+.info {
+    font-size: var(--small-text-size);
+}
+
 .reference {
     line-break: anywhere;
 }
