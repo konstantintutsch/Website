@@ -5,11 +5,9 @@ layout: null
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     {% for page in site.pages %}
-    {% if page.url != "/.htaccess" and page.url != "/errors/403.html" and page.url != "/errors/404.html" and page.url != "/feed.xml" and page.url != "/robots.txt" and page.url != "/sitemap.xml" and page.url != "/now/" %}
     <url>
         <loc>{{ site.url }}{{ page.url }}</loc>
     </url>
-    {% endif %}
     {% endfor %}
 
     {% for post in site.posts %}
