@@ -185,7 +185,18 @@ sup a {
     margin-top: 0;
 }
 
+.post-head {
+    display: flex;
+    justify-content: space-between;
+}
 .post-date {
+    order: 1;
+    font-size: var(--small-text-size);
+    font-weight: var(--bold);
+    text-transform: uppercase;
+}
+.post-home {
+    order: 2;
     font-size: var(--small-text-size);
     font-weight: var(--bold);
     text-transform: uppercase;
