@@ -23,11 +23,11 @@ AddType font/woff2 .woff2
 ExpiresByType font/woff2 "access plus 1 years"
 
 # Moved files
-Redirect 301 /posts {% link blog.html %}
+Redirect 301 /posts/ {% link blog.html %}
 Redirect 301 /index.xml {% link feed.xml %}
 Redirect 301 /feed.rss {% link feed.xml %}
 Redirect 301 /about /
-Redirect 301 /photos {% link _tags/Photography.md %}
+Redirect 301 /photos/ {% link _tags/Photography.md %}
 Redirect 301 /my-linux-journey/ {% link _posts/2023-09-14-my-linux-journey.md %}
 Redirect 301 /one-webserver-multiple-domains/ {% link _posts/2023-09-14-one-webserver-multiple-domains.md %}
 Redirect 301 /selfhost-a-fediverse-gotosocial-instance/ {% link _posts/2023-10-05-selfhost-a-fediverse-gotosocial-instance.md %}
@@ -38,4 +38,4 @@ Redirect 301 /personal-preferences-and-technology/ {% link _posts/2023-11-17-per
 Redirect 301 /gentoo-has-been-bugging-me/ {% link _posts/2023-11-20-gentoo-has-been-bugging-me.md %}
 Redirect 301 /it-has-become-difficult-to-make-contributions-to-openstreetmap/ {% link _posts/2023-12-04-it-has-become-difficult-to-make-contributions-to-openstreetmap.md %}
 Redirect 301 /how-to-configure-automatic-updates-on-fedora-with-email-reports/ {% link _posts/2023-12-05-how-to-configure-automatic-updates-on-fedora-with-email-reports.md %}
-Redirect 301 /gallery {% link _tags/Photography.md %}
+Redirect 301 /gallery/ {% link _tags/Photography.md %}
