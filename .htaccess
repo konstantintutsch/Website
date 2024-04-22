@@ -43,3 +43,5 @@ Redirect 301 /contact/ {% link home.html %}
 Redirect 301 /links/ {% link home.html %}
 Redirect 301 /colophon/ {% link home.html %}
 Redirect 301 /contributions/ {% link home.html %}
+Redirect 301 /categories/ {% link tags.html %}
+Redirect 301 /search/ {% link blog.html %}
