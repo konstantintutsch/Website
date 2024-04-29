@@ -38,7 +38,7 @@ Redirect 301 /personal-preferences-and-technology /blog/personal-preferences-and
 Redirect 301 /gentoo-has-been-bugging-me /blog/gentoo-has-been-bugging-me
 Redirect 301 /it-has-become-difficult-to-make-contributions-to-openstreetmap /blog/it-has-become-difficult-to-make-contributions-to-openstreetmap
 Redirect 301 /how-to-configure-automatic-updates-on-fedora-with-email-reports /blog/how-to-configure-automatic-updates-on-fedora-with-email-reports
-Redirect 301 /gallery /tags
+Redirect 301 /gallery /blog/tags/photography
 Redirect 301 /contact /
 Redirect 301 /links /
 Redirect 301 /colophon /
