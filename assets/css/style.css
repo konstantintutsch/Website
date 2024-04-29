@@ -1,16 +1,7 @@
-/* Get fonts */
-@font-face {
-    font-family: "Cantarell";
-    font-weight: 100 900;
-    font-style: normal;
-    src: url("/assets/fonts/Cantarell-VF.woff2") format("woff2");
-    font-display: swap;
-}
-
 /* Global settings */
 :root {
-    --sans: "Cantarell", sans-serif;
-    --mono: monospace;
+    --sans: "Cantarell", "Ubuntu", -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir, "Nimbus Sans L", Roboto, Noto, "Segoe UI", Arial, Helvetica, "Helvetica Neue", sans-serif;
+    --mono: "Source Code Pro", monospace;
     --text-size: 1.3rem;
     --small-text-size: 0.95rem;
 
