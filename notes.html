@@ -1,0 +1,11 @@
+---
+layout: page
+title: Notes - Great Posts I've Read
+description: A collection of posts from other blogs I've read and found useful.
+---
+
+{% for post in site.data.notes %}
+{% assign title = post.title | prepend: "↖ "%}
+{% assign event = "note-" | append: post.date | date: "%Y%m%d" | slugify %}
+{% include preview.html title=title date=post.date event=event url=post.url %}
+{% endfor %}

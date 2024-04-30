@@ -10,10 +10,13 @@ description: Welcome to Konstantin Tutsch's website. Discover lots of informatio
 <p class="info">{% include social.html id="github" name="GitHub" %}</p>
 <p class="info">{% include social.html id="mail" name="Email" %}</p>
 <p class="info">{% include social.html id="fediverse" name="Mastodon" %}</p>
-<p class="info">{% include all-posts.html %}</p>
 
 <hr>
 
 {% for post in site.posts limit:10 %}
     {% include post.html post=post %}
 {% endfor %}
+
+<hr>
+
+<p class="info">{% include all-posts.html %}</p>
