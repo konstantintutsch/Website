@@ -1,0 +1,4 @@
+{% assign post = include.post %}
+{% assign title = post.title %}
+{% assign event = "blog-" | append: post.time | date: "%Y%m%d-%Hh" | slugify %}
+{% include preview.html title=post.title date=post.date event=event url=post.url %}

@@ -6,7 +6,7 @@ description: Technology, photography and my opinion<sup><a href="/disclaimer/#op
 
 {% assign counter = 0 %}
 {% for post in site.posts %}
-    {% include preview.html post=post %}
+    {% include post.html post=post %}
     {% assign counter = counter | plus: 1 %}
 {% endfor %}
 
