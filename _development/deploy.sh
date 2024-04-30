@@ -7,6 +7,13 @@
 # ./_development/deploy.sh
 #
 
+BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+if [[ $BRANCH != "main" ]]
+then
+    echo "Not in branch “main”. Deployment skipped."
+    exit 0
+fi
+
 DOMAIN="konstantintutsch.com"
 SERVER="rpi-homeserver"
 
