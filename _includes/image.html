@@ -1,5 +1,5 @@
-{% if include.camera %}
-    {% assign photography = true %}
+{% if include.camera or include.thumbnail %}
+    {% assign photography = false %}
     {% assign image = include.file | append: "-thumbnail.jpg" %}
 {% else %}
     {% assign photography = false %}
