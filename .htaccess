@@ -45,3 +45,4 @@ Redirect 301 /colophon /
 Redirect 301 /contributions /
 Redirect 301 /categories /
 Redirect 301 /search /
+Redirect 301 /tags /blog/tags
