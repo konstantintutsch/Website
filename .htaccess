@@ -43,6 +43,6 @@ Redirect 301 /contact /
 Redirect 301 /links /
 Redirect 301 /colophon /
 Redirect 301 /contributions /
-Redirect 301 /categories /
-Redirect 301 /search /
+Redirect 301 /categories /blog/tags
+Redirect 301 /search /blog/tags
 Redirect 301 /tags /blog/tags
