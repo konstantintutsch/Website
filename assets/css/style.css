@@ -1,7 +1,7 @@
 /* Global settings */
 :root {
     --sans: "Cantarell", "Ubuntu", -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir, "Nimbus Sans L", Roboto, Noto, "Segoe UI", Arial, Helvetica, "Helvetica Neue", sans-serif;
-    --mono: "Source Code Pro", monospace;
+    --mono: "Fira Mono", "Source Code Pro", monospace;
     --text-size: 1.3rem;
     --small-text-size: 0.95rem;
 
