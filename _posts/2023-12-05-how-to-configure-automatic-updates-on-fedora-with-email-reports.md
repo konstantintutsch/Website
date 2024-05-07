@@ -17,6 +17,12 @@ After all programms have been installed, you can start configuring the e-mail se
 
 {% include heading.html level=3 text="E-Mail Server" %}
 
+<hr>
+
+Notice as of May 7th, 2024: Alternatively, <a data-umami-event="blog-20240507-17h" href="{% post_url 2024-05-07-dnf-automatic-send-email-via-smtp-auth %}">send DNF Automatic's email reports via an already existing server.</a>
+
+<hr>
+
 Postfix's configuration is located at `/etc/postfix/main.cf`. These are the values that should be set:
 
 - `myhostname`: This value is used for various settings regarding, amongs other things, your e-mail domain.
