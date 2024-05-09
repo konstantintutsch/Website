@@ -245,22 +245,6 @@ hr {
     border-top: solid var(--foreground) var(--text-decoration);
 }
 
-/* Photography */
-tr, td {
-    border: none;
-}
-tr td:first-of-type {
-    text-align: right;
-}
-tr td:last-of-type {
-    text-align: left; 
-}
-table {
-    margin: 0 auto 0 auto;
-    border-spacing: 0.6rem 0.1rem;
-    font-size: var(--small-text-size);
-}
-
 @media only screen and (max-width: 750px) { /* Phone */
     main {
         left: 5vw;
