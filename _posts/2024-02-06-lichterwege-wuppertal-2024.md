@@ -16,7 +16,7 @@ Though the people here can be quite creative:
 
 I took some pictures of an event called “Lichterwege” *(ways of light, but sounding less holy)*. A city district once just decided to put up a lot of candles on the many stairs we got here.
 
-{% include heading.html level=3 text="Photos" %}
+### Photos
 
 {% assign image = page.images[0] %}{% include image.html file=image alt="A orange/brownish painted glass, containing a candle, glowing onto a cobblestone pavement. More glasses in the bokeh." caption="Wuppertal, Germany" aperture=5 camera="Canon EOS R50" focal="55mm" iso=400 shutter="0.3s" %}
 

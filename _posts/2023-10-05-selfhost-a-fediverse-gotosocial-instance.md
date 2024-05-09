@@ -4,7 +4,7 @@ description: How to self-host GoToSocial, a light-weight fediverse server. GoToS
 tags: Self-hosting Linux
 time: 2023-10-05 01:00:00 +0200
 ---
-{% include heading.html level=3 text="Prerequisites" %}
+### Prerequisites
 
 - a domain or subdomain (e. g. social.example.com)
 - a Linux system (this post uses a Raspberry Pi running Debian Bookworm as an example)
@@ -13,7 +13,7 @@ Before you continue, ensure that your host is accessible from the outside of it'
 
 We will use Nginx for a local reverse proxy to not dedicate ports 80 and 443 to GoToSocial alone in order to [allow other services to run besides GoToSocial]({% link _posts/2023-09-14-one-webserver-multiple-domains.md %}). The reverse proxy also strengthens security.
 
-{% include heading.html level=4 text="Installing dependencies" %}
+#### Installing dependencies
 
 For Debian systems, you can install these packages:
 
@@ -24,7 +24,7 @@ apt install \
             wget
 ```
 
-{% include heading.html level=3 text="Database setup" %}
+### Database setup
 
 You need to setup a database and database user first. GoToSocial will store most of it's user data here. The only exception are image files for posts (they are stored in a media directory).
 
@@ -42,7 +42,7 @@ You can now enter the PostgreSQL shell:
 sudo -u postgres psql
 ```
 
-{% include heading.html level=4 text="SQL" %}
+#### SQL
 
 Create a new user for GoToSocial first:
 
@@ -62,9 +62,9 @@ Last, grant all rights on that database to the GoToSocial user:
 GRANT ALL ON DATABASE gotosocial TO gotosocial;
 ```
 
-{% include heading.html level=3 text="Bare metal" %}
+### Bare metal
 
-{% include heading.html level=4 text="User" %}
+#### User
 
 To increase security, use a seperate user and group for GoToSocial.
 
@@ -93,7 +93,7 @@ Once finished, log into the user and enter it's home directory:
 su - gotosocial
 ```
 
-{% include heading.html level=4 text="Resources" %}
+#### Resources
 
 Then, download the [latest version](https://github.com/superseriousbusiness/gotosocial/releases):
 
@@ -109,7 +109,7 @@ wget https://github.com/superseriousbusiness/gotosocial/releases/download/v0.11.
 tar xf gotosocial_0.11.1_linux_arm64.tar.gz
 ```
 
-{% include heading.html level=4 text="Configuration" %}
+#### Configuration
 
 You can use the default configuration as a starting point:
 
@@ -142,7 +142,7 @@ letsencrypt-enabled: false
 
 Don't worry about HTTP, the disabled Let's Encrypt and the weird port 60000. We will use Nginx as a reverse proxy, these settings are only for the host itself.
 
-{% include heading.html level=4 text="Systemd" %}
+#### Systemd
 
 Before deploying the service file, we need to change it a little bit. It, again, is **not** the whole unit file:
 
@@ -162,7 +162,7 @@ systemctl daemon-reload
 systemctl enable --now gotosocial
 ```
 
-{% include heading.html level=3 text="Reverse proxy" %}
+### Reverse proxy
 
 Wait, didn't I just start GoToSocial?
 
@@ -224,7 +224,7 @@ systemctl enable --now nginx
 
 You are finally live!
 
-{% include heading.html level=3 text="User" %}
+### User
 
 You want to start posting right now because your instance is live?
 
@@ -254,7 +254,7 @@ gotosocial --config-path /path/to/config.yaml \
            --username username
 ```
 
-{% include heading.html level=3 text="GoToSocial" %}
+### GoToSocial
 
 You need a third-party client for posting from GtS. There is **no** web interface for that.
 
@@ -266,7 +266,7 @@ If you want to try federation, why not ping me?
 
 {% include social.html id="fediverse" %}
 
-{% include heading.html level=3 text="Backup" %}
+### Backup
 
 You might consider backup-ing your instance too. Here's how I do it:
 
@@ -295,7 +295,7 @@ This is a really hacky method that works for me. But **don't trust it!**
 
 Before using the script, you also need to set `HOST`: your server, `BKPDIR`: directory to put the backup in.
 
-{% include heading.html level=3 text="Sources" %}
+### Sources
 
 I took information and learned the stuff for this post from here:
 

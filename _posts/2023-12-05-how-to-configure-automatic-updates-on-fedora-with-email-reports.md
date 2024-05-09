@@ -5,7 +5,7 @@ tags: Self-hosting
 time: 2023-12-05 20:03:09 +0100
 ---
 
-{% include heading.html level=3 text="Requirements" %}
+### Requirements
 
 You first need to install `dnf-automatic`, `postfix` and `mailx`:
 
@@ -15,13 +15,13 @@ dnf install -y dnf-automatic postfix mailx
 
 After all programms have been installed, you can start configuring the e-mail server.
 
-{% include heading.html level=3 text="E-Mail Server" %}
+### E-Mail Server
 
-<hr>
+---
 
-Notice as of May 7th, 2024: Alternatively, <a data-umami-event="blog-20240507-17h" href="{% post_url 2024-05-07-dnf-automatic-send-email-via-smtp-auth %}">send DNF Automatic's email reports via an already existing server.</a>
+Notice as of May 7th, 2024: Alternatively, [send DNF Automatic's email reports via an already existing server.]({% post_url 2024-05-07-dnf-automatic-send-email-via-smtp-auth %})
 
-<hr>
+---
 
 Postfix's configuration is located at `/etc/postfix/main.cf`. These are the values that should be set:
 
@@ -46,24 +46,24 @@ echo "Hi, I'm your e-mail's body!" | mailx -r "test@server" -s "A test e-mail fr
 
 Now that your e-mail server is working fine, you can configure DNF Automatic! 🤩
 
-{% include heading.html level=3 text="DNF Automatic" %}
+### DNF Automatic
 
 Automatic is a component of DNF. It's configuration file is located at `/etc/dnf/automatic.conf`.
 
 Here are all the necessary configuration parameters:
 
-{% include heading.html level=4 text="[commands]" %}
+#### [commands]
 
 - `random_sleep`: The interval *(in seconds)* between searching for new updates. — e. g. `3600`
 - `download_updates`: If packages that can be updated should be downloaded automatically. — `yes` / `no`
 - `apply_updates`: If updates for packages should be installed automatically. — `yes` / `no`
 - `reboot`: Whether to reboot after updates. — `never` / `when-changed` / `when-needed`
 
-{% include heading.html level=4 text="[emitters]" %}
+#### [emitters]
 
 - `emit_via`: How to inform the system administrator on activities. — `email` / `command_email` / `command`
 
-{% include heading.html level=4 text="[command_email]" %}
+#### [command_email]
 
 - `command_format`: Which command and parameters to execute when sending an e-mail.
 - `email_from`: Which e-mail to use for sending a report.
@@ -92,7 +92,7 @@ email_to = me@example.com
 
 Finally, you need to enable one of DNF Automatic's systemd timers.
 
-{% include heading.html level=4 text="SystemD" %}
+#### SystemD
 
 If you have set e. g. `download_updates` to `yes` in your configuration, the timers settings will be overritten by the parameter(s).
 
@@ -108,7 +108,7 @@ I chose the installer timer:
 systemctl enable --now dnf-automatic-install.timer
 ```
 
-{% include heading.html level=3 text="Done" %}
+### Done
 
 Next time there are updates due, you will receive an e-mail telling you to not worry about it! 🥳
 

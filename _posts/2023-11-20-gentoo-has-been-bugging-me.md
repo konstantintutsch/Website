@@ -5,7 +5,7 @@ tags: Opinion Linux
 time: 2023-11-20 10:39:54 +0100
 ---
 
-{% include heading.html level=3 text="Gentoo is great, but …" %}
+### Gentoo is great, but …
 
 Yes, Gentoo is a unique Linux distribution. The customizability and efficiency are one-of-a-kind. The community is friendly and helpful and never gatekeeping.
 
@@ -17,7 +17,7 @@ Furthermore, getting stuff to work. Do you want to see the battery percentage of
 
 I was a Gentoo user from April 2021 untill now. That's 2 years and 7 months having a (mostly) great time with Gentoo. But I decided to take a different path. I might come back, I might have parted ways with Gentoo. We'll see.
 
-{% include heading.html level=3 text="What's next" %}
+### What's next
 
 The question now is which operating system is next.
 
@@ -32,7 +32,7 @@ But Linux is not Linux *(I know that it's a kernel and that Linux is in fact Lin
 
 This list is of course simplified and definitely biased. But it's a good list for me. I chose Fedora.
 
-{% include heading.html level=3 text="It was a good decision" %}
+### It was a good decision
 
 There are no regrets choosing Fedora.
 
@@ -48,7 +48,7 @@ Fedora has just a standard kernel and binaries pre-compiled for every `amd64` sy
 
 How can it be that there is no significant difference? Really interesting in my opinion.
 
-{% include heading.html level=3 text="Conclusion" %}
+### Conclusion
 
 If you are a Gentoo user thinking of switching, you might want to try it, at least.
 

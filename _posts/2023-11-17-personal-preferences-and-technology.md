@@ -5,7 +5,7 @@ tags: Opinion
 time: 2023-11-17 20:07:23 +0100
 ---
 
-{% include heading.html level=3 text="Choices are judged to much" %}
+### Choices are judged to much
 
 Tech-preferences have become a topic everyone has an opinion on. Usually, this opinion is rather extreme.
 
@@ -15,7 +15,7 @@ A discussion about which operating system and manufacturer are *the best* has be
 
 All this has cause nothing, but a lot of absurdly unnecessary hatred and wasted time.
 
-{% include heading.html level=3 text="Judge, but not by preference" %}
+### Judge, but not by preference
 
 Yes, you sometimes should reminde people that their choice on using, e. g. Windows, is quite poor.
 

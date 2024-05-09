@@ -5,7 +5,7 @@ tags: Self-hosting
 time: 2023-09-14 02:00:00 +0200
 ---
 
-{% include heading.html level=3 text="My setup and the importance to me" %}
+### My setup and the importance to me
 
 So, I'm pretty sure that an introduction is always helpful.
 
@@ -13,7 +13,7 @@ I've a got Raspberry Pi, 8G memory and 4 cores @ 1.8GHz, running at home. It was
 
 I always wanted to use my Raspberry Pi for more, but only if the services looked "normal" from the outside, that is: no special ports needed to access them, just a simple subdomain.
 
-{% include heading.html level=3 text="My (not so) special discovery" %}
+### My (not so) special discovery
 
 What I realized wasn't that surprising after all. I saw a video about a homeserver and that all the services had their own local domains. But how?
 
@@ -87,7 +87,7 @@ server {
 }
 ```
 
-{% include heading.html level=3 text="Conclusion" %}
+### Conclusion
 
 That's it, a really handy trick to save money and host multiple services on a single system.
 

@@ -10,7 +10,7 @@ This short post explains how to use `curl` as an email client with SMTP Authenti
 
 This can be useful when an email server does not accept emails from a self-hosted mail server.
 
-{% include heading.html level=3 text="Curl" %}
+### Curl
 
 Create this script somewhere:
 
@@ -34,7 +34,7 @@ curl \
     --form '=(;type=multipart/mixed' --form "=$BODY;type=text/plain" --form '=)'
 ```
 
-{% include heading.html level=3 text="DNF Automatic" %}
+### DNF Automatic
 
 Edit your DNF Automatic configuration to use `command_email` as it's emitter.
 
