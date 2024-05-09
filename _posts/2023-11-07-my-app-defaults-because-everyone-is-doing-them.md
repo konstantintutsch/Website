@@ -6,7 +6,7 @@ time: 2023-11-07 22:21:23 +0100
 ---
 Lately, many people have posted their "app defaults". I decided to join in.
 
-*Inspired by a podcast episode by <a href="https://defaults.rknight.me/">Robb Knight</a>*
+*Inspired by a podcast episode by [Robb Knight](https://defaults.rknight.me/)*
 
 So, here's my list:
 

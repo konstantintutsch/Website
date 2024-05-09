@@ -8,7 +8,7 @@ index: true
 
 This post is supposed to be a small guide to changing PostgreSQL's data directory whether your system already contains a PostgreSQL cluster or not, runs SystemD or SELinux is enforced.
 
-{% include heading.html level=3 text="Defining the new path" %}
+### Defining the new path
 
 The PostgreSQL server loads it's data path from an enviroment variable when starting.
 
@@ -27,7 +27,7 @@ Environment=PGDATA=/mnt/storage/postgresql/data
 
 If you mess up PostgreSQL's service file, delete `/etc/systemd/system/postgresql.service` and run `systemctl daemon-reload`. This will revert back to the default service file provided by your package manager. Then repeat the steps above.
 
-{% include heading.html level=3 text="Permissions" %}
+### Permissions
 
 The PostgreSQL user needs access to the directory containing the cluster data.
 
@@ -35,7 +35,7 @@ The PostgreSQL user needs access to the directory containing the cluster data.
 chown -R postgres:postgres /mnt/storage/postgresql
 ```
 
-{% include heading.html level=4 text="SELinux" %}
+#### SELinux
 
 If you run Fedora Server or another distribution implementing SELinux, the PostgreSQL SystemD service needs access to your new data directory.
 
@@ -46,7 +46,7 @@ semanage fcontext -a -e /var/lib/pgsql /mnt/storage/postgresql
 restorecon -RF /mnt/storage/postgresql
 ```
 
-{% include heading.html level=3 text="PostgreSQL" %}
+### PostgreSQL
 
 If you already have a PostgreSQL cluster, copy it's data to your new directory.
 
@@ -54,13 +54,13 @@ If you already have a PostgreSQL cluster, copy it's data to your new directory.
 rsync -av /var/lib/pgsql/data /mnt/storage/postgresql
 ```
 
-{% include heading.html level=4 text="New database cluster" %}
+#### New database cluster
 
 If you don't have an existing PostgreSQL database cluster, you also need to modify `/etc/postgresql-setup/upgrade/postgresql.conf`.
 
 Then continue with initializing a PostgreSQL cluster.
 
-{% include heading.html level=3 text="Done!" %}
+### Done!
 
 That's it! You can now enable and start your PostgreSQL server.
 

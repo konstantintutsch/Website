@@ -1,5 +1,4 @@
 {% assign post = include.post %}
 {% assign title = post.title %}
-{% assign id = post.time | date: "%Y%m%d-%Hh" | slugify %}
-{% assign event = "blog-" | append: id %}
-{% include preview.html title=post.title date=post.date event=event url=post.url %}
+{% assign id = post.time | date: "%Y%m%d" %}
+{% include preview.html title=post.title date=post.date url=post.url %}

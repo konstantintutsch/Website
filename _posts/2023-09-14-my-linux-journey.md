@@ -5,7 +5,7 @@ tags: Linux
 time: 2023-09-14 01:00:00 +0200
 ---
 
-{% include heading.html level=3 text="The beginning" %}
+### The beginning
 
 My first touching points with Linux were somewhere in autumn of 2020.
 
@@ -15,7 +15,7 @@ It was Ubuntu 20.04 LTS. The first thing I did was a search about how to "run" a
 
 But the linux machine, a Dell laptop, died. I was definetly not the one who killed it. Noooo. I drilled a screw through the mainboard while adding extra storage.
 
-{% include heading.html level=3 text="A new device" %}
+### A new device
 
 I got a desktop (without an external graphics card). But luckily with everything else. I already had a display, keyboard and mouse because I was a "gamer". So they all were happily blinking in too many colors.
 
@@ -23,15 +23,15 @@ The first thing I did was to reinstall Ubuntu. The desktop is a custom configura
 
 But a problem occured. The desktop has RGB memory sticks. I was able to find [OpenRGB](https://web.archive.org/web/20220927155955/https://openrgb.org/). But it was a nightmare to get it to work because the only thing I used the command line before were copy-past wine/proton commands to get all my games running at the time. And I didn't understand the Linux permission system and all the services running in the background. It eventually worked.
 
-{% include heading.html level=3 text="The distrohopping fever" %}
+### The distrohopping fever
 
 I don't remember the distros. But there were a lot.
 
-{% include heading.html level=3 text="openSUSE Tumbleweed" %}
+### openSUSE Tumbleweed
 
 I used it for like 3 months. It is a good distro. I still don't understand why there are so many Linux users who hate it.
 
-{% include heading.html level=3 text="Gentoo Linux" %}
+### Gentoo Linux
 
 The distro that made me a Linux power user. And also the distro that made me angry, **really** angry. I really like Gentoo. It gives the user a lot of power. I really like that mentality of an absolutly perfect system for the user's needs.
 
@@ -47,7 +47,7 @@ I broke my install again. Sad but something I could fix. After a few hours of re
 
 I was able to recover photos and all other important stuff. Only one thing was gone: my KDBX database (used for password managing). The only way I could access my mail was through my phone where a token to my account was in cache. I restored all of my accounts somehow. Even the 2FA ones.
 
-{% include heading.html level=3 text="Debian (on my servers only)" %}
+### Debian (on my servers only)
 
 Stable, really stable. My Raspberry Pi and VPSs run it. I never broke a Debian install and consider myself a experienced Debian user, **not** a power user. That's it, lucky.
 

@@ -8,7 +8,7 @@ index: true
 
 I have just setup IPv6 for this website. It was not as straight forward as I though and that is why I decided to sum up all necessary steps here.
 
-{% include heading.html level=3 text="Permanent IPv6 address" %}
+### Permanent IPv6 address
 
 There are two commonly used systems for generating IPv6 addresses.
 
@@ -33,11 +33,11 @@ Hence, I would need to replace `"Connection name"` with `"Wired connection 1"` i
 
 The server must be rebooted to use it's new static IPv6 address.
 
-{% include heading.html level=3 text="Checking address" %}
+### Checking address
 
 Login to your server and check it's public IPv6 address. On Linux, use the `ip addr` command:
 
-{% include image.html file="ipv6-port-forwarding-fritzbox-ip-addr.webp" alt="The ip addr command output. A lot of IP address, network interfaces and other information." caption="<code>ip addr</code> executed on my server" %}
+{% include image.html file="ipv6-port-forwarding-fritzbox-ip-addr.webp" alt="The ip addr command output. A lot of IP address, network interfaces and other information." caption="`ip addr` executed on my server" %}
 
 The AAAA record of your domain should point to this address.
 
@@ -47,7 +47,7 @@ I am aware that this method is not foolproof: this just excludes the local IPv6 
 
 An alternative is to use the local address of your server. The FritzBOX will then generate a public IPv6 address accordingly. But that will mess with your DDClient *(DynDNS)* configuration and other services running on your server. You would also need to manually assign the generated IPv6 address to your domain.
 
-{% include heading.html level=3 text="FritzBOX Configuration" %}
+### FritzBOX Configuration
 
 Login to your FritzBOX and access the port configuration site for the server you want to expose. Feed the last four numbers of your IPv6 address into the `IPv6 Interface-ID` fields.
 

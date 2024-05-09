@@ -5,24 +5,24 @@ tags: Linux Open-Source Privacy Self-hosting
 time: 2024-02-20 17:11:39 +0100
 ---
 
-{% include heading.html level=3 text="What is Umami?" %}
+### What is Umami?
 
-Umami is a self-hostable analytics platform. Like Google Analytics, but privacy preserving, open-source and without extreme tracking. You can have a look at <a data-umami-event="reference-umami" href="https://umami.is/">their website</a> if you're interested and want to learn more.
+Umami is a self-hostable analytics platform. Like Google Analytics, but privacy preserving, open-source and without extreme tracking. You can have a look at [their website](https://umami.is/) if you're interested and want to learn more.
 
-{% include heading.html level=3 text="Self-hostig on Linux" %}
+### Self-hostig on Linux
 
 You can self-host Umami to ensure that all analytics data stays on your system and you have full control.
 
 The Umami developers also provide a cloud solution you can subscribe to if you don't feel comfortable self-hosting.
 
-{% include heading.html level=4 text="Prerequisites" %}
+#### Prerequisites
 
 - NodeJS `(v18.17+)` + npm
 - MySQL `(v5.7+)` or **PostgreSQL**<sup>used in this guide</sup> `(v12.14+)`
 - Apache2 <sup>or your webserver of choice</sup>
 - Certbot + webserver extension
 
-{% include heading.html level=4 text="Database setup" %}
+#### Database setup
 
 To initialize PostgreSQL, run this command on your system:
 
@@ -68,7 +68,7 @@ You've now setup your database. Exit the SQL shell:
 \q
 ```
 
-{% include heading.html level=4 text="Installation" %}
+#### Installation
 
 Umami uses `yarn` for packaging. We need to install it first:
 
@@ -103,7 +103,7 @@ Build Umami:
 yarn build
 ```
 
-{% include heading.html level=4 text="Running as a service" %}
+#### Running as a service
 
 You definetly want to run Umami as a service. Follow these steps if your init system is SystemD.
 
@@ -140,7 +140,7 @@ systemctl daemon-reload
 systemctl enable --now umami.service
 ```
 
-{% include heading.html level=4 text="Reverse proxy" %}
+#### Reverse proxy
 
 Accessing Umami should happen via a secure connection on a standard port. We need a reverse proxy to archive this.
 
@@ -186,7 +186,7 @@ Insert this configuration into `/etc/httpd/conf.d/umami.conf`:
 </VirtualHost>
 ```
 
-{% include heading.html level=4 text="Changing the default login" %}
+#### Changing the default login
 
 Now that your Umami instance is live, remove the default login via a browser.
 
@@ -202,7 +202,7 @@ You can now logout and login with your new user. Navigate to the same page and d
 
 Umami is setup. That's it! 🤩
 
-{% include heading.html level=4 text="Backup and restore" %}
+#### Backup and restore
 
 You only need to backup the database. We can use `pg_dump` to archive this.
 
@@ -241,7 +241,7 @@ Your Umami instance has been restored. You can start it now 😌
 systemctl start umami.service
 ```
 
-{% include heading.html level=3 text="Using Umami" %}
+### Using Umami
 
 This section is about using Umami's basic features.
 
