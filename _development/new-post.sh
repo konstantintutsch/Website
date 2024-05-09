@@ -39,10 +39,10 @@ done
 appendf "---"
 
 # enter editing and wait for deploying, testing or deleting
+flatpak run org.gnome.gitlab.somas.Apostrophe ${FILE} &
 DEPLOY=""
 while [[ ${DEPLOY} != "deploy" ]]
 do
-    ${EDITOR} ${FILE}
     read -p "Dou you want to [deploy/test/delete] your site?: " "DEPLOY"
     if [[ ${DEPLOY} == "test" ]]
     then
