@@ -83,67 +83,35 @@ class NewWebAppWindow(Gtk.Dialog):
         self.icon_row.add_suffix(select_icon_button)
         prefs_list.append(self.icon_row)
 
-        show_navigation_row = Adw.ActionRow()
+        show_navigation_row = Adw.SwitchRow()
         show_navigation_row.set_title("Show Navigation Options")
         show_navigation_row.set_subtitle("Show the buttons for back, forward and reload.")
-        show_navs_switch_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        show_navs_switch_box.append(Gtk.Label()) # Padding, otherwise the switch looks stretched. I don't have Adw 1.4 yet so I can't use switchrow.
-        show_navs_switch = Gtk.Switch()
-        show_navs_switch_box.append(show_navs_switch)
-        show_navs_switch_box.append(Gtk.Label())
-        show_navigation_row.add_suffix(show_navs_switch_box)
         prefs_list.append(show_navigation_row)
 
-        strict_domain_row = Adw.ActionRow()
+        strict_domain_row = Adw.SwitchRow()
         strict_domain_row.set_title("Strict Domain Matching")
         strict_domain_row.set_subtitle("Subdomains of the URL will not be opened")
-        strict_domain_switch_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        strict_domain_switch_box.append(Gtk.Label())
-        strict_domain_switch = Gtk.Switch()
-        strict_domain_switch_box.append(strict_domain_switch)
-        strict_domain_switch_box.append(Gtk.Label())
-        strict_domain_row.add_suffix(strict_domain_switch_box)
         prefs_list.append(strict_domain_row)
 
-        loading_bar_row = Adw.ActionRow()
+        loading_bar_row = Adw.SwitchRow()
         loading_bar_row.set_title("Show Loading Bars")
         loading_bar_row.set_subtitle("A loading bar will be visible at the top of the web page when it is being loaded.")
-        loading_bar_switch_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        loading_bar_switch_box.append(Gtk.Label())
-        loading_bar_switch = Gtk.Switch()
-        loading_bar_switch.set_active(True)
-        loading_bar_switch_box.append(loading_bar_switch)
-        loading_bar_switch_box.append(Gtk.Label())
-        loading_bar_row.add_suffix(loading_bar_switch_box)
         prefs_list.append(loading_bar_row)
 
-        javascript_row = Adw.ActionRow()
+        javascript_row = Adw.SwitchRow()
         javascript_row.set_title("Enable JavaScript")
         javascript_row.set_subtitle("Enable web scripting.")
-        javascript_switch_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        javascript_switch_box.append(Gtk.Label())
-        javascript_switch = Gtk.Switch()
-        javascript_switch.set_active(True)
-        javascript_switch_box.append(javascript_switch)
-        javascript_switch_box.append(Gtk.Label())
-        javascript_row.add_suffix(javascript_switch_box)
         prefs_list.append(javascript_row)
 
-        incognito_row = Adw.ActionRow()
+        incognito_row = Adw.SwitchRow()
         incognito_row.set_title("Incognito Browsing")
         incognito_row.set_subtitle("Cookies and other data will not be stored.")
-        incognito_switch_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        incognito_switch_box.append(Gtk.Label())
-        incognito_switch = Gtk.Switch()
-        incognito_switch_box.append(incognito_switch)
-        incognito_switch_box.append(Gtk.Label())
-        incognito_row.add_suffix(incognito_switch_box)
         prefs_list.append(incognito_row)
 
         prefs_list_clamp.set_child(prefs_list)
         box.append(prefs_list_clamp)
 
-        self.add_button.connect("clicked", self.install_webapp, [name_row, url_row, self.icon_row, show_navs_switch, strict_domain_switch, loading_bar_switch, javascript_switch, incognito_switch], parent)
+        self.add_button.connect("clicked", self.install_webapp, [name_row, url_row, self.icon_row, show_navigation_row, strict_domain_row, loading_bar_row, javascript_row, incognito_row], parent)
         select_icon_button.connect("clicked", self.choose_icon)
         self.set_child(box)
 
@@ -174,7 +142,6 @@ class NewWebAppWindow(Gtk.Dialog):
             url = 'https://' + url
         if not url.endswith('/'):
             url += '/'
-        #state = [widgets[0].get_text(), url, widgets[2].get_subtitle(), widgets[3].get_active(), widgets[4].get_active(), widgets[5].get_active(), widgets[6].get_active(), widgets[7].get_active()]
         state = {
             'name': widgets[0].get_text(),
             'url': url,
