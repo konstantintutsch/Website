@@ -20,6 +20,8 @@
 import os
 import pickle
 import gi
+import json
+
 gi.require_version("Adw", '1')
 from gi.repository import Gtk, Gio, Adw
 
@@ -172,10 +174,21 @@ class NewWebAppWindow(Gtk.Dialog):
             url = 'https://' + url
         if not url.endswith('/'):
             url += '/'
-        state = [widgets[0].get_text(), url, widgets[2].get_subtitle(), widgets[3].get_active(), widgets[4].get_active(), widgets[5].get_active(), widgets[6].get_active(), widgets[7].get_active()]
-        with open('.var/app/net.codelogistics.webapps/webapps/' + state[0].replace(' ', '-'), 'wb') as f:
-            pickle.dump(state, f)
+        #state = [widgets[0].get_text(), url, widgets[2].get_subtitle(), widgets[3].get_active(), widgets[4].get_active(), widgets[5].get_active(), widgets[6].get_active(), widgets[7].get_active()]
+        state = {
+            'name': widgets[0].get_text(),
+            'url': url,
+            'icon': widgets[2].get_subtitle(),
+            'show_navigation': widgets[3].get_active(),
+            'strict_domain': widgets[4].get_active(),
+            'loading_bar': widgets[5].get_active(),
+            'javascript': widgets[6].get_active(),
+            'incognito': widgets[7].get_active()
+        }
 
-        desktop_filer(parent, state[0], state[1], state[2])
+        with open('.var/app/net.codelogistics.webapps/webapps/' + state['name'].replace(' ', '-') + '.json', 'w') as f:
+            json.dump(state, f)
+
+        desktop_filer(parent, state['name'], state['url'], state['icon'])
 
         parent.refresh_rows()

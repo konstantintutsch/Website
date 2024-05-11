@@ -31,10 +31,10 @@ class WebAppWindow(Gtk.ApplicationWindow):
     def __init__(self, application, state, **kwargs):
         super().__init__(application = application)
         Adw.init()
-        self.set_title(state[0])
+        self.set_title(state['name'])
         self.set_default_size(800,600)
-        if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + state[0].replace(' ', '-') + '.window'):
-            restore_window = open('.var/app/net.codelogistics.webapps/webapps/' + state[0].replace(' ', '-') + '.window', 'r').read()
+        if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + state['name'].replace(' ', '-') + '.window'):
+            restore_window = open('.var/app/net.codelogistics.webapps/webapps/' + state['name'].replace(' ', '-') + '.window', 'r').read()
             if restore_window == "True":
                 self.maximize()
         self.set_default_icon_name("net.codelogistics.webapps")
@@ -43,33 +43,33 @@ class WebAppWindow(Gtk.ApplicationWindow):
         box = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
 
         context = WebKit.WebContext.get_default()
-        if state[7]:
+        if state['incognito']:
             network_session = WebKit.NetworkSession.new_ephemeral()
         else:
             network_session = WebKit.NetworkSession.get_default()
             cookies = network_session.get_cookie_manager()
         self.webview = WebKit.WebView()
         settings = self.webview.get_settings()
-        if not state[6]:
+        if not state['javascript']:
             settings.set_enable_javascript(False)
 
-        if not state[7]:
+        if not state['incognito']:
             storage = WebKit.CookiePersistentStorage.TEXT
             policy = WebKit.CookieAcceptPolicy.ALWAYS
             cookies.set_accept_policy(policy)
-            cookies.set_persistent_storage('.var/app/net.codelogistics.webapps/webapps/' + state[0].replace(' ', '-') + '.cookies.txt', storage)
+            cookies.set_persistent_storage('.var/app/net.codelogistics.webapps/webapps/' + state['name'].replace(' ', '-') + '.cookies.txt', storage)
 
         self.webview.set_vexpand(True)
-        if state[1] == "":
-            state[1] = "https://codelogistics.net/"
-        self.webview.load_uri(state[1])
+        if state['url'] == "":
+            state['url'] = "about:blank"
+        self.webview.load_uri(state['url'])
         overlay = Gtk.Overlay()
         overlay.set_child(self.webview)
 
         self.progressbar = Gtk.ProgressBar()
         self.progressbar.add_css_class("osd")
         self.progressbar.set_valign(Gtk.Align.START)
-        if state[5]:
+        if state['loading_bar']:
             overlay.add_overlay(self.progressbar)
         box.append(overlay)
         self.set_child(box)
@@ -95,7 +95,7 @@ class WebAppWindow(Gtk.ApplicationWindow):
         self.reload_button.connect("clicked", self.on_reload_clicked)
         headerbar.pack_start(self.reload_button)
 
-        if state[3]:
+        if state['show_navigation']:
             self.set_titlebar(headerbar)
 
         self.webview.connect("load-changed", self.on_load_changed)
@@ -149,12 +149,12 @@ class WebAppWindow(Gtk.ApplicationWindow):
         if decision_type == WebKit.PolicyDecisionType.RESPONSE:
             uri = decision.get_response().get_uri()
 
-            if self.get_domain_name(uri, state[4]) != self.get_domain_name(state[1], state[4]):
+            if self.get_domain_name(uri, state['strict_domain']) != self.get_domain_name(state['url'], state['strict_domain']):
                 os.system("xdg-open {}".format(uri))
                 decision.ignore()
 
     def on_close(self, window, state):
-        with open('.var/app/net.codelogistics.webapps/webapps/' + state[0].replace(' ', '-') + '.window', 'w') as restore_file:
+        with open('.var/app/net.codelogistics.webapps/webapps/' + state['name'].replace(' ', '-') + '.window', 'w') as restore_file:
             restore_file.write(str(self.is_maximized()))
         self.webview.terminate_web_process()
 

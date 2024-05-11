@@ -19,6 +19,7 @@
 
 import os
 import gi
+import json
 import pickle
 
 gi.require_version("Adw", '1')
@@ -105,11 +106,13 @@ class WebAppsWindow(Gtk.ApplicationWindow):
     def add_rows(self, apps_list):
         rows = {}
         for i in os.listdir('.var/app/net.codelogistics.webapps/webapps/'):
-            if not i.endswith(".cookies.txt") and not i.endswith(".window"):
+            if i.endswith('.json'):
                 rows[i] = [Adw.ActionRow(), Gtk.Button()]
-                with open('.var/app/net.codelogistics.webapps/webapps/' + i, 'rb') as f:
-                    tmpstate = pickle.load(f)
-                rows[i][0].set_title(tmpstate[0])
+
+                with open('.var/app/net.codelogistics.webapps/webapps/' + i.replace(' ', '-'), 'r') as f:
+                    tmpstate = json.load(f)
+
+                rows[i][0].set_title(tmpstate['name'])
                 rows[i][1].add_css_class('destructive-action')
                 rows[i][1].set_icon_name('user-trash-symbolic')
                 rows[i][1].connect("clicked", self.delete_row, i)
@@ -140,7 +143,8 @@ class WebAppsWindow(Gtk.ApplicationWindow):
 
 
     def delete_row(self, button, app):
-        os.remove('.var/app/net.codelogistics.webapps/webapps/' + app)
+        app = app[:-5].replace('-', ' ')
+        os.remove('.var/app/net.codelogistics.webapps/webapps/' + app + '.json')
         if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + app + '.window'):
             os.remove('.var/app/net.codelogistics.webapps/webapps/' + app + '.window')
         if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + app + '.cookies.txt'):

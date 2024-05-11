@@ -21,6 +21,7 @@ import os
 import pickle
 import sys
 import gi
+import json
 from pathlib import Path
 
 gi.require_version('Gtk', '4.0')
@@ -36,7 +37,7 @@ class WebappsApplication(Gtk.Application):
     """The main application singleton class."""
 
     def __init__(self, args):
-        if len(args) > 1 and args[1] in os.listdir('.var/app/net.codelogistics.webapps/webapps/'):
+        if len(args) > 1 and args[1] + '.json' in os.listdir('.var/app/net.codelogistics.webapps/webapps/'):
             super().__init__(application_id='net.codelogistics.webapps.' + args[1],
                          flags=Gio.ApplicationFlags.DEFAULT_FLAGS)
         else:
@@ -52,9 +53,9 @@ class WebappsApplication(Gtk.Application):
         We raise the application's main window, creating it if
         necessary.
         """
-        if len(self.args) == 2 and self.args[1] in os.listdir('.var/app/net.codelogistics.webapps/webapps'):
-            with open('.var/app/net.codelogistics.webapps/webapps/' + self.args[1], 'rb') as f:
-                state = pickle.load(f)
+        if len(self.args) > 1 and self.args[1] + '.json' in os.listdir('.var/app/net.codelogistics.webapps/webapps'):
+            with open('.var/app/net.codelogistics.webapps/webapps/' + self.args[1] + '.json', 'r') as f:                
+                state = json.load(f)
             win = WebAppWindow(application=self, state = state)
             win.present()
         else:
