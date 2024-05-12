@@ -68,10 +68,10 @@ class WebappsApplication(Gtk.Application):
         about.set_comments("Install websites as apps")
         about.set_developer_name("Satvik Patwardhan")
         about.set_application_icon('net.codelogistics.webapps')
-        about.set_version('0.3.2')
+        about.set_version('0.3.3')
         about.set_license_type(Gtk.License.GPL_3_0)
         about.set_developers(['Satvik Patwardhan'])
-        about.set_copyright('© 2023 Satvik Patwardhan')
+        about.set_copyright('© 2024 Satvik Patwardhan')
         about.set_website("https://codelogistics.net/")
         about.set_issue_url("https://codeberg.org/eyekay/webapps/issues")
 

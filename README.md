@@ -8,9 +8,9 @@ Made with Gtk4, WebKitGTK, libadwaita and Flatpak.
 
 ## Dependencies
 
-org.gnome.Platform 45
+org.gnome.Platform
 
-libportal 0.7.1
+libportal
 
 This is a Flatpak-only application. It uses portals to create and remove shortcuts.
 
@@ -32,7 +32,6 @@ where NAME is the name of the Web App (replace spaces with '-' if applicable). T
 
 ## Todos
 
-* Edit already created web apps
 * The different web apps have the same application ID (and therefore the same icon) on X11
 * Deal with file downloads
 

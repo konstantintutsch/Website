@@ -30,7 +30,7 @@ webapps_sources = [
   '__init__.py',
   'main.py',
   'window.py',
-  'new_webapp_window.py',
+  'edit_webapp_window.py',
   'web_app_window.py',
   'create_desktop_file.py',
 ]

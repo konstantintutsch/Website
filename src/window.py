@@ -24,7 +24,7 @@ import json
 gi.require_version("Adw", '1')
 
 from gi.repository import Gtk, Gio, Adw, Xdp
-from .new_webapp_window import NewWebAppWindow
+from .edit_webapp_window import EditWebAppWindow
 
 icon_path = __file__.rpartition(os.path.sep)[0] + '/data/icons/hicolor/48x48/apps/net.codelogistics.webapps.png'
 
@@ -79,7 +79,7 @@ class WebAppsWindow(Gtk.ApplicationWindow):
         self.apps_list.add_css_class("boxed-list")
         self.apps_list.set_selection_mode(Gtk.SelectionMode.NONE)
 
-        self.rows = self.add_rows(self.apps_list)
+        self.rows = self.add_rows(self.apps_list, application)
 
         rowbox.append(self.apps_list)
         self.clamp.set_child(rowbox)
@@ -99,14 +99,14 @@ class WebAppsWindow(Gtk.ApplicationWindow):
         self.set_child(self.box)
 
     def on_add_button_clicked(self, button, application):
-        new_app_win = NewWebAppWindow(self, application = application)
+        new_app_win = EditWebAppWindow(self, application = application, edit = False)
         new_app_win.present()
 
-    def add_rows(self, apps_list):
+    def add_rows(self, apps_list, application = None):
         rows = {}
         for i in os.listdir('.var/app/net.codelogistics.webapps/webapps/'):
             if i.endswith('.json'):
-                rows[i] = [Adw.ActionRow(), Gtk.Button()]
+                rows[i] = [Adw.ActionRow(), Gtk.Button(), Gtk.Button()]
 
                 with open('.var/app/net.codelogistics.webapps/webapps/' + i.replace(' ', '-'), 'r') as f:
                     tmpstate = json.load(f)
@@ -115,10 +115,25 @@ class WebAppsWindow(Gtk.ApplicationWindow):
                 rows[i][1].add_css_class('destructive-action')
                 rows[i][1].set_icon_name('user-trash-symbolic')
                 rows[i][1].connect("clicked", self.delete_row, i)
-                box = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
-                box.append(Gtk.Label()) # We add the box instead of the button directly to give padding as otherwise the button looks stretched.
-                box.append(rows[i][1])
-                box.append(Gtk.Label())
+
+                rows[i][2].add_css_class('suggested-action')
+                rows[i][2].set_icon_name('document-edit-symbolic')
+                rows[i][2].connect("clicked", self.edit_row, application, tmpstate['name'].replace(' ', '-'))
+                
+                box1 = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
+                box1.append(Gtk.Label()) # We add the box instead of the button directly to give padding as otherwise the button looks stretched.
+                box1.append(rows[i][1])
+                box1.append(Gtk.Label())
+
+                box2 = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
+                box2.append(Gtk.Label())
+                box2.append(rows[i][2])
+                box2.append(Gtk.Label())
+
+                box = Gtk.Box(orientation = Gtk.Orientation.HORIZONTAL)
+                box.append(box2)
+                box.append(Gtk.Label(label = ' '))
+                box.append(box1)
 
                 rows[i][0].add_suffix(box)
                 apps_list.append(rows[i][0])
@@ -156,3 +171,9 @@ class WebAppsWindow(Gtk.ApplicationWindow):
         except:
             print('Portal error')
         self.refresh_rows()
+
+    def edit_row(self, button, app, name):
+        with open('.var/app/net.codelogistics.webapps/webapps/' + name + '.json', 'r') as f:
+            tmpstate = json.load(f)
+        edit_app_win = EditWebAppWindow(self, application = app, edit = True, state = tmpstate)
+        edit_app_win.present()

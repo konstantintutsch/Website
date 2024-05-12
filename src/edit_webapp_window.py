@@ -1,4 +1,4 @@
-# new_webapp_window.py
+# edit_webapp_window.py
 #
 # Copyright 2023 Satvik Patwardhan
 #
@@ -22,18 +22,21 @@ import gi
 import json
 
 gi.require_version("Adw", '1')
-from gi.repository import Gtk, Gio, Adw
+from gi.repository import Gtk, Gio, Adw, Xdp
 
 from .create_desktop_file import desktop_filer
 
 icon_path = __file__.rpartition(os.path.sep)[0] + '/data/icons/hicolor/48x48/apps/net.codelogistics.webapps.png'
 
-class NewWebAppWindow(Gtk.Dialog):
+class EditWebAppWindow(Gtk.Dialog):
 
-    def __init__(self, parent, application, **kwargs):
+    def __init__(self, parent, application, edit = False, state = False, **kwargs):
         super().__init__(application = application)
         Adw.init()
-        self.set_title("Create New Web App")
+        if edit:
+            self.set_title("Edit Web App")
+        else:
+            self.set_title("Create New Web App")
         self.set_transient_for(parent)
         self.set_modal(True)
         self.set_default_size(600,400)
@@ -49,8 +52,12 @@ class NewWebAppWindow(Gtk.Dialog):
         self.add_button = Gtk.Button()
         self.add_button.add_css_class("suggested-action")
         self.add_button.set_sensitive(False)
-        self.add_button.set_label("Install")
-        self.add_button.set_tooltip_text("Create a new web app")
+        if edit:
+            self.add_button.set_label("Save")
+            self.add_button.set_tooltip_text("Save changes to the web app")
+        else:
+            self.add_button.set_label("Install")
+            self.add_button.set_tooltip_text("Create a new web app")
         headerbar.pack_end(self.add_button)
 
         self.set_titlebar(headerbar)
@@ -65,10 +72,15 @@ class NewWebAppWindow(Gtk.Dialog):
         name_row = Adw.EntryRow()
         name_row.set_title("Name")
         name_row.connect("changed", self.enable_install)
+        if edit:
+            name_row.set_sensitive(False)
+            name_row.set_text(state['name'])
         prefs_list.append(name_row)
 
         url_row = Adw.EntryRow()
         url_row.set_title("URL")
+        if edit:
+            url_row.set_text(state['url'])
         prefs_list.append(url_row)
 
         self.icon_row = Adw.ActionRow()
@@ -80,11 +92,15 @@ class NewWebAppWindow(Gtk.Dialog):
         button_content.set_icon_name("folder-open-symbolic")
         select_icon_button.set_child(button_content)
         self.icon_row.add_suffix(select_icon_button)
+        if edit:
+            self.icon_row.set_subtitle(state['icon'])
         prefs_list.append(self.icon_row)
 
         show_navigation_row = Adw.SwitchRow()
         show_navigation_row.set_title("Show Navigation Options")
         show_navigation_row.set_subtitle("Show the buttons for back, forward and reload.")
+        if edit:
+            show_navigation_row.set_active(state['show_navigation'])
         prefs_list.append(show_navigation_row)
 
         domain_matching_row = Adw.ComboRow()
@@ -95,32 +111,43 @@ class NewWebAppWindow(Gtk.Dialog):
         domain_options.append("Domain only")
         domain_options.append("Allow all")
         domain_matching_row.set_model(domain_options)
+        if edit:
+            domain_matching_row.set_selected(state['domain_matching'])
         prefs_list.append(domain_matching_row)
 
         loading_bar_row = Adw.SwitchRow()
         loading_bar_row.set_title("Show Loading Bars")
         loading_bar_row.set_subtitle("A loading bar will be visible at the top of the web page when it is being loaded.")
         loading_bar_row.set_active(True)
+        if edit:
+            loading_bar_row.set_active(state['loading_bar'])
         prefs_list.append(loading_bar_row)
 
         javascript_row = Adw.SwitchRow()
         javascript_row.set_title("Enable JavaScript")
         javascript_row.set_subtitle("Enable web scripting.")
         javascript_row.set_active(True)
+        if edit:
+            javascript_row.set_active(state['javascript'])
         prefs_list.append(javascript_row)
 
         incognito_row = Adw.SwitchRow()
         incognito_row.set_title("Incognito Browsing")
         incognito_row.set_subtitle("Cookies and other data will not be stored.")
+        if edit:
+            incognito_row.set_active(state['incognito'])
         prefs_list.append(incognito_row)
 
         prefs_list_clamp.set_child(prefs_list)
         box.append(prefs_list_clamp)
 
-        self.add_button.connect("clicked", self.install_webapp, [name_row, url_row, self.icon_row, show_navigation_row, domain_matching_row, loading_bar_row, javascript_row, incognito_row], parent)
+        self.add_button.connect("clicked", self.install_webapp, [name_row, url_row, self.icon_row, show_navigation_row, domain_matching_row, loading_bar_row, javascript_row, incognito_row], parent, edit)
         select_icon_button.connect("clicked", self.choose_icon)
         self.set_child(box)
         self.icon = False
+        if edit:
+            if self.icon_row.get_subtitle() != '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + name_row.get_text().replace(' ', '-') + '.png':
+                self.icon = Gio.File.new_for_path(state['icon'])
 
     def enable_install(self, entry):
         if entry.get_text().strip() == "" or not entry.get_text().replace(" ","").isalpha() or len(entry.get_text()) > 20:
@@ -140,8 +167,14 @@ class NewWebAppWindow(Gtk.Dialog):
         choose_dialog.set_default_filter(pngfilter)
         choose_dialog.open(self, None, choose_icon_finish)
 
-    def install_webapp(self, button, widgets, parent):
+    def install_webapp(self, button, widgets, parent, edit = False):
         self.destroy()
+        portal = Xdp.Portal()
+        if edit:
+            try:
+                portal.dynamic_launcher_uninstall("net.codelogistics.webapps." + widgets[0].get_text().replace(' ', '-') + ".desktop")
+            except:
+                print('Portal error')
         if self.icon:
             icon_path = '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + widgets[0].get_text().replace(' ', '-') + '.png'
             with open(icon_path, 'wb') as f:
