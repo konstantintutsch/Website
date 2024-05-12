@@ -28,17 +28,17 @@ from .edit_webapp_window import EditWebAppWindow
 
 icon_path = __file__.rpartition(os.path.sep)[0] + '/data/icons/hicolor/48x48/apps/net.codelogistics.webapps.png'
 
-class WebAppsWindow(Gtk.ApplicationWindow):
+class WebAppsWindow(Adw.ApplicationWindow):
     __gtype_name__ = 'WebAppsWindow'
 
     def __init__(self, application, **kwargs):
         super().__init__(application = application)
-        Adw.init()
         self.set_title("Web Apps")
         self.set_default_size(800,600)
         self.set_default_icon_name("net.codelogistics.webapps")
 
-        headerbar = Gtk.HeaderBar()
+        toolbar = Adw.ToolbarView()
+        headerbar = Adw.HeaderBar()
 
         window_title = Adw.WindowTitle()
         window_title.set_title("Web Apps")
@@ -59,7 +59,7 @@ class WebAppsWindow(Gtk.ApplicationWindow):
         menu_button_menu.append_item(about_item)
         headerbar.pack_end(menu_button)
 
-        self.set_titlebar(headerbar)
+        toolbar.add_top_bar(headerbar)
 
         self.box = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
 
@@ -96,7 +96,9 @@ class WebAppsWindow(Gtk.ApplicationWindow):
         else:
             self.box.append(self.no_webapps_page)
 
-        self.set_child(self.box)
+        toolbar.set_content(self.box)
+
+        self.set_content(toolbar)
 
     def on_add_button_clicked(self, button, application):
         new_app_win = EditWebAppWindow(self, application = application, edit = False)

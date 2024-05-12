@@ -32,7 +32,7 @@ from gi.repository import Gtk, GModule, GObject, GIRepository, Gio, GLib, Adw
 from .window import WebAppsWindow
 from .web_app_window import WebAppWindow
 
-class WebappsApplication(Gtk.Application):
+class WebappsApplication(Adw.Application):
     """The main application singleton class."""
 
     def __init__(self, args):
@@ -63,7 +63,7 @@ class WebappsApplication(Gtk.Application):
 
     def on_about_action(self, widget, _):
         """Callback for the app.about action."""
-        about = Adw.AboutWindow(transient_for=self.props.active_window, modal=True,)
+        about = Adw.AboutDialog()
         about.set_application_name("Web Apps")
         about.set_comments("Install websites as apps")
         about.set_developer_name("Satvik Patwardhan")
@@ -75,7 +75,7 @@ class WebappsApplication(Gtk.Application):
         about.set_website("https://codelogistics.net/")
         about.set_issue_url("https://codeberg.org/eyekay/webapps/issues")
 
-        about.present()
+        about.present(self.get_active_window())
 
     def create_action(self, name, callback, shortcuts=None):
         """Add an application action.
