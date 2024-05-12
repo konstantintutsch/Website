@@ -149,7 +149,7 @@ class WebAppWindow(Gtk.ApplicationWindow):
         if decision_type == WebKit.PolicyDecisionType.RESPONSE:
             uri = decision.get_response().get_uri()
 
-            if self.get_domain_name(uri, state['strict_domain']) != self.get_domain_name(state['url'], state['strict_domain']):
+            if not self.domain_allowed(uri, state['url'], state['domain_matching']):
                 os.system("xdg-open {}".format(uri))
                 decision.ignore()
 
@@ -158,10 +158,22 @@ class WebAppWindow(Gtk.ApplicationWindow):
             restore_file.write(str(self.is_maximized()))
         self.webview.terminate_web_process()
 
-    def get_domain_name(self, url, strict=True) -> str:
-        parsed_url = parse.urlparse(url)
-        domain_name = parsed_url.netloc
-        if not strict:
-            domain_name = domain_name.split('.')[-2] + '.' + domain_name.split('.')[-1]
-        return domain_name
+    def domain_allowed(self, new_uri, uri, strict) -> bool:
+        new_parsed_uri = parse.urlparse(new_uri)
+        new_domain_name = new_parsed_uri.netloc
+
+        parsed_uri = parse.urlparse(uri)
+        domain_name = parsed_uri.netloc
+        if strict == 2:
+            return True
+        elif strict == 1:
+            if new_domain_name == domain_name:
+                return True
+            else:
+                return False
+        else:
+            if new_domain_name.split('.')[-2] + '.' + new_domain_name.split('.')[-1] == domain_name.split('.')[-2] + '.' + domain_name.split('.')[-1]:
+                return True
+            else:
+                return False
 

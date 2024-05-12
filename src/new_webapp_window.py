@@ -88,19 +88,26 @@ class NewWebAppWindow(Gtk.Dialog):
         show_navigation_row.set_subtitle("Show the buttons for back, forward and reload.")
         prefs_list.append(show_navigation_row)
 
-        strict_domain_row = Adw.SwitchRow()
-        strict_domain_row.set_title("Strict Domain Matching")
-        strict_domain_row.set_subtitle("Subdomains of the URL will not be opened")
-        prefs_list.append(strict_domain_row)
+        domain_matching_row = Adw.ComboRow()
+        domain_matching_row.set_title("Domain Matching")
+        domain_matching_row.set_subtitle("Set which websites will be allowed to load in the web app.")
+        domain_options = Gtk.StringList()
+        domain_options.append("Domain and subdomains")
+        domain_options.append("Domain only")
+        domain_options.append("Allow all")
+        domain_matching_row.set_model(domain_options)
+        prefs_list.append(domain_matching_row)
 
         loading_bar_row = Adw.SwitchRow()
         loading_bar_row.set_title("Show Loading Bars")
         loading_bar_row.set_subtitle("A loading bar will be visible at the top of the web page when it is being loaded.")
+        loading_bar_row.set_active(True)
         prefs_list.append(loading_bar_row)
 
         javascript_row = Adw.SwitchRow()
         javascript_row.set_title("Enable JavaScript")
         javascript_row.set_subtitle("Enable web scripting.")
+        javascript_row.set_active(True)
         prefs_list.append(javascript_row)
 
         incognito_row = Adw.SwitchRow()
@@ -111,7 +118,7 @@ class NewWebAppWindow(Gtk.Dialog):
         prefs_list_clamp.set_child(prefs_list)
         box.append(prefs_list_clamp)
 
-        self.add_button.connect("clicked", self.install_webapp, [name_row, url_row, self.icon_row, show_navigation_row, strict_domain_row, loading_bar_row, javascript_row, incognito_row], parent)
+        self.add_button.connect("clicked", self.install_webapp, [name_row, url_row, self.icon_row, show_navigation_row, domain_matching_row, loading_bar_row, javascript_row, incognito_row], parent)
         select_icon_button.connect("clicked", self.choose_icon)
         self.set_child(box)
 
@@ -147,7 +154,7 @@ class NewWebAppWindow(Gtk.Dialog):
             'url': url,
             'icon': widgets[2].get_subtitle(),
             'show_navigation': widgets[3].get_active(),
-            'strict_domain': widgets[4].get_active(),
+            'domain_matching': widgets[4].get_selected(),
             'loading_bar': widgets[5].get_active(),
             'javascript': widgets[6].get_active(),
             'incognito': widgets[7].get_active()
