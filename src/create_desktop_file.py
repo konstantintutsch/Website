@@ -15,9 +15,9 @@ def desktop_filer(parent, name, url, icon):
     global parentwindow
     parentwindow = parent
     if icon != "Default Favicon":
-        icon_path = icon
+        icon_path = '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + name.replace(' ', '-') + '.png'
         write_desktop_file(name, icon_path)
-        return
+        
     else:
         window = Gtk.Window()
         webview = WebKit.WebView()
@@ -71,8 +71,8 @@ def finish_install(portal, result):
     try:
         variant = portal.dynamic_launcher_prepare_install_finish(result)
     except:
-        if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + app):
-            os.remove('.var/app/net.codelogistics.webapps/webapps/' + app)
+        if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + app + '.json'):
+            os.remove('.var/app/net.codelogistics.webapps/webapps/' + app + '.json')
         if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + app + '.window'):
             os.remove('.var/app/net.codelogistics.webapps/webapps/' + app + '.window')
         if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + app + '.cookies.txt'):

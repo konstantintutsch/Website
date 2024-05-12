@@ -18,7 +18,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 import os
-import pickle
 import gi
 import json
 
@@ -74,7 +73,7 @@ class NewWebAppWindow(Gtk.Dialog):
 
         self.icon_row = Adw.ActionRow()
         self.icon_row.set_title("Icon")
-        self.icon_row.set_subtitle("Default Favicon")
+        self.icon_row.set_subtitle("Set the icon for the web app (must be a PNG less than 512x512)")
         select_icon_button = Gtk.Button()
         button_content = Adw.ButtonContent()
         button_content.set_label("Browse")
@@ -121,6 +120,7 @@ class NewWebAppWindow(Gtk.Dialog):
         self.add_button.connect("clicked", self.install_webapp, [name_row, url_row, self.icon_row, show_navigation_row, domain_matching_row, loading_bar_row, javascript_row, incognito_row], parent)
         select_icon_button.connect("clicked", self.choose_icon)
         self.set_child(box)
+        self.icon = False
 
     def enable_install(self, entry):
         if entry.get_text().strip() == "" or not entry.get_text().replace(" ","").isalpha() or len(entry.get_text()) > 20:
@@ -130,8 +130,9 @@ class NewWebAppWindow(Gtk.Dialog):
 
     def choose_icon(self, button):
         def choose_icon_finish(dialog, result):
-            file = choose_dialog.open_finish(result)
-            self.icon_row.set_subtitle(file.get_path())
+            self.icon = choose_dialog.open_finish(result)
+            self.icon_row.set_subtitle(self.icon.get_path())
+
         choose_dialog = Gtk.FileDialog()
         pngfilter = Gtk.FileFilter()
         pngfilter.set_name("PNG")
@@ -141,6 +142,12 @@ class NewWebAppWindow(Gtk.Dialog):
 
     def install_webapp(self, button, widgets, parent):
         self.destroy()
+        if self.icon:
+            icon_path = '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + widgets[0].get_text().replace(' ', '-') + '.png'
+            with open(icon_path, 'wb') as f:
+                f.write(self.icon.load_bytes()[0].get_data()) #load_bytes() returns a tuple with the bytes and something else
+        else:
+            icon_path = "Default Favicon"
         if widgets[1].get_text() == "":
             url = "about:blank"
         else:
@@ -152,7 +159,7 @@ class NewWebAppWindow(Gtk.Dialog):
         state = {
             'name': widgets[0].get_text(),
             'url': url,
-            'icon': widgets[2].get_subtitle(),
+            'icon': icon_path,
             'show_navigation': widgets[3].get_active(),
             'domain_matching': widgets[4].get_selected(),
             'loading_bar': widgets[5].get_active(),

@@ -18,7 +18,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 import os
-import pickle
 import sys
 import gi
 import json

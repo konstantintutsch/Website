@@ -20,7 +20,6 @@
 import os
 import gi
 import json
-import pickle
 
 gi.require_version("Adw", '1')
 
@@ -152,5 +151,8 @@ class WebAppsWindow(Gtk.ApplicationWindow):
         if os.path.exists('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + app + '.png'):
             os.remove('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + app + '.png')
         portal = Xdp.Portal()
-        portal.dynamic_launcher_uninstall("net.codelogistics.webapps." + app.replace(' ', '-') + ".desktop")
+        try:
+            portal.dynamic_launcher_uninstall("net.codelogistics.webapps." + app.replace(' ', '-') + ".desktop")
+        except:
+            print('Portal error')
         self.refresh_rows()
