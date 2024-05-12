@@ -28,25 +28,21 @@ from .create_desktop_file import desktop_filer
 
 icon_path = __file__.rpartition(os.path.sep)[0] + '/data/icons/hicolor/48x48/apps/net.codelogistics.webapps.png'
 
-class EditWebAppWindow(Gtk.Dialog):
+class EditWebAppWindow(Adw.Dialog):
 
-    def __init__(self, parent, application, edit = False, state = False, **kwargs):
-        super().__init__(application = application)
-        Adw.init()
+    def __init__(self, parent, edit = False, state = False, **kwargs):
+        super().__init__()
         if edit:
             self.set_title("Edit Web App")
         else:
             self.set_title("Create New Web App")
-        self.set_transient_for(parent)
-        self.set_modal(True)
-        self.set_default_size(600,400)
-        self.set_default_icon_name("net.codelogistics.webapps")
 
-        headerbar = Gtk.HeaderBar()
+        toolbar = Adw.ToolbarView()
+        headerbar = Adw.HeaderBar()
 
         cancel_button = Gtk.Button()
         cancel_button.set_label("Cancel")
-        cancel_button.connect("clicked", lambda x: self.destroy())
+        cancel_button.connect("clicked", lambda x: self.close())
         headerbar.pack_start(cancel_button)
 
         self.add_button = Gtk.Button()
@@ -60,9 +56,7 @@ class EditWebAppWindow(Gtk.Dialog):
             self.add_button.set_tooltip_text("Create a new web app")
         headerbar.pack_end(self.add_button)
 
-        self.set_titlebar(headerbar)
-
-        box = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
+        toolbar.add_top_bar(headerbar)
 
         prefs_list_clamp = Adw.Clamp()
         prefs_list = Gtk.ListBox()
@@ -139,11 +133,11 @@ class EditWebAppWindow(Gtk.Dialog):
         prefs_list.append(incognito_row)
 
         prefs_list_clamp.set_child(prefs_list)
-        box.append(prefs_list_clamp)
 
         self.add_button.connect("clicked", self.install_webapp, [name_row, url_row, self.icon_row, show_navigation_row, domain_matching_row, loading_bar_row, javascript_row, incognito_row], parent, edit)
         select_icon_button.connect("clicked", self.choose_icon)
-        self.set_child(box)
+        toolbar.set_content(prefs_list_clamp)
+        self.set_child(toolbar)
         self.icon = False
         if edit:
             if self.icon_row.get_subtitle() != '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + name_row.get_text().replace(' ', '-') + '.png':
@@ -168,7 +162,7 @@ class EditWebAppWindow(Gtk.Dialog):
         choose_dialog.open(self, None, choose_icon_finish)
 
     def install_webapp(self, button, widgets, parent, edit = False):
-        self.destroy()
+        self.close()
         portal = Xdp.Portal()
         if edit:
             try:

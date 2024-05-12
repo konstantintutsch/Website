@@ -47,7 +47,7 @@ class WebAppsWindow(Adw.ApplicationWindow):
 
         add_button = Gtk.Button()
         add_button.set_icon_name("list-add-symbolic")
-        add_button.connect("clicked", self.on_add_button_clicked, application)
+        add_button.connect("clicked", self.on_add_button_clicked)
         add_button.set_tooltip_text("Add Web App")
         headerbar.pack_start(add_button)
 
@@ -100,9 +100,9 @@ class WebAppsWindow(Adw.ApplicationWindow):
 
         self.set_content(toolbar)
 
-    def on_add_button_clicked(self, button, application):
-        new_app_win = EditWebAppWindow(self, application = application, edit = False)
-        new_app_win.present()
+    def on_add_button_clicked(self, button):
+        new_app_win = EditWebAppWindow(self, edit = False)
+        new_app_win.present(parent = self)
 
     def add_rows(self, apps_list, application = None):
         rows = {}
@@ -120,7 +120,7 @@ class WebAppsWindow(Adw.ApplicationWindow):
 
                 rows[i][2].add_css_class('suggested-action')
                 rows[i][2].set_icon_name('document-edit-symbolic')
-                rows[i][2].connect("clicked", self.edit_row, application, tmpstate['name'].replace(' ', '-'))
+                rows[i][2].connect("clicked", self.edit_row, tmpstate['name'].replace(' ', '-'))
                 
                 box1 = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
                 box1.append(Gtk.Label()) # We add the box instead of the button directly to give padding as otherwise the button looks stretched.
@@ -174,8 +174,8 @@ class WebAppsWindow(Adw.ApplicationWindow):
             print('Portal error')
         self.refresh_rows()
 
-    def edit_row(self, button, app, name):
+    def edit_row(self, button, name):
         with open('.var/app/net.codelogistics.webapps/webapps/' + name + '.json', 'r') as f:
             tmpstate = json.load(f)
-        edit_app_win = EditWebAppWindow(self, application = app, edit = True, state = tmpstate)
-        edit_app_win.present()
+        edit_app_win = EditWebAppWindow(self, edit = True, state = tmpstate)
+        edit_app_win.present(parent=self)

@@ -25,12 +25,10 @@ gi.require_version("WebKit", "6.0")
 
 from gi.repository import Gtk, Gdk, Gio, Adw, WebKit
 
-class WebAppWindow(Gtk.ApplicationWindow):
-    __gtype_name__ = 'WebAppWindow'
+class WebAppWindow(Adw.ApplicationWindow):
 
     def __init__(self, application, state, **kwargs):
         super().__init__(application = application)
-        Adw.init()
         self.set_title(state['name'])
         self.set_default_size(800,600)
         if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + state['name'].replace(' ', '-') + '.window'):
@@ -39,6 +37,8 @@ class WebAppWindow(Gtk.ApplicationWindow):
                 self.maximize()
         self.set_default_icon_name("net.codelogistics.webapps")
         self.connect("close-request", self.on_close, state)
+
+        toolbar = Adw.ToolbarView()
 
         box = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
 
@@ -72,51 +72,52 @@ class WebAppWindow(Gtk.ApplicationWindow):
         if state['loading_bar']:
             overlay.add_overlay(self.progressbar)
         box.append(overlay)
-        self.set_child(box)
+        toolbar.set_content(box)
+        self.set_content(toolbar)
 
-        headerbar = Gtk.HeaderBar()
+        headerbar = Adw.HeaderBar()
         self.back_button = Gtk.Button()
         self.back_button.set_tooltip_text("Back")
-        self.back_button.set_label("←")
+        self.back_button.set_icon_name("go-previous-symbolic")
+        self.back_button.add_css_class("flat")
         self.back_button.set_sensitive(False)
         self.back_button.connect("clicked", lambda button: self.webview.go_back())
         headerbar.pack_start(self.back_button)
 
         self.forward_button = Gtk.Button()
         self.forward_button.set_tooltip_text("Forward")
-        self.forward_button.set_label("→")
+        self.forward_button.set_icon_name("go-next-symbolic")
+        self.forward_button.add_css_class("flat")
         self.forward_button.set_sensitive(False)
         self.forward_button.connect("clicked", lambda button: self.webview.go_forward())
         headerbar.pack_start(self.forward_button)
 
         self.reload_button = Gtk.Button()
         self.reload_button.set_tooltip_text("Reload")
-        self.reload_button.set_label("⟳")
+        self.reload_button.set_icon_name("view-refresh-symbolic")
+        self.reload_button.add_css_class("flat")
         self.reload_button.connect("clicked", self.on_reload_clicked)
         headerbar.pack_start(self.reload_button)
-
+        
         if state['show_navigation']:
-            self.set_titlebar(headerbar)
+            toolbar.add_top_bar(headerbar)
 
         self.webview.connect("load-changed", self.on_load_changed)
         self.webview.connect('notify::estimated-load-progress', self.on_load_progress)
         self.webview.connect("context-menu", self.on_context_menu)
         self.webview.connect("decide-policy", self.on_decide_policy, state)
 
-        reload_cb_action = Gtk.CallbackAction.new(lambda x, y: self.webview.reload())
-        reload_trigger = Gtk.ShortcutTrigger.parse_string("<Control>r")
-        reload_shortcut = Gtk.Shortcut.new(reload_trigger, reload_cb_action)
-        self.add_shortcut(reload_shortcut)
+        application.create_action('reload', lambda *_: self.webview.reload(), ['<Control>r'])
 
     def on_reload_clicked(self, button):
-        if button.get_label() == '⨯':
+        if button.get_icon_name() == "process-stop-symbolic":
             self.webview.stop_loading()
-            button.set_label('⟳')
+            self.reload_button.set_icon_name("view-refresh-symbolic")
             button.set_tooltip_text('Reload')
             self.progressbar.set_visible(False)
         else:
             self.webview.reload()
-            button.set_label('⨯')
+            self.reload_button.set_icon_name("process-stop-symbolic")
             button.set_tooltip_text('Stop')
 
     def on_load_progress(self, webview, progress):
@@ -130,11 +131,11 @@ class WebAppWindow(Gtk.ApplicationWindow):
     def on_load_changed(self, webview, event):
         if event == WebKit.LoadEvent.STARTED:
             self.progressbar.set_visible(True)
-            self.reload_button.set_label('⨯')
+            self.reload_button.set_icon_name("process-stop-symbolic")
             self.reload_button.set_tooltip_text('Stop')
         elif event == WebKit.LoadEvent.FINISHED:
             self.progressbar.set_visible(False)
-            self.reload_button.set_label('⟳')
+            self.reload_button.set_icon_name("view-refresh-symbolic")
             self.reload_button.set_tooltip_text('Reload')
         if self.webview.can_go_back():
             self.back_button.set_sensitive(True)
