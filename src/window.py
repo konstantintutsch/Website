@@ -159,7 +159,7 @@ class WebAppsWindow(Adw.ApplicationWindow):
 
 
     def delete_row(self, button, app):
-        app = app[:-5].replace('-', ' ')
+        app = app[:-5]
         os.remove('.var/app/net.codelogistics.webapps/webapps/' + app + '.json')
         if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + app + '.window'):
             os.remove('.var/app/net.codelogistics.webapps/webapps/' + app + '.window')

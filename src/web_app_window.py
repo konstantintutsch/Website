@@ -42,7 +42,6 @@ class WebAppWindow(Adw.ApplicationWindow):
 
         box = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
 
-        context = WebKit.WebContext.get_default()
         if state['incognito']:
             network_session = WebKit.NetworkSession.new_ephemeral()
         else:
@@ -82,7 +81,6 @@ class WebAppWindow(Adw.ApplicationWindow):
         self.back_button.add_css_class("flat")
         self.back_button.set_sensitive(False)
         self.back_button.connect("clicked", lambda button: self.webview.go_back())
-        headerbar.pack_start(self.back_button)
 
         self.forward_button = Gtk.Button()
         self.forward_button.set_tooltip_text("Forward")
@@ -90,17 +88,18 @@ class WebAppWindow(Adw.ApplicationWindow):
         self.forward_button.add_css_class("flat")
         self.forward_button.set_sensitive(False)
         self.forward_button.connect("clicked", lambda button: self.webview.go_forward())
-        headerbar.pack_start(self.forward_button)
 
         self.reload_button = Gtk.Button()
         self.reload_button.set_tooltip_text("Reload")
         self.reload_button.set_icon_name("view-refresh-symbolic")
         self.reload_button.add_css_class("flat")
         self.reload_button.connect("clicked", self.on_reload_clicked)
-        headerbar.pack_start(self.reload_button)
         
+        toolbar.add_top_bar(headerbar)
         if state['show_navigation']:
-            toolbar.add_top_bar(headerbar)
+            headerbar.pack_start(self.back_button)
+            headerbar.pack_start(self.forward_button)
+            headerbar.pack_start(self.reload_button)
 
         self.webview.connect("load-changed", self.on_load_changed)
         self.webview.connect('notify::estimated-load-progress', self.on_load_progress)
@@ -149,8 +148,9 @@ class WebAppWindow(Adw.ApplicationWindow):
     def on_decide_policy(self, webview, decision, decision_type, state):
         if decision_type == WebKit.PolicyDecisionType.RESPONSE:
             uri = decision.get_response().get_uri()
+            content_type = decision.get_response().get_http_headers().get_content_type()
 
-            if not self.domain_allowed(uri, state['url'], state['domain_matching']):
+            if (not self.domain_allowed(uri, state['url'], state['domain_matching'])) or (not self.webview.can_show_mime_type(content_type[0])):
                 os.system("xdg-open {}".format(uri))
                 decision.ignore()
 
@@ -177,4 +177,3 @@ class WebAppWindow(Adw.ApplicationWindow):
                 return True
             else:
                 return False
-

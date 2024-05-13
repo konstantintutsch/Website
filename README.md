@@ -30,11 +30,6 @@ For running a specific Web App,
 
 where NAME is the name of the Web App (replace spaces with '-' if applicable). This is case-sensitive.
 
-## Todos
-
-* The different web apps have the same application ID (and therefore the same icon) on X11
-* Deal with file downloads
-
 ## Credits
 
 This program is licensed under the GNU General Public License, version 3.0 or later.

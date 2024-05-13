@@ -41,6 +41,11 @@
   </screenshots>
 
   <releases>
+    <release version="0.4.0" date="2024-05-13">
+      <description>
+        <p>Ported the application to Adw. The program now handles downloads. Various bugs fixed.</p>
+      </description>
+    </release>
     <release version="0.3.0" date="2024-02-20">
       <description>
         <p>Parts of the program have been rewritten to use XDG desktop portals.</p>
