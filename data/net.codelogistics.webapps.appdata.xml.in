@@ -17,8 +17,8 @@
       Install websites as desktop apps, so that they appear in their own windows separate from any browsers installed.
       Links to websites other than the one installed open in a new browser window.
 
-      This is similar to the &quot;Install as App&quot; feature found in popular web browsers.
-      It uses the WebKit engine which is also used by GNOME Web and Safari, so most websites are likely to run without issues.
+      This is similar to the &quot;Install as App&quot; feature found in popular web browsers. It uses an internal browser
+      isolated from the system browser, which can optionally be used in incognito mode. 
     </p>
   </description>
 
@@ -30,13 +30,13 @@
   <launchable type="desktop-id">net.codelogistics.webapps.desktop</launchable>
   <screenshots>
     <screenshot type="default">
-      <image>https://codelogistics.net/webappsscreenshot1.png</image>
+      <image>https://codelogistics.net/webapps1.png</image>
     </screenshot>
     <screenshot>
-      <image>https://codelogistics.net/webappsscreenshot2.png</image>
+      <image>https://codelogistics.net/webapps2.png</image>
     </screenshot>
     <screenshot>
-      <image>https://codelogistics.net/webappsscreenshot3.png</image>
+      <image>https://codelogistics.net/webapps3.png</image>
     </screenshot>
   </screenshots>
 
