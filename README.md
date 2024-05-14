@@ -6,6 +6,14 @@ Install websites as desktop applications.
 
 Made with Gtk4, WebKitGTK, libadwaita and Flatpak.
 
+## Installation
+
+Web Apps is available on Flathub [here](https://flathub.org/apps/net.codelogistics.webapps).
+
+You can install it from GNOME Software, Discover or by using the following command:
+
+`flatpak install flathub net.codelogistics.webapps`
+
 ## Dependencies
 
 org.gnome.Platform
