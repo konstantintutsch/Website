@@ -14,13 +14,7 @@ You can install it from GNOME Software, Discover or by using the following comma
 
 `flatpak install flathub net.codelogistics.webapps`
 
-## Dependencies
-
-org.gnome.Platform
-
-libportal
-
-This is a Flatpak-only application. It uses portals to create and remove shortcuts.
+This is a Flatpak-only application, it uses portals to create and remove shortcuts.
 
 ## Usage
 
