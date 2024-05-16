@@ -13,4 +13,4 @@ In the last few month, I tried to write a decent web gallery to show off my phot
 
 Yesterday, I realized that proper self-hosting solutions for photographers already exist. No need to code anything. Not in HTML nor in CSS *(okay, a bit of SQL was required)*.
 
-After testing a few projects, I decided to settle on Lychee{% reference 1 %}. If you're interested, have a look at my *(currently pretty empty)* [gallery](/i)!
+After testing a few projects, I decided to settle on Lychee{% reference 1, page.url %}. If you're interested, have a look at my *(currently pretty empty)* [gallery](/i)!

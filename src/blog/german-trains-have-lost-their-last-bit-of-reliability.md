@@ -10,9 +10,9 @@ references:
     - https://web.archive.org/web/20240311122950/https://www.tagesschau.de/wirtschaft/verbraucher/rechte-bahnkunden-streik-gdl-106.html
 ---
 
-In the last months, the GDL (largest labor union for train drivers in Germany) has tried improving the working conditions for their train drivers. Lately, the union received an offer from the Deutsche Bahn (state owned railway company in Germany) that fulfills most of the demands made by the GDL.{% reference 1 %}
+In the last months, the GDL (largest labor union for train drivers in Germany) has tried improving the working conditions for their train drivers. Lately, the union received an offer from the Deutsche Bahn (state owned railway company in Germany) that fulfills most of the demands made by the GDL.{% reference 1, page.url %}
 
-These demands are highly unrealistic and almost impossible to realize. After some negotiations, the Deutsche Bahn made a fair offer. However, instead of taking the offer, the GDL responded with announcing that future strikes won't be announced early.{% reference 2 %}
+These demands are highly unrealistic and almost impossible to realize. After some negotiations, the Deutsche Bahn made a fair offer. However, instead of taking the offer, the GDL responded with announcing that future strikes won't be announced early.{% reference 2, page.url %}
 
 That makes using trains even more unpredictable. I've planned a short trip to Berlin to practice photography and meet friends. I've got no idea if that will ever happen. But that trip is just for fun, there are people who rely on trains for commuting to work. I can't imagine how bad all of this has to be for them.
 
