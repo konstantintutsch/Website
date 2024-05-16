@@ -1,6 +1,6 @@
 # Website
 
-This repository contains Konstantin Tutsch's personal website's source code. The site is written in CSS, Liquid and Markdown utilizing HTML. It can be compiled to only HTML with Jekyll.
+This repository contains Konstantin Tutsch's personal website's source code. The site is written in CSS, Nunjucks and Markdown utilizing HTML. It can be compiled to only HTML with 11ty *(Eleventy)*.
 
 [konstantintutsch.com](https://konstantintutsch.com/)
 
