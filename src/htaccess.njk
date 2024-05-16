@@ -3,7 +3,7 @@ permalink: .htaccess
 ---
 # Custom errros
 {% for error in errors %}
-ErrorDocument {{ error.code }} {{ site.locations.errors }}{{ error.code }}
+ErrorDocument {{ error.code }} {{ site.locations.errors }}{{ error.code }}/index.html
 {% endfor %}
 
 # Charset
