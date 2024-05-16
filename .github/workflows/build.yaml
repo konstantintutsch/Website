@@ -23,4 +23,4 @@ jobs:
       run: npm install
 
     - name: Build with 11ty
-      run: npm build
+      run: npm run build
