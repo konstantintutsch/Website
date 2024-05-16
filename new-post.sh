@@ -74,7 +74,7 @@ git push -u origin main
 for TAG in ${VALUES[3]}
 do
     HASHTAG="${TAG//-/}"
-    if [[ ${HASHTAG} != "Blog" ]]
+    if [[ ${HASHTAG} != "blog" ]]
     then
         printf -v HASHTAGS '%s#%s ' "${HASHTAGS}" "${HASHTAG}"
     fi
