@@ -1,0 +1,22 @@
+[
+    {
+        "code": "401",
+        "description": "Authentication missing. Unauthorized."
+    },
+    {
+        "code": "403",
+        "description": "You do not have access to this resource."
+    },
+    {
+        "code": "404",
+        "description": "It seems like this resource does not exist."
+    },
+    {
+        "code": "408",
+        "description": "Request timeout"
+    },
+    {
+        "code": "500",
+        "description": "Internal server error"
+    }
+]

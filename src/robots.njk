@@ -1,0 +1,19 @@
+---
+eleventyExcludeFromCollections: true
+permalink: /robots.txt
+---
+User-agent: *
+Sitemap: {{ site.url }}/sitemap.xml
+
+User-agent: *
+Disallow: /maintenance.html
+
+User-agent: *
+Disallow: /errors
+
+{% for post in collections.post %}
+{% if post.data.index == false %}
+User-agent: *
+Disallow: {{ post.url }}
+{% endif %}
+{% endfor %}

@@ -1,0 +1,29 @@
+---
+eleventyExcludeFromCollections: true
+permalink: /feed.xml
+---
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>{{ site.title }}</title>
+        <link>{{ site.url }}</link>
+        <atom:link href="{{ site.url }}{{ page.url }}" rel="self" type="application/rss+xml" />
+        <description>The RSS feed for {{ site.title }}'s blog.</description>
+        <lastBuildDate>{{ build.time | xmlDate }}</lastBuildDate>
+        {% set counter = 0 %}
+        {% for post in collections.post | reverse %}
+        {% if counter < 4 %}
+        <item>
+            <title>{{ post.data.title }}</title>
+            <link>{{ site.url }}{{ post.url }}</link>
+            <description>
+                {{ post.content }}
+            </description>
+            <pubDate>{{ post.data.date | xmlDate }}</pubDate>
+            <guid>{{ site.url }}{{ post.url }}</guid>
+        </item>
+        {% set counter = counter + 1 %}
+        {% endif %}
+        {% endfor %}
+    </channel>
+</rss>

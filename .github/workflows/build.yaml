@@ -14,16 +14,13 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4.1.1
 
-    - name: Prepare Jekyll (current)
+    - name: Prepare 11ty (current)
       run: |
         sudo apt update
-        sudo apt-get install ruby-full build-essential zlib1g-dev
-        echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
-        echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
-        source ~/.bashrc
+        sudo apt-get install nodejs npm
 
-    - name: Install Jekyll (current)
-      run: sudo gem install jekyll bundler
+    - name: Install 11ty (current)
+      run: npm install
 
-    - name: Build with Jekyll
-      run: JEKYLL_ENV=production jekyll build
+    - name: Build with 11ty
+      run: npm build

@@ -1,0 +1,23 @@
+{
+    "mail": {
+        "url": "mailto:me@konstantintutsch.com",
+        "value": "me@konstantintutsch.com"
+    },
+    "webmaster": {
+        "url": "mailto:webmaster@konstantintutsch.com",
+        "value": "webmaster@konstantintutsch.com"
+    },
+    "github": {
+        "url": "https://github.com/konstantintutsch"
+    },
+    "fediverse": {
+        "url": "https://fosstodon.org/@konstantin",
+        "value": "@konstantin@fosstodon.org"
+    },
+    "liberapay": {
+        "url": "https://liberapay.com/konstantintutsch"
+    },
+    "osm": {
+        "url": "https://www.openstreetmap.org/user/konstantintutsch"
+    }
+}

@@ -1,0 +1,13 @@
+---
+layout: page
+title: Blog
+description: Technology, photography and my opinion
+---
+
+{% set counter = 0 %}
+{% for post in collections.post | reverse %}
+    {% navPost post %}
+    {% set counter = counter + 1 %}
+{% endfor %}
+
+<p class="info"><i>I've published a total of {{ counter }} posts!</i></p>
