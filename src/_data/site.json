@@ -1,0 +1,14 @@
+{
+    "title": "Konstantin Tutsch",
+    "author": "Konstantin Tutsch",
+    "url": "https://konstantintutsch.com",
+    "locations": {
+        "tags": "/blog/tags/",
+        "opml": "/blogroll/konstantintutsch.opml",
+        "errors": "/errors/"
+    },
+    "assets": {
+        "images": "/assets/images/",
+        "css": "/assets/css/"
+    }
+}

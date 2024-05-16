@@ -1,0 +1,25 @@
+---
+eleventyExcludeFromCollections: true
+permalink: sitemap.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    <url>
+        <loc>{{ site.url }}/i/gallery</loc>
+    </url>
+
+    {% for page in collections.all %}
+    <url>
+        <loc>{{ site.url }}{{ page.url }}</loc>
+        {% if page.data.date %}<lastmod>{{ page.data.date | xmlDate }}</lastmod>{% endif %}
+        {% if page.data.images %}
+        <image:image>
+            {% for image in page.data.images %}
+            <image:loc>{{ site.url }}{{ site.assets.images }}{{ image }}</image:loc>
+            {% endfor %}
+        </image:image>
+        {% endif %}
+    </url>
+    {% endfor %}
+</urlset>

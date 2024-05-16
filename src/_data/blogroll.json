@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Benjamin Hollon's Musings",
+        "website": "https://benjaminhollon.com/musings/",
+        "feed": "https://benjaminhollon.com/musings/feed/",
+        "type": "Atom"
+    },
+    {
+        "name": "Joel Chrono",
+        "website": "https://joelchrono.xyz/",
+        "feed": "https://joelchrono.xyz/feed.xml",
+        "type": "Atom"
+    },
+    {
+        "name": "Garrit Franke",
+        "website": "https://garrit.xyz/",
+        "feed": "https://garrit.xyz/rss.xml",
+        "type": "RSS"
+    },
+    {
+        "name": "Clayton Errington",
+        "website": "https://claytonerrington.com/",
+        "feed": "https://claytonerrington.com/feed.xml",
+        "type": "Atom"
+    },
+    {
+        "name": "Hund",
+        "website": "https://hunden.linuxkompis.se/",
+        "feed": "https://hunden.linuxkompis.se/feed.xml",
+        "type": "Atom"
+    }
+]
