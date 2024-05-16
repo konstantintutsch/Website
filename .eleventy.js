@@ -8,6 +8,12 @@ function prettyDate(value) {
     return formattedDate;
 }
 
+function addLeadingZero(num) {
+  num = num.toString();
+  while (num.length < 2) num = "0" + num;
+  return num;
+}
+
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/assets");
 
@@ -15,9 +21,21 @@ module.exports = function (eleventyConfig) {
         return prettyDate(value);
     });
     eleventyConfig.addFilter("xmlDate", function(value) {
-        console.log(`New XML time: “${value}”`);
-        const date = new Date(value);
-        return date.toISOString();
+        // RFC-822
+        const dayStrings = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        const monthStrings = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+        const timeStamp = Date.parse(value);
+        const date = new Date(timeStamp);
+
+        const day = dayStrings[date.getDay()];
+        const dayNumber = addLeadingZero(date.getDate());
+        const month = monthStrings[date.getMonth()];
+        const year = date.getFullYear();
+        const time = `${addLeadingZero(date.getHours())}:${addLeadingZero(date.getMinutes())}:00`;
+        const timezone = date.toLocaleTimeString('en-us',{timeZoneName:'short'}).split(' ')[2] === "GMT+2" ? "CEST" : "CET";
+
+        return `${day}, ${dayNumber} ${month} ${year} ${time} ${timezone}`;
     });
 
     eleventyConfig.addShortcode("social", function(id, name = "", classes = "", extra = "", tracking = "") {
