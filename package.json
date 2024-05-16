@@ -5,9 +5,9 @@
     "main": "index.js",
     "scripts": {
         "start": "eleventy --serve",
-        "build": "ELEVENTY_ENVIRONMENT=production eleventy",
+        "build": "rm --interactive=never -r ./build && ELEVENTY_ENVIRONMENT=production eleventy",
         "upload": "rsync -rvz --progress --delete ./build/ root@rpi-homeserver:/mnt/storage/konstantintutsch.com",
-        "deploy": "npm run build & npm run upload"
+        "deploy": "npm run build && npm run upload"
     },
     "keywords": [],
     "author": "Konstantin Tutsch",
