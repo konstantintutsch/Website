@@ -51,8 +51,8 @@ module.exports = function (eleventyConfig) {
         }
         return `<div class="preview">\n    <a class="preview-title" href="${post.url}">${post.data.title}</a>\n    <p class="preview-date">${prettyDate(date)}</p>\n</div>\n`;
     });
-    eleventyConfig.addShortcode("reference", function(id) {
-        return `<sup><a href="#${id}">${id}</a></sup>\n`;
+    eleventyConfig.addShortcode("reference", function(id, pageURL) {
+        return `<sup><a href="${site.url}${pageURL}#${id}">${id}</a></sup>\n`;
     })
 
     eleventyConfig.setNunjucksEnvironmentOptions({
