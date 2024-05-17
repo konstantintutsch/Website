@@ -8,9 +8,10 @@ function prettyDate(value) {
     return formattedDate;
 }
 
-function addLeadingZero(num) {
+function leadingZero(num) {
   num = num.toString();
   while (num.length < 2) num = "0" + num;
+  while (num < 0 && num.length < 3) num = "-0" + (num * -1);
   return num;
 }
 
@@ -29,13 +30,23 @@ module.exports = function (eleventyConfig) {
         const date = new Date(timeStamp);
 
         const day = dayStrings[date.getDay()];
-        const dayNumber = addLeadingZero(date.getDate());
+        const dayNumber = leadingZero(date.getDate());
         const month = monthStrings[date.getMonth()];
         const year = date.getFullYear();
-        const time = `${addLeadingZero(date.getHours())}:${addLeadingZero(date.getMinutes())}:00`;
-        const timezone = date.toLocaleTimeString('en-us',{timeZoneName:'short'}).split(' ')[2] === "GMT+2" ? "CEST" : "CET";
+        const time = `${leadingZero(date.getHours())}:${leadingZero(date.getMinutes())}:00`;
+        const timezone = leadingZero(date.getTimezoneOffset() * -1 / 60);
+        var timezoneString = ""
+        if (timezone > 0) {
+            timezoneString += "+";
+        }
+        timezoneString += timezone;
+        if (timezone.length === 2) {
+            timezoneString += "00";
+        } else {
+            timezoneString += "0";
+        }
 
-        return `${day}, ${dayNumber} ${month} ${year} ${time} ${timezone}`;
+        return `${day}, ${dayNumber} ${month} ${year} ${time} ${timezoneString}`;
     });
 
     eleventyConfig.addShortcode("social", function(id, name = "", classes = "", extra = "", tracking = "") {
