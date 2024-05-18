@@ -12,7 +12,7 @@ permalink: sitemap.xml
     {% for page in collections.all %}
     <url>
         <loc>{{ site.url }}{{ page.url }}</loc>
-        {% if page.data.date %}<lastmod>{{ page.data.date | rfcDate }}</lastmod>{% endif %}
+        {% if page.data.date %}<lastmod>{{ page.data.date | isoDate }}</lastmod>{% endif %}
         {% if page.data.images %}
         <image:image>
             {% for image in page.data.images %}

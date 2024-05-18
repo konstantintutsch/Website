@@ -10,6 +10,7 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addFilter("stringDate", function(value) { return dateConversion.string(value); });
     eleventyConfig.addFilter("rfcDate", function(value) { return dateConversion.rfc822(value); });
+    eleventyConfig.addFilter("isoDate", function(value) { return dateConversion.iso8601(value); })
 
     eleventyConfig.addShortcode("social", function(id, name = "", classes = "", extra = "", tracking = "") {
         let data = social[id];

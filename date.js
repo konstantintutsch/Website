@@ -12,8 +12,7 @@ module.exports = {
         const dayStrings = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
         const monthStrings = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-        const timeStamp = Date.parse(value);
-        const date = new Date(timeStamp);
+        const date = new Date(value);
 
         // get single values
         const day = dayStrings[date.getDay()];
@@ -41,5 +40,10 @@ module.exports = {
         }
 
         return `${day}, ${dayNumber} ${month} ${year} ${time} ${timeZoneString}`;
+    },
+
+    iso8601: (value) => {
+        const date = new Date(value);
+        return date.toISOString();
     },
 }
