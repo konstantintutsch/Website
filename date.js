@@ -19,9 +19,7 @@ module.exports = {
         const dayNumber = tools.leadingZero(date.getDate());
         const month = monthStrings[date.getMonth()];
         const year = date.getFullYear();
-
-        // calculate time
-        const time = `${tools.leadingZero(date.getHours())}:${tools.leadingZero(date.getMinutes())}:00`;
+        const time = `${tools.leadingZero(date.getHours())}:${tools.leadingZero(date.getMinutes())}:${tools.leadingZero(date.getSeconds())}`;
 
         // calculate time zone
         const timeZone = tools.leadingZero(date.getTimezoneOffset() * -1 / 60);
