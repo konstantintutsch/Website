@@ -17,7 +17,7 @@ description: Welcome to Konstantin Tutsch's website. Discover lots of informatio
 {% set counter = 0 %}
 {% for post in collections.post | reverse %}
     {% if counter < 10 %}
-    {% navPost post %}
+    {% post post %}
     {% set counter = counter + 1 %}
     {% endif %}
 {% endfor %}
