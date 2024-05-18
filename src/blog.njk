@@ -6,7 +6,7 @@ description: Technology, photography and my opinion
 
 {% set counter = 0 %}
 {% for post in collections.post | reverse %}
-    {% navPost post %}
+    {% post post %}
     {% set counter = counter + 1 %}
 {% endfor %}
 
