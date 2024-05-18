@@ -41,6 +41,11 @@
   </screenshots>
 
   <releases>
+    <release version="0.4.1" date="2024-05-18">
+      <description>
+        <p>Fixed a bug where the installed web app's names could not contain numbers.</p>
+      </description>
+    </release>
     <release version="0.4.0" date="2024-05-13">
       <description>
         <p>Ported the application to Adw. The program now handles downloads. Various bugs fixed.</p>
