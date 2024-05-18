@@ -144,7 +144,7 @@ class EditWebAppWindow(Adw.Dialog):
                 self.icon = Gio.File.new_for_path(state['icon'])
 
     def enable_install(self, entry):
-        if entry.get_text().strip() == "" or not entry.get_text().replace(" ","").isalpha() or len(entry.get_text()) > 20:
+        if entry.get_text().strip() == "" or not entry.get_text().replace(" ","").isalnum() or len(entry.get_text()) > 20:
             self.add_button.set_sensitive(False)
         else:
             self.add_button.set_sensitive(True)
