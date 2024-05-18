@@ -9,7 +9,7 @@ permalink: /feed.xml
         <link>{{ site.url }}</link>
         <atom:link href="{{ site.url }}{{ page.url }}" rel="self" type="application/rss+xml" />
         <description>The RSS feed for {{ site.title }}'s blog.</description>
-        <lastBuildDate>{{ build.time | xmlDate }}</lastBuildDate>
+        <lastBuildDate>{{ build.time | rfcDate }}</lastBuildDate>
         {% set counter = 0 %}
         {% for post in collections.post | reverse %}
         {% if counter < 4 %}
@@ -19,7 +19,7 @@ permalink: /feed.xml
             <description>
                 {{ post.content }}
             </description>
-            <pubDate>{{ post.data.date | xmlDate }}</pubDate>
+            <pubDate>{{ post.data.date | rfcDate }}</pubDate>
             <guid>{{ site.url }}{{ post.url }}</guid>
         </item>
         {% set counter = counter + 1 %}
