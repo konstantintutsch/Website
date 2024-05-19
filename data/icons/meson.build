@@ -6,6 +6,12 @@ install_data(
   install_dir: join_paths(get_option('datadir'), 'icons', png_dir)
 )
 
+hi_res_png_dir = join_paths('hicolor', '96x96', 'apps')
+install_data(
+  join_paths(hi_res_png_dir, ('@0@.png').format(application_id)),
+  install_dir: join_paths(get_option('datadir'), 'icons', hi_res_png_dir)
+)
+
 scalable_dir = join_paths('hicolor', 'scalable', 'apps')
 install_data(
   join_paths(scalable_dir, ('@0@.svg').format(application_id)),

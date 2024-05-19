@@ -26,7 +26,7 @@ from gi.repository import Gtk, Gio, Adw, Xdp
 
 from .create_desktop_file import desktop_filer
 
-icon_path = __file__.rpartition(os.path.sep)[0] + '/data/icons/hicolor/48x48/apps/net.codelogistics.webapps.png'
+icon_path = __file__.rpartition(os.path.sep)[0] + '/data/icons/hicolor/96x96/apps/net.codelogistics.webapps.png'
 
 class EditWebAppWindow(Adw.Dialog):
 

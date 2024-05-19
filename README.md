@@ -1,6 +1,6 @@
 # Web Apps
 
-![Web Apps logo](data/icons/hicolor/48x48/apps/net.codelogistics.webapps.png)
+![Web Apps logo](data/icons/hicolor/96x96/apps/net.codelogistics.webapps.png)
 
 Install websites as desktop applications.
 

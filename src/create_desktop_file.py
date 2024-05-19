@@ -63,7 +63,7 @@ def favicon_loaded(webview, favicon, name):
         with open(icon_path, 'wb') as f:
             f.write(favicon.save_to_png_bytes().get_data())
     else:
-        favicon = '/app/share/icons/hicolor/48x48/apps/net.codelogistics.webapps.png'
+        favicon = '/app/share/icons/hicolor/96x96/apps/net.codelogistics.webapps.png'
         icon_path = '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + name.replace(' ', '-') + '.png'
         shutil.copyfile(favicon, icon_path)
 
@@ -76,7 +76,7 @@ def check_if_favicon(end_time, name):
             write_desktop_file(name, icon_path)
             break
     else:
-        favicon = '/app/share/icons/hicolor/48x48/apps/net.codelogistics.webapps.png'
+        favicon = '/app/share/icons/hicolor/96x96/apps/net.codelogistics.webapps.png'
         icon_path = '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + name.replace(' ', '-') + '.png'
         shutil.copyfile(favicon, icon_path)
         write_desktop_file(name, icon_path)
