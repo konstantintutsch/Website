@@ -23,6 +23,7 @@ ExpiresByType image/png "access plus 1 months"
 ExpiresByType image/svg+xml "access plus 1 months"
 
 # Moved files
+Redirect 301 /favicon.ico {{ site.assets.images }}favicon.ico
 Redirect 301 /posts /blog
 Redirect 301 /feed.rss /feed.xml
 Redirect 301 /photos /blog/tags/photography
