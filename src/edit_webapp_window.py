@@ -32,6 +32,7 @@ class EditWebAppWindow(Adw.Dialog):
 
     def __init__(self, parent, edit = False, state = False, **kwargs):
         super().__init__()
+        self.parent = parent
         if edit:
             self.set_title("Edit Web App")
         else:
@@ -159,7 +160,7 @@ class EditWebAppWindow(Adw.Dialog):
         pngfilter.set_name("PNG")
         pngfilter.add_suffix("png")
         choose_dialog.set_default_filter(pngfilter)
-        choose_dialog.open(self, None, choose_icon_finish)
+        choose_dialog.open(self.parent, None, choose_icon_finish)
 
     def install_webapp(self, button, widgets, parent, edit = False):
         self.close()
