@@ -41,6 +41,11 @@
   </screenshots>
 
   <releases>
+    <release version="0.4.2" date="2024-05-21">
+      <description>
+        <p>Updated the application icon. Added support for notifications, geolocation and other permissions. Added support for blob downloads.</p>
+      </description>
+    </release>
     <release version="0.4.1" date="2024-05-18">
       <description>
         <p>Fixed a bug where the installed web app's names could not contain numbers.</p>

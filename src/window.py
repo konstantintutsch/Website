@@ -107,7 +107,7 @@ class WebAppsWindow(Adw.ApplicationWindow):
     def add_rows(self, apps_list, application = None):
         rows = {}
         for i in os.listdir('.var/app/net.codelogistics.webapps/webapps/'):
-            if i.endswith('.json'):
+            if i.endswith('.json') and not i.endswith('.permissions.json'):
                 rows[i] = [Adw.ActionRow(), Gtk.Button(), Gtk.Button()]
 
                 with open('.var/app/net.codelogistics.webapps/webapps/' + i.replace(' ', '-'), 'r') as f:

@@ -246,6 +246,5 @@ class WebAppWindow(Adw.ApplicationWindow):
         save_dialog = Gtk.FileDialog()
         save_dialog.set_title("Save File")
         save_dialog.set_initial_name(filename)
-        save_dialog.set_initial_folder(Gio.File.new_for_path(GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DOWNLOAD)))
         save_dialog.save(self, None, on_save)
         return True
