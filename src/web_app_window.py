@@ -20,10 +20,11 @@
 import os
 from urllib import parse
 import gi
+import json
 gi.require_version("Adw", '1')
 gi.require_version("WebKit", "6.0")
 
-from gi.repository import Gtk, Gdk, Gio, Adw, WebKit
+from gi.repository import Gtk, Gdk, Gio, Adw, WebKit, GLib
 
 class WebAppWindow(Adw.ApplicationWindow):
 
@@ -105,6 +106,10 @@ class WebAppWindow(Adw.ApplicationWindow):
         self.webview.connect('notify::estimated-load-progress', self.on_load_progress)
         self.webview.connect("context-menu", self.on_context_menu)
         self.webview.connect("decide-policy", self.on_decide_policy, state)
+        self.webview.connect("permission-request", self.on_permission_request, state)
+
+        session = self.webview.get_network_session()
+        session.connect("download-started", self.on_download)
 
         application.create_action('reload', lambda *_: self.webview.reload(), ['<Control>r'])
 
@@ -177,3 +182,70 @@ class WebAppWindow(Adw.ApplicationWindow):
                 return True
             else:
                 return False
+
+    def on_permission_request(self, webview, request, state):
+        def request_allow(permission):
+            if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + state['name'].replace(' ', '-') + '.permissions.json'):
+                with open('.var/app/net.codelogistics.webapps/webapps/' + state['name'].replace(' ', '-') + '.permissions.json', 'r') as f:
+                    permissions = json.load(f)
+            else:
+                permissions = {permission: False}
+
+            if permissions[permission]:
+                request.allow()
+                return
+
+            def request_finish(dialog, result):
+                try:
+                    number = dialog.choose_finish(result)
+                except:
+                    number = -1
+                if number == 0:
+                    request.allow()
+
+                    permissions[permission] = True
+                    with open('.var/app/net.codelogistics.webapps/webapps/' + state['name'].replace(' ', '-') + '.permissions.json', 'w') as f:
+                        json.dump(permissions, f)
+                else:
+                    with open('.var/app/net.codelogistics.webapps/webapps/' + state['name'].replace(' ', '-') + '.permissions.json', 'w') as f:
+                        json.dump(permissions, f)
+                    request.deny()
+            dialog = Gtk.AlertDialog()
+            if permission == 'geolocation':
+                dialog.set_message("Allow {} access to your location?".format(state['url']))
+            elif permission == 'notification':
+                dialog.set_message("Allow {} to send notifications?".format(state['url']))
+            elif permission == 'drm':
+                dialog.set_message("Allow {} to install and use DRM?".format(state['url']))
+            elif permission == 'clipboard':
+                dialog.set_message("Allow {} to access your clipboard?".format(state['url']))
+            dialog.set_buttons(["Yes", "No"])
+            dialog.choose(self, None, request_finish)
+
+        if type(request) == WebKit.NotificationPermissionRequest:
+            request_allow('notification')
+        elif type(request) == WebKit.GeolocationPermissionRequest:
+            request.allow('geolocation')
+        elif type(request) == WebKit.MediaKeySystemPermissionRequest:
+            request_allow('drm')
+        elif type(request) == WebKit.ClipboardPermissionRequest:
+            request_allow('clipboard')
+
+    def on_download(self, session, download):
+        download.connect("decide-destination", self.on_decide_dest)
+
+    def on_decide_dest(self, download, filename):
+        def on_save(dialog, result, error = None):
+            if error:
+                print(error)
+                return
+            file = dialog.save_finish(result)
+            path = file.get_path()
+            download.set_destination(path)
+
+        save_dialog = Gtk.FileDialog()
+        save_dialog.set_title("Save File")
+        save_dialog.set_initial_name(filename)
+        save_dialog.set_initial_folder(Gio.File.new_for_path(GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DOWNLOAD)))
+        save_dialog.save(self, None, on_save)
+        return True

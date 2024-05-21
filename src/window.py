@@ -167,6 +167,8 @@ class WebAppsWindow(Adw.ApplicationWindow):
             os.remove('.var/app/net.codelogistics.webapps/webapps/' + app + '.cookies.txt')
         if os.path.exists('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + app + '.png'):
             os.remove('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + app + '.png')
+        if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + app + '.permissions.json'):
+            os.remove('.var/app/net.codelogistics.webapps/webapps/' + app + '.permissions.json')
         portal = Xdp.Portal()
         try:
             portal.dynamic_launcher_uninstall("net.codelogistics.webapps." + app.replace(' ', '-') + ".desktop")
