@@ -33,9 +33,12 @@ class WebAppWindow(Adw.ApplicationWindow):
         self.set_title(state['name'])
         self.set_default_size(800,600)
         if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + state['name'].replace(' ', '-') + '.window'):
-            restore_window = open('.var/app/net.codelogistics.webapps/webapps/' + state['name'].replace(' ', '-') + '.window', 'r').read()
-            if restore_window == "True":
+            restore_window = open('.var/app/net.codelogistics.webapps/webapps/' + state['name'].replace(' ', '-') + '.window', 'r').read().split('\n')
+            if restore_window[0] == "True":
                 self.maximize()
+            if len(restore_window[1].split('x')) == 2:
+                self.set_default_size(int(restore_window[1].split('x')[0]), int(restore_window[1].split('x')[1]))
+
         self.set_default_icon_name("net.codelogistics.webapps")
         self.connect("close-request", self.on_close, state)
 
@@ -162,6 +165,8 @@ class WebAppWindow(Adw.ApplicationWindow):
     def on_close(self, window, state):
         with open('.var/app/net.codelogistics.webapps/webapps/' + state['name'].replace(' ', '-') + '.window', 'w') as restore_file:
             restore_file.write(str(self.is_maximized()))
+            restore_file.write('\n')
+            restore_file.write(str(self.get_width()) + 'x' + str(self.get_height()))
         self.webview.terminate_web_process()
 
     def domain_allowed(self, new_uri, uri, strict) -> bool:
