@@ -36,8 +36,9 @@ class WebAppWindow(Adw.ApplicationWindow):
             restore_window = open('.var/app/net.codelogistics.webapps/webapps/' + state['name'].replace(' ', '-') + '.window', 'r').read().split('\n')
             if restore_window[0] == "True":
                 self.maximize()
-            if len(restore_window[1].split('x')) == 2:
-                self.set_default_size(int(restore_window[1].split('x')[0]), int(restore_window[1].split('x')[1]))
+            if len(restore_window) > 1:
+                if len(restore_window[1].split('x')) == 2:
+                    self.set_default_size(int(restore_window[1].split('x')[0]), int(restore_window[1].split('x')[1]))
 
         self.set_default_icon_name("net.codelogistics.webapps")
         self.connect("close-request", self.on_close, state)
@@ -53,6 +54,9 @@ class WebAppWindow(Adw.ApplicationWindow):
             cookies = network_session.get_cookie_manager()
         self.webview = WebKit.WebView()
         settings = self.webview.get_settings()
+        settings.set_enable_media_capabilities(True)
+        settings.set_enable_encrypted_media(True)
+        
         if not state['javascript']:
             settings.set_enable_javascript(False)
 
@@ -224,6 +228,8 @@ class WebAppWindow(Adw.ApplicationWindow):
                 dialog.set_message("Allow {} to install and use DRM?".format(state['url']))
             elif permission == 'clipboard':
                 dialog.set_message("Allow {} to access your clipboard?".format(state['url']))
+            elif permission == 'user_media':
+                dialog.set_message("Allow {} to access your microphone and/or camera?".format(state['url']))
             dialog.set_buttons(["Yes", "No"])
             dialog.choose(self, None, request_finish)
 
@@ -235,6 +241,8 @@ class WebAppWindow(Adw.ApplicationWindow):
             request_allow('drm')
         elif type(request) == WebKit.ClipboardPermissionRequest:
             request_allow('clipboard')
+        elif type(request) == WebKit.UserMediaPermissionRequest:
+            request_allow('user_media')
 
     def on_download(self, session, download):
         download.connect("decide-destination", self.on_decide_dest)
