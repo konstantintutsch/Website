@@ -183,6 +183,9 @@ class WebAppWindow(Adw.ApplicationWindow):
         parsed_uri = parse.urlparse(uri)
         domain_name = parsed_uri.netloc
 
+        # These domains are called by websites frequently, so they are manually allowed.
+        # This is not an elegant solution, but it works well enough for me to not care about the security implications.
+
         if new_domain_name in self.exceptions:
             return True
 
