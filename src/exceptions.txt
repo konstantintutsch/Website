@@ -1,0 +1,4 @@
+accounts.youtube.com
+challenges.cloudflare.com
+accounts.google.com
+login.live.com

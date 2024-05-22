@@ -120,6 +120,9 @@ class WebAppWindow(Adw.ApplicationWindow):
 
         application.create_action('reload', lambda *_: self.webview.reload(), ['<Control>r'])
 
+        with open('/'.join(__file__.split('/')[:-1]) + '/exceptions.txt', 'r') as f:
+            self.exceptions = f.read().split('\n')
+
     def on_reload_clicked(self, button):
         if button.get_icon_name() == "process-stop-symbolic":
             self.webview.stop_loading()
@@ -179,6 +182,10 @@ class WebAppWindow(Adw.ApplicationWindow):
 
         parsed_uri = parse.urlparse(uri)
         domain_name = parsed_uri.netloc
+
+        if new_domain_name in self.exceptions:
+            return True
+
         if strict == 2:
             return True
         elif strict == 1:

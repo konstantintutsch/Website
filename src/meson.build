@@ -33,6 +33,7 @@ webapps_sources = [
   'edit_webapp_window.py',
   'web_app_window.py',
   'create_desktop_file.py',
+  'exceptions.txt',
 ]
 
 install_data(webapps_sources, install_dir: moduledir)
