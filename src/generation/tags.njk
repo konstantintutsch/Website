@@ -7,7 +7,7 @@ layout: page
 eleventyComputed:
     title: "Tag: {{ tag | capitalize }}"
     description: All posts tagged with “{{ tag }}”
-permalink: "{{ site.locations.tags }}{{ tag | slugify }}"
+permalink: "{{ site.locations.tags }}{{ tag | slugify }}/"
 ---
 
 {% set counter = 0 %}
