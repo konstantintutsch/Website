@@ -30,13 +30,16 @@ icon_path = __file__.rpartition(os.path.sep)[0] + '/data/icons/hicolor/96x96/app
 
 class EditWebAppWindow(Adw.Dialog):
 
-    def __init__(self, parent, edit = False, state = False, **kwargs):
+    def __init__(self, parent, edit = False, state = False, app = False, **kwargs):
         super().__init__()
         self.parent = parent
         if edit:
             self.set_title("Edit Web App")
         else:
             self.set_title("Create New Web App")
+
+        if app:
+            app.create_action('close', lambda *_: self.close(), ['Escape'])
 
         toolbar = Adw.ToolbarView()
         headerbar = Adw.HeaderBar()
@@ -69,13 +72,13 @@ class EditWebAppWindow(Adw.Dialog):
         name_row.connect("changed", self.enable_install)
         if edit:
             name_row.set_sensitive(False)
+        if edit or state['name'] != '':
             name_row.set_text(state['name'])
         prefs_list.append(name_row)
 
         url_row = Adw.EntryRow()
         url_row.set_title("URL")
-        if edit:
-            url_row.set_text(state['url'])
+        url_row.set_text(state['url'])
         prefs_list.append(url_row)
 
         self.icon_row = Adw.ActionRow()
@@ -87,7 +90,7 @@ class EditWebAppWindow(Adw.Dialog):
         button_content.set_icon_name("folder-open-symbolic")
         select_icon_button.set_child(button_content)
         self.icon_row.add_suffix(select_icon_button)
-        if edit:
+        if edit or state['icon'] != '':
             self.icon_row.set_subtitle(state['icon'])
         prefs_list.append(self.icon_row)
 
@@ -140,7 +143,7 @@ class EditWebAppWindow(Adw.Dialog):
         toolbar.set_content(prefs_list_clamp)
         self.set_child(toolbar)
         self.icon = False
-        if edit:
+        if edit or state['icon'] != '':
             if self.icon_row.get_subtitle() != '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + name_row.get_text().replace(' ', '-') + '.png':
                 self.icon = Gio.File.new_for_path(state['icon'])
 

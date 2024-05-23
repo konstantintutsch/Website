@@ -34,7 +34,6 @@ global parentwindow
 def desktop_filer(parent, name, url, icon):
     global parentwindow
     parentwindow = parent
-    print(icon)
     if icon == "Default Favicon":
         if os.path.exists('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + name.replace(' ', '-') + '.png'):
             # in case url is being changed
