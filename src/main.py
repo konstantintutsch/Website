@@ -68,7 +68,7 @@ class WebappsApplication(Adw.Application):
         about.set_comments("Install websites as apps")
         about.set_developer_name("Satvik Patwardhan")
         about.set_application_icon('net.codelogistics.webapps')
-        about.set_version('0.4.2')
+        about.set_version('0.4.3')
         about.set_license_type(Gtk.License.GPL_3_0)
         about.set_developers(['Satvik Patwardhan'])
         about.set_copyright('© 2024 Satvik Patwardhan')
