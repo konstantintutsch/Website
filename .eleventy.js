@@ -10,9 +10,9 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter("rfcDate", function(value) { return dateConversion.rfc822(value); });
     eleventyConfig.addFilter("isoDate", function(value) { return dateConversion.iso8601(value); })
 
-    eleventyConfig.addShortcode("transformImage", async function(input, output, sizes, formats) { return await generalTools.transformImage(input, output, sizes, formats); });
+    eleventyConfig.addShortcode("transformFavicon", async function(input, output) { return await generalTools.transformFavicon(input, output); });
     eleventyConfig.addShortcode("social", function(id, name = "", classes = "", extra = "", tracking = "") { return stringFormatter.social(id, name, classes, extra, tracking); });
-    eleventyConfig.addShortcode("image", function(file, description, caption, thumbnail = false) { return stringFormatter.image(file, description, caption, thumbnail); });
+    eleventyConfig.addShortcode("image", async function(file, description, caption, thumbnail = false) { return await stringFormatter.image(file, description, caption, thumbnail); });
     eleventyConfig.addShortcode("post", function(post) { return stringFormatter.post(post); });
     eleventyConfig.addShortcode("reference", function(id, pageURL) { return stringFormatter.reference(id, pageURL); });
 

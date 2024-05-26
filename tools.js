@@ -1,7 +1,8 @@
-const pluginImage = require("@11ty/eleventy-img");
+// NodeJS
+var path = require('path');
 
-// Site data
-const site = require("./src/_data/site.json");
+// Plugins
+const Image = require("@11ty/eleventy-img");
 
 module.exports = {
     leadingZero: (number) => {
@@ -11,13 +12,24 @@ module.exports = {
         return number;
     },
 
-    transformImage: async (input, output, sizes, formats) => {
-        let metadata = await new pluginImage.Image(input, {
-            heights: sizes,
-            formats: formats,
+    transformFavicon: async (input, output) => {
+        let metadata = await new Image("./src" + input, {
+            widths: ["48", "96", "144", "180", "192"],
+            formats: ["png"],
+            outputDir: "./build" + output,
+            filenameFormat: function (id, src, width, format, options) {
+                const extension = path.extname(src);
+                const base = path.basename(src, extension);
+
+                return `${base}-${width}.${format}`;
+            },
             urlPath: output,
+            useCache: true,
+            svgAllowUpscale: true,
         });
 
-        return `<!-- ${metadata.src} transformed to ${metadata.options.formats} with height ${metadata.options.heights} -->\n`;
+        console.log(metadata);
+
+        return `<!-- Favicon raster images generated from ${input} -->\n`;
     },
 }
