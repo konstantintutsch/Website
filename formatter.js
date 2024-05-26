@@ -30,7 +30,7 @@ module.exports = {
         return `<a class="social${classes}" rel="me" data-umami-event="${tracking}" href="${data.url}${extra}">${name}</a>\n`;
     },
 
-    image: async (file, description, caption, thumbnail) => {
+    image: async (file, description, caption, orientation) => {
         let original = site.assets.images + file;
 
         var display = original;
@@ -51,13 +51,17 @@ module.exports = {
             useCache: true,
         });
 
+        var sizes = "(max-width: 750px) 98vw, 60vw"
+        if (orientation === "vertical") {
+            sizes = "(max-width: 750px) 98vw, 30vw"
+        }
+
         let attributes = {
             alt: description,
-            sizes: "(max-width: 750px) 98vw, 60vw",
+            sizes: sizes,
             loading: "lazy",
             decoding: "async",
         };
-
         return `<figure class="image">\n    <a href="${original}">${Image.generateHTML(metadata, attributes)}</a>\n    <figcaption class="image-caption">${caption}</figcaption>\n</figure>\n`;
     },
 

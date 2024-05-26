@@ -18,8 +18,8 @@ I took some pictures of an event called “Lichterwege” *(ways of light, but s
 
 ### Photos
 
-{% image images[0], "A orange/brownish painted glass, containing a candle, glowing onto a cobblestone pavement. More glasses in the bokeh.", "Wuppertal, Germany", true %}
+{% image images[0], "A orange/brownish painted glass, containing a candle, glowing onto a cobblestone pavement. More glasses in the bokeh.", "Wuppertal, Germany", "horizontal" %}
 
-{% image images[1], "A row of colorfull glasses filled with candles glowing onto the pavement", "Wuppertal, Germany", true %}
+{% image images[1], "A row of colorfull glasses filled with candles glowing onto the pavement", "Wuppertal, Germany", "horizontal" %}
 
-{% image images[2], "A row of colorfull glasses filled with candles lined up on stairs illuminting them. In focus is a transparent glass.", "Wuppertal, Germany", true %}
+{% image images[2], "A row of colorfull glasses filled with candles lined up on stairs illuminting them. In focus is a transparent glass.", "Wuppertal, Germany", "vertical" %}

@@ -19,12 +19,12 @@ This was the first time taking photos of a vehicle. Please let me know what you 
 
 ---
 
-{% image images[0], "A Vespa from the front with it's headlight on", "Front", true %}
+{% image images[0], "A Vespa from the front with it's headlight on", "Front", "vertical" %}
 
 ---
 
-{% image images[1], "A macro shot of a speedometer", "Speedometer", true %}
+{% image images[1], "A macro shot of a speedometer", "Speedometer", "vertical" %}
 
 ---
 
-{% image images[2], "A top-down shot of a Vespa's backlight", "Backlight", true %}
+{% image images[2], "A top-down shot of a Vespa's backlight", "Backlight", "vertical" %}
