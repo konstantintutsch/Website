@@ -28,8 +28,6 @@ module.exports = {
             svgAllowUpscale: true,
         });
 
-        console.log(metadata);
-
         return `<!-- Favicon raster images generated from ${input} -->\n`;
     },
 }
