@@ -22,19 +22,19 @@ I was in Berlin for about one week meeting friends and taking photos. These are 
 
 ---
 
-{% set image = images[1] %}{% image image, "Someone accross a river at night. Building behind the person is being reflected by the river.", "Late Activities at Marie-Elisabeth-Lüders-Haus (part of the German parliament)", true %}
+{% set image = images[1] %}{% image image, "Someone accross a river at night. Building behind the person is being reflected by the river.", "Late Activities at Marie-Elisabeth-Lüders-Haus (part of the German parliament)", "vertical" %}
 
 ---
 
-{% set image = images[2] %}{% image image, "Two people in between many large stone blocks. Out of focus tree in the foreground", "Lost in Thoughts at the Memorial to the Murdered Jews of Europe", true %}
+{% set image = images[2] %}{% image image, "Two people in between many large stone blocks. Out of focus tree in the foreground", "Lost in Thoughts at the Memorial to the Murdered Jews of Europe", "vertical" %}
 
 ---
 
-{% set image = images[3] %}{% image image, "Many people in a subway station waiting. Someone walking along the platform looking on their phone and listening to music.", "Busy – U Alexanderplatz", true %}
+{% set image = images[3] %}{% image image, "Many people in a subway station waiting. Someone walking along the platform looking on their phone and listening to music.", "Busy – U Alexanderplatz", "vertical" %}
 
 ---
 
-{% set image = images[4] %}{% image image, "Someone looking at their phone in front of moving cars on Straße des 17. Juni at dusk. Sunstar from car headlights over their shoulder", "Texting at Straße des 17. Juni", true %}
+{% set image = images[4] %}{% image image, "Someone looking at their phone in front of moving cars on Straße des 17. Juni at dusk. Sunstar from car headlights over their shoulder", "Texting at Straße des 17. Juni", "vertical" %}
 
 ---
 
@@ -42,16 +42,16 @@ I was in Berlin for about one week meeting friends and taking photos. These are 
 
 ---
 
-{% set image = images[0] %}{% image image, "The Kanzleramt (Federal Chancellery) in Berlin at dusk with streetlights in front with streams of light from a long exposure with intentional camera movement", "Otherworldly Kanzleramt (Federal Chancellery)", true %}
+{% set image = images[0] %}{% image image, "The Kanzleramt (Federal Chancellery) in Berlin at dusk with streetlights in front with streams of light from a long exposure with intentional camera movement", "Otherworldly Kanzleramt (Federal Chancellery)", "vertical" %}
 
 ---
 
-{% set image = images[5] %}{% image image, "A pillar emitting red ligth in front of the out of focus Brandenburg Gate.", "Blocked Brandenburg Gate", true %}
+{% set image = images[5] %}{% image image, "A pillar emitting red ligth in front of the out of focus Brandenburg Gate.", "Blocked Brandenburg Gate", "vertical" %}
 
 ---
 
-{% set image = images[6] %}{% image image, "The Berlin TV Tower from below. Setting sun shining on it from the side.", "Sunst at the Fernsehturm (TV Tower)", true %}
+{% set image = images[6] %}{% image image, "The Berlin TV Tower from below. Setting sun shining on it from the side.", "Sunst at the Fernsehturm (TV Tower)", "vertical" %}
 
 ---
 
-{% set image = images[7] %}{% image image, "A pillar with light shining on it. Circle seperated by a plus shining light on it which looks like a window", "U Bundestag", true %}
+{% set image = images[7] %}{% image image, "A pillar with light shining on it. Circle seperated by a plus shining light on it which looks like a window", "U Bundestag", "vertical" %}
