@@ -36,10 +36,10 @@ module.exports = {
         var display = original;
         let directory = path.dirname(original) + "/";
 
-        console.log("Generating different versions of " + original + "…");
+        console.log("Generating different versions of " + original + " …");
         let metadata = await Image("./src" + original, {
             widths: ["auto", 300, 600, 1000, 1500],
-            formats: ["auto", "jpeg"],
+            formats: ["webp"],
             outputDir: "./build" + directory,
             filenameFormat: function (id, src, width, format, options) {
                 const extension = path.extname(src);
