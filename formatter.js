@@ -1,9 +1,17 @@
+// NodeJS
+var path = require('path');
+
+// Plugins
+const Image = require("@11ty/eleventy-img");
+
+
 // Data
 const site = require("./src/_data/site.json");
 const social = require("./src/_data/social.json");
 
 // Functions
 const dateConversion = require("./date.js");
+const generalTools = require("./tools.js");
 
 module.exports = {
     social: (id, name, classes, extra, tracking) => {
@@ -22,13 +30,35 @@ module.exports = {
         return `<a class="social${classes}" rel="me" data-umami-event="${tracking}" href="${data.url}${extra}">${name}</a>\n`;
     },
 
-    image: (file, description, caption, thumbnail) => {
-        var display = file
-        if (thumbnail == true) {
-            display+="-thumbnail.jpg";
-        }
+    image: async (file, description, caption, thumbnail) => {
+        let original = site.assets.images + file;
 
-        return `<figure class="image">\n    <a href="${site.assets.images}${file}"><img class="image-display" src="${site.assets.images}${display}" alt="${description}" loading="lazy"></a>\n    <figcaption class="image-caption">${caption}</figcaption>\n</figure>\n`;
+        var display = original;
+        let directory = path.dirname(original) + "/";
+
+        console.log("Generating different versions of " + original + "…");
+        let metadata = await Image("./src" + original, {
+            widths: ["auto", 300, 600, 1000, 1500],
+            formats: ["auto", "jpeg"],
+            outputDir: "./build" + directory,
+            filenameFormat: function (id, src, width, format, options) {
+                const extension = path.extname(src);
+                const base = path.basename(src, extension);
+
+                return `${base}-${width}.${format}`;
+            },
+            urlPath: directory,
+            useCache: true,
+        });
+
+        let attributes = {
+            alt: description,
+            sizes: "(max-width: 750px) 98vw, 60vw",
+            loading: "lazy",
+            decoding: "async",
+        };
+
+        return `<figure class="image">\n    <a href="${original}">${Image.generateHTML(metadata, attributes)}</a>\n    <figcaption class="image-caption">${caption}</figcaption>\n</figure>\n`;
     },
 
     post: (post) => {

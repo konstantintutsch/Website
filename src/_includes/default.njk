@@ -23,7 +23,7 @@
 
         <!-- Icons -->
         {% set faviconPath = [site.assets.images, "favicon.svg"] | join %}
-        {% transformImage faviconPath, site.assets.images, [48, 96, 144, 180, 192], ["png"] %}
+        {% transformFavicon faviconPath, site.assets.images %}
         {% set faviconBase = faviconPath | replace(".svg", "") %}
         <link rel="icon" href="{{ faviconBase }}-48.png" type="image/png" sizes="48x48">
         <link rel="icon" href="{{ faviconBase }}-96.png" type="image/png" sizes="96x96">

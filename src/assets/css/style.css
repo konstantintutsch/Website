@@ -200,10 +200,11 @@ ul {
     margin: 1rem auto 2rem 0;
 }
 
-.image { margin: 1rem 0 1rem 0; }
-.image-display {
+.image { margin: 1rem auto 1rem auto; }
+.image a img {
     margin: 0 auto 1rem auto;
     display: block;
+    object-fit: contain;
     max-height: 35rem;
     max-width: 100%;
 }
