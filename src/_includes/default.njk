@@ -35,7 +35,12 @@
         <link rel="alternate" type="application/rss+xml" href="{{ site.url }}/feed.xml">
 
         <!-- CSS -->
-        <link rel="preload stylesheet" href="{{ site.assets.css }}style.css" as="style" type="text/css">
+        <link rel="preload stylesheet" href="{{ site.assets.css }}root.css" as="style" type="text/css">
+        {% if layout != "gallery" %}
+        <link rel="preload stylesheet" href="{{ site.assets.css }}blog.css" as="style" type="text/css">
+        {% else %}
+        <link rel="preload stylesheet" href="{{ site.assets.css }}gallery.css" as="style" type="text/css">
+        {% endif %}
 
         {% if environment.eleventy == "production" %}
         <!-- Umami | Anonymous & Self-hosted analytics -->
