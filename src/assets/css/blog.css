@@ -1,0 +1,142 @@
+/* Main elements */
+body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--sans);
+    font-size: var(--text-size);
+}
+
+header {
+    margin: 0 auto 0 auto;
+    left: 0;
+    min-height: 0;
+    text-align: center;
+}
+
+main {
+    margin: 1rem auto 1rem auto;
+    left: 25vw;
+    min-height: 78vh;
+    width: 50vw;
+    text-align: left;
+}
+
+footer {
+    margin: 0 auto 0 auto;
+    left: 0;
+    min-height: 0;
+    text-align: center;
+}
+
+/* Typography */
+.info {
+    font-size: var(--small-text-size);
+}
+
+.reference {
+    line-break: anywhere;
+}
+
+/* Standard classes */
+.image-link:hover {
+    background: var(--background);
+}
+.image-link img {
+    height: 2.6rem;
+}
+
+/* Post elements */
+.preview {
+    margin-bottom: 1rem;
+}
+.preview-title {
+    font-size: 1.6rem;
+}
+.preview-date {
+    font-size: var(--small-text-size);
+    text-transform: uppercase;
+}
+.preview-title + .preview-date {
+    margin-top: 0;
+}
+
+.post-head {
+    display: flex;
+    justify-content: space-between;
+}
+.post-date {
+    order: 1;
+    font-size: var(--small-text-size);
+    font-weight: var(--bold);
+    text-transform: uppercase;
+}
+.post-home {
+    order: 2;
+    font-size: var(--small-text-size);
+    font-weight: var(--bold);
+    text-transform: uppercase;
+}
+
+li + li {
+    margin: 0.8rem auto 0 0;
+}
+ul {
+    margin: 1rem auto 2rem 0;
+}
+
+.image { margin: 1rem auto 1rem auto; }
+.image a img {
+    margin: 0 auto 1rem auto;
+    display: block;
+    object-fit: contain;
+    max-height: 35rem;
+    max-width: 100%;
+}
+.image-caption {
+    margin: 0 auto 0 auto;
+    display: block;
+    text-align: center;
+    font-size: var(--small-text-size);
+}
+
+blockquote {
+    margin: 2rem auto 2rem 0;
+    /*border-left: solid var(--text-decoration) var(--foreground);*/
+    padding: 0.07rem 0 0.07rem 0;
+}
+blockquote p {
+    margin-left: 1rem;
+    color: var(--foreground);
+    font-style: italic;
+    font-size: 1.5rem;
+}
+blockquote p:last-of-type {
+    font-style: normal;
+    font-size: 1.2rem;
+}
+
+code {
+    color: var(--gray);
+    font-family: var(--mono);
+    font-size: 0.85em;
+}
+pre {
+    margin: 1rem 0 1rem 0;
+    overflow-x: scroll;
+}
+
+hr {
+    margin: 2rem 0 2rem 0;
+    border-top: solid var(--foreground) var(--text-decoration);
+}
+
+@media only screen and (max-width: 750px) { /* Phone */
+    main {
+        left: 5vw;
+        min-height: 60vh;
+        width: 90vw;
+    }
+    .preview {
+        margin-bottom: 0rem;
+    }
+}
