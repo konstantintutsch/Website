@@ -1,11 +1,4 @@
 /* Main elements */
-body {
-    background: var(--background);
-    color: var(--foreground);
-    font-family: var(--sans);
-    font-size: var(--text-size);
-}
-
 header {
     margin: 0 auto 0 auto;
     left: 0;
