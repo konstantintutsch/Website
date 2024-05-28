@@ -78,10 +78,12 @@ ul {
 }
 
 .image { margin: 1rem auto 1rem auto; }
-.image a img {
+.image a img, .image a picture img {
     margin: 0 auto 1rem auto;
     display: block;
-    object-fit: contain;
+    /* Eleventy (Image plugin) defines height,width within HTML */
+    height: unset;
+    width: unset;
     max-height: 35rem;
     max-width: 100%;
 }
