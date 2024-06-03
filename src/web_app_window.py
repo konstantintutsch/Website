@@ -111,6 +111,7 @@ class WebAppWindow(Adw.ApplicationWindow):
 
         self.webview.connect("load-changed", self.on_load_changed)
         self.webview.connect('notify::estimated-load-progress', self.on_load_progress)
+        self.webview.connect("create", lambda webview, nav_action: os.system("xdg-open \"" + nav_action.get_request().get_uri() + "\""))
         self.webview.connect("context-menu", self.on_context_menu)
         self.webview.connect("decide-policy", self.on_decide_policy, state)
         self.webview.connect("permission-request", self.on_permission_request, state)
