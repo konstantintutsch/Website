@@ -185,8 +185,7 @@ class EditWebAppWindow(Adw.Dialog):
             url = widgets[1].get_text()
         if not url.startswith('http'):
             url = 'https://' + url
-        if not url.endswith('/'):
-            url += '/'
+
         state = {
             'name': widgets[0].get_text(),
             'url': url,
