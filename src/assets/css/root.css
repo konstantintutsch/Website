@@ -13,18 +13,19 @@
 
 /* Global colors */
 :root {
-    --accent: #3584e4;
-
     /* Light theme */
-    --light-foreground: black;
-    --light-background: white;
+    --light-accent: #d1d1f6;
+    --light-foreground: #333333;
+    --light-background: #fefdfc;
     --light-gray: #4e4e4e;
 
     /* Dark theme */
+    --dark-accent: #6666e0;
     --dark-foreground: white;
     --dark-background: #1b1b1b;
 
     /* Set default theme to light */
+    --accent: var(--light-accent);
     --foreground: var(--light-foreground);
     --background: var(--light-background);
     --gray: var(--light-gray);
@@ -32,6 +33,7 @@
 /* Auto-apply dark theme */
 @media (prefers-color-scheme: dark) {
     :root {
+        --accent: var(--dark-accent);
         --foreground: var(--dark-foreground);
         --background: var(--dark-background);
         --gray: var(--dark-gray);
@@ -92,7 +94,7 @@ a {
 }
 a:hover, .selected {
     background: var(--accent);
-    color: #ffffff;
+    color: var(--foreground);
     text-decoration: none;
 }
 
