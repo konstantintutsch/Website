@@ -23,6 +23,7 @@
     --dark-accent: #6666e0;
     --dark-foreground: white;
     --dark-background: #1b1b1b;
+    --dark-gray: #cccccc;
 
     /* Set default theme to light */
     --accent: var(--light-accent);
