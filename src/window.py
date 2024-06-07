@@ -179,12 +179,17 @@ class WebAppsWindow(Adw.ApplicationWindow):
 
                             if not max_size[1].startswith('http'):
                                 max_size[1] = 'https://' + domain_name + '/' + manifest_prefix + max_size[1].lstrip('/')
-                            icon = requests.get(max_size[1]).content
                             
-                            with open('/tmp/webapps_icon.png', 'wb') as f:
-                                f.write(icon)
+                            try:
+                                icon = requests.get(max_size[1]).content
+                            except:
+                                icon = ""
+                            
+                            if icon:
+                                with open('/tmp/webapps_icon.png', 'wb') as f:
+                                    f.write(icon)
 
-                            state['icon'] = '/tmp/webapps_icon.png'
+                                state['icon'] = '/tmp/webapps_icon.png'
 
                 if not 'name' in state:
                     if parser.title.strip() != '':
