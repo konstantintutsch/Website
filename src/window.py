@@ -86,6 +86,11 @@ class WebAppsWindow(Adw.ApplicationWindow):
         menu_button.set_menu_model(menu_button_menu)
         about_item = Gio.MenuItem.new("About", "app.about")
         menu_button_menu.append_item(about_item)
+        application.create_action('report', lambda *_: self.on_report_broken(app=application))
+        report_button = Gio.MenuItem.new("Report Broken Website", "app.report")
+        menu_button_menu.append_item(report_button)
+        quit_item = Gio.MenuItem.new("Quit", "app.quit")
+        menu_button_menu.append_item(quit_item)
         headerbar.pack_end(menu_button)
 
         toolbar.add_top_bar(headerbar)
@@ -350,3 +355,83 @@ class WebAppsWindow(Adw.ApplicationWindow):
             tmpstate = json.load(f)
         edit_app_win = EditWebAppWindow(self, edit = True, state = tmpstate, app = self.app)
         edit_app_win.present(parent=self)
+
+    def on_report_broken(self, app):
+        def submit(button):
+            if url_entry.get_text() == '' or len(details_text.get_text()) < 5:
+                message = Adw.AlertDialog()
+                message.set_heading("Incomplete report")
+                message.set_body("Please enter the URL and a detailed description of the issue to help resolve it faster.")
+                message.add_response('ok', 'OK')
+                message.present(broken_dialog)
+
+            title = '[Bug][Auto-generated]+' +  url_entry.get_text() + '+broken'
+            body = ''
+            if app_creation_radio.get_active():
+                body += 'Cannot install the website ' + url_entry.get_text()
+            elif website_broken_radio.get_active():
+                body += 'Website+' + url_entry.get_text() + '+broken'
+
+            body += '%0A%0A**Details:**%0A%0A' + details_text.get_text().replace(' ', '+').replace('"','\'')
+            os.system("xdg-open \"https://codeberg.org/eyekay/webapps/issues/new?title=" + title + "&body=" + body + "\"")
+
+            broken_dialog.close()
+        broken_dialog = Adw.Dialog()
+        broken_dialog.set_title("Report Broken Website")
+        broken_dialog.set_content_width(500)
+        broken_dialog.set_content_height(300)
+        app.create_action('close', lambda *_: broken_dialog.close(), ['Escape'])
+
+        toolbar = Adw.ToolbarView()
+        headerbar = Adw.HeaderBar()
+
+        clamp = Adw.Clamp()
+        box = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
+        box.set_valign(Gtk.Align.CENTER)
+
+        label = Gtk.Label()
+        label.set_markup("Website broken?")
+        label.add_css_class("title-1")
+        box.append(label)
+        box.append(Gtk.Label())
+
+        url_entry = Gtk.Entry()
+        url_entry.set_hexpand(True)
+        url_entry.set_placeholder_text("Enter URL")
+        box.append(url_entry)
+        box.append(Gtk.Label())
+
+        app_creation_radio = Gtk.CheckButton()
+        app_creation_radio.set_active(True)
+        app_creation_radio.set_label("I can't install the website")
+        box.append(app_creation_radio)
+
+        website_broken_radio = Gtk.CheckButton()
+        website_broken_radio.set_group(app_creation_radio)
+        website_broken_radio.set_label("The website is not working")
+        box.append(website_broken_radio)
+
+        box.append(Gtk.Label())
+        details_text = Gtk.Entry()
+        details_text.set_hexpand(True)
+        details_text.set_placeholder_text("Enter details")
+        box.append(details_text)
+        box.append(Gtk.Label())
+
+        submit_button = Gtk.Button()
+        submit_button.set_vexpand(False)
+        submit_button.set_label("Submit")
+        submit_button.connect("clicked", submit)
+        submit_button.set_tooltip_text("Submit")
+        submit_button.add_css_class("suggested-action")
+        submit_button.add_css_class("pill")
+        box.append(submit_button)
+        box.append(Gtk.Label())
+
+        clamp.set_child(box)
+
+        toolbar.set_content(clamp)
+
+        toolbar.add_top_bar(headerbar)
+        broken_dialog.set_child(toolbar)
+        broken_dialog.present(self)
