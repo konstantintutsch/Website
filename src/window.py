@@ -132,7 +132,6 @@ class WebAppsWindow(Adw.ApplicationWindow):
     def on_add_button_clicked(self, button, app):
         def url_chosen(url):
             def get_data(url, dialog):
-
                 state = {'url': url}
                 if not url.startswith('http'):
                     url = 'https://' + url
@@ -149,10 +148,14 @@ class WebAppsWindow(Adw.ApplicationWindow):
                 manifest_url = parser.manifest_url
                 
                 if manifest_url != '':
-                    parsed_uri = parse.urlparse(url)
-                    domain_name = parsed_uri.netloc
-                    manifest_url = 'https://' + domain_name + '/' + manifest_url.lstrip('/')
-
+                    if not manifest_url.startswith('http'):
+                        parsed_uri = parse.urlparse(url)
+                        domain_name = parsed_uri.netloc
+                        manifest_prefix = manifest_url.rpartition('/')[0] + '/' if manifest_url.rpartition('/')[0] != '' else ''
+                        # sometimes manifest urls are in form of images/manifest.json etc
+                        manifest_url = 'https://' + domain_name + '/' + manifest_url.lstrip('/')
+                    else:
+                        manifest_prefix = ''
                     try:
                         manifest = requests.get(manifest_url).text # This is a json file
                     except:
@@ -173,7 +176,9 @@ class WebAppsWindow(Adw.ApplicationWindow):
                                     max_size = [size, i['src']]
                                 if i['type'] == 'image/svg' or i['type'] == 'image/svg+xml':
                                     max_size = [512, i['src']]
-                            
+
+                            if not max_size[1].startswith('http'):
+                                max_size[1] = 'https://' + domain_name + '/' + manifest_prefix + max_size[1].lstrip('/')
                             icon = requests.get(max_size[1]).content
                             
                             with open('/tmp/webapps_icon.png', 'wb') as f:
