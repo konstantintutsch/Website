@@ -41,6 +41,11 @@
   </screenshots>
 
   <releases>
+    <release version="0.4.5" date="2024-06-07">
+      <description>
+        <p>Added a 'Report Broken Website' button. Fixed some websites not being installed if their manifest used relative URLs.</p>
+      </description>
+    </release>
     <release version="0.4.4" date="2024-06-03">
       <description>
         <p>Fixed some webpages not being opened due to trailing '/'. Fixed popup links not being opened.</p>
