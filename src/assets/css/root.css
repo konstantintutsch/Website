@@ -47,6 +47,7 @@ body {
     color: var(--foreground);
     font-family: var(--sans);
     font-size: var(--text-size);
+    -webkit-tap-highlight-color: transparent; /* use :hover color on mobile (Chrome) */
 }
 
 /* Typography */
