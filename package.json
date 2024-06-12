@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "start": "eleventy --serve",
-        "build": "if [[ -d ./build ]]; then rm --interactive=never -r ./build; fi && ELEVENTY_ENVIRONMENT=production eleventy",
+        "build": "ELEVENTY_ENVIRONMENT=production eleventy",
         "upload": "rsync -rvz --progress --delete ./build/ root@rpi-homeserver:/mnt/storage/konstantintutsch.com",
         "deploy": "npm run build && npm run upload"
     },
