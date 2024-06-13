@@ -260,6 +260,19 @@ class WebAppsWindow(Adw.ApplicationWindow):
         app.create_action('add_webapp', lambda *_: url_chosen(url_entry.get_text()), ['Return'])
         box.append(add_button)
 
+        box.append(Gtk.Label())
+
+        def manual_show():
+            EditWebAppWindow(self, edit = False).present(parent = self)
+            url_dialog.close()
+        manual_button = Gtk.Button()
+        manual_button.add_css_class("flat")
+        manual_button.add_css_class("accent")
+        manual_button.set_label("Add manually (if above doesn't work)")
+        manual_button.set_tooltip_text("Add manually")
+        manual_button.connect("clicked", lambda *_: manual_show())
+        box.append(manual_button)
+
         clamp.set_child(box)
 
         stack.add_named(clamp, "clamp")

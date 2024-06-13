@@ -72,13 +72,14 @@ class EditWebAppWindow(Adw.Dialog):
         name_row.connect("changed", self.enable_install)
         if edit:
             name_row.set_sensitive(False)
-        if edit or state['name'] != '':
+        if edit or (state and state['name'] != ''):
             name_row.set_text(state['name'])
         prefs_list.append(name_row)
 
         url_row = Adw.EntryRow()
         url_row.set_title("URL")
-        url_row.set_text(state['url'])
+        if state:
+            url_row.set_text(state['url'])
         prefs_list.append(url_row)
 
         self.icon_row = Adw.ActionRow()
@@ -90,7 +91,7 @@ class EditWebAppWindow(Adw.Dialog):
         button_content.set_icon_name("folder-open-symbolic")
         select_icon_button.set_child(button_content)
         self.icon_row.add_suffix(select_icon_button)
-        if edit or state['icon'] != '':
+        if edit or (state and state['icon'] != ''):
             self.icon_row.set_subtitle(state['icon'])
         prefs_list.append(self.icon_row)
 
@@ -143,7 +144,7 @@ class EditWebAppWindow(Adw.Dialog):
         toolbar.set_content(prefs_list_clamp)
         self.set_child(toolbar)
         self.icon = False
-        if edit or state['icon'] != '':
+        if edit or (state and state['icon'] != ''):
             if self.icon_row.get_subtitle() != '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + name_row.get_text().replace(' ', '-') + '.png':
                 self.icon = Gio.File.new_for_path(state['icon'])
 
