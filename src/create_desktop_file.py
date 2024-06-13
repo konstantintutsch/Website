@@ -93,7 +93,7 @@ def finish_install(portal, result):
     global parentwindow
     try:
         variant = portal.dynamic_launcher_prepare_install_finish(result)
-    except:
+    except Exception as e:
         if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + app + '.json'):
             os.remove('.var/app/net.codelogistics.webapps/webapps/' + app + '.json')
         if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + app + '.window'):
@@ -103,6 +103,7 @@ def finish_install(portal, result):
         if os.path.exists('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + app + '.png'):
             os.remove('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + app + '.png')
         parentwindow.refresh_rows()
+        print('Portal Error:', e, file=sys.stderr)
         return
     app = variant['name'].replace(' ', '-')
     notCancelled = portal.dynamic_launcher_install(variant['token'],"net.codelogistics.webapps." + app + ".desktop", '[Desktop Entry]\nExec = webapps ' + variant['name'].replace(' ', '-') + '\nTerminal=false\nType=Application\nCategories=Network;')

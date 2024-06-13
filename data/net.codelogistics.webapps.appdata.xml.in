@@ -6,8 +6,13 @@
   <summary>Install websites as apps</summary>
 
   <developer id="net.codelogistics">
-  <name>Satvik Patwardhan</name>
-</developer>
+    <name>Satvik Patwardhan</name>
+  </developer>
+
+  <branding>
+    <color type="primary" scheme_preference="light">#66dd93</color>
+    <color type="primary" scheme_preference="dark">#1aac69</color>
+  </branding>
 
   <metadata_license>FSFAP</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
