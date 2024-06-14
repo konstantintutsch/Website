@@ -8,7 +8,6 @@ description: Welcome to Konstantin Tutsch's website. Discover lots of informatio
 ## {{ title }}
 
 <p class="info">{% social "github", "GitHub" %}</p>
-<p class="info"><a data-umami-event="photography" href="/i">Photography</a></p>
 <p class="info">{% social "mail", "Email" %}</p>
 <p class="info">{% social "fediverse", "Mastodon" %}</p>
 
