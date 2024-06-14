@@ -56,6 +56,7 @@ class WebAppWindow(Adw.ApplicationWindow):
         settings = self.webview.get_settings()
         settings.set_enable_media_capabilities(True)
         settings.set_enable_encrypted_media(True)
+        settings.set_enable_webrtc(True)
         
         if not state['javascript']:
             settings.set_enable_javascript(False)
