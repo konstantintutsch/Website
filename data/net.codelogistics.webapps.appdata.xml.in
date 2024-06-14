@@ -46,6 +46,11 @@
   </screenshots>
 
   <releases>
+    <release version="0.4.6" date="2024-06-14">
+      <description>
+        <p>Added an "Add manually" option to the Add Web App dialog for users facing issues with the PWA lookup.</p>
+      </description>
+    </release>
     <release version="0.4.5" date="2024-06-07">
       <description>
         <p>Added a 'Report Broken Website' button. Fixed some websites not being installed if their manifest used relative URLs.</p>
