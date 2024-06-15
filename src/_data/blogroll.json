@@ -28,5 +28,11 @@
         "website": "https://hunden.linuxkompis.se/",
         "feed": "https://hunden.linuxkompis.se/feed.xml",
         "type": "Atom"
+    },
+    {
+        "name": "Kev Quirk",
+        "website": "https://kevquirk.com/",
+        "feed": "https://kevquirk.com/feed",
+        "type": "RSS"
     }
 ]
