@@ -6,6 +6,7 @@
     "scripts": {
         "start": "eleventy --serve",
         "build": "ELEVENTY_ENVIRONMENT=production eleventy",
+        "clean": "rm -rf build/",
         "upload": "rsync -rvz --progress --delete ./build/ root@rpi-homeserver:/mnt/storage/konstantintutsch.com",
         "deploy": "npm run build && npm run upload"
     },
