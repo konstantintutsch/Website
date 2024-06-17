@@ -1,4 +1,4 @@
-{% if not images %}{% set image = "banner.webp" %}{% else %}{% set image = images[0] %}{% endif %}
+{% if not images %}{% set banner = [site.assets.images, "banner.webp"] | join %}{% else %}{% set banner = images[0] | thumbnail %}{% endif %}
 <!DOCTYPE html> 
 <html lang="en">
     <head>
@@ -11,14 +11,14 @@
         <title>{{ title }}{% if title != site.title %} | {{ site.title }}{% endif %}</title>
         <meta name="description" content="{{ description }}">
         <meta property="og:title" content="{{ title }}">
-        <meta property="og:image" content="{{ site.url }}{{ site.assets.images }}{{ image }}">
+        <meta property="og:image" content="{{ site.url }}{{ banner }}">
         <meta property="og:type" content="article">
         <meta property="og:site_name" content="{{ site.title }}">
         <meta property="og:description" content="{{ description }}">
         <!-- Twitter -->
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="{{ title }}">
-        <meta name="twitter:image" content="{{ site.url }}{{ site.assets.images }}{{ image }}">
+        <meta name="twitter:image" content="{{ site.url }}{{ banner }}">
         <meta name="twitter:description" content="{{ description }}">
 
         <!-- Icons -->
