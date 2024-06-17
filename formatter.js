@@ -13,6 +13,30 @@ const social = require("./src/_data/social.json");
 const dateConversion = require("./date.js");
 const generalTools = require("./tools.js");
 
+// Standard image generation
+async function standardImageGeneration(file) {
+    let full = site.assets.images + file;
+    let directory = path.dirname(full) + "/";
+
+    console.log("Generating different versions of " + full + " …");
+    
+    let metadata = await Image("./src" + full, {
+        widths: ["auto", 300, 600, 1000, 1500],
+        formats: ["webp"],
+        outputDir: "./build" + directory,
+        filenameFormat: function (id, src, width, format, options) {
+            const extension = path.extname(src);
+            const base = path.basename(src, extension);
+
+            return `${base}-${width}.${format}`;
+        },
+        urlPath: directory,
+        useCache: true,
+    });
+
+    return metadata;
+}
+
 module.exports = {
     social: (id, name, classes, extra, tracking) => {
         let data = social[id];
@@ -33,23 +57,7 @@ module.exports = {
     image: async (file, description, caption, orientation) => {
         let original = site.assets.images + file;
 
-        var display = original;
-        let directory = path.dirname(original) + "/";
-
-        console.log("Generating different versions of " + original + " …");
-        let metadata = await Image("./src" + original, {
-            widths: ["auto", 300, 600, 1000, 1500],
-            formats: ["webp"],
-            outputDir: "./build" + directory,
-            filenameFormat: function (id, src, width, format, options) {
-                const extension = path.extname(src);
-                const base = path.basename(src, extension);
-
-                return `${base}-${width}.${format}`;
-            },
-            urlPath: directory,
-            useCache: true,
-        });
+        let metadata = await standardImageGeneration(file);
 
         var sizes = "(max-width: 750px) 98vw, 60vw"
         if (orientation === "vertical") {
@@ -63,6 +71,12 @@ module.exports = {
             decoding: "async",
         };
         return `<figure class="image">\n    <a href="${original}">${Image.generateHTML(metadata, attributes)}</a>\n    <figcaption class="image-caption">${caption}</figcaption>\n</figure>\n`;
+    },
+
+    thumbnail: async (file) => {
+        let metadata = await standardImageGeneration(file);
+
+        return metadata.webp[0].url;
     },
 
     post: (post) => {
