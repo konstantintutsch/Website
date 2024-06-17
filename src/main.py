@@ -43,6 +43,7 @@ class WebappsApplication(Adw.Application):
             super().__init__(application_id='net.codelogistics.webapps.Webapps',
                              flags=Gio.ApplicationFlags.DEFAULT_FLAGS)
         self.create_action('quit', lambda *_: self.quit(), ['<primary>q'])
+        self.create_action('close', lambda *_: self.get_active_window().close(), ['<primary>w'])
         self.create_action('about', self.on_about_action)
         self.args = args
 
