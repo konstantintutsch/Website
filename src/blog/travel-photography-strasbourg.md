@@ -24,7 +24,7 @@ From June 30th to July 2nd, I visited Strasbourg. It was a short trip, but still
 
 ---
 
-{% image images[1], "Detail shot of Strasbourg Cathedral", "Stucco of the Strasbourg Cathedral" %}
+{% image images[1], "Detail shot of Strasbourg Cathedral", "Stucco of the Strasbourg Cathedral", "vertical" %}
 
 ---
 
@@ -32,7 +32,7 @@ From June 30th to July 2nd, I visited Strasbourg. It was a short trip, but still
 
 ---
 
-{% image images[2], "Empty alley in Strasbourg", "Alley in Strasbourg" %}
+{% image images[2], "Empty alley in Strasbourg", "Alley in Strasbourg", "vertical" %}
 
 ---
 
