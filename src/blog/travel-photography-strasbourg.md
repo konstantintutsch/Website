@@ -14,7 +14,7 @@ images:
     - travel-photography-strasbourg/20240601_0005.jpg
 ---
 
-From June 30th to July 2nd, I visited Strasbourg. It was a short trip, but still lots of fun. These are the photos I took. Have fun scrolling through! 👇
+From May 30th to June 2nd, I visited Strasbourg. It was a short trip, but still lots of fun. These are the photos I took. Have fun scrolling through! 👇
 
 ### At Night
 
