@@ -43,9 +43,15 @@ class WebappsApplication(Adw.Application):
             super().__init__(application_id='net.codelogistics.webapps.Webapps',
                              flags=Gio.ApplicationFlags.DEFAULT_FLAGS)
         self.create_action('quit', lambda *_: self.quit(), ['<primary>q'])
-        self.create_action('close', lambda *_: self.get_active_window().close(), ['<primary>w'])
+        self.create_action('close', self.close_stuff_by_escape, ['Escape'])
         self.create_action('about', self.on_about_action)
         self.args = args
+
+    def close_stuff_by_escape(self, action, data):
+        if type(self.get_active_window()) == WebAppsWindow:
+            window = self.get_active_window()
+            if window.get_visible_dialog():
+                window.get_visible_dialog().close()
 
     def do_activate(self):
         """Called when the application is activated.
@@ -69,7 +75,7 @@ class WebappsApplication(Adw.Application):
         about.set_comments("Install websites as apps")
         about.set_developer_name("Satvik Patwardhan")
         about.set_application_icon('net.codelogistics.webapps')
-        about.set_version('0.4.6')
+        about.set_version('0.4.7')
         about.set_license_type(Gtk.License.GPL_3_0)
         about.set_developers(['Satvik Patwardhan'])
         about.set_copyright('© 2024 Satvik Patwardhan')

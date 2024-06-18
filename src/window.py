@@ -66,6 +66,8 @@ class WebAppsWindow(Adw.ApplicationWindow):
         self.set_default_size(800,600)
         self.set_default_icon_name("net.codelogistics.webapps")
 
+        application.create_action('close_mainwindow', lambda *_: self.close(), ['<primary>w'])
+
         toolbar = Adw.ToolbarView()
         headerbar = Adw.HeaderBar()
 
@@ -225,7 +227,6 @@ class WebAppsWindow(Adw.ApplicationWindow):
         url_dialog.set_title("Add Web App")
         url_dialog.set_content_width(500)
         url_dialog.set_content_height(300)
-        app.create_action('close', lambda *_: url_dialog.close(), ['Escape'])
 
         toolbar = Adw.ToolbarView()
         headerbar = Adw.HeaderBar()
@@ -263,7 +264,7 @@ class WebAppsWindow(Adw.ApplicationWindow):
         box.append(Gtk.Label())
 
         def manual_show():
-            EditWebAppWindow(self, edit = False).present(parent = self)
+            EditWebAppWindow(self, edit = False, app=app).present(parent = self)
             url_dialog.close()
         manual_button = Gtk.Button()
         manual_button.add_css_class("flat")
@@ -393,7 +394,6 @@ class WebAppsWindow(Adw.ApplicationWindow):
         broken_dialog.set_title("Report Broken Website")
         broken_dialog.set_content_width(500)
         broken_dialog.set_content_height(300)
-        app.create_action('close', lambda *_: broken_dialog.close(), ['Escape'])
 
         toolbar = Adw.ToolbarView()
         headerbar = Adw.HeaderBar()

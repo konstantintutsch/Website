@@ -35,17 +35,22 @@
   <launchable type="desktop-id">net.codelogistics.webapps.desktop</launchable>
   <screenshots>
     <screenshot type="default">
-      <image>https://codelogistics.net/webapps1.png</image>
+      <image>https://codelogistics.net/webapps4.png</image>
     </screenshot>
     <screenshot>
-      <image>https://codelogistics.net/webapps2.png</image>
+      <image>https://codelogistics.net/webapps5.png</image>
     </screenshot>
     <screenshot>
-      <image>https://codelogistics.net/webapps3.png</image>
+      <image>https://codelogistics.net/webapps6.png</image>
     </screenshot>
   </screenshots>
 
   <releases>
+    <release version="0.4.7" date="2024-06-18">
+      <description>
+        <p>Updated app metadata and screenshots. All windows can now be closed with Ctrl+W.</p>
+      </description>
+    </release>
     <release version="0.4.6" date="2024-06-14">
       <description>
         <p>Added an "Add manually" option to the Add Web App dialog for users facing issues with the PWA lookup.</p>

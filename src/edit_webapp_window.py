@@ -39,7 +39,7 @@ class EditWebAppWindow(Adw.Dialog):
             self.set_title("Create New Web App")
 
         if app:
-            app.create_action('close', lambda *_: self.close(), ['Escape'])
+            app.create_action('edit_app_close', lambda *_: self.close(), ['<primary>w'])
 
         toolbar = Adw.ToolbarView()
         headerbar = Adw.HeaderBar()

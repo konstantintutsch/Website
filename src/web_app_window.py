@@ -43,6 +43,8 @@ class WebAppWindow(Adw.ApplicationWindow):
         self.set_default_icon_name("net.codelogistics.webapps")
         self.connect("close-request", self.on_close, state)
 
+        application.create_action('close_webapp', lambda *_: self.close(), ['<primary>w'])
+
         toolbar = Adw.ToolbarView()
 
         box = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
