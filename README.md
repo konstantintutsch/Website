@@ -14,7 +14,15 @@ You can install it from GNOME Software, Discover or by using the following comma
 
 `flatpak install flathub net.codelogistics.webapps`
 
-This is a Flatpak-only application, it uses portals to create and remove shortcuts.
+This is application is made for Flatpak only.
+
+## Note for non-GNOME users
+
+Web Apps may or may not function properly on desktop environments other that modern versions of GNOME because of the varying levels of support for the Dynamic Launcher portal provided by the various XDG Desktop Portal backends.
+
+## Building
+
+You can build Web Apps by cloning this repository into GNOME Builder (either the Flatpak or the version shipped with your distro), which will handle all dependencies and build the Flatpak.
 
 ## Usage
 
