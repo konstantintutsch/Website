@@ -183,20 +183,21 @@ class WebAppsWindow(Adw.ApplicationWindow):
                                     max_size = [size, i['src']]
                                 if i['type'] == 'image/svg' or i['type'] == 'image/svg+xml':
                                     max_size = [512, i['src']]
-
-                            if not max_size[1].startswith('http'):
-                                max_size[1] = 'https://' + domain_name + '/' + manifest_prefix + max_size[1].lstrip('/')
                             
-                            try:
-                                icon = requests.get(max_size[1]).content
-                            except:
-                                icon = ""
-                            
-                            if icon:
-                                with open('/tmp/webapps_icon.png', 'wb') as f:
-                                    f.write(icon)
+                            if not max_size[1] == '': # We only want icons upto 512x512 in size otherwise the dynamic launcher breaks.
+                                if not max_size[1].startswith('http'):
+                                    max_size[1] = 'https://' + domain_name + '/' + manifest_prefix + max_size[1].lstrip('/')
+                                
+                                try:
+                                    icon = requests.get(max_size[1]).content
+                                except:
+                                    icon = ""
+                                
+                                if icon:
+                                    with open('/tmp/webapps_icon.png', 'wb') as f:
+                                        f.write(icon)
 
-                                state['icon'] = '/tmp/webapps_icon.png'
+                                    state['icon'] = '/tmp/webapps_icon.png'
 
                 if not 'name' in state:
                     if parser.title.strip() != '':
@@ -360,8 +361,8 @@ class WebAppsWindow(Adw.ApplicationWindow):
         portal = Xdp.Portal()
         try:
             portal.dynamic_launcher_uninstall("net.codelogistics.webapps." + app.replace(' ', '-') + ".desktop")
-        except:
-            print('Portal error')
+        except Exception as e:
+            print('Portal error: ', e, file=sys.stderr)
         self.refresh_rows()
 
     def edit_row(self, button, name):

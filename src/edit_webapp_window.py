@@ -17,7 +17,7 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-import os
+import os, sys
 import gi
 import json
 
@@ -172,8 +172,8 @@ class EditWebAppWindow(Adw.Dialog):
         if edit:
             try:
                 portal.dynamic_launcher_uninstall("net.codelogistics.webapps." + widgets[0].get_text().replace(' ', '-') + ".desktop")
-            except:
-                print('Portal error')
+            except Exception as e:
+                print('Portal error: ', e, file=sys.stderr)
         if self.icon:
             icon_path = '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + widgets[0].get_text().replace(' ', '-') + '.png'
             with open(icon_path, 'wb') as f:
