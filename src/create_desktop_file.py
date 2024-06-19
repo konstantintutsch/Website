@@ -34,7 +34,7 @@ global parentwindow
 def desktop_filer(parent, name, url, icon):
     global parentwindow
     parentwindow = parent
-    if icon == "Default Favicon":
+    if icon == _("Default Favicon"):
         if os.path.exists('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + name.replace(' ', '-') + '.png'):
             # in case url is being changed
             os.remove('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + name.replace(' ', '-') + '.png')
@@ -103,7 +103,8 @@ def finish_install(portal, result):
         if os.path.exists('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + app + '.png'):
             os.remove('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + app + '.png')
         parentwindow.refresh_rows()
-        print('Portal Error:', e, file=sys.stderr)
+        # Translators: Do not translate portal
+        print(_('Portal Error:'), e, file=sys.stderr)
         return
     app = variant['name'].replace(' ', '-')
     notCancelled = portal.dynamic_launcher_install(variant['token'],"net.codelogistics.webapps." + app + ".desktop", '[Desktop Entry]\nExec = webapps ' + variant['name'].replace(' ', '-') + '\nTerminal=false\nType=Application\nCategories=Network;')

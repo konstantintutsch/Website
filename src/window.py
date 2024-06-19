@@ -62,7 +62,6 @@ class WebAppsWindow(Adw.ApplicationWindow):
     def __init__(self, application, **kwargs):
         super().__init__(application = application)
         self.app = application
-        self.set_title("Web Apps")
         self.set_default_size(800,600)
         self.set_default_icon_name("net.codelogistics.webapps")
 
@@ -72,26 +71,26 @@ class WebAppsWindow(Adw.ApplicationWindow):
         headerbar = Adw.HeaderBar()
 
         window_title = Adw.WindowTitle()
-        window_title.set_title("Web Apps")
-        window_title.set_subtitle("Install websites as desktop applications")
+        window_title.set_title(_("Web Apps"))
+        window_title.set_subtitle(_("Install websites as desktop applications"))
         headerbar.set_title_widget(window_title)
 
         add_button = Gtk.Button()
         add_button.set_icon_name("list-add-symbolic")
         add_button.connect("clicked", self.on_add_button_clicked, application)
-        add_button.set_tooltip_text("Add Web App")
+        add_button.set_tooltip_text(_("Add Web App"))
         headerbar.pack_start(add_button)
 
         menu_button = Gtk.MenuButton()
         menu_button.set_icon_name("open-menu-symbolic")
         menu_button_menu = Gio.Menu()
         menu_button.set_menu_model(menu_button_menu)
-        about_item = Gio.MenuItem.new("About", "app.about")
+        about_item = Gio.MenuItem.new(_("About"), "app.about")
         menu_button_menu.append_item(about_item)
         application.create_action('report', lambda *_: self.on_report_broken(app=application))
-        report_button = Gio.MenuItem.new("Report Broken Website", "app.report")
+        report_button = Gio.MenuItem.new(_("Report Broken Website"), "app.report")
         menu_button_menu.append_item(report_button)
-        quit_item = Gio.MenuItem.new("Quit", "app.quit")
+        quit_item = Gio.MenuItem.new(_("Quit"), "app.quit")
         menu_button_menu.append_item(quit_item)
         headerbar.pack_end(menu_button)
 
@@ -104,7 +103,7 @@ class WebAppsWindow(Adw.ApplicationWindow):
         rowbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         rowbox.append(Gtk.Label())
 
-        heading = Gtk.Label(label = "Your Web Apps")
+        heading = Gtk.Label(label = _("Your Web Apps"))
         heading.add_css_class("heading")
         heading.set_halign(Gtk.Align.START)
         rowbox.append(heading)
@@ -122,8 +121,8 @@ class WebAppsWindow(Adw.ApplicationWindow):
 
         self.no_webapps_page = Adw.StatusPage()
         self.no_webapps_page.set_vexpand(True)
-        self.no_webapps_page.set_title("No Web Apps installed")
-        self.no_webapps_page.set_description("Press the Add Web App button to create one")
+        self.no_webapps_page.set_title(_("No Web Apps installed"))
+        self.no_webapps_page.set_description(_("Press the Add Web App button to create one"))
         self.no_webapps_page.set_icon_name("web-browser-symbolic")
 
         if len(os.listdir('.var/app/net.codelogistics.webapps/webapps/')) > 0:
@@ -225,7 +224,7 @@ class WebAppsWindow(Adw.ApplicationWindow):
                 add_button.set_sensitive(False)
         
         url_dialog = Adw.Dialog()
-        url_dialog.set_title("Add Web App")
+        url_dialog.set_title(_("Add Web App"))
         url_dialog.set_content_width(500)
         url_dialog.set_content_height(300)
 
@@ -239,14 +238,14 @@ class WebAppsWindow(Adw.ApplicationWindow):
         box.set_valign(Gtk.Align.CENTER)
 
         label = Gtk.Label()
-        label.set_markup("Enter URL")
+        label.set_markup(_("Enter URL"))
         label.add_css_class("title-1")
         box.append(label)
         box.append(Gtk.Label())
 
         url_entry = Gtk.Entry()
         url_entry.set_hexpand(True)
-        url_entry.set_placeholder_text("Enter URL")
+        url_entry.set_placeholder_text(_("Enter URL"))
         url_entry.connect("changed", enable_add_button)
         box.append(url_entry)
         box.append(Gtk.Label())
@@ -254,9 +253,9 @@ class WebAppsWindow(Adw.ApplicationWindow):
         add_button = Gtk.Button()
         add_button.set_sensitive(False)
         add_button.set_vexpand(False)
-        add_button.set_label("Add")
+        add_button.set_label(_("Add"))
         add_button.connect("clicked", lambda *_: url_chosen(url_entry.get_text()))
-        add_button.set_tooltip_text("Add")
+        add_button.set_tooltip_text(_("Add"))
         add_button.add_css_class("suggested-action")
         add_button.add_css_class("pill")
         app.create_action('add_webapp', lambda *_: url_chosen(url_entry.get_text()), ['Return'])
@@ -270,8 +269,9 @@ class WebAppsWindow(Adw.ApplicationWindow):
         manual_button = Gtk.Button()
         manual_button.add_css_class("flat")
         manual_button.add_css_class("accent")
-        manual_button.set_label("Add manually (if above doesn't work)")
-        manual_button.set_tooltip_text("Add manually")
+        # Translators: there is a button above the button this text is on
+        manual_button.set_label(_("Add manually (if above doesn't work)"))
+        manual_button.set_tooltip_text(_("Add manually"))
         manual_button.connect("clicked", lambda *_: manual_show())
         box.append(manual_button)
 
@@ -282,7 +282,7 @@ class WebAppsWindow(Adw.ApplicationWindow):
         loading_box = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
 
         loading_label = Gtk.Label()
-        loading_label.set_markup("Loading...")
+        loading_label.set_markup(_("Loading..."))
         loading_label.add_css_class("title-1")
         loading_box.append(loading_label)
 
@@ -305,10 +305,12 @@ class WebAppsWindow(Adw.ApplicationWindow):
                 rows[i][0].set_title(tmpstate['name'])
                 rows[i][1].add_css_class('destructive-action')
                 rows[i][1].set_icon_name('user-trash-symbolic')
+                rows[i][1].set_tooltip_text(_("Delete"))
                 rows[i][1].connect("clicked", self.delete_row, i)
 
                 rows[i][2].add_css_class('suggested-action')
                 rows[i][2].set_icon_name('document-edit-symbolic')
+                rows[i][2].set_tooltip_text(_("Edit"))
                 rows[i][2].connect("clicked", self.edit_row, tmpstate['name'].replace(' ', '-'))
                 
                 box1 = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
@@ -362,7 +364,8 @@ class WebAppsWindow(Adw.ApplicationWindow):
         try:
             portal.dynamic_launcher_uninstall("net.codelogistics.webapps." + app.replace(' ', '-') + ".desktop")
         except Exception as e:
-            print('Portal error: ', e, file=sys.stderr)
+            # Translators: Do not translate portal
+            print(_('Portal error: '), e, file=sys.stderr)
         self.refresh_rows()
 
     def edit_row(self, button, name):
@@ -373,26 +376,28 @@ class WebAppsWindow(Adw.ApplicationWindow):
 
     def on_report_broken(self, app):
         def submit(button):
-            if url_entry.get_text() == '' or len(details_text.get_text()) < 5:
+            if url_entry.get_text() == '' or len(details_text.get_text()) < 200:
                 message = Adw.AlertDialog()
-                message.set_heading("Incomplete report")
-                message.set_body("Please enter the URL and a detailed description of the issue to help resolve it faster.")
+                message.set_heading(_("Incomplete report"))
+                message.set_body(_("Please enter the URL and a detailed description (atleast 200 characters) of the issue in English to help resolve it faster. Please make sure to mention your desktop environment and distro."))
                 message.add_response('ok', 'OK')
                 message.present(broken_dialog)
+            
+            else:
+                title = '[Bug][Auto-generated]+' +  url_entry.get_text() + '+broken'
+                body = ''
+                if app_creation_radio.get_active():
+                    body += 'Cannot install the website ' + url_entry.get_text()
+                elif website_broken_radio.get_active():
+                    body += 'Website+' + url_entry.get_text() + '+broken'
 
-            title = '[Bug][Auto-generated]+' +  url_entry.get_text() + '+broken'
-            body = ''
-            if app_creation_radio.get_active():
-                body += 'Cannot install the website ' + url_entry.get_text()
-            elif website_broken_radio.get_active():
-                body += 'Website+' + url_entry.get_text() + '+broken'
+                body += '%0A%0A**Details:**%0A%0A' + details_text.get_text().replace(' ', '+').replace('"','\'')
+                os.system("xdg-open \"https://codeberg.org/eyekay/webapps/issues/new?title=" + title + "&body=" + body + "\"")
 
-            body += '%0A%0A**Details:**%0A%0A' + details_text.get_text().replace(' ', '+').replace('"','\'')
-            os.system("xdg-open \"https://codeberg.org/eyekay/webapps/issues/new?title=" + title + "&body=" + body + "\"")
+                broken_dialog.close()
 
-            broken_dialog.close()
         broken_dialog = Adw.Dialog()
-        broken_dialog.set_title("Report Broken Website")
+        broken_dialog.set_title(_("Report Broken Website"))
         broken_dialog.set_content_width(500)
         broken_dialog.set_content_height(300)
 
@@ -404,39 +409,39 @@ class WebAppsWindow(Adw.ApplicationWindow):
         box.set_valign(Gtk.Align.CENTER)
 
         label = Gtk.Label()
-        label.set_markup("Website broken?")
+        label.set_markup(_("Website broken?"))
         label.add_css_class("title-1")
         box.append(label)
         box.append(Gtk.Label())
 
         url_entry = Gtk.Entry()
         url_entry.set_hexpand(True)
-        url_entry.set_placeholder_text("Enter URL")
+        url_entry.set_placeholder_text(_("Enter URL"))
         box.append(url_entry)
         box.append(Gtk.Label())
 
         app_creation_radio = Gtk.CheckButton()
         app_creation_radio.set_active(True)
-        app_creation_radio.set_label("I can't install the website")
+        app_creation_radio.set_label(_("I can't install the website"))
         box.append(app_creation_radio)
 
         website_broken_radio = Gtk.CheckButton()
         website_broken_radio.set_group(app_creation_radio)
-        website_broken_radio.set_label("The website is not working")
+        website_broken_radio.set_label(_("The website is not opening/ working"))
         box.append(website_broken_radio)
 
         box.append(Gtk.Label())
         details_text = Gtk.Entry()
         details_text.set_hexpand(True)
-        details_text.set_placeholder_text("Enter details")
+        details_text.set_placeholder_text(_("Enter details"))
         box.append(details_text)
         box.append(Gtk.Label())
 
         submit_button = Gtk.Button()
         submit_button.set_vexpand(False)
-        submit_button.set_label("Submit")
+        submit_button.set_label(_("Submit"))
         submit_button.connect("clicked", submit)
-        submit_button.set_tooltip_text("Submit")
+        submit_button.set_tooltip_text(_("Submit"))
         submit_button.add_css_class("suggested-action")
         submit_button.add_css_class("pill")
         box.append(submit_button)

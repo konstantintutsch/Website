@@ -34,9 +34,9 @@ class EditWebAppWindow(Adw.Dialog):
         super().__init__()
         self.parent = parent
         if edit:
-            self.set_title("Edit Web App")
+            self.set_title(_("Edit Web App"))
         else:
-            self.set_title("Create New Web App")
+            self.set_title(_("Create New Web App"))
 
         if app:
             app.create_action('edit_app_close', lambda *_: self.close(), ['<primary>w'])
@@ -45,7 +45,7 @@ class EditWebAppWindow(Adw.Dialog):
         headerbar = Adw.HeaderBar()
 
         cancel_button = Gtk.Button()
-        cancel_button.set_label("Cancel")
+        cancel_button.set_label(_("Cancel"))
         cancel_button.connect("clicked", lambda x: self.close())
         headerbar.pack_start(cancel_button)
 
@@ -53,11 +53,11 @@ class EditWebAppWindow(Adw.Dialog):
         self.add_button.add_css_class("suggested-action")
         self.add_button.set_sensitive(False)
         if edit:
-            self.add_button.set_label("Save")
-            self.add_button.set_tooltip_text("Save changes to the web app")
+            self.add_button.set_label(_("Save"))
+            self.add_button.set_tooltip_text(_("Save changes to the web app"))
         else:
-            self.add_button.set_label("Install")
-            self.add_button.set_tooltip_text("Create a new web app")
+            self.add_button.set_label(_("Install"))
+            self.add_button.set_tooltip_text(_("Create a new web app"))
         headerbar.pack_end(self.add_button)
 
         toolbar.add_top_bar(headerbar)
@@ -68,7 +68,7 @@ class EditWebAppWindow(Adw.Dialog):
         prefs_list.set_selection_mode(Gtk.SelectionMode.NONE)
 
         name_row = Adw.EntryRow()
-        name_row.set_title("Name")
+        name_row.set_title(_("Name"))
         name_row.connect("changed", self.enable_install)
         if edit:
             name_row.set_sensitive(False)
@@ -77,17 +77,18 @@ class EditWebAppWindow(Adw.Dialog):
         prefs_list.append(name_row)
 
         url_row = Adw.EntryRow()
-        url_row.set_title("URL")
+        url_row.set_title(_("URL"))
         if state:
             url_row.set_text(state['url'])
         prefs_list.append(url_row)
 
         self.icon_row = Adw.ActionRow()
-        self.icon_row.set_title("Icon")
-        self.icon_row.set_subtitle("Set the icon for the web app (must be a PNG less than 512x512)")
+        self.icon_row.set_title(_("Icon"))
+        self.icon_row.set_subtitle(_("Set the icon for the web app (must be a PNG less than 512x512)"))
         select_icon_button = Gtk.Button()
         button_content = Adw.ButtonContent()
-        button_content.set_label("Browse")
+        # Translators: this is for selecting a file, not opening a web page
+        button_content.set_label(_("Browse"))
         button_content.set_icon_name("folder-open-symbolic")
         select_icon_button.set_child(button_content)
         self.icon_row.add_suffix(select_icon_button)
@@ -96,43 +97,43 @@ class EditWebAppWindow(Adw.Dialog):
         prefs_list.append(self.icon_row)
 
         show_navigation_row = Adw.SwitchRow()
-        show_navigation_row.set_title("Show Navigation Options")
-        show_navigation_row.set_subtitle("Show the buttons for back, forward and reload.")
+        show_navigation_row.set_title(_("Show Navigation Options"))
+        show_navigation_row.set_subtitle(_("Show the buttons for back, forward and reload."))
         if edit:
             show_navigation_row.set_active(state['show_navigation'])
         prefs_list.append(show_navigation_row)
 
         domain_matching_row = Adw.ComboRow()
-        domain_matching_row.set_title("Domain Matching")
-        domain_matching_row.set_subtitle("Set which websites will be allowed to load in the web app.")
+        domain_matching_row.set_title(_("Domain Matching"))
+        domain_matching_row.set_subtitle(_("Set which websites will be allowed to load in the web app."))
         domain_options = Gtk.StringList()
-        domain_options.append("Domain and subdomains")
-        domain_options.append("Domain only")
-        domain_options.append("Allow all")
+        domain_options.append(_("Domain and subdomains"))
+        domain_options.append(_("Domain only"))
+        domain_options.append(_("Allow all"))
         domain_matching_row.set_model(domain_options)
         if edit:
             domain_matching_row.set_selected(state['domain_matching'])
         prefs_list.append(domain_matching_row)
 
         loading_bar_row = Adw.SwitchRow()
-        loading_bar_row.set_title("Show Loading Bars")
-        loading_bar_row.set_subtitle("A loading bar will be visible at the top of the web page when it is being loaded.")
+        loading_bar_row.set_title(_("Show Loading Bars"))
+        loading_bar_row.set_subtitle(_("A loading bar will be visible at the top of the web page when it is being loaded."))
         loading_bar_row.set_active(True)
         if edit:
             loading_bar_row.set_active(state['loading_bar'])
         prefs_list.append(loading_bar_row)
 
         javascript_row = Adw.SwitchRow()
-        javascript_row.set_title("Enable JavaScript")
-        javascript_row.set_subtitle("Enable web scripting.")
+        javascript_row.set_title(_("Enable JavaScript"))
+        javascript_row.set_subtitle(_("Enable web scripting."))
         javascript_row.set_active(True)
         if edit:
             javascript_row.set_active(state['javascript'])
         prefs_list.append(javascript_row)
 
         incognito_row = Adw.SwitchRow()
-        incognito_row.set_title("Incognito Browsing")
-        incognito_row.set_subtitle("Cookies and other data will not be stored.")
+        incognito_row.set_title(_("Incognito Browsing"))
+        incognito_row.set_subtitle(_("Cookies and other data will not be stored."))
         if edit:
             incognito_row.set_active(state['incognito'])
         prefs_list.append(incognito_row)
@@ -173,13 +174,14 @@ class EditWebAppWindow(Adw.Dialog):
             try:
                 portal.dynamic_launcher_uninstall("net.codelogistics.webapps." + widgets[0].get_text().replace(' ', '-') + ".desktop")
             except Exception as e:
-                print('Portal error: ', e, file=sys.stderr)
+                # Translators: Do not translate portal
+                print(_('Portal error: '), e, file=sys.stderr)
         if self.icon:
             icon_path = '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + widgets[0].get_text().replace(' ', '-') + '.png'
             with open(icon_path, 'wb') as f:
                 f.write(self.icon.load_bytes()[0].get_data()) #load_bytes() returns a tuple with the bytes and something else
         else:
-            icon_path = "Default Favicon"
+            icon_path = _("Default Favicon")
         if widgets[1].get_text() == "":
             url = "about:blank"
         else:

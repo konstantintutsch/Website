@@ -87,21 +87,23 @@ class WebAppWindow(Adw.ApplicationWindow):
 
         headerbar = Adw.HeaderBar()
         self.back_button = Gtk.Button()
-        self.back_button.set_tooltip_text("Back")
+        # Translators: this is for going back in the browser
+        self.back_button.set_tooltip_text(_("Back"))
         self.back_button.set_icon_name("go-previous-symbolic")
         self.back_button.add_css_class("flat")
         self.back_button.set_sensitive(False)
         self.back_button.connect("clicked", lambda button: self.webview.go_back())
 
         self.forward_button = Gtk.Button()
-        self.forward_button.set_tooltip_text("Forward")
+        # Translators: this is for going back in the browser
+        self.forward_button.set_tooltip_text(_("Forward"))
         self.forward_button.set_icon_name("go-next-symbolic")
         self.forward_button.add_css_class("flat")
         self.forward_button.set_sensitive(False)
         self.forward_button.connect("clicked", lambda button: self.webview.go_forward())
 
         self.reload_button = Gtk.Button()
-        self.reload_button.set_tooltip_text("Reload")
+        self.reload_button.set_tooltip_text(_("Reload"))
         self.reload_button.set_icon_name("view-refresh-symbolic")
         self.reload_button.add_css_class("flat")
         self.reload_button.connect("clicked", self.on_reload_clicked)
@@ -131,12 +133,12 @@ class WebAppWindow(Adw.ApplicationWindow):
         if button.get_icon_name() == "process-stop-symbolic":
             self.webview.stop_loading()
             self.reload_button.set_icon_name("view-refresh-symbolic")
-            button.set_tooltip_text('Reload')
+            button.set_tooltip_text(_('Reload'))
             self.progressbar.set_visible(False)
         else:
             self.webview.reload()
             self.reload_button.set_icon_name("process-stop-symbolic")
-            button.set_tooltip_text('Stop')
+            button.set_tooltip_text(_('Stop'))
 
     def on_load_progress(self, webview, progress):
         self.progressbar.set_fraction(webview.get_estimated_load_progress())
@@ -150,11 +152,11 @@ class WebAppWindow(Adw.ApplicationWindow):
         if event == WebKit.LoadEvent.STARTED:
             self.progressbar.set_visible(True)
             self.reload_button.set_icon_name("process-stop-symbolic")
-            self.reload_button.set_tooltip_text('Stop')
+            self.reload_button.set_tooltip_text(_('Stop'))
         elif event == WebKit.LoadEvent.FINISHED:
             self.progressbar.set_visible(False)
             self.reload_button.set_icon_name("view-refresh-symbolic")
-            self.reload_button.set_tooltip_text('Reload')
+            self.reload_button.set_tooltip_text(_('Reload'))
         if self.webview.can_go_back():
             self.back_button.set_sensitive(True)
         else:
@@ -235,16 +237,21 @@ class WebAppWindow(Adw.ApplicationWindow):
                     request.deny()
             dialog = Gtk.AlertDialog()
             if permission == 'geolocation':
-                dialog.set_message("Allow {} access to your location?".format(state['url']))
+                # Translators: {} is the url of the website and it is necessary!
+                dialog.set_message(_("Allow {} access to your location?").format(state['url']))
             elif permission == 'notification':
-                dialog.set_message("Allow {} to send notifications?".format(state['url']))
+                # Translators: {} is the url of the website and it is necessary!
+                dialog.set_message(_("Allow {} to send notifications?").format(state['url']))
             elif permission == 'drm':
-                dialog.set_message("Allow {} to install and use DRM?".format(state['url']))
+                # Translators: {} is the url of the website and it is necessary!
+                dialog.set_message(_("Allow {} to install and use DRM?").format(state['url']))
             elif permission == 'clipboard':
-                dialog.set_message("Allow {} to access your clipboard?".format(state['url']))
+                # Translators: {} is the url of the website and it is necessary!
+                dialog.set_message(_("Allow {} to access your clipboard?").format(state['url']))
             elif permission == 'user_media':
-                dialog.set_message("Allow {} to access your microphone and/or camera?".format(state['url']))
-            dialog.set_buttons(["Yes", "No"])
+                # Translators: {} is the url of the website and it is necessary!
+                dialog.set_message(_("Allow {} to access your microphone and/or camera?").format(state['url']))
+            dialog.set_buttons([_("Yes"), _("No")])
             dialog.choose(self, None, request_finish)
 
         if type(request) == WebKit.NotificationPermissionRequest:
@@ -271,7 +278,7 @@ class WebAppWindow(Adw.ApplicationWindow):
             download.set_destination(path)
 
         save_dialog = Gtk.FileDialog()
-        save_dialog.set_title("Save File")
+        save_dialog.set_title(_("Save File"))
         save_dialog.set_initial_name(filename)
         save_dialog.save(self, None, on_save)
         return True

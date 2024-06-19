@@ -68,14 +68,14 @@ class WebappsApplication(Adw.Application):
             win = WebAppsWindow(application=self)
             win.present()
 
-    def on_about_action(self, widget, _):
+    def on_about_action(self, widget, data):
         """Callback for the app.about action."""
         about = Adw.AboutDialog()
-        about.set_application_name("Web Apps")
-        about.set_comments("Install websites as apps")
+        about.set_application_name(_("Web Apps"))
+        about.set_comments(_("Install websites as apps"))
         about.set_developer_name("Satvik Patwardhan")
         about.set_application_icon('net.codelogistics.webapps')
-        about.set_version('0.4.7')
+        about.set_version('0.4.8')
         about.set_license_type(Gtk.License.GPL_3_0)
         about.set_developers(['Satvik Patwardhan'])
         about.set_copyright('© 2024 Satvik Patwardhan')

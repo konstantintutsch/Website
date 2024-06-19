@@ -3,4 +3,6 @@ data/net.codelogistics.webapps.appdata.xml.in
 data/net.codelogistics.webapps.gschema.xml
 src/main.py
 src/window.py
-src/window.ui
+src/create_desktop_file.py
+src/edit_webapp_window.py
+src/web_app_window.py
