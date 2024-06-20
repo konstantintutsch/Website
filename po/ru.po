@@ -137,7 +137,7 @@ msgstr "Установить сайты как приложения"
 #. Translators: Add your name here
 #: Projects/webapps/src/main.py:84
 msgid "Satvik Patwardhan"
-msgstr ""
+msgstr "Semicov"
 
 #. Translators: this is for going back in the browser
 #: Projects/webapps/src/web_app_window.py:91
