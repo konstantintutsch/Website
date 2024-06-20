@@ -6,7 +6,7 @@
   <summary>Install websites as apps</summary>
 
   <developer id="net.codelogistics">
-    <name>Satvik Patwardhan</name>
+    <name translate="no">Satvik Patwardhan</name>
   </developer>
 
   <branding>
@@ -47,47 +47,47 @@
 
   <releases>
     <release version="0.4.7" date="2024-06-18">
-      <description>
+      <description translate="no">
         <p>Updated app metadata and screenshots. All windows can now be closed with Ctrl+W.</p>
       </description>
     </release>
     <release version="0.4.6" date="2024-06-14">
-      <description>
+      <description translate="no">
         <p>Added an "Add manually" option to the Add Web App dialog for users facing issues with the PWA lookup.</p>
       </description>
     </release>
     <release version="0.4.5" date="2024-06-07">
-      <description>
+      <description translate="no">
         <p>Added a 'Report Broken Website' button. Fixed some websites not being installed if their manifest used relative URLs.</p>
       </description>
     </release>
     <release version="0.4.4" date="2024-06-03">
-      <description>
+      <description translate="no">
         <p>Fixed some webpages not being opened due to trailing '/'. Fixed popup links not being opened.</p>
       </description>
     </release>
     <release version="0.4.3" date="2024-05-25">
-      <description>
+      <description translate="no">
         <p>Added preliminary support for PWA manifests (name, icon). Window size of web apps is now retained after closing the app. A few domains for logging in to sites and filling CAPCTHAs are now allowed by default.</p>
       </description>
     </release>
     <release version="0.4.2" date="2024-05-21">
-      <description>
+      <description translate="no">
         <p>Updated the application icon. Added support for notifications, geolocation and other permissions. Added support for blob downloads.</p>
       </description>
     </release>
     <release version="0.4.1" date="2024-05-18">
-      <description>
+      <description translate="no">
         <p>Fixed a bug where the installed web app's names could not contain numbers.</p>
       </description>
     </release>
     <release version="0.4.0" date="2024-05-13">
-      <description>
+      <description translate="no">
         <p>Ported the application to Adw. The program now handles downloads. Various bugs fixed.</p>
       </description>
     </release>
     <release version="0.3.0" date="2024-02-20">
-      <description>
+      <description translate="no">
         <p>Parts of the program have been rewritten to use XDG desktop portals.</p>
       </description>
     </release>

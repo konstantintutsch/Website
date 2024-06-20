@@ -10,258 +10,276 @@ msgstr ""
 "PO-Revision-Date: 2024-06-20 00:00+0000\n"
 "X-Generator: Gtranslator 46.1\n"
 
-#: Projects/webapps/src/edit_webapp_window.py:56
-msgid "Save"
-msgstr "Сохранить"
+#: data/net.codelogistics.webapps.desktop.in:3
+#: data/net.codelogistics.webapps.appdata.xml.in:5 src/main.py:74
+#: src/window.py:74
+msgid "Web Apps"
+msgstr "Веб-приложения"
 
-#: Projects/webapps/src/edit_webapp_window.py:59
-msgid "Install"
-msgstr "Установить"
+#: data/net.codelogistics.webapps.appdata.xml.in:6 src/main.py:75
+msgid "Install websites as apps"
+msgstr "Установить сайты как приложения"
+
+#: data/net.codelogistics.webapps.appdata.xml.in:21
+msgid ""
+"Install websites as desktop apps, so that they appear in their own windows "
+"separate from any browsers installed. This is similar to the \"Install as "
+"App\" feature found in popular web browsers. It uses an internal browser "
+"isolated from the system browser, which can optionally be used in incognito "
+"mode. Links to websites other than the one installed open in a new browser "
+"window."
+msgstr ""
+
+#: src/create_desktop_file.py:37 src/edit_webapp_window.py:184
+msgid "Default Favicon"
+msgstr ""
 
 #. Translators: Do not translate portal
-#: Projects/webapps/src/create_desktop_file.py:107
-msgid "Portal Error:"
+#: src/create_desktop_file.py:107
+#, fuzzy
+msgid "Portal Error: "
 msgstr "Ошибка портала:"
 
-#: Projects/webapps/src/edit_webapp_window.py:37
+#: src/edit_webapp_window.py:37
 msgid "Edit Web App"
 msgstr "Редактировать веб-приложение"
 
-#: Projects/webapps/src/edit_webapp_window.py:39
+#: src/edit_webapp_window.py:39
 msgid "Create New Web App"
 msgstr "Создать новое веб-приложение"
 
-#: Projects/webapps/src/edit_webapp_window.py:48
+#: src/edit_webapp_window.py:48
 msgid "Cancel"
 msgstr "Отмена"
 
-#: Projects/webapps/src/edit_webapp_window.py:57
+#: src/edit_webapp_window.py:56
+msgid "Save"
+msgstr "Сохранить"
+
+#: src/edit_webapp_window.py:57
 msgid "Save changes to the web app"
 msgstr "Сохранить изменения в веб-приложении"
 
-#: Projects/webapps/src/edit_webapp_window.py:60
+#: src/edit_webapp_window.py:59
+msgid "Install"
+msgstr "Установить"
+
+#: src/edit_webapp_window.py:60
 msgid "Create a new web app"
 msgstr "Создать новое веб-приложение"
 
-#: Projects/webapps/src/edit_webapp_window.py:71
+#: src/edit_webapp_window.py:71
 msgid "Name"
 msgstr "Имя"
 
-#: Projects/webapps/src/edit_webapp_window.py:80
+#: src/edit_webapp_window.py:80
 msgid "URL"
 msgstr "URL"
 
-#: Projects/webapps/src/edit_webapp_window.py:86
+#: src/edit_webapp_window.py:86
 msgid "Icon"
 msgstr "Иконка"
 
-#: Projects/webapps/src/edit_webapp_window.py:87
+#: src/edit_webapp_window.py:87
 msgid "Set the icon for the web app (must be a PNG less than 512x512)"
-msgstr "Установить иконку для веб-приложения (должна быть PNG размером меньше 512x512)"
+msgstr ""
+"Установить иконку для веб-приложения (должна быть PNG размером меньше "
+"512x512)"
 
 #. Translators: this is for selecting a file, not opening a web page
-#: Projects/webapps/src/edit_webapp_window.py:91
+#: src/edit_webapp_window.py:91
 msgid "Browse"
 msgstr "Обзор"
 
-#: Projects/webapps/src/edit_webapp_window.py:100
+#: src/edit_webapp_window.py:100
 msgid "Show Navigation Options"
 msgstr "Показать опции навигации"
 
-#: Projects/webapps/src/edit_webapp_window.py:101
+#: src/edit_webapp_window.py:101
 msgid "Show the buttons for back, forward and reload."
 msgstr "Показать кнопки назад, вперёд и перезагрузить."
 
-#: Projects/webapps/src/edit_webapp_window.py:107
+#: src/edit_webapp_window.py:107
 msgid "Domain Matching"
 msgstr "Сопоставление доменов"
 
-#: Projects/webapps/src/edit_webapp_window.py:108
+#: src/edit_webapp_window.py:108
 msgid "Set which websites will be allowed to load in the web app."
-msgstr "Установить, какие веб-сайты будут разрешены для загрузки в веб-приложении."
+msgstr ""
+"Установить, какие веб-сайты будут разрешены для загрузки в веб-приложении."
 
-#: Projects/webapps/src/edit_webapp_window.py:110
+#: src/edit_webapp_window.py:110
 msgid "Domain and subdomains"
 msgstr "Домен и субдомены"
 
-#: Projects/webapps/src/edit_webapp_window.py:111
+#: src/edit_webapp_window.py:111
 msgid "Domain only"
 msgstr "Только домен"
 
-#: Projects/webapps/src/edit_webapp_window.py:112
+#: src/edit_webapp_window.py:112
 msgid "Allow all"
 msgstr "Разрешить все"
 
-#: Projects/webapps/src/edit_webapp_window.py:119
+#: src/edit_webapp_window.py:119
 msgid "Show Loading Bars"
 msgstr "Показать индикаторы загрузки"
 
-#: Projects/webapps/src/edit_webapp_window.py:120
+#: src/edit_webapp_window.py:120
 msgid ""
 "A loading bar will be visible at the top of the web page when it is being "
 "loaded."
-msgstr "Индикатор загрузки будет виден в верхней части веб-страницы во время её загрузки."
+msgstr ""
+"Индикатор загрузки будет виден в верхней части веб-страницы во время её "
+"загрузки."
 
-#: Projects/webapps/src/edit_webapp_window.py:127
+#: src/edit_webapp_window.py:127
 msgid "Enable JavaScript"
 msgstr "Включить JavaScript"
 
-#: Projects/webapps/src/edit_webapp_window.py:128
+#: src/edit_webapp_window.py:128
 msgid "Enable web scripting."
 msgstr "Включить веб-скрипты."
 
-#: Projects/webapps/src/edit_webapp_window.py:135
+#: src/edit_webapp_window.py:135
 msgid "Incognito Browsing"
 msgstr "Инкогнито режим"
 
-#: Projects/webapps/src/edit_webapp_window.py:136
+#: src/edit_webapp_window.py:136
 msgid "Cookies and other data will not be stored."
 msgstr "Файлы cookie и другие данные не будут сохраняться."
 
 #. Translators: Do not translate portal
-#: Projects/webapps/src/edit_webapp_window.py:178
-#: Projects/webapps/src/window.py:368
+#. Translators: Please transliterate portal instead of translating it
+#: src/edit_webapp_window.py:178 src/window.py:368
 msgid "Portal error: "
 msgstr "Ошибка портала: "
 
-#: Projects/webapps/src/main.py:74 Projects/webapps/src/window.py:74
-msgid "Web Apps"
-msgstr "Веб-приложения"
-
-#: Projects/webapps/src/main.py:75
-msgid "Install websites as apps"
-msgstr "Установить сайты как приложения"
-
-#. Translators: Add your name here
-#: Projects/webapps/src/main.py:84
+#: src/main.py:84
 msgid "Satvik Patwardhan"
 msgstr "Semicov"
 
 #. Translators: this is for going back in the browser
-#: Projects/webapps/src/web_app_window.py:91
+#: src/web_app_window.py:91
 msgid "Back"
 msgstr "Назад"
 
 #. Translators: this is for going back in the browser
-#: Projects/webapps/src/web_app_window.py:99
+#: src/web_app_window.py:99
 msgid "Forward"
 msgstr "Вперёд"
 
-#: Projects/webapps/src/web_app_window.py:106
-#: Projects/webapps/src/web_app_window.py:136
-#: Projects/webapps/src/web_app_window.py:159
+#: src/web_app_window.py:106 src/web_app_window.py:136
+#: src/web_app_window.py:159
 msgid "Reload"
 msgstr "Перезагрузить"
 
-#: Projects/webapps/src/web_app_window.py:141
-#: Projects/webapps/src/web_app_window.py:155
+#: src/web_app_window.py:141 src/web_app_window.py:155
 msgid "Stop"
 msgstr "Стоп"
 
 #. Translators: {} is the url of the website and it is necessary!
-#: Projects/webapps/src/web_app_window.py:241
+#: src/web_app_window.py:241
 msgid "Allow {} access to your location?"
 msgstr "Разрешить {} доступ к вашему местоположению?"
 
 #. Translators: {} is the url of the website and it is necessary!
-#: Projects/webapps/src/web_app_window.py:244
+#: src/web_app_window.py:244
 msgid "Allow {} to send notifications?"
 msgstr "Разрешить {} отправлять уведомления?"
 
 #. Translators: {} is the url of the website and it is necessary!
-#: Projects/webapps/src/web_app_window.py:247
+#: src/web_app_window.py:247
 msgid "Allow {} to install and use DRM?"
 msgstr "Разрешить {} устанавливать и использовать DRM?"
 
 #. Translators: {} is the url of the website and it is necessary!
-#: Projects/webapps/src/web_app_window.py:250
+#: src/web_app_window.py:250
 msgid "Allow {} to access your clipboard?"
 msgstr "Разрешить {} доступ к вашему буферу обмена?"
 
 #. Translators: {} is the url of the website and it is necessary!
-#: Projects/webapps/src/web_app_window.py:253
+#: src/web_app_window.py:253
 msgid "Allow {} to access your microphone and/or camera?"
 msgstr "Разрешить {} доступ к вашему микрофону и/или камере?"
 
-#: Projects/webapps/src/web_app_window.py:254
+#: src/web_app_window.py:254
 msgid "Yes"
 msgstr "Да"
 
-#: Projects/webapps/src/web_app_window.py:254
+#: src/web_app_window.py:254
 msgid "No"
 msgstr "Нет"
 
-#: Projects/webapps/src/web_app_window.py:281
+#: src/web_app_window.py:281
 msgid "Save File"
 msgstr "Сохранить файл"
 
-#: Projects/webapps/src/window.py:75
+#: src/window.py:75
 msgid "Install websites as desktop applications"
 msgstr "Установить сайты как настольные приложения"
 
-#: Projects/webapps/src/window.py:81 Projects/webapps/src/window.py:227
+#: src/window.py:81 src/window.py:227
 msgid "Add Web App"
 msgstr "Добавить веб-приложение"
 
-#: Projects/webapps/src/window.py:88
+#: src/window.py:88
 msgid "About"
 msgstr "О программе"
 
-#: Projects/webapps/src/window.py:91 Projects/webapps/src/window.py:400
+#: src/window.py:91 src/window.py:400
 msgid "Report Broken Website"
 msgstr "Сообщить о неработающем сайте"
 
-#: Projects/webapps/src/window.py:93
+#: src/window.py:93
 msgid "Quit"
 msgstr "Выйти"
 
-#: Projects/webapps/src/window.py:106
+#: src/window.py:106
 msgid "Your Web Apps"
 msgstr "Ваши веб-приложения"
 
-#: Projects/webapps/src/window.py:124
+#: src/window.py:124
 msgid "No Web Apps installed"
 msgstr "Веб-приложения не установлены"
 
-#: Projects/webapps/src/window.py:125
+#: src/window.py:125
 msgid "Press the Add Web App button to create one"
 msgstr "Нажмите кнопку «Добавить веб-приложение», чтобы создать его"
 
-#: Projects/webapps/src/window.py:241 Projects/webapps/src/window.py:248
-#: Projects/webapps/src/window.py:419
+#: src/window.py:241 src/window.py:248 src/window.py:419
 msgid "Enter URL"
 msgstr "Введите URL"
 
-#: Projects/webapps/src/window.py:256 Projects/webapps/src/window.py:258
+#: src/window.py:256 src/window.py:258
 msgid "Add"
 msgstr "Добавить"
 
 #. Translators: there is a button above the button this text is on
-#: Projects/webapps/src/window.py:273
+#: src/window.py:273
 msgid "Add manually (if above doesn't work)"
 msgstr "Добавить вручную (если вышеуказанное не работает)"
 
-#: Projects/webapps/src/window.py:274
+#: src/window.py:274
 msgid "Add manually"
 msgstr "Добавить вручную"
 
-#: Projects/webapps/src/window.py:285
+#: src/window.py:285
 msgid "Loading..."
 msgstr "Загрузка..."
 
-#: Projects/webapps/src/window.py:308
+#: src/window.py:308
 msgid "Delete"
 msgstr "Удалить"
 
-#: Projects/webapps/src/window.py:313
+#: src/window.py:313
 msgid "Edit"
 msgstr "Редактировать"
 
-#: Projects/webapps/src/window.py:381
+#: src/window.py:381
 msgid "Incomplete report"
 msgstr "Неполный отчёт"
 
-#: Projects/webapps/src/window.py:382
+#: src/window.py:382
 msgid ""
 "Please enter the URL and a detailed description (atleast 200 characters) of "
 "the issue in English to help resolve it faster. Please make sure to mention "
@@ -271,22 +289,22 @@ msgstr ""
 "на английском языке, чтобы помочь быстрее её решить. Не забудьте указать "
 "вашу среду рабочего стола и дистрибутив."
 
-#: Projects/webapps/src/window.py:412
+#: src/window.py:412
 msgid "Website broken?"
 msgstr "Сайт не работает?"
 
-#: Projects/webapps/src/window.py:425
+#: src/window.py:425
 msgid "I can't install the website"
 msgstr "Я не могу установить сайт"
 
-#: Projects/webapps/src/window.py:430
+#: src/window.py:430
 msgid "The website is not opening/ working"
 msgstr "Сайт не открывается / не работает"
 
-#: Projects/webapps/src/window.py:436
+#: src/window.py:436
 msgid "Enter details"
 msgstr "Введите детали"
 
-#: Projects/webapps/src/window.py:442 Projects/webapps/src/window.py:444
+#: src/window.py:442 src/window.py:444
 msgid "Submit"
 msgstr "Отправить"

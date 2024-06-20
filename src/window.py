@@ -364,7 +364,7 @@ class WebAppsWindow(Adw.ApplicationWindow):
         try:
             portal.dynamic_launcher_uninstall("net.codelogistics.webapps." + app.replace(' ', '-') + ".desktop")
         except Exception as e:
-            # Translators: Do not translate portal
+            # Translators: Please transliterate portal instead of translating it
             print(_('Portal error: '), e, file=sys.stderr)
         self.refresh_rows()
 
