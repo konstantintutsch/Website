@@ -81,6 +81,7 @@ class WebappsApplication(Adw.Application):
         about.set_copyright('© 2024 Satvik Patwardhan')
         about.set_website("https://codelogistics.net/")
         about.set_issue_url("https://codeberg.org/eyekay/webapps/issues")
+        about.set_translator_credits(_("Satvik Patwardhan"))
 
         about.present(self.get_active_window())
 

@@ -141,6 +141,11 @@ msgstr "वेब ऐप्स"
 msgid "Install websites as apps"
 msgstr "वेबसाइटों को ऐप के रूप में स्थापित करें"
 
+#. Translators: Add your name here
+#: Projects/webapps/src/main.py:84
+msgid "Satvik Patwardhan"
+msgstr "सात्विक पटवर्धन "
+
 #. Translators: this is for going back in the browser
 #: Projects/webapps/src/web_app_window.py:91
 msgid "Back"
