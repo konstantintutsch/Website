@@ -88,8 +88,7 @@ msgstr "Іконка"
 
 #: src/edit_webapp_window.py:87
 msgid "Set the icon for the web app (must be a PNG less than 512x512)"
-msgstr ""
-"Встановити іконку для веб-додатку (повинна бути PNG розміром менше 512x512)"
+msgstr "Встановити іконку для веб-додатку (повинна бути PNG розміром менше 512x512)"
 
 #. Translators: this is for selecting a file, not opening a web page
 #: src/edit_webapp_window.py:91
@@ -110,8 +109,7 @@ msgstr "Відповідність доменів"
 
 #: src/edit_webapp_window.py:108
 msgid "Set which websites will be allowed to load in the web app."
-msgstr ""
-"Встановити, які вебсайти будуть дозволені для завантаження у веб-додатку."
+msgstr "Визначити домени, дозволені для завантаження у веб-додатку."
 
 #: src/edit_webapp_window.py:110
 msgid "Domain and subdomains"

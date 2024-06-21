@@ -111,8 +111,7 @@ msgstr "Сопоставление доменов"
 
 #: src/edit_webapp_window.py:108
 msgid "Set which websites will be allowed to load in the web app."
-msgstr ""
-"Установить, какие веб-сайты будут разрешены для загрузки в веб-приложении."
+msgstr "Определить домены, разрешённые для загрузки в веб-приложении."
 
 #: src/edit_webapp_window.py:110
 msgid "Domain and subdomains"
