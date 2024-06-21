@@ -22,7 +22,7 @@ async function standardImageGeneration(file) {
     
     let metadata = await Image("./src" + full, {
         widths: ["auto", 300, 600, 1000, 1500],
-        formats: ["webp"],
+        formats: ["avif"],
         outputDir: "./build" + directory,
         filenameFormat: function (id, src, width, format, options) {
             const extension = path.extname(src);
@@ -76,7 +76,7 @@ module.exports = {
     thumbnail: async (file) => {
         let metadata = await standardImageGeneration(file);
 
-        return metadata.webp[0].url;
+        return metadata.avif[0].url;
     },
 
     post: (post) => {
