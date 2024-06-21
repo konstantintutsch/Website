@@ -46,7 +46,11 @@
   </screenshots>
 
   <releases>
-    <release version="0.4.7" date="2024-06-18">
+    <release version="0.4.8" date="2024-06-21">
+      <description translate="no">
+        <p>Fixed websites with no PWA icons under 512x512. Added Hindi, Russian and Ukrainian translations.</p>
+      </description>
+    </release>
       <description translate="no">
         <p>Updated app metadata and screenshots. All windows can now be closed with Ctrl+W.</p>
       </description>
