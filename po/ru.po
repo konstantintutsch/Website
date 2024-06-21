@@ -159,6 +159,7 @@ msgstr "Файлы cookie и другие данные не будут сохр�
 msgid "Portal error: "
 msgstr "Ошибка портала: "
 
+#. Translators: add your name here
 #: src/main.py:84
 msgid "Satvik Patwardhan"
 msgstr "Semicov"

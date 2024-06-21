@@ -150,6 +150,7 @@ msgstr ""
 msgid "Portal error: "
 msgstr ""
 
+#. Translators: add your name here
 #: src/main.py:84
 msgid "Satvik Patwardhan"
 msgstr ""

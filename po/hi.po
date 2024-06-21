@@ -159,6 +159,7 @@ msgstr "कुकीज़ और अन्य डेटा संचित न�
 msgid "Portal error: "
 msgstr "पोर्टल समस्या: "
 
+#. Translators: add your name here
 #: src/main.py:84
 msgid "Satvik Patwardhan"
 msgstr "सात्विक पटवर्धन "
