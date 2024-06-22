@@ -25,36 +25,11 @@ from urllib import parse
 
 gi.require_version("Adw", '1')
 
-from html.parser import HTMLParser
-
 from gi.repository import Gtk, Gio, Adw, Xdp, Gdk, GLib
 from .edit_webapp_window import EditWebAppWindow
+from .manifest_html_parser import ManifestHTMLParser
 
 icon_path = __file__.rpartition(os.path.sep)[0] + '/data/icons/hicolor/48x48/apps/net.codelogistics.webapps.png'
-
-class MyHTMLParser(HTMLParser):
-    def __init__(self):
-        super().__init__()
-        self.manifest_url = ''
-        self.title = ''
-        self.starttag = ''
-
-    def handle_starttag(self, tag, attrs):
-        self.starttag = tag
-        if tag == 'link' and attrs[0] == ('rel', 'manifest'):
-            manifest_url = ''
-            for attr in attrs:
-                if attr[0] == 'href':
-                    manifest_url = attr[1]
-            self.manifest_url = manifest_url
-
-    def handle_endtag(self, tag):
-        pass
-
-    def handle_data(self, data):
-        if data.strip() != "":
-            if self.starttag == "title":
-                self.title = data
 
 class WebAppsWindow(Adw.ApplicationWindow):
     __gtype_name__ = 'WebAppsWindow'
@@ -149,7 +124,7 @@ class WebAppsWindow(Adw.ApplicationWindow):
                 except:
                     html = ""
                 
-                parser = MyHTMLParser()
+                parser = ManifestHTMLParser()
                 parser.feed(html)
                 manifest_url = parser.manifest_url
                 

@@ -34,6 +34,7 @@ webapps_sources = [
   'web_app_window.py',
   'create_desktop_file.py',
   'exceptions.txt',
+  'manifest_html_parser.py',
 ]
 
 install_data(webapps_sources, install_dir: moduledir)
