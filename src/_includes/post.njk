@@ -32,7 +32,5 @@ layout: default
 
 <p class="info"><a href="/feed.xml">Subscribe via RSS</a></p>
 <p class="info">{% social "github", "Edit on GitHub", "", github, "edit-post" %}</p>
-<p class="info">{% social "mail", "Reply by email", "", mailto, "reply-email" %}</p>
-<p class="info">{% social "fediverse", "Comment via Mastodon", "", "", "" %}</p>
 <p class="info">Tags: {% for tag in tags %}{% if tag != "post" %}<a data-umami-event="tag-{{ tag | slugify }}" href="{{ site.locations.tags }}{{ tag | slugify }}">{{ tag | capitalize }}</a>{% if not loop.last %}, {% endif %}{% endif %}{% endfor %}</p>
 <p class="info">{% include "copyright.njk" %}</p>
