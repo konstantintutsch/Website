@@ -12,7 +12,7 @@ permalink: /feed.xml
         <lastBuildDate>{{ build.time | rfcDate }}</lastBuildDate>
         {% set counter = 0 %}
         {% for post in collections.post | reverse %}
-        {% if counter < 4 %}
+        {% if counter < site.recent %}
         <item>
             <title>{{ post.data.title }}</title>
             <link>{{ site.url }}{{ post.url }}</link>

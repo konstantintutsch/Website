@@ -35,4 +35,4 @@ layout: default
 <p class="info">{% social "mail", "Reply by email", "", mailto, "reply-email" %}</p>
 <p class="info">{% social "fediverse", "Comment via Mastodon", "", "", "" %}</p>
 <p class="info">Tags: {% for tag in tags %}{% if tag != "post" %}<a data-umami-event="tag-{{ tag | slugify }}" href="{{ site.locations.tags }}{{ tag | slugify }}">{{ tag | capitalize }}</a>{% if not loop.last %}, {% endif %}{% endif %}{% endfor %}</p>
-<p class="info">© {{ site.author }}: <a data-umami-event="cc-by-sa-4.0" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> – <a href="/disclaimer">Disclaimer</a>, <a href="/privacy">Privacy</a></p>
+<p class="info">{% include "copyright.njk" %}</p>

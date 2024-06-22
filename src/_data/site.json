@@ -10,5 +10,6 @@
     "assets": {
         "images": "/assets/images/",
         "css": "/assets/css/"
-    }
+    },
+    "recent": 4
 }

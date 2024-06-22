@@ -36,10 +36,8 @@
 
         <!-- CSS -->
         <link rel="preload stylesheet" href="{{ site.assets.css }}root.css" as="style" type="text/css">
-        {% if layout != "gallery" %}
+        {% if special != true %}
         <link rel="preload stylesheet" href="{{ site.assets.css }}blog.css" as="style" type="text/css">
-        {% else %}
-        <link rel="preload stylesheet" href="{{ site.assets.css }}gallery.css" as="style" type="text/css">
         {% endif %}
 
         {% if environment.eleventy == "production" %}
