@@ -6,15 +6,9 @@ description: The privacy policy for my website.
 
 ### Data stored
 
-Anonymous metadata from HTTP requests is stored in the webserver's log.
+Personally, I try to maintain my own privacy where possible. Therefore, respecting the privacy of visitors to my website is a must.
 
-This includes:
-
-
-- Requested file *(e. g. that someone visited /privacy)*
-- User-Agent *(which browser and OS visited)*
-- Client domain *(this could reveal the visitors ISP)*
-- Referrer *(e. g. someone visited after using search engine X)*
+All data collected is stored encrypted in Germany on hardware I have complete control over. Collected data is always anonymous and does not contain any personal information about the visitor.
 
 ### Analytics
 
