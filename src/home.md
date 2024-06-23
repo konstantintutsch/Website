@@ -37,6 +37,10 @@ PGP - [`0780 DF44 892D 3E38 97A5  ED3B BF74 22C5 AF13 F183`](/assets/konstantint
 
 I'm also on Mastodon. You can follow me there at {% social "fediverse" %}
 
+### Code
+
+For all those interested in programming, you can take a look at my {% social "github", "GitHub profile" %}
+
 ---
 
 <p class="info">{% include "copyright.njk" %}</p>
