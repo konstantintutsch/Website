@@ -30,7 +30,7 @@ def get_manifest_json(url):
         url += '/'
 
     try:
-        request = requests.get(url, timeout=10)
+        request = requests.get(url, timeout=5)
         html = request.text
     except:
         return None
@@ -50,7 +50,7 @@ def get_manifest_json(url):
             manifest_prefix = ''
 
         try:
-            manifest = requests.get(manifest_url).text # This is a json file
+            manifest = requests.get(manifest_url, timeout=5).text # This is a json file
         except:
             manifest = ""
 
@@ -86,7 +86,7 @@ def get_favicon_from_manifest(manifest, manifest_prefix, domain_name):
             max_size[1] = 'https://' + domain_name + '/' + manifest_prefix + max_size[1].lstrip('/')
         
         try:
-            icon = requests.get(max_size[1]).content
+            icon = requests.get(max_size[1], timeout=2).content
         except:
             return None
         
