@@ -62,7 +62,7 @@ def finish_install(portal, result):
             os.remove('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + app + '.png')
         parentwindow.refresh_rows()
         # Translators: Do not translate portal
-        print(_('Portal Error: '), e, file=sys.stderr)
+        print(_('Portal error: '), e, file=sys.stderr)
         return
     app = variant['name'].replace(' ', '-')
     notCancelled = portal.dynamic_launcher_install(variant['token'],"net.codelogistics.webapps." + app + ".desktop", '[Desktop Entry]\nExec = webapps ' + variant['name'].replace(' ', '-') + '\nTerminal=false\nType=Application\nCategories=Network;')

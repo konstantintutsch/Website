@@ -1,135 +1,138 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: 0.4.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-25 19:44+0530\n"
+"PO-Revision-Date: 2024-06-20 00:00+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Project-Id-Version: 0.4.8\n"
-"Language: ru\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: \n"
-"PO-Revision-Date: 2024-06-20 00:00+0000\n"
 "X-Generator: Gtranslator 46.1\n"
 
-#: data/net.codelogistics.webapps.desktop.in:3
-#: data/net.codelogistics.webapps.appdata.xml.in:5 src/main.py:74
-#: src/window.py:74
-msgid "Web Apps"
-msgstr "Веб-приложения"
-
-#: data/net.codelogistics.webapps.appdata.xml.in:6 src/main.py:75
-msgid "Install websites as apps"
-msgstr "Установить сайты как приложения"
-
-#: data/net.codelogistics.webapps.appdata.xml.in:21
-msgid ""
-"Install websites as desktop apps, so that they appear in their own windows "
-"separate from any browsers installed. This is similar to the \"Install as "
-"App\" feature found in popular web browsers. It uses an internal browser "
-"isolated from the system browser, which can optionally be used in incognito "
-"mode. Links to websites other than the one installed open in a new browser "
-"window."
-msgstr ""
-"Устанавливайте веб-сайты как настольные приложения, чтобы они отображались "
-"в своих собственных окнах, отдельно от установленных браузеров. Это похоже на "
-"функцию «Установить как приложение», присутствующую в популярных веб-браузерах. "
-"Используется внутренний браузер, изолированный от системного браузера, который "
-"может быть использован в инкогнито-режиме. Ссылки на веб-сайты, отличные от "
-"установленного, открываются в новом окне браузера."
-
-#: src/create_desktop_file.py:37 src/edit_webapp_window.py:184
-msgid "Default Favicon"
-msgstr "Стандартная иконка"
-
 #. Translators: Do not translate portal
-#: src/create_desktop_file.py:107
-#, fuzzy
-msgid "Portal Error: "
-msgstr "Ошибка портала:"
+#. Translators: Please transliterate portal instead of translating it
+#: src/create_desktop_file.py:65 src/edit_web_app_dialog.py:76
+#: src/window.py:199
+msgid "Portal error: "
+msgstr "Ошибка портала: "
 
-#: src/edit_webapp_window.py:37
-msgid "Edit Web App"
-msgstr "Редактировать веб-приложение"
+#: src/create_web_app_dialog.py:35 src/url_dialog.py:43 src/window.py:55
+msgid "Add Web App"
+msgstr "Добавить веб-приложение"
 
-#: src/edit_webapp_window.py:39
-msgid "Create New Web App"
-msgstr "Создать новое веб-приложение"
-
-#: src/edit_webapp_window.py:48
-msgid "Cancel"
-msgstr "Отмена"
-
-#: src/edit_webapp_window.py:56
-msgid "Save"
-msgstr "Сохранить"
-
-#: src/edit_webapp_window.py:57
-msgid "Save changes to the web app"
-msgstr "Сохранить изменения в веб-приложении"
-
-#: src/edit_webapp_window.py:59
+#: src/create_web_app_dialog.py:46
 msgid "Install"
 msgstr "Установить"
 
-#: src/edit_webapp_window.py:60
+#: src/create_web_app_dialog.py:47
 msgid "Create a new web app"
 msgstr "Создать новое веб-приложение"
 
-#: src/edit_webapp_window.py:71
+#: src/edit_web_app_dialog.py:36
+msgid "Edit Web App"
+msgstr "Редактировать веб-приложение"
+
+#: src/edit_web_app_dialog.py:47
+msgid "Save"
+msgstr "Сохранить"
+
+#: src/edit_web_app_dialog.py:48
+msgid "Save changes to the web app"
+msgstr "Сохранить изменения в веб-приложении"
+
+#: src/main.py:74 src/window.py:48
+#: data/net.codelogistics.webapps.appdata.xml.in:5
+#: data/net.codelogistics.webapps.desktop.in:3
+msgid "Web Apps"
+msgstr "Веб-приложения"
+
+#: src/main.py:75 data/net.codelogistics.webapps.appdata.xml.in:6
+msgid "Install websites as apps"
+msgstr "Установить сайты как приложения"
+
+#. Translators: add your name here
+#: src/main.py:85
+msgid "Satvik Patwardhan"
+msgstr "Semicov"
+
+#: src/parse_webpage.py:46
+msgid "Error accessing URL:"
+msgstr ""
+
+#. SECRET google api. Do not trust.
+#: src/parse_webpage.py:69
+msgid ""
+"Google API for favicons being used... if correct favicon is not visible "
+"please file a bug report!"
+msgstr ""
+
+#: src/url_dialog.py:57 src/url_dialog.py:64 src/window.py:250
+msgid "Enter URL"
+msgstr "Введите URL"
+
+#: src/url_dialog.py:72 src/url_dialog.py:74
+msgid "Add"
+msgstr "Добавить"
+
+#: src/url_dialog.py:88
+msgid "Loading..."
+msgstr "Загрузка..."
+
+#. title not found by html parser
+#: src/url_dialog.py:128
+#, fuzzy
+msgid "New Web App"
+msgstr "Создать новое веб-приложение"
+
+#: src/web_app_properties.py:46
+#, fuzzy
+msgid "Browse Icon"
+msgstr "Обзор"
+
+#: src/web_app_properties.py:60
 msgid "Name"
 msgstr "Имя"
 
-#: src/edit_webapp_window.py:80
+#: src/web_app_properties.py:69
 msgid "URL"
 msgstr "URL"
 
-#: src/edit_webapp_window.py:86
-msgid "Icon"
-msgstr "Иконка"
-
-#: src/edit_webapp_window.py:87
-msgid "Set the icon for the web app (must be a PNG less than 512x512)"
-msgstr ""
-"Установить иконку для веб-приложения (должна быть PNG размером меньше "
-"512x512)"
-
-#. Translators: this is for selecting a file, not opening a web page
-#: src/edit_webapp_window.py:91
-msgid "Browse"
-msgstr "Обзор"
-
-#: src/edit_webapp_window.py:100
+#: src/web_app_properties.py:75
 msgid "Show Navigation Options"
 msgstr "Показать опции навигации"
 
-#: src/edit_webapp_window.py:101
+#: src/web_app_properties.py:76
 msgid "Show the buttons for back, forward and reload."
 msgstr "Показать кнопки назад, вперёд и перезагрузить."
 
-#: src/edit_webapp_window.py:107
+#: src/web_app_properties.py:82
 msgid "Domain Matching"
 msgstr "Сопоставление доменов"
 
-#: src/edit_webapp_window.py:108
+#: src/web_app_properties.py:83
 msgid "Set which websites will be allowed to load in the web app."
 msgstr "Определить домены, разрешённые для загрузки в веб-приложении."
 
-#: src/edit_webapp_window.py:110
+#: src/web_app_properties.py:85
 msgid "Domain and subdomains"
 msgstr "Домен и субдомены"
 
-#: src/edit_webapp_window.py:111
+#: src/web_app_properties.py:86
 msgid "Domain only"
 msgstr "Только домен"
 
-#: src/edit_webapp_window.py:112
+#: src/web_app_properties.py:87
 msgid "Allow all"
 msgstr "Разрешить все"
 
-#: src/edit_webapp_window.py:119
+#: src/web_app_properties.py:94
 msgid "Show Loading Bars"
 msgstr "Показать индикаторы загрузки"
 
-#: src/edit_webapp_window.py:120
+#: src/web_app_properties.py:95
 msgid ""
 "A loading bar will be visible at the top of the web page when it is being "
 "loaded."
@@ -137,32 +140,21 @@ msgstr ""
 "Индикатор загрузки будет виден в верхней части веб-страницы во время её "
 "загрузки."
 
-#: src/edit_webapp_window.py:127
+#: src/web_app_properties.py:102
 msgid "Enable JavaScript"
 msgstr "Включить JavaScript"
 
-#: src/edit_webapp_window.py:128
+#: src/web_app_properties.py:103
 msgid "Enable web scripting."
 msgstr "Включить веб-скрипты."
 
-#: src/edit_webapp_window.py:135
+#: src/web_app_properties.py:110
 msgid "Incognito Browsing"
 msgstr "Инкогнито режим"
 
-#: src/edit_webapp_window.py:136
+#: src/web_app_properties.py:111
 msgid "Cookies and other data will not be stored."
 msgstr "Файлы cookie и другие данные не будут сохраняться."
-
-#. Translators: Do not translate portal
-#. Translators: Please transliterate portal instead of translating it
-#: src/edit_webapp_window.py:178 src/window.py:368
-msgid "Portal error: "
-msgstr "Ошибка портала: "
-
-#. Translators: add your name here
-#: src/main.py:84
-msgid "Satvik Patwardhan"
-msgstr "Semicov"
 
 #. Translators: this is for going back in the browser
 #: src/web_app_window.py:91
@@ -220,72 +212,52 @@ msgstr "Нет"
 msgid "Save File"
 msgstr "Сохранить файл"
 
-#: src/window.py:75
+#: src/window.py:49
 msgid "Install websites as desktop applications"
 msgstr "Установить сайты как настольные приложения"
 
-#: src/window.py:81 src/window.py:227
-msgid "Add Web App"
-msgstr "Добавить веб-приложение"
-
-#: src/window.py:88
+#: src/window.py:62
 msgid "About"
 msgstr "О программе"
 
-#: src/window.py:91 src/window.py:400
+#: src/window.py:65 src/window.py:231
 msgid "Report Broken Website"
 msgstr "Сообщить о неработающем сайте"
 
-#: src/window.py:93
+#: src/window.py:67
 msgid "Quit"
 msgstr "Выйти"
 
-#: src/window.py:106
+#: src/window.py:80
 msgid "Your Web Apps"
 msgstr "Ваши веб-приложения"
 
-#: src/window.py:124
+#: src/window.py:98
 msgid "No Web Apps installed"
 msgstr "Веб-приложения не установлены"
 
-#: src/window.py:125
+#: src/window.py:99
 msgid "Press the Add Web App button to create one"
 msgstr "Нажмите кнопку «Добавить веб-приложение», чтобы создать его"
 
-#: src/window.py:241 src/window.py:248 src/window.py:419
-msgid "Enter URL"
-msgstr "Введите URL"
+#. Translators: Keep the {} as it is
+#: src/window.py:133
+msgid "File {} broken! Maybe it was modified locally?"
+msgstr ""
 
-#: src/window.py:256 src/window.py:258
-msgid "Add"
-msgstr "Добавить"
-
-#. Translators: there is a button above the button this text is on
-#: src/window.py:273
-msgid "Add manually (if above doesn't work)"
-msgstr "Добавить вручную (если вышеуказанное не работает)"
-
-#: src/window.py:274
-msgid "Add manually"
-msgstr "Добавить вручную"
-
-#: src/window.py:285
-msgid "Loading..."
-msgstr "Загрузка..."
-
-#: src/window.py:308
+#: src/window.py:139
 msgid "Delete"
 msgstr "Удалить"
 
-#: src/window.py:313
+#: src/window.py:144
 msgid "Edit"
 msgstr "Редактировать"
 
-#: src/window.py:381
+#: src/window.py:212
 msgid "Incomplete report"
 msgstr "Неполный отчёт"
 
-#: src/window.py:382
+#: src/window.py:213
 msgid ""
 "Please enter the URL and a detailed description (atleast 200 characters) of "
 "the issue in English to help resolve it faster. Please make sure to mention "
@@ -295,22 +267,62 @@ msgstr ""
 "на английском языке, чтобы помочь быстрее её решить. Не забудьте указать "
 "вашу среду рабочего стола и дистрибутив."
 
-#: src/window.py:412
+#: src/window.py:243
 msgid "Website broken?"
 msgstr "Сайт не работает?"
 
-#: src/window.py:425
+#: src/window.py:256
 msgid "I can't install the website"
 msgstr "Я не могу установить сайт"
 
-#: src/window.py:430
+#: src/window.py:261
 msgid "The website is not opening/ working"
 msgstr "Сайт не открывается / не работает"
 
-#: src/window.py:436
+#: src/window.py:267
 msgid "Enter details"
 msgstr "Введите детали"
 
-#: src/window.py:442 src/window.py:444
+#: src/window.py:273 src/window.py:275
 msgid "Submit"
 msgstr "Отправить"
+
+#: data/net.codelogistics.webapps.appdata.xml.in:21
+msgid ""
+"Install websites as desktop apps, so that they appear in their own windows "
+"separate from any browsers installed. This is similar to the \"Install as "
+"App\" feature found in popular web browsers. It uses an internal browser "
+"isolated from the system browser, which can optionally be used in incognito "
+"mode. Links to websites other than the one installed open in a new browser "
+"window."
+msgstr ""
+"Устанавливайте веб-сайты как настольные приложения, чтобы они отображались в "
+"своих собственных окнах, отдельно от установленных браузеров. Это похоже на "
+"функцию «Установить как приложение», присутствующую в популярных веб-"
+"браузерах. Используется внутренний браузер, изолированный от системного "
+"браузера, который может быть использован в инкогнито-режиме. Ссылки на веб-"
+"сайты, отличные от установленного, открываются в новом окне браузера."
+
+#~ msgid "Default Favicon"
+#~ msgstr "Стандартная иконка"
+
+#, fuzzy
+#~ msgid "Portal Error: "
+#~ msgstr "Ошибка портала:"
+
+#~ msgid "Cancel"
+#~ msgstr "Отмена"
+
+#~ msgid "Icon"
+#~ msgstr "Иконка"
+
+#~ msgid "Set the icon for the web app (must be a PNG less than 512x512)"
+#~ msgstr ""
+#~ "Установить иконку для веб-приложения (должна быть PNG размером меньше "
+#~ "512x512)"
+
+#~ msgid "Add manually (if above doesn't work)"
+#~ msgstr "Добавить вручную (если вышеуказанное не работает)"
+
+#~ msgid "Add manually"
+#~ msgstr "Добавить вручную"

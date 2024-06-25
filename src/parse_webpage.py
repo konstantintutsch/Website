@@ -43,7 +43,7 @@ def get_website_data_from_webpage(url):
         name = parser.title
         favicon = parser.favicon
     except Exception as e:
-        print("Error accessing URL:", e)
+        print(_("Error accessing URL:"), e)
         
     if favicon and not favicon.startswith("http"):
         favicon = favicon.strip('/')

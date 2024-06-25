@@ -3,166 +3,160 @@
 #
 msgid ""
 msgstr ""
+"Project-Id-Version: 0.4.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-25 19:44+0530\n"
+"PO-Revision-Date: 2024-06-19 23:08+0530\n"
+"Last-Translator: Satvik Patwardhan <eyekay@codelogistics.net>\n"
+"Language-Team: \n"
+"Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Project-Id-Version: 0.4.8\n"
-"Language: hi\n"
-"Last-Translator: Satvik Patwardhan <eyekay@codelogistics.net>\n"
-"Language-Team: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"PO-Revision-Date: 2024-06-19 23:08+0530\n"
 "X-Generator: Gtranslator 46.1\n"
 
-#: data/net.codelogistics.webapps.desktop.in:3
-#: data/net.codelogistics.webapps.appdata.xml.in:5 src/main.py:74
-#: src/window.py:74
-msgid "Web Apps"
-msgstr "वेब ऐप्स"
-
-#: data/net.codelogistics.webapps.appdata.xml.in:6 src/main.py:75
-msgid "Install websites as apps"
-msgstr "वेबसाइटों को ऐप के रूप में स्थापित करें"
-
-#: data/net.codelogistics.webapps.appdata.xml.in:21
-msgid ""
-"Install websites as desktop apps, so that they appear in their own windows "
-"separate from any browsers installed. This is similar to the \"Install as "
-"App\" feature found in popular web browsers. It uses an internal browser "
-"isolated from the system browser, which can optionally be used in incognito "
-"mode. Links to websites other than the one installed open in a new browser "
-"window."
-msgstr ""
-"वेबसाइटों को डेस्कटॉप ऐप के रूप में इंस्टॉल करें, ताकि वे किसी भी इंस्टॉल किए "
-"गए ब्राउज़र से अलग अपनी विंडो में दिखाई दें। यह कुछ वेब ब्राउज़रों में पाए जाने वाले "
-"ऐप के रूप में इंस्टॉल करने के सुविधा के समान है। यह सिस्टम ब्राउज़र से अलग एक "
-"आंतरिक ब्राउज़र का उपयोग करता है, जिसे गुप्त मोड में भी उपयोग किया जा सकता है। "
-"इंस्टॉल की गई वेबसाइट के अलावा अन्य वेबसाइटों के लिंक एक नए ब्राउज़र विंडो "
-"में खुलते हैं।"
-
-#: src/create_desktop_file.py:37 src/edit_webapp_window.py:184
-msgid "Default Favicon"
-msgstr "डिफ़ॉल्ट फ़ेविकॉन"
-
 #. Translators: Do not translate portal
-#: src/create_desktop_file.py:107
-#, fuzzy
-msgid "Portal Error: "
-msgstr "पोर्टल समस्या:"
+#. Translators: Please transliterate portal instead of translating it
+#: src/create_desktop_file.py:65 src/edit_web_app_dialog.py:76
+#: src/window.py:199
+msgid "Portal error: "
+msgstr "पोर्टल समस्या: "
 
-#: src/edit_webapp_window.py:37
-msgid "Edit Web App"
-msgstr "वेब ऐप संपादित करें"
+#: src/create_web_app_dialog.py:35 src/url_dialog.py:43 src/window.py:55
+msgid "Add Web App"
+msgstr "नया वेब ऐप"
 
-#: src/edit_webapp_window.py:39
-msgid "Create New Web App"
-msgstr "नया वेब ऐप बनाएं"
-
-#: src/edit_webapp_window.py:48
-msgid "Cancel"
-msgstr "रद्द करें"
-
-#: src/edit_webapp_window.py:56
-msgid "Save"
-msgstr "सहेजें"
-
-#: src/edit_webapp_window.py:57
-msgid "Save changes to the web app"
-msgstr "वेब ऐप में बदलाव सहेजें"
-
-#: src/edit_webapp_window.py:59
+#: src/create_web_app_dialog.py:46
 msgid "Install"
 msgstr "स्थापित करें"
 
-#: src/edit_webapp_window.py:60
+#: src/create_web_app_dialog.py:47
 msgid "Create a new web app"
 msgstr "नया वेब ऐप बनाएं"
 
-#: src/edit_webapp_window.py:71
+#: src/edit_web_app_dialog.py:36
+msgid "Edit Web App"
+msgstr "वेब ऐप संपादित करें"
+
+#: src/edit_web_app_dialog.py:47
+msgid "Save"
+msgstr "सहेजें"
+
+#: src/edit_web_app_dialog.py:48
+msgid "Save changes to the web app"
+msgstr "वेब ऐप में बदलाव सहेजें"
+
+#: src/main.py:74 src/window.py:48
+#: data/net.codelogistics.webapps.appdata.xml.in:5
+#: data/net.codelogistics.webapps.desktop.in:3
+msgid "Web Apps"
+msgstr "वेब ऐप्स"
+
+#: src/main.py:75 data/net.codelogistics.webapps.appdata.xml.in:6
+msgid "Install websites as apps"
+msgstr "वेबसाइटों को ऐप के रूप में स्थापित करें"
+
+#. Translators: add your name here
+#: src/main.py:85
+msgid "Satvik Patwardhan"
+msgstr "सात्विक पटवर्धन "
+
+#: src/parse_webpage.py:46
+msgid "Error accessing URL:"
+msgstr ""
+
+#. SECRET google api. Do not trust.
+#: src/parse_webpage.py:69
+msgid ""
+"Google API for favicons being used... if correct favicon is not visible "
+"please file a bug report!"
+msgstr ""
+
+#: src/url_dialog.py:57 src/url_dialog.py:64 src/window.py:250
+msgid "Enter URL"
+msgstr "URL दर्ज करें"
+
+#: src/url_dialog.py:72 src/url_dialog.py:74
+msgid "Add"
+msgstr "जोड़ें"
+
+#: src/url_dialog.py:88
+msgid "Loading..."
+msgstr "लोड हो रहा है..."
+
+#. title not found by html parser
+#: src/url_dialog.py:128
+#, fuzzy
+msgid "New Web App"
+msgstr "नया वेब ऐप बनाएं"
+
+#: src/web_app_properties.py:46
+#, fuzzy
+msgid "Browse Icon"
+msgstr "चयन करें"
+
+#: src/web_app_properties.py:60
 msgid "Name"
 msgstr "नाम "
 
-#: src/edit_webapp_window.py:80
+#: src/web_app_properties.py:69
 msgid "URL"
 msgstr "यूआरएल"
 
-#: src/edit_webapp_window.py:86
-msgid "Icon"
-msgstr "आइकन"
-
-#: src/edit_webapp_window.py:87
-msgid "Set the icon for the web app (must be a PNG less than 512x512)"
-msgstr "वेब ऐप के लिए आइकन सेट करें (512x512 से कम का PNG होना चाहिए)"
-
-#. Translators: this is for selecting a file, not opening a web page
-#: src/edit_webapp_window.py:91
-msgid "Browse"
-msgstr "चयन करें"
-
-#: src/edit_webapp_window.py:100
+#: src/web_app_properties.py:75
 msgid "Show Navigation Options"
 msgstr "नेविगेशन विकल्प दिखाएं"
 
-#: src/edit_webapp_window.py:101
+#: src/web_app_properties.py:76
 msgid "Show the buttons for back, forward and reload."
 msgstr "पीछे, आगे और पुनः लोड के बटन दिखाएं।"
 
-#: src/edit_webapp_window.py:107
+#: src/web_app_properties.py:82
 msgid "Domain Matching"
 msgstr "डोमेन मिलान"
 
-#: src/edit_webapp_window.py:108
+#: src/web_app_properties.py:83
 msgid "Set which websites will be allowed to load in the web app."
 msgstr "वेब ऐप में लोड होने दी जाने वाली वेबसाइटों को सेट करें।"
 
-#: src/edit_webapp_window.py:110
+#: src/web_app_properties.py:85
 msgid "Domain and subdomains"
 msgstr "डोमेन और सबडोमेन"
 
-#: src/edit_webapp_window.py:111
+#: src/web_app_properties.py:86
 msgid "Domain only"
 msgstr "केवल डोमेन"
 
-#: src/edit_webapp_window.py:112
+#: src/web_app_properties.py:87
 msgid "Allow all"
 msgstr "सभी को अनुमति दें"
 
-#: src/edit_webapp_window.py:119
+#: src/web_app_properties.py:94
 msgid "Show Loading Bars"
 msgstr "लोडिंग बार दिखाएं"
 
-#: src/edit_webapp_window.py:120
+#: src/web_app_properties.py:95
 msgid ""
 "A loading bar will be visible at the top of the web page when it is being "
 "loaded."
 msgstr "जब वेब पृष्ठ लोड हो रहा होता है, तो उसके शीर्ष पर एक लोडिंग बार दिखाई देगी।"
 
-#: src/edit_webapp_window.py:127
+#: src/web_app_properties.py:102
 msgid "Enable JavaScript"
 msgstr "जावास्क्रिप्ट सक्षम करें"
 
-#: src/edit_webapp_window.py:128
+#: src/web_app_properties.py:103
 msgid "Enable web scripting."
 msgstr "वेब स्क्रिप्टिंग सक्षम करें।"
 
-#: src/edit_webapp_window.py:135
+#: src/web_app_properties.py:110
 msgid "Incognito Browsing"
 msgstr "गुप्त ब्राउज़िंग"
 
-#: src/edit_webapp_window.py:136
+#: src/web_app_properties.py:111
 msgid "Cookies and other data will not be stored."
 msgstr "कुकीज़ और अन्य डेटा संचित नहीं होंगे।"
-
-#. Translators: Do not translate portal
-#. Translators: Please transliterate portal instead of translating it
-#: src/edit_webapp_window.py:178 src/window.py:368
-msgid "Portal error: "
-msgstr "पोर्टल समस्या: "
-
-#. Translators: add your name here
-#: src/main.py:84
-msgid "Satvik Patwardhan"
-msgstr "सात्विक पटवर्धन "
 
 #. Translators: this is for going back in the browser
 #: src/web_app_window.py:91
@@ -222,72 +216,52 @@ msgstr "नहीं"
 msgid "Save File"
 msgstr "फ़ाइल सहेजें"
 
-#: src/window.py:75
+#: src/window.py:49
 msgid "Install websites as desktop applications"
 msgstr "वेबसाइटों को डेस्कटॉप एप्लिकेशन के रूप में स्थापित करें"
 
-#: src/window.py:81 src/window.py:227
-msgid "Add Web App"
-msgstr "नया वेब ऐप"
-
-#: src/window.py:88
+#: src/window.py:62
 msgid "About"
 msgstr "परिचय"
 
-#: src/window.py:91 src/window.py:400
+#: src/window.py:65 src/window.py:231
 msgid "Report Broken Website"
 msgstr "ठीक से काम न कर रही वेबसाइट की रिपोर्ट करें"
 
-#: src/window.py:93
+#: src/window.py:67
 msgid "Quit"
 msgstr "बंद करें"
 
-#: src/window.py:106
+#: src/window.py:80
 msgid "Your Web Apps"
 msgstr "आपके वेब ऐप्स"
 
-#: src/window.py:124
+#: src/window.py:98
 msgid "No Web Apps installed"
 msgstr "कोई वेब ऐप्स स्थापित नहीं हैं"
 
-#: src/window.py:125
+#: src/window.py:99
 msgid "Press the Add Web App button to create one"
 msgstr "नया वेब ऐप बनाने के लिये \"नया वेब ऐप\" बटन दबाएं"
 
-#: src/window.py:241 src/window.py:248 src/window.py:419
-msgid "Enter URL"
-msgstr "URL दर्ज करें"
+#. Translators: Keep the {} as it is
+#: src/window.py:133
+msgid "File {} broken! Maybe it was modified locally?"
+msgstr ""
 
-#: src/window.py:256 src/window.py:258
-msgid "Add"
-msgstr "जोड़ें"
-
-#. Translators: there is a button above the button this text is on
-#: src/window.py:273
-msgid "Add manually (if above doesn't work)"
-msgstr "हाथ से जोड़ें (यदि ऊपर वाला बटन काम नहीं करे)"
-
-#: src/window.py:274
-msgid "Add manually"
-msgstr "हाथ से जोड़ें"
-
-#: src/window.py:285
-msgid "Loading..."
-msgstr "लोड हो रहा है..."
-
-#: src/window.py:308
+#: src/window.py:139
 msgid "Delete"
 msgstr "हटाएं"
 
-#: src/window.py:313
+#: src/window.py:144
 msgid "Edit"
 msgstr "संपादित करें"
 
-#: src/window.py:381
+#: src/window.py:212
 msgid "Incomplete report"
 msgstr "अधूरी रिपोर्ट"
 
-#: src/window.py:382
+#: src/window.py:213
 msgid ""
 "Please enter the URL and a detailed description (atleast 200 characters) of "
 "the issue in English to help resolve it faster. Please make sure to mention "
@@ -296,22 +270,59 @@ msgstr ""
 "कृपया URL और समस्या का विस्तृत वर्णन (कम से कम 200 अक्षर) अंग्रेज़ी में दर्ज करें ताकि इसे "
 "तेजी से हल किया जा सके। इसमें अपने डेस्कटॉप एन्विरानमेंट और डिस्ट्रो भी उल्लेख करें।"
 
-#: src/window.py:412
+#: src/window.py:243
 msgid "Website broken?"
 msgstr "वेबसाइट ठीक से काम नहीं कर रही है?"
 
-#: src/window.py:425
+#: src/window.py:256
 msgid "I can't install the website"
 msgstr "मुझे वेबसाइट स्थापित करने में समस्या हो रही है"
 
-#: src/window.py:430
+#: src/window.py:261
 msgid "The website is not opening/ working"
 msgstr "वेबसाइट को खुलने/काम करने में समस्या हो रही है"
 
-#: src/window.py:436
+#: src/window.py:267
 msgid "Enter details"
 msgstr "कृपया विस्तार से जानकारी दें"
 
-#: src/window.py:442 src/window.py:444
+#: src/window.py:273 src/window.py:275
 msgid "Submit"
 msgstr "सबमिट करें"
+
+#: data/net.codelogistics.webapps.appdata.xml.in:21
+msgid ""
+"Install websites as desktop apps, so that they appear in their own windows "
+"separate from any browsers installed. This is similar to the \"Install as "
+"App\" feature found in popular web browsers. It uses an internal browser "
+"isolated from the system browser, which can optionally be used in incognito "
+"mode. Links to websites other than the one installed open in a new browser "
+"window."
+msgstr ""
+"वेबसाइटों को डेस्कटॉप ऐप के रूप में इंस्टॉल करें, ताकि वे किसी भी इंस्टॉल किए गए ब्राउज़र से "
+"अलग अपनी विंडो में दिखाई दें। यह कुछ वेब ब्राउज़रों में पाए जाने वाले ऐप के रूप में इंस्टॉल करने "
+"के सुविधा के समान है। यह सिस्टम ब्राउज़र से अलग एक आंतरिक ब्राउज़र का उपयोग करता है, जिसे "
+"गुप्त मोड में भी उपयोग किया जा सकता है। इंस्टॉल की गई वेबसाइट के अलावा अन्य वेबसाइटों के "
+"लिंक एक नए ब्राउज़र विंडो में खुलते हैं।"
+
+#~ msgid "Default Favicon"
+#~ msgstr "डिफ़ॉल्ट फ़ेविकॉन"
+
+#, fuzzy
+#~ msgid "Portal Error: "
+#~ msgstr "पोर्टल समस्या:"
+
+#~ msgid "Cancel"
+#~ msgstr "रद्द करें"
+
+#~ msgid "Icon"
+#~ msgstr "आइकन"
+
+#~ msgid "Set the icon for the web app (must be a PNG less than 512x512)"
+#~ msgstr "वेब ऐप के लिए आइकन सेट करें (512x512 से कम का PNG होना चाहिए)"
+
+#~ msgid "Add manually (if above doesn't work)"
+#~ msgstr "हाथ से जोड़ें (यदि ऊपर वाला बटन काम नहीं करे)"
+
+#~ msgid "Add manually"
+#~ msgstr "हाथ से जोड़ें"
