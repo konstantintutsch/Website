@@ -28,6 +28,8 @@ Redirect 301 /pgp /assets/konstantintutsch.asc
 {% for account, metadata in social %}
 Redirect 301 /{{ account }} {{ metadata.url }}
 {% endfor %}
+Redirect 301 /mastodon {{ social.fediverse.url }}
+Redirect 301 /openstreetmap {{ social.osm.url }}
 
 # Moved files
 Redirect 301 /favicon.ico {{ site.assets.images }}favicon.ico
