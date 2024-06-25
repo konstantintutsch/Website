@@ -31,7 +31,7 @@ Email is the preferred way to get in touch with me. <sup>*[Plain text encouraged
 
 {% include "email.md" %}
 
-PGP - [`0780 DF44 892D 3E38 97A5  ED3B BF74 22C5 AF13 F183`](/assets/konstantintutsch.asc)
+PGP - [`0780 DF44 892D 3E38 97A5  ED3B BF74 22C5 AF13 F183`](/pgp)
 
 #### Mastodon (Fediverse)
 

@@ -23,6 +23,9 @@ ExpiresByType image/avif "access plus 5 years"
 ExpiresByType image/png "access plus 1 months"
 ExpiresByType image/svg+xml "access plus 1 months"
 
+# Personal shorteners
+Redirect 301 /pgp /assets/konstantintutsch.asc
+
 # Moved files
 Redirect 301 /favicon.ico {{ site.assets.images }}favicon.ico
 Redirect 301 /posts /blog
