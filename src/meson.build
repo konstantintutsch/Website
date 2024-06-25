@@ -30,11 +30,16 @@ webapps_sources = [
   '__init__.py',
   'main.py',
   'window.py',
-  'edit_webapp_window.py',
+  'web_app_properties.py',
+  'create_web_app_dialog.py',
+  'edit_web_app_dialog.py',
   'web_app_window.py',
   'create_desktop_file.py',
   'exceptions.txt',
   'manifest_html_parser.py',
+  'url_dialog.py',
+  'parse_manifest.py',
+  'parse_webpage.py',
 ]
 
 install_data(webapps_sources, install_dir: moduledir)

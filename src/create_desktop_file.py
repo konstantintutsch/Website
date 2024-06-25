@@ -34,51 +34,9 @@ global parentwindow
 def desktop_filer(parent, name, url, icon):
     global parentwindow
     parentwindow = parent
-    if icon == _("Default Favicon"):
-        if os.path.exists('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + name.replace(' ', '-') + '.png'):
-            # in case url is being changed
-            os.remove('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + name.replace(' ', '-') + '.png')
-        window = Gtk.Window()
-        webview = WebKit.WebView()
-        network_session = webview.get_network_session()
-        data_manager = network_session.get_website_data_manager()
-        data_manager.set_favicons_enabled(True)
 
-        window.set_child(webview)
-        webview.load_uri(url)
-        webview.connect("notify::favicon", favicon_loaded, name)
-        end_time = time.time() + 10
-        check_if_favicon_thread = threading.Thread(target = check_if_favicon, args = (end_time, name,))
-        check_if_favicon_thread.start()
-
-    else:
-        icon_path = '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + name.replace(' ', '-') + '.png'
-        write_desktop_file(name, icon_path)
-
-def favicon_loaded(webview, favicon, name):
-    favicon = webview.get_favicon()
-    if favicon:
-        icon_path = '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + name.replace(' ', '-') + '.png'
-        with open(icon_path, 'wb') as f:
-            f.write(favicon.save_to_png_bytes().get_data())
-    else:
-        favicon = '/app/share/icons/hicolor/96x96/apps/net.codelogistics.webapps.png'
-        icon_path = '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + name.replace(' ', '-') + '.png'
-        shutil.copyfile(favicon, icon_path)
-
-def check_if_favicon(end_time, name):
-    while time.time() < end_time:
-        if os.path.exists('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + name.replace(' ', '-') + '.png'):
-            icon_path = '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + name.replace(' ', '-') + '.png'
-            while os.path.getsize(icon_path) < 1:
-                pass
-            write_desktop_file(name, icon_path)
-            break
-    else:
-        favicon = '/app/share/icons/hicolor/96x96/apps/net.codelogistics.webapps.png'
-        icon_path = '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + name.replace(' ', '-') + '.png'
-        shutil.copyfile(favicon, icon_path)
-        write_desktop_file(name, icon_path)
+    icon_path = '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + name.replace(' ', '-') + '.png'
+    write_desktop_file(name, icon_path)
 
 def write_desktop_file(name, icon_path):
     global app

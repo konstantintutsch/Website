@@ -26,10 +26,9 @@ from urllib import parse
 gi.require_version("Adw", '1')
 
 from gi.repository import Gtk, Gio, Adw, Xdp, Gdk, GLib
-from .edit_webapp_window import EditWebAppWindow
-from .manifest_html_parser import ManifestHTMLParser
-
-icon_path = __file__.rpartition(os.path.sep)[0] + '/data/icons/hicolor/48x48/apps/net.codelogistics.webapps.png'
+from .create_web_app_dialog import CreateWebAppDialog
+from .edit_web_app_dialog import EditWebAppDialog
+from .url_dialog import URLDialog
 
 class WebAppsWindow(Adw.ApplicationWindow):
     __gtype_name__ = 'WebAppsWindow'
@@ -111,162 +110,14 @@ class WebAppsWindow(Adw.ApplicationWindow):
         self.set_content(toolbar)
 
     def on_add_button_clicked(self, button, app):
-        def url_chosen(url):
-            def get_data(url, dialog):
-                state = {'url': url}
-                if not url.startswith('http'):
-                    url = 'https://' + url
-                if not url.endswith('/'):
-                    url += '/'
+        url_dialog = URLDialog(self, app)
+        url_dialog.present(parent=self)
 
-                try:
-                    html = requests.get(url).text
-                except:
-                    html = ""
-                
-                parser = ManifestHTMLParser()
-                parser.feed(html)
-                manifest_url = parser.manifest_url
-                
-                if manifest_url != '':
-                    if not manifest_url.startswith('http'):
-                        parsed_uri = parse.urlparse(url)
-                        domain_name = parsed_uri.netloc
-                        manifest_prefix = manifest_url.rpartition('/')[0] + '/' if manifest_url.rpartition('/')[0] != '' else ''
-                        # sometimes manifest urls are in form of images/manifest.json etc
-                        manifest_url = 'https://' + domain_name + '/' + manifest_url.lstrip('/')
-                    else:
-                        manifest_prefix = ''
-                    try:
-                        manifest = requests.get(manifest_url).text # This is a json file
-                    except:
-                        manifest = ""
-
-                    if manifest != '':
-                        manifest = json.loads(manifest)
-
-                        state['name'] = manifest['name']
-
-                        if 'icons' in manifest:
-                            max_size = [0, '']
-                            for i in manifest['icons']:
-                                if 'purpose' in i and i['purpose'] == 'monochrome':
-                                    continue
-                                size = int(i['sizes'].split('x')[0])
-                                if size > max_size[0] and size <= 512:
-                                    max_size = [size, i['src']]
-                                if i['type'] == 'image/svg' or i['type'] == 'image/svg+xml':
-                                    max_size = [512, i['src']]
-                            
-                            if not max_size[1] == '': # We only want icons upto 512x512 in size otherwise the dynamic launcher breaks.
-                                if not max_size[1].startswith('http'):
-                                    max_size[1] = 'https://' + domain_name + '/' + manifest_prefix + max_size[1].lstrip('/')
-                                
-                                try:
-                                    icon = requests.get(max_size[1]).content
-                                except:
-                                    icon = ""
-                                
-                                if icon:
-                                    with open('/tmp/webapps_icon.png', 'wb') as f:
-                                        f.write(icon)
-
-                                    state['icon'] = '/tmp/webapps_icon.png'
-
-                if not 'name' in state:
-                    if parser.title.strip() != '':
-                        state['name'] = parser.title
-                    else:
-                        state['name'] = ''
-
-                if not 'icon' in state:
-                    state['icon'] = ''
-                    
-                dialog.close()
-                new_app_win = EditWebAppWindow(self, edit = False, state = state, app = app)       
-                new_app_win.present(parent = self)
-
-                return False
-
-            stack.set_visible_child_name('loading')
-
-            GLib.idle_add(get_data, url, url_dialog)
-
-        def enable_add_button(entry):
-            if entry.get_text().strip() != "" and str(entry.get_text()).find(" ") == -1:
-                add_button.set_sensitive(True)
-            else:
-                add_button.set_sensitive(False)
+    def show_edit_window(self, urldialog, state):
+        urldialog.close()
         
-        url_dialog = Adw.Dialog()
-        url_dialog.set_title(_("Add Web App"))
-        url_dialog.set_content_width(500)
-        url_dialog.set_content_height(300)
-
-        toolbar = Adw.ToolbarView()
-        headerbar = Adw.HeaderBar()
-
-        stack = Gtk.Stack()
-
-        clamp = Adw.Clamp()
-        box = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
-        box.set_valign(Gtk.Align.CENTER)
-
-        label = Gtk.Label()
-        label.set_markup(_("Enter URL"))
-        label.add_css_class("title-1")
-        box.append(label)
-        box.append(Gtk.Label())
-
-        url_entry = Gtk.Entry()
-        url_entry.set_hexpand(True)
-        url_entry.set_placeholder_text(_("Enter URL"))
-        url_entry.connect("changed", enable_add_button)
-        box.append(url_entry)
-        box.append(Gtk.Label())
-
-        add_button = Gtk.Button()
-        add_button.set_sensitive(False)
-        add_button.set_vexpand(False)
-        add_button.set_label(_("Add"))
-        add_button.connect("clicked", lambda *_: url_chosen(url_entry.get_text()))
-        add_button.set_tooltip_text(_("Add"))
-        add_button.add_css_class("suggested-action")
-        add_button.add_css_class("pill")
-        app.create_action('add_webapp', lambda *_: url_chosen(url_entry.get_text()), ['Return'])
-        box.append(add_button)
-
-        box.append(Gtk.Label())
-
-        def manual_show():
-            EditWebAppWindow(self, edit = False, app=app).present(parent = self)
-            url_dialog.close()
-        manual_button = Gtk.Button()
-        manual_button.add_css_class("flat")
-        manual_button.add_css_class("accent")
-        # Translators: there is a button above the button this text is on
-        manual_button.set_label(_("Add manually (if above doesn't work)"))
-        manual_button.set_tooltip_text(_("Add manually"))
-        manual_button.connect("clicked", lambda *_: manual_show())
-        box.append(manual_button)
-
-        clamp.set_child(box)
-
-        stack.add_named(clamp, "clamp")
-
-        loading_box = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
-
-        loading_label = Gtk.Label()
-        loading_label.set_markup(_("Loading..."))
-        loading_label.add_css_class("title-1")
-        loading_box.append(loading_label)
-
-        stack.add_named(loading_box, "loading")
-        toolbar.set_content(stack)
-
-        toolbar.add_top_bar(headerbar)
-        url_dialog.set_child(toolbar)
-        url_dialog.present(self)
+        edit_app_dialog = CreateWebAppDialog(parent_window = self, state = state)
+        edit_app_dialog.present(self)
 
     def add_rows(self, apps_list, application = None):
         rows = {}
@@ -275,7 +126,12 @@ class WebAppsWindow(Adw.ApplicationWindow):
                 rows[i] = [Adw.ActionRow(), Gtk.Button(), Gtk.Button()]
 
                 with open('.var/app/net.codelogistics.webapps/webapps/' + i.replace(' ', '-'), 'r') as f:
-                    tmpstate = json.load(f)
+                    try:
+                        tmpstate = json.load(f)
+                    except:
+                        # Translators: Keep the {} as it is
+                        print(_('File {} broken! Maybe it was modified locally?').format(i))
+                        continue
 
                 rows[i][0].set_title(tmpstate['name'])
                 rows[i][1].add_css_class('destructive-action')
@@ -346,7 +202,7 @@ class WebAppsWindow(Adw.ApplicationWindow):
     def edit_row(self, button, name):
         with open('.var/app/net.codelogistics.webapps/webapps/' + name + '.json', 'r') as f:
             tmpstate = json.load(f)
-        edit_app_win = EditWebAppWindow(self, edit = True, state = tmpstate, app = self.app)
+        edit_app_win = EditWebAppDialog(self, state = tmpstate, app = self.app)
         edit_app_win.present(parent=self)
 
     def on_report_broken(self, app):
