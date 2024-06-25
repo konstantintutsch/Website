@@ -25,6 +25,9 @@ ExpiresByType image/svg+xml "access plus 1 months"
 
 # Personal shorteners
 Redirect 301 /pgp /assets/konstantintutsch.asc
+{% for account, metadata in social %}
+Redirect 301 /{{ account }} {{ metadata.url }}
+{% endfor %}
 
 # Moved files
 Redirect 301 /favicon.ico {{ site.assets.images }}favicon.ico
