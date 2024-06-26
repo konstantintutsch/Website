@@ -33,6 +33,8 @@ class EditWebAppDialog(Adw.Dialog):
 
         self.parent_window = parent_window
 
+        self.app_id = state['app_id']
+        state['name'] = state['name']
         self.set_title(_("Edit Web App"))
         self.set_content_width(500)
         self.set_content_height(800)
@@ -58,7 +60,7 @@ class EditWebAppDialog(Adw.Dialog):
         self.set_child(toolbar)
 
         properties.name_row.connect("changed", self.enable_install)
-        self.edit_button.connect("clicked", self.install_webapp, [properties.name_row, properties.url_row, properties.avatar, properties.show_navigation_row, properties.domain_matching_row, properties.loading_bar_row, properties.javascript_row, properties.incognito_row])
+        self.edit_button.connect("clicked", self.install_webapp, [properties.name_row, properties.url_row, properties.avatar, properties.show_navigation_row, properties.domain_matching_row, properties.loading_bar_row, properties.javascript_row, properties.incognito_row, properties.user_agent_row])
         self.enable_install(properties.name_row)
 
     def enable_install(self, entry):
@@ -69,17 +71,13 @@ class EditWebAppDialog(Adw.Dialog):
 
     def install_webapp(self, button, widgets):
         portal = Xdp.Portal()
-        try:
-            portal.dynamic_launcher_uninstall("net.codelogistics.webapps." + widgets[0].get_text().replace(' ', '-') + ".desktop")
-        except Exception as e:
-            # Translators: Do not translate portal
-            print(_('Portal error: '), e, file=sys.stderr)
 
-        icon_path = '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + widgets[0].get_text().replace(' ', '-') + '.png'
+        icon_path = '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + self.app_id + '.png'
         with open(icon_path, 'wb') as f:
             if widgets[2].get_custom_image():
                 f.write(widgets[2].get_custom_image().save_to_png_bytes().get_data())
-            f.write(widgets[2].draw_to_texture(1).save_to_png_bytes().get_data())
+            else:
+                f.write(widgets[2].draw_to_texture(1).save_to_png_bytes().get_data())
 
         if widgets[1].get_text() == "":
             url = "about:blank"
@@ -89,20 +87,22 @@ class EditWebAppDialog(Adw.Dialog):
             url = 'https://' + url
 
         state = {
-            'name': widgets[0].get_text().replace(' ', '-'),
+            'app_id': self.app_id,
+            'name': widgets[0].get_text(),
             'url': url,
             'icon': icon_path,
             'show_navigation': widgets[3].get_active(),
             'domain_matching': widgets[4].get_selected(),
             'loading_bar': widgets[5].get_active(),
             'javascript': widgets[6].get_active(),
-            'incognito': widgets[7].get_active()
+            'incognito': widgets[7].get_active(),
+            'user_agent': widgets[8].get_text()
         }
 
-        with open('.var/app/net.codelogistics.webapps/webapps/' + state['name'] + '.json', 'w') as f:
+        with open('.var/app/net.codelogistics.webapps/webapps/' + self.app_id + '.json', 'w') as f:
             json.dump(state, f)
 
-        desktop_filer(self.parent_window, state['name'], state['url'], state['icon'])
+        desktop_filer(self.parent_window, self.app_id, state['name'])
 
         self.close()
 

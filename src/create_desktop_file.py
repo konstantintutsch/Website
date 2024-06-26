@@ -24,51 +24,27 @@ import shutil
 import sys
 import gi
 import json
-gi.require_version("WebKit", "6.0")
+import stat
 
-from gi.repository import Gtk, GLib, Gio, WebKit, Xdp
+from gi.repository import Gtk, GLib, Gio
 
 global app
 global parentwindow
 
-def desktop_filer(parent, name, url, icon):
+def desktop_filer(parent, app_id, name):
     global parentwindow
     parentwindow = parent
 
-    icon_path = '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + name.replace(' ', '-') + '.png'
-    write_desktop_file(name, icon_path)
+    icon_path = os.path.expanduser('~/.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + app_id + '.png')
+    write_desktop_file(app_id, name, icon_path)
 
-def write_desktop_file(name, icon_path):
+def write_desktop_file(app_id, name, icon_path):
     global app
-    app = name
-    portal = Xdp.Portal()
-    with open(icon_path, 'rb') as f:
-        icon = Gio.BytesIcon.new(GLib.Bytes.new(f.read())).serialize()
-    portal.dynamic_launcher_prepare_install(None, name, icon, Xdp.LauncherType.APPLICATION, None, False, False, None, finish_install)
+    app = app_id
+    
+    desktop_file = '[Desktop Entry]\nName={}\nIcon={}\nExec = flatpak run net.codelogistics.webapps {}\nTerminal=false\nType=Application\nCategories=Network;'.format(name, icon_path, app_id)
 
-def finish_install(portal, result):
-    global app
-    global parentwindow
-    try:
-        variant = portal.dynamic_launcher_prepare_install_finish(result)
-    except Exception as e:
-        if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + app + '.json'):
-            os.remove('.var/app/net.codelogistics.webapps/webapps/' + app + '.json')
-        if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + app + '.window'):
-            os.remove('.var/app/net.codelogistics.webapps/webapps/' + app + '.window')
-        if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + app + '.cookies.txt'):
-            os.remove('.var/app/net.codelogistics.webapps/webapps/' + app + '.cookies.txt')
-        if os.path.exists('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + app + '.png'):
-            os.remove('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + app + '.png')
-        parentwindow.refresh_rows()
-        # Translators: Do not translate portal
-        print(_('Portal error: '), e, file=sys.stderr)
-        return
-    app = variant['name'].replace(' ', '-')
-    notCancelled = portal.dynamic_launcher_install(variant['token'],"net.codelogistics.webapps." + app + ".desktop", '[Desktop Entry]\nExec = webapps ' + variant['name'].replace(' ', '-') + '\nTerminal=false\nType=Application\nCategories=Network;')
+    with open(os.path.expanduser('~/.local/share/applications/net.codelogistics.webapps.{}.desktop'.format(app_id)), 'w') as f:
+        f.write(desktop_file)
 
-    with open('.var/app/net.codelogistics.webapps/webapps/' + app + '.json', 'r') as f:
-        state = json.load(f)
-    state['icon'] = '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + app.replace(' ', '-') + '.png'
-    with open('.var/app/net.codelogistics.webapps/webapps/' + app + '.json', 'w') as f:
-        json.dump(state, f)
+    os.chmod(os.path.expanduser('~/.local/share/applications/net.codelogistics.webapps.{}.desktop'.format(app_id)), mode=0o755)

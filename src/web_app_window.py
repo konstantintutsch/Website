@@ -32,13 +32,18 @@ class WebAppWindow(Adw.ApplicationWindow):
         super().__init__(application = application)
         self.set_title(state['name'])
         self.set_default_size(800,600)
-        if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + state['name'].replace(' ', '-') + '.window'):
-            restore_window = open('.var/app/net.codelogistics.webapps/webapps/' + state['name'].replace(' ', '-') + '.window', 'r').read().split('\n')
+        if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + state['app_id'] + '.window'):
+            restore_window = open('.var/app/net.codelogistics.webapps/webapps/' + state['app_id']+ '.window', 'r').read().split('\n')
             if restore_window[0] == "True":
                 self.maximize()
             if len(restore_window) > 1:
                 if len(restore_window[1].split('x')) == 2:
                     self.set_default_size(int(restore_window[1].split('x')[0]), int(restore_window[1].split('x')[1]))
+        else:
+            with open('.var/app/net.codelogistics.webapps/webapps/' + state['app_id'] + '.window', 'w') as restore_file:
+                restore_file.write(str(self.is_maximized()))
+                restore_file.write('\n')
+                restore_file.write(str(self.get_width()) + 'x' + str(self.get_height()))
 
         self.set_default_icon_name("net.codelogistics.webapps")
         self.connect("close-request", self.on_close, state)
@@ -67,7 +72,7 @@ class WebAppWindow(Adw.ApplicationWindow):
             storage = WebKit.CookiePersistentStorage.TEXT
             policy = WebKit.CookieAcceptPolicy.ALWAYS
             cookies.set_accept_policy(policy)
-            cookies.set_persistent_storage('.var/app/net.codelogistics.webapps/webapps/' + state['name'].replace(' ', '-') + '.cookies.txt', storage)
+            cookies.set_persistent_storage('.var/app/net.codelogistics.webapps/webapps/' + state['app_id'] + '.cookies.txt', storage)
 
         self.webview.set_vexpand(True)
         if state['url'] == "":
@@ -113,6 +118,9 @@ class WebAppWindow(Adw.ApplicationWindow):
             headerbar.pack_start(self.back_button)
             headerbar.pack_start(self.forward_button)
             headerbar.pack_start(self.reload_button)
+
+        if 'user_agent' in state and state['user_agent']:
+            settings.set_user_agent(state['user_agent'])
 
         self.webview.connect("load-changed", self.on_load_changed)
         self.webview.connect('notify::estimated-load-progress', self.on_load_progress)
@@ -176,7 +184,7 @@ class WebAppWindow(Adw.ApplicationWindow):
                 decision.ignore()
 
     def on_close(self, window, state):
-        with open('.var/app/net.codelogistics.webapps/webapps/' + state['name'].replace(' ', '-') + '.window', 'w') as restore_file:
+        with open('.var/app/net.codelogistics.webapps/webapps/' + state['app_id'] + '.window', 'w') as restore_file:
             restore_file.write(str(self.is_maximized()))
             restore_file.write('\n')
             restore_file.write(str(self.get_width()) + 'x' + str(self.get_height()))
@@ -210,8 +218,8 @@ class WebAppWindow(Adw.ApplicationWindow):
 
     def on_permission_request(self, webview, request, state):
         def request_allow(permission):
-            if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + state['name'].replace(' ', '-') + '.permissions.json'):
-                with open('.var/app/net.codelogistics.webapps/webapps/' + state['name'].replace(' ', '-') + '.permissions.json', 'r') as f:
+            if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + state['app_id'] + '.permissions.json'):
+                with open('.var/app/net.codelogistics.webapps/webapps/' + state['app_id'] + '.permissions.json', 'r') as f:
                     permissions = json.load(f)
             else:
                 permissions = {permission: False}
@@ -229,10 +237,10 @@ class WebAppWindow(Adw.ApplicationWindow):
                     request.allow()
 
                     permissions[permission] = True
-                    with open('.var/app/net.codelogistics.webapps/webapps/' + state['name'].replace(' ', '-') + '.permissions.json', 'w') as f:
+                    with open('.var/app/net.codelogistics.webapps/webapps/' + state['app_id'] + '.permissions.json', 'w') as f:
                         json.dump(permissions, f)
                 else:
-                    with open('.var/app/net.codelogistics.webapps/webapps/' + state['name'].replace(' ', '-') + '.permissions.json', 'w') as f:
+                    with open('.var/app/net.codelogistics.webapps/webapps/' + state['app_id'] + '.permissions.json', 'w') as f:
                         json.dump(permissions, f)
                     request.deny()
             dialog = Gtk.AlertDialog()

@@ -22,15 +22,17 @@ import sys
 import gi
 import json
 from pathlib import Path
+import uuid
+import shutil
 
 gi.require_version('Gtk', '4.0')
 gi.require_version("Adw", '1')
-gi.require_version('GIRepository', '2.0')
 gi.require_version('Xdp', '1.0')
 
-from gi.repository import Gtk, GModule, GObject, GIRepository, Gio, GLib, Adw
+from gi.repository import Gtk, Gio, Adw, Xdp
 from .window import WebAppsWindow
 from .web_app_window import WebAppWindow
+from .create_desktop_file import desktop_filer
 
 class WebappsApplication(Adw.Application):
     """The main application singleton class."""
@@ -46,6 +48,7 @@ class WebappsApplication(Adw.Application):
         self.create_action('close', self.close_stuff_by_escape, ['Escape'])
         self.create_action('about', self.on_about_action)
         self.args = args
+        #self.args += ['93a5b2cc-af19-4535-8cf4-4774d97d4b1f']
 
     def close_stuff_by_escape(self, action, data):
         if type(self.get_active_window()) == WebAppsWindow:
@@ -59,14 +62,64 @@ class WebappsApplication(Adw.Application):
         We raise the application's main window, creating it if
         necessary.
         """
+        if len(os.listdir('.var/app/net.codelogistics.webapps/webapps/')) and not os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + 'uuid_verified'):
+            self.update_old_webapps()
+
+        with open('.var/app/net.codelogistics.webapps/webapps/' + 'uuid_verified', 'w') as f:
+                f.write('')
+
         if len(self.args) > 1 and self.args[1] + '.json' in os.listdir('.var/app/net.codelogistics.webapps/webapps'):
             with open('.var/app/net.codelogistics.webapps/webapps/' + self.args[1] + '.json', 'r') as f:                
                 state = json.load(f)
             win = WebAppWindow(application=self, state = state)
             win.present()
+
         else:
             win = WebAppsWindow(application=self)
             win.present()
+
+    def update_old_webapps(self):
+        # update files in old format (name.json) to new format (uuid.json)
+        for i in os.listdir('.var/app/net.codelogistics.webapps/webapps/'):
+            if not i.endswith('json') or i.endswith('.permissions.json'):
+                continue
+            print('Updating {} to new format...', i)
+            app_id = str(uuid.uuid4())
+            i = i[:-5]
+            pre = '.var/app/net.codelogistics.webapps/webapps/'
+            shutil.move(pre + i + '.json', pre + app_id + '.json')
+            with open(pre + app_id + '.json', 'r') as f:
+                config = json.load(f)
+            
+            config['app_id']  = app_id
+
+            with open(pre + app_id + '.json', 'w') as f:
+                json.dump(config, f)
+
+            try:
+                shutil.move(pre + i + '.window', pre + app_id + '.window')
+            except Exception as e:
+                print(e)
+            try:
+                shutil.move(pre + i + '.cookies.txt', pre + app_id + '.cookies.txt')
+            except Exception as e:
+                print(e)
+            try:
+                shutil.move(pre + i + '.permissions.json', pre + app_id + '.permissions.json')
+            except Exception as e:
+                print(e)
+            try:
+                shutil.move('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + i + '.png', '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + app_id + '.png')
+            except Exception as e:
+                print(e)
+
+            portal = Xdp.Portal()
+            try:
+                portal.dynamic_launcher_uninstall("net.codelogistics.webapps." + i + ".desktop")
+            except Exception as e:
+                print(e)
+
+            desktop_filer(self, app_id, i)
 
     def on_about_action(self, widget, data):
         """Callback for the app.about action."""

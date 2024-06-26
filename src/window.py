@@ -21,6 +21,10 @@ import os
 import gi
 import json
 import requests
+import sys
+import uuid
+import shutil
+
 from urllib import parse
 
 gi.require_version("Adw", '1')
@@ -29,6 +33,7 @@ from gi.repository import Gtk, Gio, Adw, Xdp, Gdk, GLib
 from .create_web_app_dialog import CreateWebAppDialog
 from .edit_web_app_dialog import EditWebAppDialog
 from .url_dialog import URLDialog
+from .create_desktop_file import desktop_filer
 
 class WebAppsWindow(Adw.ApplicationWindow):
     __gtype_name__ = 'WebAppsWindow'
@@ -88,8 +93,6 @@ class WebAppsWindow(Adw.ApplicationWindow):
         self.apps_list.add_css_class("boxed-list")
         self.apps_list.set_selection_mode(Gtk.SelectionMode.NONE)
 
-        self.rows = self.add_rows(self.apps_list, application)
-
         rowbox.append(self.apps_list)
         self.clamp.set_child(rowbox)
 
@@ -99,7 +102,7 @@ class WebAppsWindow(Adw.ApplicationWindow):
         self.no_webapps_page.set_description(_("Press the Add Web App button to create one"))
         self.no_webapps_page.set_icon_name("web-browser-symbolic")
 
-        if len(os.listdir('.var/app/net.codelogistics.webapps/webapps/')) > 0:
+        if len(os.listdir('.var/app/net.codelogistics.webapps/webapps/')) > 1: # uuid_verified is always there.
             self.box.append(self.clamp)
 
         else:
@@ -109,6 +112,8 @@ class WebAppsWindow(Adw.ApplicationWindow):
 
         self.set_content(toolbar)
 
+        self.rows = self.add_rows(self.apps_list, application)
+
     def on_add_button_clicked(self, button, app):
         url_dialog = URLDialog(self, app)
         url_dialog.present(parent=self)
@@ -117,15 +122,15 @@ class WebAppsWindow(Adw.ApplicationWindow):
         urldialog.close()
         
         edit_app_dialog = CreateWebAppDialog(parent_window = self, state = state)
-        edit_app_dialog.present(self)
-
+        edit_app_dialog.present(self)            
+                
     def add_rows(self, apps_list, application = None):
         rows = {}
         for i in os.listdir('.var/app/net.codelogistics.webapps/webapps/'):
             if i.endswith('.json') and not i.endswith('.permissions.json'):
                 rows[i] = [Adw.ActionRow(), Gtk.Button(), Gtk.Button()]
 
-                with open('.var/app/net.codelogistics.webapps/webapps/' + i.replace(' ', '-'), 'r') as f:
+                with open('.var/app/net.codelogistics.webapps/webapps/' + i, 'r') as f:
                     try:
                         tmpstate = json.load(f)
                     except:
@@ -137,12 +142,12 @@ class WebAppsWindow(Adw.ApplicationWindow):
                 rows[i][1].add_css_class('destructive-action')
                 rows[i][1].set_icon_name('user-trash-symbolic')
                 rows[i][1].set_tooltip_text(_("Delete"))
-                rows[i][1].connect("clicked", self.delete_row, i)
+                rows[i][1].connect("clicked", self.delete_row, i[:-5])
 
                 rows[i][2].add_css_class('suggested-action')
                 rows[i][2].set_icon_name('document-edit-symbolic')
                 rows[i][2].set_tooltip_text(_("Edit"))
-                rows[i][2].connect("clicked", self.edit_row, tmpstate['name'].replace(' ', '-'))
+                rows[i][2].connect("clicked", self.edit_row, i[:-5])
                 
                 box1 = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
                 box1.append(Gtk.Label()) # We add the box instead of the button directly to give padding as otherwise the button looks stretched.
@@ -180,27 +185,22 @@ class WebAppsWindow(Adw.ApplicationWindow):
             self.box.append(self.no_webapps_page)
 
 
-    def delete_row(self, button, app):
-        app = app[:-5]
-        os.remove('.var/app/net.codelogistics.webapps/webapps/' + app + '.json')
-        if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + app + '.window'):
-            os.remove('.var/app/net.codelogistics.webapps/webapps/' + app + '.window')
-        if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + app + '.cookies.txt'):
-            os.remove('.var/app/net.codelogistics.webapps/webapps/' + app + '.cookies.txt')
-        if os.path.exists('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + app + '.png'):
-            os.remove('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + app + '.png')
-        if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + app + '.permissions.json'):
-            os.remove('.var/app/net.codelogistics.webapps/webapps/' + app + '.permissions.json')
-        portal = Xdp.Portal()
-        try:
-            portal.dynamic_launcher_uninstall("net.codelogistics.webapps." + app.replace(' ', '-') + ".desktop")
-        except Exception as e:
-            # Translators: Please transliterate portal instead of translating it
-            print(_('Portal error: '), e, file=sys.stderr)
+    def delete_row(self, button, app_id):
+        os.remove('.var/app/net.codelogistics.webapps/webapps/' + app_id + '.json')
+        if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + app_id + '.window'):
+            os.remove('.var/app/net.codelogistics.webapps/webapps/' + app_id + '.window')
+        if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + app_id + '.cookies.txt'):
+            os.remove('.var/app/net.codelogistics.webapps/webapps/' + app_id + '.cookies.txt')
+        if os.path.exists('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + app_id + '.png'):
+            os.remove('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + app_id + '.png')
+        if os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + app_id + '.permissions.json'):
+            os.remove('.var/app/net.codelogistics.webapps/webapps/' + app_id + '.permissions.json')
+        if os.path.exists(os.path.expanduser('~/.local/share/applications/net.codelogistics.webapps.' + app_id + '.desktop')):
+            os.remove(os.path.expanduser('~/.local/share/applications/net.codelogistics.webapps.' + app_id + '.desktop'))
         self.refresh_rows()
 
-    def edit_row(self, button, name):
-        with open('.var/app/net.codelogistics.webapps/webapps/' + name + '.json', 'r') as f:
+    def edit_row(self, button, app_id):
+        with open('.var/app/net.codelogistics.webapps/webapps/' + app_id + '.json', 'r') as f:
             tmpstate = json.load(f)
         edit_app_win = EditWebAppDialog(self, state = tmpstate, app = self.app)
         edit_app_win.present(parent=self)

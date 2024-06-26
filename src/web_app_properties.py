@@ -113,6 +113,13 @@ class WebAppProperties(Adw.Bin):
             self.incognito_row.set_active(state['incognito'])
         prefs_list.append(self.incognito_row)
 
+        self.user_agent_row = Adw.EntryRow()
+        self.user_agent_row.set_title(_("User Agent"))
+        self.user_agent_row.set_text("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15")
+        if state and 'user_agent' in state:
+            self.user_agent_row.set_text(state['user_agent'])
+        prefs_list.append(self.user_agent_row)
+
         prefs_clamp.set_child(prefs_list)
         box.append(prefs_clamp)
 

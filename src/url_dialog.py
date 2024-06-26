@@ -29,8 +29,6 @@ from gi.repository import Gtk, Adw, GLib
 from .parse_manifest import get_website_data_from_manifest
 from .parse_webpage import get_website_data_from_webpage
 
-from .edit_webapp_window import EditWebAppWindow
-
 class URLDialog(Adw.Dialog):
     def __init__(self, parent_window, app):
         super().__init__()
