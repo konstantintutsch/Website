@@ -64,7 +64,7 @@ class EditWebAppDialog(Adw.Dialog):
         self.enable_install(properties.name_row)
 
     def enable_install(self, entry):
-        if entry.get_text().strip() == "" or not entry.get_text().replace(" ","").isalnum():
+        if entry.get_text().strip() == "":
             self.edit_button.set_sensitive(False)
         else:
             self.edit_button.set_sensitive(True)
