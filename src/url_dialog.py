@@ -48,6 +48,7 @@ class URLDialog(Adw.Dialog):
         self.stack = Gtk.Stack()
 
         clamp = Adw.Clamp()
+        clamp.set_maximum_size(275)
         box = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
         box.set_valign(Gtk.Align.CENTER)
 
@@ -56,9 +57,8 @@ class URLDialog(Adw.Dialog):
         label.add_css_class("title-1")
         box.append(label)
         box.append(Gtk.Label())
-
+        
         self.url_entry = Gtk.Entry()
-        self.url_entry.set_hexpand(True)
         self.url_entry.set_placeholder_text(_("Enter URL"))
         self.url_entry.connect("changed", self.enable_add_button)
         box.append(self.url_entry)
@@ -67,6 +67,7 @@ class URLDialog(Adw.Dialog):
         self.add_button = Gtk.Button()
         self.add_button.set_sensitive(False)
         self.add_button.set_vexpand(False)
+        self.add_button.set_halign(Gtk.Align.CENTER)
         self.add_button.set_label(_("Add"))
         self.add_button.connect("clicked", self.add_webapp)
         self.add_button.set_tooltip_text(_("Add"))

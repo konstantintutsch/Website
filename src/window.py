@@ -123,8 +123,8 @@ class WebAppsWindow(Adw.ApplicationWindow):
     def show_edit_window(self, urldialog, state):
         urldialog.close()
         
-        edit_app_dialog = CreateWebAppDialog(parent_window = self, state = state)
-        edit_app_dialog.present(self)            
+        create_app_dialog = CreateWebAppDialog(parent_window = self, state = state)
+        create_app_dialog.present(self)            
                 
     def add_rows(self, apps_list, application = None):
         rows = {}
