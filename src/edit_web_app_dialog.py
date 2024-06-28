@@ -21,7 +21,7 @@ import sys
 import json
 import gi
 
-from gi.repository import Gtk, Gio, Adw, Xdp
+from gi.repository import Gtk, Gio, Adw
 
 from .web_app_properties import WebAppProperties
 from .create_desktop_file import desktop_filer
@@ -70,8 +70,6 @@ class EditWebAppDialog(Adw.Dialog):
             self.edit_button.set_sensitive(True)
 
     def install_webapp(self, button, widgets):
-        portal = Xdp.Portal()
-
         icon_path = '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + self.app_id + '.png'
         with open(icon_path, 'wb') as f:
             if widgets[2].get_custom_image():

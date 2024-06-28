@@ -20,7 +20,6 @@
 import os
 import gi
 import json
-import requests
 import sys
 import uuid
 import shutil

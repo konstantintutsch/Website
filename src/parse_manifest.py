@@ -17,102 +17,119 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-import requests
+import time
 import json
 from urllib import parse
 
+import gi
+gi.require_version('Soup', '3.0')
+from gi.repository import GLib, Soup
+
 from .manifest_html_parser import ManifestHTMLParser
 
-def get_manifest_json(url):
+def get_website_data_from_manifest(dialog, url, cancellable):
+    """ Get the favicon and name from the given url through the manifest, if any. """
+
+    def check_if_data():
+        if favicon or time.time() >= end_time or giveup:
+            dialog.gotten_manifest_data(name, url, favicon, cancellable)
+            return False
+        return True
+
     if not url.startswith('http'):
         url = 'https://' + url
     if not url.endswith('/'):
         url += '/'
 
+    name = None
+    favicon = None
+    giveup = False
+
     try:
-        request = requests.get(url, timeout=5)
-        html = request.text
-    except:
-        return None
+        def got_message(session, result, error = None):
+            nonlocal name
+            nonlocal favicon
+            nonlocal giveup
+            html = str(session.send_and_read_finish(result).get_data())
+            parser = ManifestHTMLParser()
+            parser.feed(html)
+            manifest_url = parser.manifest_url
 
-    parser = ManifestHTMLParser()
-    parser.feed(html)
-    manifest_url = parser.manifest_url
+            if manifest_url:
+                if not (manifest_url.startswith('http') or manifest_url.startswith('data:application/json')):
+                    # this is a relative path
+                    domain_name = parse.urlparse(url).netloc
+                    manifest_prefix = manifest_url.rpartition('/')[0] + '/' if manifest_url.rpartition('/')[0] != '' else ''
+                    # sometimes manifest urls are in form of images/manifest.json etc
+                    manifest_url = 'https://' + domain_name + '/' + manifest_url.lstrip('/')
+                else:
+                    manifest_prefix = ''
+
+                try:
+                    def got_manifest_message(session, result, error = None):
+                        nonlocal name
+                        nonlocal favicon
+                        nonlocal giveup
+                        data = session.send_and_read_finish(result).get_data().decode('utf-8')
+                        try:
+                            manifest = json.loads(data)
+                        except Exception as e:
+                            giveup = True
+                            return
+
+                        if 'name' in manifest:
+                            name = manifest['name']
+
+                        if 'icons' in manifest:
+                            max_size = [0, '']
+                            for i in manifest['icons']:
+                                if 'purpose' in i and i['purpose'] == 'monochrome':
+                                    continue
+                                size = int(i['sizes'].split('x')[0])
+                                if size > max_size[0] and size <= 512:
+                                    max_size = [size, i['src']]
+                                if 'type' in i and (i['type'] == 'image/svg' or i['type'] == 'image/svg+xml'):
+                                    max_size = [512, i['src']]
+                            
+                            if max_size[1] == '': # We only want icons upto 512x512 in size otherwise the dynamic launcher breaks.
+                                giveup = True
+                                return None
+
+                            if not max_size[1].startswith('http'):
+                                max_size[1] = 'https://' + domain_name + '/' + manifest_prefix + max_size[1].lstrip('/')
+                            
+                            try:
+                                def got_favicon_message(session, result, error = None):
+                                    nonlocal favicon
+                                    icon = session.send_and_read_finish(result).get_data()
+                                    with open('/tmp/webapps_icon.png', 'wb') as f:
+                                        f.write(icon)
+
+                                    favicon = '/tmp/webapps_icon.png'
+                                
+                                favicon_message = Soup.Message.new('GET', max_size[1])
+                                session.send_and_read_async(favicon_message, 1, cancellable, got_favicon_message)
+                            except:
+                                giveup = True
+                                return None
+
+                        else:
+                            giveup = True
+
+                    manifest_message = Soup.Message.new('GET', manifest_url)
+                    session.send_and_read_async(manifest_message, 1, cancellable, got_manifest_message)
+                except:
+                    giveup = True
+            
+            else:
+                giveup = True
     
-    if manifest_url:
-        if not (manifest_url.startswith('http') or manifest_url.startswith('data:application/json')):
-            # this is a relative path
-            domain_name = parse.urlparse(url).netloc
-            manifest_prefix = manifest_url.rpartition('/')[0] + '/' if manifest_url.rpartition('/')[0] != '' else ''
-            # sometimes manifest urls are in form of images/manifest.json etc
-            manifest_url = 'https://' + domain_name + '/' + manifest_url.lstrip('/')
-        else:
-            manifest_prefix = ''
+        session = Soup.Session()
+        session.set_timeout(5)
+        message = Soup.Message.new('GET', url)
+        session.send_and_read_async(message, 1, cancellable, got_message)
+    except Exception as e:
+        print(_("Error accessing URL:"), e)
 
-        try:
-            manifest = requests.get(manifest_url, timeout=5).text # This is a json file
-        except:
-            manifest = ""
-
-        if manifest != '':
-            try:
-                manifest = json.loads(manifest)
-            except:
-                return None
-            return [manifest, manifest_prefix]
-        else:
-            return None
-    
-    else:
-        return None
-
-
-def get_favicon_from_manifest(manifest, manifest_prefix, domain_name):
-    if 'icons' in manifest:
-        max_size = [0, '']
-        for i in manifest['icons']:
-            if 'purpose' in i and i['purpose'] == 'monochrome':
-                continue
-            size = int(i['sizes'].split('x')[0])
-            if size > max_size[0] and size <= 512:
-                max_size = [size, i['src']]
-            if 'type' in i and (i['type'] == 'image/svg' or i['type'] == 'image/svg+xml'):
-                max_size = [512, i['src']]
-        
-        if max_size[1] == '': # We only want icons upto 512x512 in size otherwise the dynamic launcher breaks.
-            return None
-
-        if not max_size[1].startswith('http'):
-            max_size[1] = 'https://' + domain_name + '/' + manifest_prefix + max_size[1].lstrip('/')
-        
-        try:
-            icon = requests.get(max_size[1], timeout=2).content
-        except:
-            return None
-        
-        if icon:
-            with open('/tmp/webapps_icon.png', 'wb') as f:
-                f.write(icon)
-
-            return '/tmp/webapps_icon.png'
-
-        else:
-            return None
-
-    else:
-        return None
-
-def get_website_data_from_manifest(url):
-    """ Get the favicon and name from the given url. If manifest is not found, return None """
-    manifest_data = get_manifest_json(url)
-    if manifest_data is None:
-        return [None, None]
-    
-    manifest = manifest_data[0]
-    manifest_prefix = manifest_data[1]
-    domain_name = parse.urlparse(url).netloc
-
-    favicon = get_favicon_from_manifest(manifest, manifest_prefix, domain_name)
-    name = manifest['name']
-
-    return [favicon, name]
+    end_time = time.time() + 10
+    GLib.timeout_add(200, check_if_data)

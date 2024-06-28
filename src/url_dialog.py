@@ -19,12 +19,11 @@
 
 import gi
 import json
-import requests
 import shutil
 
 gi.require_version("Adw", '1')
 
-from gi.repository import Gtk, Adw, GLib
+from gi.repository import Gtk, Adw, GLib, Gio
 
 from .parse_manifest import get_website_data_from_manifest
 from .parse_webpage import get_website_data_from_webpage
@@ -82,17 +81,26 @@ class URLDialog(Adw.Dialog):
         self.stack.add_named(clamp, "clamp")
 
         loading_box = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
+        loading_box.set_vexpand(True)
+        loading_box.set_valign(Gtk.Align.CENTER)
 
-        loading_label = Gtk.Label()
-        loading_label.set_markup(_("Loading..."))
-        loading_label.add_css_class("title-1")
-        loading_box.append(loading_label)
+        loading_box.append(Gtk.Label(label = " "))
+
+        spinner = Gtk.Spinner()
+        spinner.set_vexpand(True)
+        spinner.set_valign(Gtk.Align.CENTER)
+        spinner.start()
+        loading_box.append(spinner)
 
         self.stack.add_named(loading_box, "loading")
         toolbar.set_content(self.stack)
 
         toolbar.add_top_bar(headerbar)
         self.set_child(toolbar)
+
+        self.cancellable = None
+        
+        self.connect("closed", self.cancelled)
 
     def enable_add_button(self, entry):
         if entry.get_text().strip() != "" and entry.get_text().find(" ") == -1 and entry.get_text().find(".") != -1 and len(entry.get_text().rpartition(".")[-1]) >= 2:
@@ -110,28 +118,31 @@ class URLDialog(Adw.Dialog):
 
     def get_data(self):
         url = self.url_entry.get_text()
-        manifest_data = get_website_data_from_manifest(url)
-        if manifest_data and manifest_data[0] is not None and manifest_data[1] is not None:
-            # manifest found and name and favicon found
-            name = manifest_data[1]
-            favicon = manifest_data[0]
+        self.cancellable = Gio.Cancellable()
+        manifest_data = get_website_data_from_manifest(self, url, self.cancellable)
+        # this is an async function, it will call gotten_manifest_data()
 
-        else:
-            # manifest not found
-            website_data = get_website_data_from_webpage(url)
-
-            if website_data[1] is not None:
-                name = website_data[1]
+    def gotten_manifest_data(self, name, url, favicon, cancellable):
+        if not cancellable.is_cancelled():
+            if name == None or favicon == None:
+                # manifest not found
+                website_data = get_website_data_from_webpage(self, url, cancellable)
+                # this is an async function, it will call gotten_website_data()
             else:
+                state = {'name': name, 'url': url, 'icon': favicon}
+                self.parent_window.show_edit_window(self, state)
+
+    def gotten_website_data(self, name, url, favicon):
+        if not cancellable.is_cancelled():
+            if name == None:
                 # title not found by html parser
                 name = _("New Web App")
-            
-            if website_data[0] is not None:
-                favicon = website_data[0]
-            else:
+            if favicon == None:
                 favicon = '/tmp/tmp_webapps_icon.png'
 
-        # By now, we are sure that name and favicon are there: whether actual or default
-        state = {'name': name, 'url': url, 'icon': favicon}
-        self.parent_window.show_edit_window(self, state)
-        
+            state = {'name': name, 'url': url, 'icon': favicon}
+            self.parent_window.show_edit_window(self, state)
+
+    def cancelled(self, dialog):
+        if self.cancellable:
+            self.cancellable.cancel()
