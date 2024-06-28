@@ -21,7 +21,8 @@
     <p>
       Install websites as desktop apps, so that they appear in their own windows separate from any browsers installed.
       This is similar to the &quot;Install as App&quot; feature found in popular web browsers.
-
+    </p>
+    <p>
       It uses an internal browser isolated from the system browser, which can optionally be used in incognito mode.
       Links to websites other than the one installed open in a new browser window.
     </p>
@@ -46,6 +47,20 @@
   </screenshots>
 
   <releases>
+    <release version="0.5.0" date="2024-06-28">
+      <description translate="no">
+        <ul>
+          <li>The "Create Web App" and "Edit Web App" dialogs have been revamped with a fresh UI and better support for fetching favicons.</li>
+          <li>Custom user agents can now be specified for web apps.</li>
+          <li>App names can now be in any language, include any special characters and be of any length.</li>
+          <li>Separate permission is no longer required to install a web app after clicking the Install button.</li>
+          <li>Improved support for desktop environments other than GNOME.</li>
+          <li>Improvements to PWA manifest support.</li>
+          <li>Minor UI improvements in the rest of the app.</li>
+          <li>Added Italian translations (thanks to Albano Battistella)</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.4.8" date="2024-06-21">
       <description translate="no">
         <p>Fixed websites with no PWA icons under 512x512. Added Hindi, Russian and Ukrainian translations.</p>
