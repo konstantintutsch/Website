@@ -41,6 +41,7 @@ class WebAppProperties(Adw.Bin):
 
         select_icon_button = Gtk.Button()
         select_icon_button.set_hexpand(False)
+        select_icon_button.set_halign(Gtk.Align.CENTER)
         select_icon_button.add_css_class('flat')
         button_content = Adw.ButtonContent()
         button_content.set_label(_("Browse Icon"))

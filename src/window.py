@@ -70,8 +70,6 @@ class WebAppsWindow(Adw.ApplicationWindow):
         application.create_action('report', lambda *_: self.on_report_broken(app=application))
         report_button = Gio.MenuItem.new(_("Report Broken Website"), "app.report")
         menu_button_menu.append_item(report_button)
-        quit_item = Gio.MenuItem.new(_("Quit"), "app.quit")
-        menu_button_menu.append_item(quit_item)
         headerbar.pack_end(menu_button)
 
         toolbar.add_top_bar(headerbar)
@@ -90,12 +88,15 @@ class WebAppsWindow(Adw.ApplicationWindow):
 
         rowbox.append(Gtk.Label())
 
+        self.scrolled = Gtk.ScrolledWindow()
+        self.scrolled.set_vexpand(True)
+        self.scrolled.set_valign(Gtk.Align.FILL)
         self.apps_list = Gtk.ListBox()
         self.apps_list.add_css_class("boxed-list")
         self.apps_list.set_selection_mode(Gtk.SelectionMode.NONE)
-
         rowbox.append(self.apps_list)
         self.clamp.set_child(rowbox)
+        self.scrolled.set_child(self.clamp)
 
         self.no_webapps_page = Adw.StatusPage()
         self.no_webapps_page.set_vexpand(True)
@@ -104,7 +105,7 @@ class WebAppsWindow(Adw.ApplicationWindow):
         self.no_webapps_page.set_icon_name("web-browser-symbolic")
 
         if len(os.listdir('.var/app/net.codelogistics.webapps/webapps/')) > 1: # uuid_verified is always there.
-            self.box.append(self.clamp)
+            self.box.append(self.scrolled)
 
         else:
             self.box.append(self.no_webapps_page)
@@ -162,7 +163,7 @@ class WebAppsWindow(Adw.ApplicationWindow):
 
                 box = Gtk.Box(orientation = Gtk.Orientation.HORIZONTAL)
                 box.append(box2)
-                box.append(Gtk.Label(label = ' '))
+                box.append(Gtk.Label(label = '   '))
                 box.append(box1)
 
                 rows[i][0].add_suffix(box)
@@ -173,7 +174,7 @@ class WebAppsWindow(Adw.ApplicationWindow):
     def refresh_rows(self):
         try:
             self.box.remove(self.no_webapps_page)
-            self.box.append(self.clamp)
+            self.box.append(self.scrolled)
 
         except:
             pass
@@ -182,7 +183,7 @@ class WebAppsWindow(Adw.ApplicationWindow):
             self.apps_list.remove(self.rows[i][0])
         self.rows = self.add_rows(self.apps_list)
         if self.rows == {}:
-            self.box.remove(self.clamp)
+            self.box.remove(self.scrolled)
             self.box.append(self.no_webapps_page)
 
 

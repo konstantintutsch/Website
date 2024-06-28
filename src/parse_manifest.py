@@ -76,7 +76,7 @@ def get_favicon_from_manifest(manifest, manifest_prefix, domain_name):
             size = int(i['sizes'].split('x')[0])
             if size > max_size[0] and size <= 512:
                 max_size = [size, i['src']]
-            if i['type'] == 'image/svg' or i['type'] == 'image/svg+xml':
+            if 'type' in i and (i['type'] == 'image/svg' or i['type'] == 'image/svg+xml'):
                 max_size = [512, i['src']]
         
         if max_size[1] == '': # We only want icons upto 512x512 in size otherwise the dynamic launcher breaks.
