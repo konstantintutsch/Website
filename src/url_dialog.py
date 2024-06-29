@@ -99,6 +99,7 @@ class URLDialog(Adw.Dialog):
         self.set_child(toolbar)
 
         self.cancellable = None
+        self.too_late_to_cancel = False
         
         self.connect("closed", self.cancelled)
 
@@ -130,9 +131,9 @@ class URLDialog(Adw.Dialog):
                 # this is an async function, it will call gotten_website_data()
             else:
                 state = {'name': name, 'url': url, 'icon': favicon}
-                self.parent_window.show_edit_window(self, state)
+                self.parent_window.show_create_window(self, state)
 
-    def gotten_website_data(self, name, url, favicon):
+    def gotten_website_data(self, name, url, favicon, cancellable):
         if not cancellable.is_cancelled():
             if name == None:
                 # title not found by html parser
@@ -141,8 +142,8 @@ class URLDialog(Adw.Dialog):
                 favicon = '/tmp/tmp_webapps_icon.png'
 
             state = {'name': name, 'url': url, 'icon': favicon}
-            self.parent_window.show_edit_window(self, state)
+            self.parent_window.show_create_window(self, state)
 
     def cancelled(self, dialog):
-        if self.cancellable:
+        if self.cancellable and not self.too_late_to_cancel:
             self.cancellable.cancel()

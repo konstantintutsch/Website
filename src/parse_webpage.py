@@ -25,7 +25,7 @@ from urllib import parse
 
 import gi
 gi.require_version('Soup', '3.0')
-from gi.repository import GLib, Soup
+from gi.repository import GLib, Soup, Gdk
 
 from .manifest_html_parser import ManifestHTMLParser
 
@@ -33,7 +33,7 @@ def get_website_data_from_webpage(dialog, url, cancellable):
     """ Get the favicon and name from the given url by data gathered by the webview. """
     def check_if_data():
         if favicon or time.time() >= end_time or giveup:
-            dialog.gotten_website_data(name, url, favicon)
+            dialog.gotten_website_data(name, url, favicon, cancellable)
             return False
         return True
 
@@ -51,35 +51,39 @@ def get_website_data_from_webpage(dialog, url, cancellable):
             nonlocal name
             nonlocal favicon
             nonlocal giveup
+            nonlocal cancellable
             html = session.send_and_read_finish(result).get_data().decode('utf-8')
             parser = ManifestHTMLParser()
             parser.feed(html)
 
             name = parser.title
-            favicon = parser.favicon
+            favicon_url = parser.favicon
 
-            if favicon:
-                if not favicon.startswith("http"):
-                    favicon = favicon.strip('/')
-                    favicon = url + favicon
+            if favicon_url:
+                if not favicon_url.startswith("http"):
+                    favicon_url = favicon_url.strip('/')
+                    favicon_url = url + favicon_url
 
                 try:
                     def got_favicon_message(session, result, error = None):
                         nonlocal favicon
-                        icon = session.send_and_read_finish(result).get_data()
-
+                        nonlocal cancellable
+                        icon = session.send_and_read_finish(result)
+                        try:
+                            # if this fails then the icon is in .ico or any other format which will cause trouble later.
+                            texture = Gdk.Texture.new_from_bytes(icon)
+                        except Exception as e:
+                            return
                         with open('/tmp/webapps_icon.png', 'wb') as f:
-                            f.write(icon)
+                            f.write(icon.get_data())
 
                         favicon = '/tmp/webapps_icon.png'
-
-                    favicon_message = Soup.Message.new('GET', favicon)
+                    favicon_message = Soup.Message.new('GET', favicon_url)
                     session.send_and_read_async(favicon_message, 1, cancellable, got_favicon_message)
-
                 except:
-                    pass
+                    print(_("Error accessing URL:"), e)
             
-            else:
+            if not favicon:
                 # If code reached here it means favicon still isn't there
 
                 domain_name = parse.urlparse(url).netloc
@@ -104,7 +108,7 @@ def get_website_data_from_webpage(dialog, url, cancellable):
                     session.send_and_read_async(message, 1, cancellable, got_message)
 
                 except Exception as e:
-                    pass
+                    print(_("Error accessing URL:"), e)
                 
 
         session = Soup.Session()

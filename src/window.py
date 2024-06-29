@@ -119,11 +119,12 @@ class WebAppsWindow(Adw.ApplicationWindow):
         url_dialog = URLDialog(self, app)
         url_dialog.present(parent=self)
 
-    def show_edit_window(self, urldialog, state):
-        urldialog.close()
-        
+    def show_create_window(self, urldialog, state):
         create_app_dialog = CreateWebAppDialog(parent_window = self, state = state)
-        create_app_dialog.present(self)            
+        create_app_dialog.present(self)
+
+        urldialog.too_late_to_cancel = True
+        urldialog.close()
                 
     def add_rows(self, apps_list, application = None):
         rows = {}

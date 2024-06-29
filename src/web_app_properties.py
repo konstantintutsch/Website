@@ -131,8 +131,8 @@ class WebAppProperties(Adw.Bin):
             texture = None
             try:
                 texture = Gdk.Texture.new_from_file(Gio.File.new_for_path(state['icon']))
-            except:
-                pass
+            except Exception as e:
+                print(e)
             if texture:
                 self.avatar.set_custom_image(texture)
 
