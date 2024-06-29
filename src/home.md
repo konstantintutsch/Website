@@ -27,7 +27,7 @@ Thought of feedback? Got questions? Or just want to chat? Tell me!
 
 #### Email
 
-Email is the preferred way to get in touch with me. <sup>*[Plain text encouraged](https://useplaintext.email/)*</sup>
+Email is the preferred way to get in touch with me. <sup>*[plain text encouraged](https://useplaintext.email/)*</sup>
 
 {% include "email.md" %}
 
