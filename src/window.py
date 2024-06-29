@@ -41,17 +41,20 @@ class WebAppsWindow(Adw.ApplicationWindow):
         super().__init__(application = application)
         self.app = application
         self.set_default_size(800,600)
-        self.set_size_request(296,360)
+        self.set_size_request(360,296)
         self.set_default_icon_name("net.codelogistics.webapps")
+        self.set_title(_('Web Apps'))
 
         application.create_action('close_mainwindow', lambda *_: self.close(), ['<primary>w'])
 
         toolbar = Adw.ToolbarView()
+        toolbar.set_halign(Gtk.Align.FILL)
+        toolbar.set_hexpand(True)
+
         headerbar = Adw.HeaderBar()
 
         window_title = Adw.WindowTitle()
         window_title.set_title(_("Web Apps"))
-        window_title.set_subtitle(_("Install websites as desktop applications"))
         headerbar.set_title_widget(window_title)
 
         add_button = Gtk.Button()
@@ -61,6 +64,7 @@ class WebAppsWindow(Adw.ApplicationWindow):
         headerbar.pack_start(add_button)
 
         menu_button = Gtk.MenuButton()
+        menu_button.set_tooltip_text(_("Main Menu"))
         menu_button.set_icon_name("open-menu-symbolic")
         menu_button_menu = Gio.Menu()
         menu_button.set_menu_model(menu_button_menu)
@@ -73,7 +77,17 @@ class WebAppsWindow(Adw.ApplicationWindow):
 
         toolbar.add_top_bar(headerbar)
 
-        self.box = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
+        self.box = Gtk.Box()
+        self.box.set_hexpand(True)
+        self.box.set_halign(Gtk.Align.FILL)
+
+        self.box.append(Gtk.Label(label = "     "))
+
+        self.scrolled = Gtk.ScrolledWindow()
+        self.scrolled.set_vexpand(True)
+        self.scrolled.set_valign(Gtk.Align.FILL)
+        self.scrolled.set_halign(Gtk.Align.FILL)
+        self.scrolled.set_hexpand(True)
 
         self.clamp = Adw.Clamp()
 
@@ -87,9 +101,6 @@ class WebAppsWindow(Adw.ApplicationWindow):
 
         rowbox.append(Gtk.Label())
 
-        self.scrolled = Gtk.ScrolledWindow()
-        self.scrolled.set_vexpand(True)
-        self.scrolled.set_valign(Gtk.Align.FILL)
         self.apps_list = Gtk.ListBox()
         self.apps_list.add_css_class("boxed-list")
         self.apps_list.set_selection_mode(Gtk.SelectionMode.NONE)
@@ -108,6 +119,8 @@ class WebAppsWindow(Adw.ApplicationWindow):
 
         else:
             self.box.append(self.no_webapps_page)
+
+        self.box.append(Gtk.Label(label = "     "))
 
         toolbar.set_content(self.box)
 
