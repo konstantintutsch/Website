@@ -44,4 +44,9 @@ module.exports = {
         const date = new Date(value);
         return date.toISOString();
     },
+
+    age: (value) => {
+        const date = new Date(value);
+        return (Date.now() - date.getTime());
+    },
 }

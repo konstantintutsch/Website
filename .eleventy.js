@@ -9,6 +9,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter("stringDate", function(value) { return dateConversion.string(value); });
     eleventyConfig.addFilter("rfcDate", function(value) { return dateConversion.rfc822(value); });
     eleventyConfig.addFilter("isoDate", function(value) { return dateConversion.iso8601(value); });
+    eleventyConfig.addFilter("age", function(value) { return dateConversion.age(value); });
     eleventyConfig.addFilter("thumbnail", async function(value) { return await stringFormatter.thumbnail(value); })
 
     eleventyConfig.addShortcode("transformFavicon", async function(input, output) { return await generalTools.transformFavicon(input, output); });
