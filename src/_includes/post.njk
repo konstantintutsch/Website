@@ -17,7 +17,7 @@ layout: default
     {% set age = date | age %}
     {% set expire = 1000*60*60*24*180 %}
     {% if age >= expire and "self-hosting" in tags %}
-    <p>This self-hosting post is older than {{ expire/1000/60/60/24/30 }} months. It may contain <b>outdated information</b> and may <b>not be an adequate guide anymore</b>.</p>
+    <p>This post is older than {{ expire/1000/60/60/24/30 }} months. It may contain <b>outdated information</b> and may <b>not be an adequate guide anymore</b>.</p>
 
     <hr>
     {% endif %}
