@@ -133,4 +133,7 @@ hr {
     .preview {
         margin-bottom: 0rem;
     }
+    hr {
+        margin: 1.3rem 0 1.3rem 0;
+    }
 }
