@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Change MariaDB's Default Data Directory
-description: How to change the default data directory of MariaDB (MySQL DB Server) to a new path. With SELinux permissions.
+description: Change the data directory of MariaDB (MySQL database server). Including SELinux permissions.
 tags: ["post", "self-hosting", "linux"]
 date: 2024-07-01T19:36:02+02:00
 index: true
