@@ -9,6 +9,8 @@ index: true
 
 This post is supposed to be a small guide to changing PostgreSQL's data directory whether your system already contains a PostgreSQL cluster or not, runs SystemD or SELinux is enforced.
 
+*I've written a [similar post about MariaDB](/blog/change-mariadb-default-data-directory). Feel free to check it out.*
+
 ### Defining the new path
 
 The PostgreSQL server loads it's data path from an enviroment variable when starting.
