@@ -2,7 +2,7 @@
 
 This repository contains Konstantin Tutsch's personal website's source code. The site is written in CSS, Nunjucks and Markdown utilizing HTML. It can be compiled to only HTML with 11ty *(Eleventy)*.
 
-[konstantintutsch.com](https://konstantintutsch.com/)
+[konstantintutsch.com](https://konstantintutsch.com/?utm_source=github&utm_medium=website&utm_campaign=readme&utm_content=text_utmhidden)
 
 ## Licensing
 
