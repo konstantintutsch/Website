@@ -31,8 +31,11 @@ Redirect 301 /{{ account }} {{ metadata.url }}
 Redirect 301 /mastodon {{ social.fediverse.url }}
 Redirect 301 /openstreetmap {{ social.osm.url }}
 
+# Favicons
+Redirect 301 /favicon.svg /assets/images/favicon.svg
+Redirect 301 /apple-touch-icon.png /assets/images/favicon-180.png
+
 # Moved files
-Redirect 301 /favicon.ico {{ site.assets.images }}favicon.ico
 Redirect 301 /posts /blog
 Redirect 301 /feed.rss /feed.xml
 Redirect 301 /photos /blog/tags/photography

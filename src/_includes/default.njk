@@ -29,11 +29,11 @@
         {% set faviconPath = [site.assets.images, "favicon.svg"] | join %}
         {% transformFavicon faviconPath, site.assets.images %}
         {% set faviconBase = faviconPath | replace(".svg", "") %}
+        <link rel="icon" href="{{ faviconPath }}" type="image/svg+xml" sizes="any">
         <link rel="icon" href="{{ faviconBase }}-48.png" type="image/png" sizes="48x48">
         <link rel="icon" href="{{ faviconBase }}-96.png" type="image/png" sizes="96x96">
         <link rel="icon" href="{{ faviconBase }}-144.png" type="image/png" sizes="144x144">
         <link rel="icon" href="{{ faviconBase }}-192.png" type="image/png" sizes="192x192">
-        <link rel="icon" href="{{ faviconPath }}" type="image/svg+xml" sizes="any">
         <link rel="apple-touch-icon" href="{{ faviconBase }}-180.png" type="image/png" sizes="180x180">
         <!-- RSS -->
         <link rel="alternate" type="application/rss+xml" href="{{ site.url }}/feed.xml">
