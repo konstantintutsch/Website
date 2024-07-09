@@ -62,6 +62,8 @@ class WebappsApplication(Adw.Application):
         We raise the application's main window, creating it if
         necessary.
         """
+        self.add_try_exec() # Add "TryExec=" to desktop files created before 0.5.2
+
         if len(os.listdir('.var/app/net.codelogistics.webapps/webapps/')) and not os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + 'uuid_verified'):
             self.update_old_webapps()
 
@@ -121,6 +123,17 @@ class WebappsApplication(Adw.Application):
 
             desktop_filer(self, app_id, i)
 
+    def add_try_exec(self):
+        for i in os.listdir(os.path.expanduser("~/.local/share/applications")):
+            if i.startswith("net.codelogistics.webapps."):
+                with open(os.path.expanduser("~/.local/share/applications/") + i, "r") as f:
+                    file = f.read()
+                if file.find("TryExec=") != -1:
+                    continue
+                else:
+                    with open(os.path.expanduser("~/.local/share/applications/") + i, "a") as f:
+                        f.write("\nTryExec=/var/lib/flatpak/exports/bin/net.codelogistics.webapps\n")
+
     def on_about_action(self, widget, data):
         """Callback for the app.about action."""
         about = Adw.AboutDialog()
@@ -128,7 +141,7 @@ class WebappsApplication(Adw.Application):
         about.set_comments(_("Install websites as apps"))
         about.set_developer_name("Satvik Patwardhan")
         about.set_application_icon('net.codelogistics.webapps')
-        about.set_version('0.5.1')
+        about.set_version('0.5.2')
         about.set_license_type(Gtk.License.GPL_3_0)
         about.set_developers(['Satvik Patwardhan'])
         about.set_copyright('© 2024 Satvik Patwardhan')
