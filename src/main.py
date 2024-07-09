@@ -48,7 +48,6 @@ class WebappsApplication(Adw.Application):
         self.create_action('close', self.close_stuff_by_escape, ['Escape'])
         self.create_action('about', self.on_about_action)
         self.args = args
-        #self.args += ['93a5b2cc-af19-4535-8cf4-4774d97d4b1f']
 
     def close_stuff_by_escape(self, action, data):
         if type(self.get_active_window()) == WebAppsWindow:

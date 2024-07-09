@@ -98,6 +98,7 @@ class WebAppWindow(Adw.ApplicationWindow):
         self.back_button.add_css_class("flat")
         self.back_button.set_sensitive(False)
         self.back_button.connect("clicked", lambda button: self.webview.go_back())
+        application.create_action('back', lambda *_: self.webview.go_back(), ['<alt>Left', 'Back'])
 
         self.forward_button = Gtk.Button()
         # Translators: this is for going back in the browser
@@ -106,6 +107,7 @@ class WebAppWindow(Adw.ApplicationWindow):
         self.forward_button.add_css_class("flat")
         self.forward_button.set_sensitive(False)
         self.forward_button.connect("clicked", lambda button: self.webview.go_forward())
+        application.create_action('forwatd', lambda *_: self.webview.go_forward(), ['<alt>Right', 'Forward'])
 
         self.reload_button = Gtk.Button()
         self.reload_button.set_tooltip_text(_("Reload"))
