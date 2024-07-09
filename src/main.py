@@ -62,7 +62,7 @@ class WebappsApplication(Adw.Application):
         We raise the application's main window, creating it if
         necessary.
         """
-        self.add_try_exec() # Add "TryExec=" to desktop files created before 0.5.2
+        self.update_desktop_files() # Also adds "TryExec=" to desktop files created before 0.5.2
 
         if len(os.listdir('.var/app/net.codelogistics.webapps/webapps/')) and not os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + 'uuid_verified'):
             self.update_old_webapps()
@@ -82,13 +82,13 @@ class WebappsApplication(Adw.Application):
 
     def update_old_webapps(self):
         # update files in old format (name.json) to new format (uuid.json)
-        for i in os.listdir('.var/app/net.codelogistics.webapps/webapps/'):
+        for i in os.listdir(os.path.expanduser('~/.var/app/net.codelogistics.webapps/webapps/')):
             if not i.endswith('json') or i.endswith('.permissions.json'):
                 continue
             print('Updating {} to new format...', i)
             app_id = str(uuid.uuid4())
             i = i[:-5]
-            pre = '.var/app/net.codelogistics.webapps/webapps/'
+            pre = os.path.expanduser('~/.var/app/net.codelogistics.webapps/webapps/')
             shutil.move(pre + i + '.json', pre + app_id + '.json')
             with open(pre + app_id + '.json', 'r') as f:
                 config = json.load(f)
@@ -111,7 +111,7 @@ class WebappsApplication(Adw.Application):
             except Exception as e:
                 print(e)
             try:
-                shutil.move('.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + i + '.png', '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + app_id + '.png')
+                shutil.move(os.path.expanduser('~/.var/app/net.codelogistics.webapps/webapps/icons/192x192/net.codelogistics.webapps.') + i + '.png', os.path.expanduser('~/.var/app/net.codelogistics.webapps/webapps/icons/192x192/net.codelogistics.webapps.') + app_id + '.png')
             except Exception as e:
                 print(e)
 
@@ -123,9 +123,14 @@ class WebappsApplication(Adw.Application):
 
             desktop_filer(self, app_id, i)
 
-    def add_try_exec(self):
+    def update_desktop_files(self):
         for i in os.listdir(os.path.expanduser("~/.local/share/applications")):
             if i.startswith("net.codelogistics.webapps."):
+                if i[26:-8] + ".json" not in os.listdir(os.path.expanduser('~/.var/app/net.codelogistics.webapps/webapps/')):
+                    try:
+                        os.remove(os.path.expanduser("~/.local/share/applications/") + i)
+                    except:
+                        pass
                 with open(os.path.expanduser("~/.local/share/applications/") + i, "r") as f:
                     file = f.read()
                 if file.find("TryExec=") != -1:
