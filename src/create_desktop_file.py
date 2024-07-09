@@ -42,7 +42,7 @@ def write_desktop_file(app_id, name, icon_path):
     global app
     app = app_id
     
-    desktop_file = '[Desktop Entry]\nName={}\nIcon={}\nExec = flatpak run net.codelogistics.webapps {}\nTerminal=false\nType=Application\nCategories=Network;'.format(name, icon_path, app_id)
+    desktop_file = '[Desktop Entry]\nName={}\nIcon={}\nExec = flatpak run net.codelogistics.webapps {}\nTerminal=false\nType=Application\nCategories=Network;\nTryExec=/var/lib/flatpak/exports/bin/net.codelogistics.webapps'.format(name, icon_path, app_id)
 
     with open(os.path.expanduser('~/.local/share/applications/net.codelogistics.webapps.{}.desktop'.format(app_id)), 'w') as f:
         f.write(desktop_file)
