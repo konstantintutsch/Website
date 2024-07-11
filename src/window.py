@@ -109,6 +109,7 @@ class WebAppsWindow(Adw.ApplicationWindow):
         self.scrolled.set_child(self.clamp)
 
         self.no_webapps_page = Adw.StatusPage()
+        self.no_webapps_page.set_hexpand(True)
         self.no_webapps_page.set_vexpand(True)
         self.no_webapps_page.set_title(_("No Web Apps installed"))
         self.no_webapps_page.set_description(_("Press the Add Web App button to create one"))

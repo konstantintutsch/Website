@@ -21,7 +21,7 @@ import json
 import gi
 import uuid
 
-from gi.repository import Gtk, Gio, Adw
+from gi.repository import Gtk, Gio, Adw, Gdk, GdkPixbuf
 
 from .web_app_properties import WebAppProperties
 from .create_desktop_file import desktop_filer
@@ -72,11 +72,8 @@ class CreateWebAppDialog(Adw.Dialog):
         app_id = str(uuid.uuid4())
 
         icon_path = '.var/app/net.codelogistics.webapps/icons/192x192/net.codelogistics.webapps.' + app_id + '.png'
-        with open(icon_path, 'wb') as f:
-            if widgets[2].get_custom_image():
-                f.write(widgets[2].get_custom_image().save_to_png_bytes().get_data())
-            else:
-                f.write(widgets[2].draw_to_texture(1).save_to_png_bytes().get_data())
+        paintable = widgets[2].draw_to_texture(1)
+        paintable.save_to_png(icon_path)
 
         if widgets[1].get_text() == "":
             url = "about:blank"

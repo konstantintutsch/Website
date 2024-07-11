@@ -61,7 +61,6 @@ class WebappsApplication(Adw.Application):
         We raise the application's main window, creating it if
         necessary.
         """
-        self.update_desktop_files() # Also adds "TryExec=" to desktop files created before 0.5.2
 
         if len(os.listdir('.var/app/net.codelogistics.webapps/webapps/')) and not os.path.exists('.var/app/net.codelogistics.webapps/webapps/' + 'uuid_verified'):
             self.update_old_webapps()
@@ -121,22 +120,6 @@ class WebappsApplication(Adw.Application):
                 print(e)
 
             desktop_filer(self, app_id, i)
-
-    def update_desktop_files(self):
-        for i in os.listdir(os.path.expanduser("~/.local/share/applications")):
-            if i.startswith("net.codelogistics.webapps."):
-                if i[26:-8] + ".json" not in os.listdir(os.path.expanduser('~/.var/app/net.codelogistics.webapps/webapps/')):
-                    try:
-                        os.remove(os.path.expanduser("~/.local/share/applications/") + i)
-                    except:
-                        pass
-                with open(os.path.expanduser("~/.local/share/applications/") + i, "r") as f:
-                    file = f.read()
-                if file.find("TryExec=") != -1:
-                    continue
-                else:
-                    with open(os.path.expanduser("~/.local/share/applications/") + i, "a") as f:
-                        f.write("\nTryExec=/var/lib/flatpak/exports/bin/net.codelogistics.webapps\n")
 
     def on_about_action(self, widget, data):
         """Callback for the app.about action."""
