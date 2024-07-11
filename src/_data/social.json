@@ -15,5 +15,8 @@
     },
     "osm": {
         "url": "https://www.openstreetmap.org/user/konstantintutsch"
+    },
+    "codeberg": {
+        "url": "https://codeberg.org/konstantintutsch"
     }
 }
