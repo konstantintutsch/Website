@@ -22,5 +22,8 @@ jobs:
     - name: Install 11ty (current)
       run: npm install
 
+    - name: Pull Git LFS objects
+      run: git lfs pull
+
     - name: Build with 11ty
       run: npm run build
