@@ -8,7 +8,7 @@ permalink: "{{ site.locations.tags }}"
 <ul>
 {% for tag, posts in collections %}
     {% if tag != "all" and tag != "post" %}
-    <li><a data-umami-event="{{ tag | slugify }}" href="{{ site.locations.tags }}{{ tag }}">{{ tag | capitalize }}</a> - {{ posts | length }} posts</li>
+    <li><a data-umami-event="{{ tag | slugify }}" href="{{ site.locations.tags }}{{ tag }}">{{ tag | capitalize }}</a> <sup><i>{{ posts | length }}</i></sup></li>
     {% endif %}
 {% endfor %}
 </ul>
