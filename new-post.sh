@@ -69,7 +69,7 @@ sed -i -e "s/date: 1970-01-01T00:00:00+00:00/date: $(date +"%Y-%m-%dT%H:%M:%S%:z
 git add "${FILE}"
 git add "./src/assets/images"
 git commit -m "New post: ${VALUES[1]}"
-git push -u origin main
+git push -u all main
 
 for TAG in ${VALUES[3]}
 do
