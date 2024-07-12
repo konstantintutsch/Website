@@ -70,6 +70,7 @@ git add "${FILE}"
 git add "./src/assets/images"
 git commit -m "New post: ${VALUES[1]}"
 git push -u all main
+npm run deploy
 
 for TAG in ${VALUES[3]}
 do
