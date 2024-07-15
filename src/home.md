@@ -39,7 +39,7 @@ I'm also on Mastodon. You can follow me there at {% social "fediverse" %}
 
 ### Code
 
-For all those interested in programming, you can take a look at my {% social "codeberg", "Codeberg profile" %}
+For all those interested in programming, you can take a look at my {% social "github", "GitHub profile" %}
 
 ---
 
