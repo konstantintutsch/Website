@@ -1,29 +1,28 @@
 name: build
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    push:
+        branches: ["main"]
+    pull_request:
+        branches: ["main"]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+    build:
+        runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4.1.1
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4.1.1
+              with:
+                  lfs: "true"
 
-    - name: Prepare 11ty (current)
-      run: |
-        sudo apt update
-        sudo apt-get install nodejs npm
+            - name: Prepare 11ty (current)
+              run: |
+                  sudo apt update
+                  sudo apt-get install nodejs npm
 
-    - name: Install 11ty (current)
-      run: npm install
+            - name: Install 11ty (current)
+              run: npm install
 
-    - name: Pull Git LFS objects
-      run: git lfs pull
-
-    - name: Build with 11ty
-      run: npm run build
+            - name: Build with 11ty
+              run: npm run build
