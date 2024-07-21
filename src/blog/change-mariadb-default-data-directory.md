@@ -26,6 +26,12 @@ datadir=/mnt/storage/mysql
 socket=/mnt/storage/mysql/mysql.sock
 ```
 
+Make sure to place all configurations below this line to avoid them being overwritten:
+
+```
+!includedir /etc/my.cnf.d
+```
+
 ### Permissions
 
 The MySQL user needs access to the directory containing MariaDB data.
