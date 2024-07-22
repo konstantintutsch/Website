@@ -33,8 +33,8 @@ Postfix's configuration is located at `/etc/postfix/main.cf`. These are the valu
 I have configured Postfix like this:
 
 ```
-myhostname = notmalware.info
-mydomain = notmalware.info
+myhostname = server.example.com
+mydomain = server.example.com
 
 mynetworks_style = host
 ```
@@ -42,7 +42,7 @@ mynetworks_style = host
 To test your Postfix configuration, you can execute this command:
 
 ```
-echo "Hi, I'm your e-mail's body!" | mailx -r "test@server" -s "A test e-mail from Postfix!" "you@example.com"
+echo "Hi, I'm your e-mail's body!" | mailx -r "test@server.example.com" -s "A test e-mail from Postfix!" "you@example.com"
 ```
 
 Now that your e-mail server is working fine, you can configure DNF Automatic! 🤩
@@ -87,8 +87,8 @@ emit_via = command_email
 [command_email]
 command_format = "mailx -s {subject} -r {email_from} {email_to}"
 
-email_from = dnf@notmalware.info
-email_to = me@example.com
+email_from = dnf@server.example.com
+email_to = you@example.com
 ```
 
 Finally, you need to enable one of DNF Automatic's systemd timers.
