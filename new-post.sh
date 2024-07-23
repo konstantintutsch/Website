@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ "${PWD##*/}" != "Website" ]]
+if [[ ! -f "./.eleventy.js" || ! -d "./src" ]]
 then
     echo "Not in root of the website's source. Exiting …"
     exit 1
@@ -37,7 +37,7 @@ do
     then
         for TAG in ${VALUES[$i]}
         do
-            printf -v YAML_TAGS ', "%s"%s' "${TAG}" "${YAML_TAGS}" 
+            printf -v YAML_TAGS ', "%s"%s' "${TAG}" "${YAML_TAGS}"
         done
         printf -v YAML_TAGS '"post"%s' "${YAML_TAGS}"
         appendf "${TAGS[$i]}: [${YAML_TAGS}]"
