@@ -9,7 +9,7 @@ index: true
 
 The VPS that now hosts this exact website received a flood of malicious SSH login attempts today. A great opportunity to set up Fail2Ban, I thought.
 
-That's a pretty easy task. Until someone has any silly preferences. And in that case, that someone was me.
+That's a pretty easy task. Unless someone has any silly preferences. And in that case, that someone was me.
 
 ### An Overly Complicated Introduction
 
