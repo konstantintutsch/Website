@@ -56,6 +56,12 @@ banaction_allports = firewallcmd-rich-rules[actiontype=]
 …
 ```
 
+Apply the changes:
+
+```
+systemctl reload fail2ban
+```
+
 ### Overcomplicated
 
 That's it! A lot of words for a really limited amount of actual instructions.
