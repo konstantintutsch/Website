@@ -10,11 +10,10 @@
         "url": "https://500.social/@konstantin",
         "value": "@konstantin@500.social"
     },
-    "fediverse2": {
+    "fosstodon": {
         "url": "https://fosstodon.org/@konstantin",
         "value": "@konstantin@fosstodon.org"
     },
-
     "liberapay": {
         "url": "https://liberapay.com/konstantintutsch"
     },

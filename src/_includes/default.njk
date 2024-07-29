@@ -1,5 +1,5 @@
 {% if not images %}{% set banner = [site.assets.images, "banner.webp"] | join %}{% else %}{% set banner = images[0] | thumbnail %}{% endif %}
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -58,10 +58,9 @@
 
             <!-- Mastodon verification -->
             {% social "fediverse", "", "hidden", "", "" %}
-            {% social "fediverse2", "", "hidden", "", "" %}
+            {% social "fosstodon", "", "hidden", "", "" %}
         </main>
         <footer>
         </footer>
     </body>
 </html>
-
