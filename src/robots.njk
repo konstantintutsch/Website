@@ -6,7 +6,7 @@ User-agent: *
 Disallow: /errors
 Sitemap: {{ site.url }}/sitemap.xml
 
-{% for crawler in crawlers %}
+{% for crawler in bad_crawlers %}
 User-agent: {{ crawler }}
 Disallow: /
 {% endfor %}
