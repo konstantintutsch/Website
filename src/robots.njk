@@ -3,9 +3,8 @@ eleventyExcludeFromCollections: true
 permalink: /robots.txt
 ---
 User-agent: *
-Sitemap: {{ site.url }}/sitemap.xml
-User-agent: *
 Disallow: /errors
+Sitemap: {{ site.url }}/sitemap.xml
 
 {% for crawler in crawlers %}
 User-agent: {{ crawler }}
