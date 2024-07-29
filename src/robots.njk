@@ -4,12 +4,13 @@ permalink: /robots.txt
 ---
 User-agent: *
 Sitemap: {{ site.url }}/sitemap.xml
-
-User-agent: *
-Disallow: /maintenance.html
-
 User-agent: *
 Disallow: /errors
+
+{% for crawler in crawlers %}
+User-agent: {{ crawler }}
+Disallow: /
+{% endfor %}
 
 {% for post in collections.post %}
 {% if post.data.index == false %}
